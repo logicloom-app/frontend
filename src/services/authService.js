@@ -1,0 +1,12 @@
+import http from "./httpService";
+
+export function login(data) {
+  return http.post("/login", data).then(({ data }) => data);
+}
+export function register(data) {
+  return http.post("/register", data).then(({ data }) => data);
+}
+
+export function generateOtp(data) {
+  return http.post("/generate-otp", data).then(({ data }) => data);
+}
