@@ -10,3 +10,8 @@ export function register(data) {
 export function generateOtp(data) {
   return http.post("/generate-otp", data).then(({ data }) => data);
 }
+
+export function googleCallback(data) {
+  return http.get(`/auth/google/callback?${data}`).then(({ data }) => data);
+}
+

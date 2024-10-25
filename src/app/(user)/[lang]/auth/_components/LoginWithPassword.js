@@ -1,11 +1,13 @@
 import * as Yup from "yup";
+import Link from "next/link";
 import { useFormik } from "formik";
+import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { login } from "@/services/authService";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
 
 const initialLoginWithPassValues = {
   email: "",
@@ -59,14 +61,30 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
 
   return (
     <>
-      <div className="flex flex-col px-10 pt-10 my-6">
+      <div className="flex flex-col px-10 pt-10 mt-6 mb-5">
         <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
         <p className="text-base">{dict?.welcome}</p>
       </div>
 
+      <Link
+        href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google`}
+        className="inline-flex justify-center items-center gap-3 rounded-2xl px-4 py-3 bg-zinc-800 hover:bg-zinc-700/80 transition-colors duration-300"
+      >
+        <FcGoogle size={30} />
+        <p className="text-base">{dict?.google}</p>
+      </Link>
+
+      <div className="flex items-center mx-10 mt-10">
+        <div className="flex-grow border-t border-zinc-700"></div>
+        <span className="mx-4 text-sm text-zinc-400">
+          {dict?.or || "or"} {dict?.email}
+        </span>
+        <div className="flex-grow border-t border-zinc-700"></div>
+      </div>
+
       <form
         onSubmit={loginFormik.handleSubmit}
-        className="flex flex-col gap-5 md:p-10 py-4 my-6"
+        className="flex flex-col gap-5 md:p-10 py-4 mb-6"
       >
         <Input
           type="email"

@@ -7,7 +7,9 @@
       "password": "Passwort",
       "submit": "ANMELDEN",
       "noAccount": "Sie haben noch kein Konto?",
-      "register": "Registrieren"
+      "register": "Registrieren",
+      "google": "Mit Google anmelden",
+      "or": "oder"
     },
     "register": {
       "title": "Registrieren",
