@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/lib/utils/utils";
-import { MagicCard } from "@/components/ui/magic-card";
-import LoginWithPassword from "./LoginWithPassword";
-import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
-import { GridPattern } from "@/components/ui/animated-grid-pattern";
 import Register from "./Register";
+import { cn } from "@/lib/utils/utils";
+import { useTheme } from "next-themes";
+import LoginWithPassword from "./LoginWithPassword";
+import { MagicCard } from "@/components/ui/magic-card";
+import { GridPattern } from "@/components/ui/animated-grid-pattern";
+import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 
 export default function AuthPageClient({ dict }) {
   const [isLogin, setIsLogin] = useState(true);
   const [step, setStep] = useState(0);
-
+  const { theme } = useTheme();
   const cardSize =
     step === 0 ? "max-w-[500px] max-h-[600px]" : "max-w-[450px] max-h-[400px]";
 
@@ -23,7 +24,12 @@ export default function AuthPageClient({ dict }) {
         >
           <MagicCard
             className="px-4 flex-col items-center h-full shadow-2xl rounded-[50px]"
-            gradientColor="#262626"
+            gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
+            gradientOpacity={0.8}
+            style={{
+              backgroundImage: `radial-gradient(250px circle at -250px -250px, var(--gradient-color), transparent)`,
+              opacity: 0.8,
+            }}
           >
             {isLogin ? (
               <LoginWithPassword dict={dict.login} setIsLogin={setIsLogin} />

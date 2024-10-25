@@ -68,7 +68,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
 
       <Link
         href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google`}
-        className="inline-flex justify-center items-center gap-3 rounded-2xl px-4 py-3 bg-zinc-800 hover:bg-zinc-700/80 transition-colors duration-300"
+        className="inline-flex justify-center items-center gap-3 rounded-2xl px-6 py-3 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 hover:dark:bg-zinc-700/80 transition-colors duration-300"
       >
         <FcGoogle size={30} />
         <p className="text-base">{dict?.google}</p>

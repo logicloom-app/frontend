@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
+import { register } from "@/services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
-import { register } from "@/services/authService";
 
 export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
   const { toast } = useToast();
-  const router = useRouter();
   const [otp, setOtp] = useState("");
 
   const { isLoading, mutateAsync: mutateRegister } = useMutation({
@@ -48,12 +47,22 @@ export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
 
   return (
     <>
+      <div
+        onClick={() => setStep(0)}
+        className="absolute top-4 right-2 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 cursor-pointer"
+      >
+        <ArrowRight size={20} />
+      </div>
+
       <div className="flex flex-col px-10 pt-10 my-6">
         <h1 className="text-3xl font-bold mb-5">{dict?.verify?.title}</h1>
         <p className="text-sm">{dict?.verify?.description}</p>
-        <p className="text-sm text-gray-300">
+        <p className="text-sm dark:text-gray-300">
           {dict?.verify?.expiry}{" "}
-          <span className="font-bold text-gray-100">{dict?.verify?.minutes}</span>.
+          <span className="font-bold dark:text-gray-100">
+            {dict?.verify?.minutes}
+          </span>
+          .
         </p>
       </div>
 
