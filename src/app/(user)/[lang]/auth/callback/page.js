@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/lib/hooks/use-toast";
 import { googleCallback } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
 

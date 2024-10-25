@@ -25,8 +25,14 @@
         "description": "Please enter the OTP sent to your email.",
         "expiry": "The OTP will expire in",
         "minutes": "10 minutes",
-        "submit": "Verify"
+        "submit": "Verify",
+        "success": "Account successfully verified"
       }
     }
+  },
+  "header": {
+    "viewProfile": "View Profile",
+    "logout": "Logout",
+    "login": "Login"
   }
 }

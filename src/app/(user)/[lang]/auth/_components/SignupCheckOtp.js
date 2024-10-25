@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/lib/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { register } from "@/services/authService";
 import { useMutation } from "@tanstack/react-query";
@@ -17,7 +17,7 @@ export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
       setStep(0);
 
       toast({
-        description: data.message,
+        description: dict?.verify?.success,
         className: "rounded-2xl",
       });
     },

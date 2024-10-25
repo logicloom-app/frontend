@@ -1,10 +1,10 @@
+import "./globals.css";
+import Header from "./_components/Header";
 import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import "./globals.css";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { getDictionary } from "@/lib/utils/dictionary";
 
 const poppins = Poppins({
   weight: ["300", "400", "600", "700"],
@@ -17,14 +17,14 @@ export async function generateStaticParams() {
 
 export default async function RootLayout({ children, params }) {
   const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Providers>
-            <LanguageSwitcher />
-            <ThemeToggle />
+            <Header dict={dict.header} />
             {children}
           </Providers>
           <Toaster />

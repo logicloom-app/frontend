@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { login } from "@/services/authService";
 import { Button } from "@/components/ui/button";
-import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/lib/hooks/use-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const initialLoginWithPassValues = {
   email: "",
@@ -26,18 +26,20 @@ const loginWithPassValidationSchema = Yup.object({
 });
 
 export default function LoginWithPassword({ setIsLogin, dict }) {
-  const { toast } = useToast();
   const router = useRouter();
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const { isLoading, mutateAsync: mutateLogin } = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
-      router.refresh();
-
       toast({
         description: data.message,
         className: "rounded-2xl",
       });
+
+      router.refresh("/");
+      queryClient.invalidateQueries({ queryKey: ["get-user"] });
     },
     onError: (error) => {
       toast({

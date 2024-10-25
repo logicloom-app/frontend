@@ -19,7 +19,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-md"
+      className="p-2 rounded-full"
     >
       {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
     </button>

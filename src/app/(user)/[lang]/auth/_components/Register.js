@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import SignupForm from "./SignupForm";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/lib/hooks/use-toast";
 import SignupCheckOtp from "./SignupCheckOtp";
 import { register } from "@/services/authService";
 import { useMutation } from "@tanstack/react-query";

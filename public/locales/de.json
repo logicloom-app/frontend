@@ -25,8 +25,14 @@
         "description": "Bitte geben Sie den an Ihre E-Mail gesendeten OTP-Code ein.",
         "expiry": "Der OTP-Code läuft ab in",
         "minutes": "10 Minuten",
-        "submit": "Bestätigen"
+        "submit": "Bestätigen",
+        "success": "Konto erfolgreich bestätigt"
       }
     }
+  },
+  "header": {
+    "viewProfile": "Profil ansehen",
+    "logout": "Abmelden",
+    "login": "Anmelden"
   }
 }
