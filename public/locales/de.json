@@ -1,0 +1,30 @@
+{
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "welcome": "Willkommen! Bitte melden Sie sich bei Ihrem Konto an.",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "ANMELDEN",
+      "noAccount": "Sie haben noch kein Konto?",
+      "register": "Registrieren"
+    },
+    "register": {
+      "title": "Registrieren",
+      "welcome": "Willkommen! Bitte geben Sie Ihre Daten ein.",
+      "name": "Name",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "ABSENDEN",
+      "hasAccount": "Sie haben bereits ein Konto?",
+      "login": "Anmelden",
+      "verify": {
+        "title": "Konto bestätigen",
+        "description": "Bitte geben Sie den an Ihre E-Mail gesendeten OTP-Code ein.",
+        "expiry": "Der OTP-Code läuft ab in",
+        "minutes": "10 Minuten",
+        "submit": "Bestätigen"
+      }
+    }
+  }
+}

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { MagicCard } from "@/components/ui/magic-card";
-import LoginWithPassword from "./_components/LoginWithPassword";
+import LoginWithPassword from "./LoginWithPassword";
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 import { GridPattern } from "@/components/ui/animated-grid-pattern";
-import Register from "./_components/Register";
+import Register from "./Register";
 
-export default function AuthPage() {
+export default function AuthPageClient({ dict }) {
   const [isLogin, setIsLogin] = useState(true);
   const [step, setStep] = useState(0);
 
@@ -26,9 +26,14 @@ export default function AuthPage() {
             gradientColor="#262626"
           >
             {isLogin ? (
-              <LoginWithPassword setIsLogin={setIsLogin} />
+              <LoginWithPassword dict={dict.login} setIsLogin={setIsLogin} />
             ) : (
-              <Register setIsLogin={setIsLogin} setStep={setStep} step={step} />
+              <Register
+                dict={dict.register}
+                setIsLogin={setIsLogin}
+                setStep={setStep}
+                step={step}
+              />
             )}
           </MagicCard>
         </NeonGradientCard>

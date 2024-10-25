@@ -26,7 +26,7 @@ const registerValidationSchema = Yup.object({
     .min(6, "Enter at least six characters"),
 });
 
-export default function Register({ setIsLogin, setStep, step }) {
+export default function Register({ setIsLogin, setStep, step, dict }) {
   const registerHandler = async ({ name, email, password }) => {};
 
   const registerFormik = useFormik({
@@ -44,6 +44,7 @@ export default function Register({ setIsLogin, setStep, step }) {
             registerFormik={registerFormik}
             setStep={setStep}
             setIsLogin={setIsLogin}
+            dict={dict}
           />
         );
       case 1:
@@ -52,6 +53,7 @@ export default function Register({ setIsLogin, setStep, step }) {
             registerFormik={registerFormik}
             setIsLogin={setIsLogin}
             setStep={setStep}
+            dict={dict}
           />
         );
       default:

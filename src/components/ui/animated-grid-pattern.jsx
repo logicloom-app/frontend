@@ -1,8 +1,8 @@
-"use client";;
+"use client";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 export function GridPattern({
   width = 40,
@@ -46,7 +46,9 @@ export function GridPattern({
               ...sq,
               pos: getPos(),
             }
-          : sq));
+          : sq
+      )
+    );
   };
 
   // Update squares to animate in
@@ -79,14 +81,15 @@ export function GridPattern({
   }, [containerRef]);
 
   return (
-    (<svg
+    <svg
       ref={containerRef}
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
         className
       )}
-      {...props}>
+      {...props}
+    >
       <defs>
         <pattern
           id={id}
@@ -94,11 +97,13 @@ export function GridPattern({
           height={height}
           patternUnits="userSpaceOnUse"
           x={x}
-          y={y}>
+          y={y}
+        >
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
-            strokeDasharray={strokeDasharray} />
+            strokeDasharray={strokeDasharray}
+          />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill={`url(#${id})`} />
@@ -120,10 +125,11 @@ export function GridPattern({
             x={x * width + 1}
             y={y * height + 1}
             fill="currentColor"
-            strokeWidth="0" />
+            strokeWidth="0"
+          />
         ))}
       </svg>
-    </svg>)
+    </svg>
   );
 }
 

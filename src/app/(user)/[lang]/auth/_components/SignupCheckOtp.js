@@ -6,7 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { register } from "@/services/authService";
 
-export default function SignupCheckOtp({ setStep, setIsLogin }) {
+export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
   const { toast } = useToast();
   const router = useRouter();
   const [otp, setOtp] = useState("");
@@ -49,11 +49,11 @@ export default function SignupCheckOtp({ setStep, setIsLogin }) {
   return (
     <>
       <div className="flex flex-col px-10 pt-10 my-6">
-        <h1 className="text-3xl font-bold mb-5">Verify your account</h1>
-        <p className="text-sm">Please enter the OTP sent to your email.</p>
+        <h1 className="text-3xl font-bold mb-5">{dict?.verify?.title}</h1>
+        <p className="text-sm">{dict?.verify?.description}</p>
         <p className="text-sm text-gray-300">
-          The OTP will expire in{" "}
-          <span className="font-bold text-gray-100">10 minutes</span>.
+          {dict?.verify?.expiry}{" "}
+          <span className="font-bold text-gray-100">{dict?.verify?.minutes}</span>.
         </p>
       </div>
 
@@ -93,7 +93,7 @@ export default function SignupCheckOtp({ setStep, setIsLogin }) {
           type="submit"
           className="w-full"
         >
-          Verify
+          {dict?.verify?.submit}
         </Button>
       </form>
     </>

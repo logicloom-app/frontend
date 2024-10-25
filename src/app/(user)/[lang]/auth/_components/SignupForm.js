@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useMutation } from "@tanstack/react-query";
 import { generateOtp } from "@/services/authService";
 
-export default function SignupForm({ registerFormik, setStep, setIsLogin }) {
+export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }) {
   const { toast } = useToast();
 
   const { isLoading, mutateAsync: mutateGenerateOtp } = useMutation({
@@ -39,8 +39,8 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin }) {
   return (
     <>
       <div className="flex flex-col px-10 pt-10 my-4">
-        <h1 className="text-5xl font-bold mb-5">Register</h1>
-        <p className="text-base">Welcome! Please enter your details below.</p>
+        <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
+        <p className="text-base">{dict?.welcome}</p>
       </div>
 
       <form className="flex flex-col gap-5 md:p-10 py-4 my-4">
@@ -64,7 +64,7 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin }) {
           type="email"
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder={dict?.email}
           className="rounded-2xl px-4 py-6"
           onBlur={registerFormik?.handleBlur}
           value={registerFormik?.values?.email}
@@ -80,7 +80,7 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin }) {
           type="password"
           id="password"
           name="password"
-          placeholder="Password"
+          placeholder={dict?.password}
           className="rounded-2xl px-4 py-6"
           onBlur={registerFormik?.handleBlur}
           value={registerFormik?.values?.password}
@@ -98,13 +98,13 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin }) {
           className=""
           onClick={handleUserInfo}
         >
-          SUBMIT
+          {dict?.submit}
         </Button>
 
         <p className="text-sm">
-          Already have an account?
+          {dict?.hasAccount}
           <Button variant="link" onClick={() => setIsLogin(true)}>
-            Login
+            {dict?.login}
           </Button>
         </p>
       </form>

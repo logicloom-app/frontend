@@ -1,0 +1,30 @@
+{
+  "auth": {
+    "login": {
+      "title": "Login",
+      "welcome": "Welcome! Please login to your account.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "LOG IN",
+      "noAccount": "Don't have an account?",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Register",
+      "welcome": "Welcome! Please enter your details below.",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "SUBMIT",
+      "hasAccount": "Already have an account?",
+      "login": "Login",
+      "verify": {
+        "title": "Verify your account",
+        "description": "Please enter the OTP sent to your email.",
+        "expiry": "The OTP will expire in",
+        "minutes": "10 minutes",
+        "submit": "Verify"
+      }
+    }
+  }
+}

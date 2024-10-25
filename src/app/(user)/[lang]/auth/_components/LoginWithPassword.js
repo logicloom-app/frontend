@@ -23,7 +23,7 @@ const loginWithPassValidationSchema = Yup.object({
     .min(6, "Enter at least six characters"),
 });
 
-export default function LoginWithPassword({ setIsLogin }) {
+export default function LoginWithPassword({ setIsLogin, dict }) {
   const { toast } = useToast();
   const router = useRouter();
 
@@ -60,8 +60,8 @@ export default function LoginWithPassword({ setIsLogin }) {
   return (
     <>
       <div className="flex flex-col px-10 pt-10 my-6">
-        <h1 className="text-5xl font-bold mb-5">Login</h1>
-        <p className="text-base">Welcome! Please login to your account.</p>
+        <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
+        <p className="text-base">{dict?.welcome}</p>
       </div>
 
       <form
@@ -72,7 +72,7 @@ export default function LoginWithPassword({ setIsLogin }) {
           type="email"
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder={dict?.email}
           className="rounded-2xl px-4 py-6"
           onBlur={loginFormik?.handleBlur}
           value={loginFormik?.values?.email}
@@ -88,7 +88,7 @@ export default function LoginWithPassword({ setIsLogin }) {
           type="password"
           id="password"
           name="password"
-          placeholder="password"
+          placeholder={dict?.password}
           className="rounded-2xl px-4 py-6"
           onBlur={loginFormik?.handleBlur}
           value={loginFormik?.values?.password}
@@ -107,13 +107,13 @@ export default function LoginWithPassword({ setIsLogin }) {
             variant="custom"
             className=""
           >
-            LOG IN
+            {dict?.submit}
           </Button>
 
           <p className="text-sm">
-            Don't have an account?{" "}
+            {dict?.noAccount}{" "}
             <Button variant="link" onClick={() => setIsLogin(false)}>
-              Register
+              {dict?.register}
             </Button>
           </p>
         </div>
