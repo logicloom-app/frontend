@@ -33,6 +33,8 @@
   "header": {
     "viewProfile": "Profil ansehen",
     "logout": "Abmelden",
-    "login": "Anmelden"
+    "login": "Anmelden",
+    "yourBalance": "Dein Guthaben",
+    "joined": "Beigetreten am"
   }
 }

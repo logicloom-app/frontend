@@ -10,7 +10,13 @@ import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
@@ -66,14 +72,69 @@ export default function Header({ dict }) {
             </button>
           </SheetTrigger>
 
-          <SheetContent className="border-gray-800">
+          <SheetContent className="border-gray-800" side="right">
             <div className="">
-              {/*  */}
+              <div className="flex items-center gap-3 mb-4">
+                <ThemeToggle />
+                <LanguageSwitcher />
+              </div>
 
-              <hr className="my-4 border-t border-gray-600" />
+              <hr className="m-4 border-t border-dashed border-gray-600" />
+
+              <SheetTitle className="">
+                {user && (
+                  <div className="sm:flex sm:flex-row flex-col items-center justify-center gap-2 mb-4">
+                    <Avatar className="w-16 h-16">
+                      <AvatarImage src={user?.avatar} />
+                      <AvatarFallback className="font-bold text-xl text-gray-500 dark:text-gray-400">
+                        {user?.name?.[0]}
+                      </AvatarFallback>
+                    </Avatar>
+
+                    <div className="flex flex-col gap-1 p-2">
+                      <div>{user?.email}</div>
+
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {dict?.yourBalance}
+                        </span>
+                        <div className="font-bold flex items-center gap-1">
+                          {user?.loom_balance} <span className="text-xs">LOOM</span>
+                        </div>
+                      </div>
+
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {dict?.joined}{" "}
+                        {new Date(user?.created_at).toLocaleDateString("en-DE", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </SheetTitle>
+
+              <SheetDescription className="sr-only">
+                Mobile navigation menu with user actions
+              </SheetDescription>
+
+              <hr className="mt-4 mb-10 border-t border-gray-600" />
 
               <div className="flex flex-col gap-2">
-                <Link
+                {user && (
+                  <Link
+                    href="/profile"
+                    className="px-6 py-2 flex items-center gap-2 hover:text-white hover:bg-slate-100/10 bg-slate-100/20 focus:outline-none rounded-xl transition-all duration-200"
+                    onClick={() => setOpen(false)}
+                  >
+                    <TbUser size={20} strokeWidth={3} />
+                    {dict?.viewProfile}
+                  </Link>
+                )}
+
+                {/* <Link
                   href="#"
                   className="px-3 py-2 hover:text-white hover:bg-slate-100/10 rounded-md transition-all duration-200"
                   onClick={() => setOpen(false)}
@@ -83,22 +144,16 @@ export default function Header({ dict }) {
                   href="#"
                   className="px-3 py-2 hover:text-white hover:bg-slate-100/10 rounded-md transition-all duration-200"
                   onClick={() => setOpen(false)}
-                ></Link>
-
-                <Link
-                  href="#"
-                  className="px-3 py-2 hover:text-white hover:bg-slate-100/10 rounded-md transition-all duration-200"
-                  onClick={() => setOpen(false)}
-                ></Link>
+                ></Link> */}
 
                 <button
                   onClick={() => {
                     logoutHandler();
                     setOpen(false);
                   }}
-                  className="px-3 mx-2 mt-3 py-1 text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
+                  className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
                 >
-                  Logout
+                  {dict?.logout}
                 </button>
               </div>
             </div>
@@ -133,15 +188,15 @@ export default function Header({ dict }) {
 
                     <div className="flex items-center gap-1">
                       <span className="text-xs text-gray-500 dark:text-gray-400">
-                        Your Balance
+                        {dict?.yourBalance}
                       </span>
-                      <div className="font-bold">
+                      <div className="font-bold flex items-center gap-1">
                         {user?.loom_balance} <span className="text-xs">LOOM</span>
                       </div>
                     </div>
 
                     <div className="text-xs text-gray-500 dark:text-gray-400">
-                      joined{" "}
+                      {dict?.joined}{" "}
                       {new Date(user?.created_at).toLocaleDateString("en-DE", {
                         day: "2-digit",
                         month: "2-digit",

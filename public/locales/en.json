@@ -33,6 +33,8 @@
   "header": {
     "viewProfile": "View Profile",
     "logout": "Logout",
-    "login": "Login"
+    "login": "Login",
+    "yourBalance": "Your Balance",
+    "joined": "Joined at"
   }
 }
