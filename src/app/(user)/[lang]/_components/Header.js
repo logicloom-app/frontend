@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { TbUser } from "react-icons/tb";
 import { useParams } from "next/navigation";
 
 import { useGetUser } from "@/lib/hooks/useAuth";
@@ -10,6 +11,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default function Header({ dict }) {
@@ -104,28 +106,61 @@ export default function Header({ dict }) {
         </Sheet>
 
         <div className="flex justify-center items-center gap-3 max-md:hidden">
-          <ThemeToggle />
-          <LanguageSwitcher />
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
 
           {user ? (
             <Popover>
               <PopoverTrigger asChild>
-                <li className="px-4 py-2 flex gap-1 justify-center items-center cursor-pointer border-[1px] border-gray-600 hover:dark:text-white hover:dark:bg-zinc-100/20 hover:bg-zinc-300/20 rounded-3xl transition-all duration-200">
-                  Hi {user?.name}
-                </li>
+                <div className="p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
+                  <TbUser size={20} strokeWidth={3} />
+                </div>
               </PopoverTrigger>
 
-              <PopoverContent className="w-80 rounded-2xl dark:bg-zinc-900 mt-1 flex flex-col items-center">
+              <PopoverContent className="w-80 rounded-[30px] dark:bg-gray-950/90 mt-1 flex flex-col items-center">
+                <div className="flex items-center gap-2 mb-4">
+                  <Avatar className="w-16 h-16">
+                    <AvatarImage src={user?.avatar} />
+                    <AvatarFallback className="font-bold text-xl text-gray-500 dark:text-gray-400">
+                      {user?.name?.[0]}
+                    </AvatarFallback>
+                  </Avatar>
+
+                  <div className="flex flex-col gap-1 p-2">
+                    <div>{user?.email}</div>
+
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                        Your Balance
+                      </span>
+                      <div className="font-bold">
+                        {user?.loom_balance} <span className="text-xs">LOOM</span>
+                      </div>
+                    </div>
+
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      joined{" "}
+                      {new Date(user?.created_at).toLocaleDateString("en-DE", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </div>
+                  </div>
+                </div>
+
                 <Link
                   href="/profile"
-                  className="p-3 mb-4 text-center w-full focus:outline-none font-bold rounded-xl hover:bg-zinc-500/10 transition-all duration-200"
+                  className="p-3 mb-4 text-center w-full focus:outline-none font-bold rounded-xl hover:dark:bg-sky-500/40 hover:bg-sky-600 bg-sky-600/70 text-white transition-all duration-300"
                 >
                   {dict?.viewProfile}
                 </Link>
 
                 <button
                   onClick={logoutHandler}
-                  className="px-3 py-1 w-full text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
+                  className="px-3 py-1 w-full text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-300"
                 >
                   {dict?.logout}
                 </button>

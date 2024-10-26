@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useToast } from "@/lib/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { googleCallback } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -10,6 +11,7 @@ export default function AuthCallback() {
 
   const { toast } = useToast();
   const router = useRouter();
+  const queryClient = useQueryClient();
   const searchParams = useSearchParams();
   const allParamsString = searchParams.toString();
   const allParams = Object.fromEntries(searchParams.entries());
@@ -35,6 +37,7 @@ export default function AuthCallback() {
         });
 
         router.push("/");
+        queryClient.invalidateQueries({ queryKey: ["get-user"] });
       } catch (error) {
         const errorMessage =
           error?.response?.data?.error || error.message || "Something went wrong";
