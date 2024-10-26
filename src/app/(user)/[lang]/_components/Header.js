@@ -19,6 +19,11 @@ import {
 } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 export default function Header({ dict }) {
   const [open, setOpen] = useState(false);
@@ -38,20 +43,48 @@ export default function Header({ dict }) {
       }`}
     >
       <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between">
-        <Link
-          href={`/${params.lang}`}
-          className="flex items-center justify-center gap-3"
-        >
-          <Image
-            src="/images/logo.png"
-            width={40}
-            height={40}
-            alt="LogicLoom logo"
-            priority
-            className="saturate-200"
-          />
-          <h1 className="text-xl">LogicLoom</h1>
-        </Link>
+        <div className="flex items-center gap-5">
+          <Link
+            href={`/${params.lang}`}
+            className="flex items-center justify-center gap-3"
+          >
+            <Image
+              src="/images/logo.png"
+              width={40}
+              height={40}
+              alt="LogicLoom logo"
+              priority
+              className="saturate-200"
+            />
+            <h1 className="text-xl">LogicLoom</h1>
+          </Link>
+
+          <div className="flex items-center max-md:hidden">
+            <HoverCard openDelay={0} closeDelay={0}>
+              <HoverCardTrigger asChild>
+                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white shadow-md shadow-sky-600/20 transition-all duration-300">
+                  {dict?.products}
+                </button>
+              </HoverCardTrigger>
+
+              <HoverCardContent className="w-80" sideOffset={4}>
+                <div className="flex flex-col gap-2">Comming soon...</div>
+              </HoverCardContent>
+            </HoverCard>
+
+            <HoverCard openDelay={0} closeDelay={0}>
+              <HoverCardTrigger asChild>
+                <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white shadow-md shadow-sky-600/20 transition-all duration-300">
+                  {dict?.services}
+                </button>
+              </HoverCardTrigger>
+
+              <HoverCardContent className="w-80" sideOffset={4}>
+                <div className="flex flex-col gap-2">Services here</div>
+              </HoverCardContent>
+            </HoverCard>
+          </div>
+        </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
@@ -126,7 +159,7 @@ export default function Header({ dict }) {
                 {user && (
                   <Link
                     href="/profile"
-                    className="px-6 py-2 flex items-center gap-2 hover:text-white hover:bg-slate-100/10 bg-slate-100/20 focus:outline-none rounded-xl transition-all duration-200"
+                    className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                     onClick={() => setOpen(false)}
                   >
                     <TbUser size={20} strokeWidth={3} />
@@ -134,24 +167,28 @@ export default function Header({ dict }) {
                   </Link>
                 )}
 
-                {/* <Link
+                <Link
                   href="#"
-                  className="px-3 py-2 hover:text-white hover:bg-slate-100/10 rounded-md transition-all duration-200"
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
-                ></Link>
+                >
+                  {dict?.services}
+                </Link>
 
                 <Link
                   href="#"
-                  className="px-3 py-2 hover:text-white hover:bg-slate-100/10 rounded-md transition-all duration-200"
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
-                ></Link> */}
+                >
+                  {dict?.products}
+                </Link>
 
                 <button
                   onClick={() => {
                     logoutHandler();
                     setOpen(false);
                   }}
-                  className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
+                  className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
                 >
                   {dict?.logout}
                 </button>
@@ -208,14 +245,14 @@ export default function Header({ dict }) {
 
                 <Link
                   href="/profile"
-                  className="p-3 mb-4 text-center w-full focus:outline-none font-bold rounded-xl hover:dark:bg-sky-500/40 hover:bg-sky-600 bg-sky-600/70 text-white transition-all duration-300"
+                  className="p-3 mb-4 text-center w-full focus:outline-none font-bold rounded-2xl hover:dark:bg-sky-500/40 hover:bg-sky-600 bg-sky-600/70 text-white transition-all duration-300"
                 >
                   {dict?.viewProfile}
                 </Link>
 
                 <button
                   onClick={logoutHandler}
-                  className="px-3 py-1 w-full text-red-500 focus:outline-none font-bold rounded-xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-300"
+                  className="px-3 py-1 w-full text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-300"
                 >
                   {dict?.logout}
                 </button>
@@ -223,7 +260,7 @@ export default function Header({ dict }) {
             </Popover>
           ) : (
             <Link
-              className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white rounded-3xl transition-all duration-300"
+              className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-3xl transition-all duration-300"
               href={`/${params.lang}/auth`}
             >
               {dict?.login}

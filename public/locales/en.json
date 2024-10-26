@@ -35,6 +35,8 @@
     "logout": "Logout",
     "login": "Login",
     "yourBalance": "Your Balance",
-    "joined": "Joined at"
+    "joined": "Joined at",
+    "products": "Products",
+    "services": "Services"
   }
 }

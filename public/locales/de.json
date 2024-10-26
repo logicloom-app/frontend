@@ -35,6 +35,8 @@
     "logout": "Abmelden",
     "login": "Anmelden",
     "yourBalance": "Dein Guthaben",
-    "joined": "Beigetreten am"
+    "joined": "Beigetreten am",
+    "products": "Produkte",
+    "services": "Services"
   }
 }
