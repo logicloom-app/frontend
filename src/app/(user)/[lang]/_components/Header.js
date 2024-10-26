@@ -37,6 +37,7 @@ export default function Header({ dict }) {
             height={40}
             alt="LogicLoom logo"
             priority
+            className="saturate-200"
           />
           <h1 className="text-xl">LogicLoom</h1>
         </Link>
