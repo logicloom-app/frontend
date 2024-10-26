@@ -38,7 +38,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
         className: "rounded-2xl",
       });
 
-      router.refresh("/");
+      router.push("/");
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
     },
     onError: (error) => {
