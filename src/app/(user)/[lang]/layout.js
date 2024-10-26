@@ -11,6 +11,11 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "LogicLoom",
+  description: "LogicLoom",
+};
+
 export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "de" }];
 }
