@@ -32,9 +32,9 @@ export default function Header({ dict }) {
       <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center justify-center gap-3">
           <Image
-            src="/images/logo.webp"
-            width={30}
-            height={30}
+            src="/images/logo.png"
+            width={40}
+            height={40}
             alt="LogicLoom logo"
             priority
           />

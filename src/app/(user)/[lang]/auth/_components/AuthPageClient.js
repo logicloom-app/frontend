@@ -26,10 +26,6 @@ export default function AuthPageClient({ dict }) {
             className="px-4 flex-col items-center h-full shadow-2xl rounded-[50px]"
             gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
             gradientOpacity={0.8}
-            style={{
-              backgroundImage: `radial-gradient(250px circle at -250px -250px, var(--gradient-color), transparent)`,
-              opacity: 0.8,
-            }}
           >
             {isLogin ? (
               <LoginWithPassword dict={dict.login} setIsLogin={setIsLogin} />
