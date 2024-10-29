@@ -62,7 +62,7 @@ export default function Header({ dict }) {
           <div className="flex items-center max-md:hidden">
             <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white shadow-md shadow-sky-600/20 transition-all duration-300">
+                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
                   {dict?.products}
                 </button>
               </HoverCardTrigger>
@@ -74,7 +74,7 @@ export default function Header({ dict }) {
 
             <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white shadow-md shadow-sky-600/20 transition-all duration-300">
+                <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
                   {dict?.services}
                 </button>
               </HoverCardTrigger>
@@ -91,13 +91,13 @@ export default function Header({ dict }) {
             <button>
               <div className="space-y-2" dir="rtl">
                 <span
-                  className={`block h-[2px] w-8 origin-center rounded-full bg-white transition-transform ease-in-out ${
+                  className={`block h-[2px] w-8 origin-center rounded-full dark:bg-white bg-gray-900 transition-transform ease-in-out ${
                     open && "translate-y-1.5 rotate-45"
                   }`}
                 ></span>
 
                 <span
-                  className={`block h-[2px] w-6 origin-center rounded-full bg-white transition-transform ease-in-out ${
+                  className={`block h-[2px] w-6 origin-center rounded-full dark:bg-white bg-gray-900 transition-transform ease-in-out ${
                     open && "w-[32px] -translate-y-1 -rotate-45"
                   }`}
                 ></span>

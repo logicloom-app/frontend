@@ -38,5 +38,10 @@
     "joined": "Beigetreten am",
     "products": "Produkte",
     "services": "Services"
+  },
+  "home": {
+    "hero": "Deine Vision in die digitale Realität verwandeln",
+    "heroDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität - wir machen Ihre Vision Realität.",
+    "getStarted": "Starten"
   }
 }

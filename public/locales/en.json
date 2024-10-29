@@ -38,5 +38,10 @@
     "joined": "Joined at",
     "products": "Products",
     "services": "Services"
+  },
+  "home": {
+    "hero": "Turn Your Vision Into Digital Reality",
+    "heroDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
+    "getStarted": "Get Started"
   }
 }
