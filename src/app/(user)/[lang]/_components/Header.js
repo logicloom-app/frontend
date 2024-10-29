@@ -112,7 +112,9 @@ export default function Header({ dict }) {
                 <LanguageSwitcher />
               </div>
 
-              <hr className="m-4 border-t border-dashed border-gray-600" />
+              {user && (
+                <hr className="m-4 border-t border-dashed border-gray-600" />
+              )}
 
               <SheetTitle className="">
                 {user && (
@@ -153,7 +155,9 @@ export default function Header({ dict }) {
                 Mobile navigation menu with user actions
               </SheetDescription>
 
-              <hr className="mt-4 mb-10 border-t border-gray-600" />
+              {user && (
+                <hr className="mt-4 mb-10 border-t border-gray-600" />
+              )}
 
               <div className="flex flex-col gap-2">
                 {user && (
@@ -183,15 +187,22 @@ export default function Header({ dict }) {
                   {dict?.products}
                 </Link>
 
-                <button
-                  onClick={() => {
-                    logoutHandler();
-                    setOpen(false);
-                  }}
-                  className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
-                >
-                  {dict?.logout}
-                </button>
+                {user ? (
+                  <button
+                    onClick={logoutHandler}
+                    className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
+                  >
+                    {dict?.logout}
+                  </button>
+                ) : (
+                  <Link
+                    onClick={() => setOpen(false)}
+                    href={`/${params.lang}/auth`}
+                    className="px-6 mt-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-2xl transition-all duration-300"
+                  >
+                    {dict?.login}
+                  </Link>
+                )}
               </div>
             </div>
           </SheetContent>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import Particles from "@/components/ui/particles";
 import { Button } from "@/components/ui/button";
+import Particles from "@/components/ui/particles";
 import { TbArrowNarrowRight } from "react-icons/tb";
 
 export default function Hero({ dict, lang }) {
