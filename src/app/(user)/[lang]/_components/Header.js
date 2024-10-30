@@ -60,7 +60,7 @@ export default function Header({ dict }) {
           </Link>
 
           <div className="flex items-center max-md:hidden">
-            <HoverCard openDelay={0} closeDelay={0}>
+            {/* <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
                 <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
                   {dict?.products}
@@ -70,19 +70,23 @@ export default function Header({ dict }) {
               <HoverCardContent className="w-80" sideOffset={4}>
                 <div className="flex flex-col gap-2">Comming soon...</div>
               </HoverCardContent>
-            </HoverCard>
+            </HoverCard> */}
 
             <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
+                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
                   {dict?.services}
                 </button>
               </HoverCardTrigger>
 
               <HoverCardContent className="w-80" sideOffset={4}>
-                <div className="flex flex-col gap-2">Services here</div>
+                <div className="flex flex-col gap-2">Comming soon...</div>
               </HoverCardContent>
             </HoverCard>
+
+            <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
+              {dict?.contact}
+            </button>
           </div>
         </div>
 
@@ -112,9 +116,7 @@ export default function Header({ dict }) {
                 <LanguageSwitcher />
               </div>
 
-              {user && (
-                <hr className="m-4 border-t border-dashed border-gray-600" />
-              )}
+              {user && <hr className="m-4 border-t border-dashed border-gray-600" />}
 
               <SheetTitle className="">
                 {user && (
@@ -155,9 +157,7 @@ export default function Header({ dict }) {
                 Mobile navigation menu with user actions
               </SheetDescription>
 
-              {user && (
-                <hr className="mt-4 mb-10 border-t border-gray-600" />
-              )}
+              {user && <hr className="mt-4 mb-10 border-t border-gray-600" />}
 
               <div className="flex flex-col gap-2">
                 {user && (
@@ -184,8 +184,16 @@ export default function Header({ dict }) {
                   className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
                 >
-                  {dict?.products}
+                  {dict?.contact}
                 </Link>
+
+                {/* <Link
+                  href="#"
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  onClick={() => setOpen(false)}
+                >
+                  {dict?.products}
+                </Link> */}
 
                 {user ? (
                   <button

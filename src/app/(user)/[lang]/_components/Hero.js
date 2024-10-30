@@ -9,12 +9,12 @@ export default function Hero({ dict, lang }) {
   const { theme } = useTheme();
 
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl pointer-events-none">
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background pointer-events-none">
       <h2
         className={`mb-4 px-4 md:px-0 whitespace-pre-wrap bg-gradient-to-b from-black to-cyan-500/80 bg-clip-text text-center font-semibold leading-none text-transparent dark:from-white dark:to-cyan-600/60 ${
           lang === "en"
             ? "lg:text-8xl md:text-7xl sm:text-6xl text-4xl lg:w-[900px] lg:min-h-[195px]"
-            : "lg:text-7xl md:text-6xl sm:text-5xl text-4xl lg:w-[1000px] lg:min-h-[195px]"
+            : "lg:text-7xl md:text-6xl sm:text-5xl text-4xl lg:w-[1000px] lg:min-h-[120px]"
         }`}
       >
         {dict?.hero}

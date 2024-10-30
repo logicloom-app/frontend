@@ -37,11 +37,58 @@
     "yourBalance": "Dein Guthaben",
     "joined": "Beigetreten am",
     "products": "Produkte",
-    "services": "Services"
+    "services": "Services",
+    "contact": "Kontakt"
   },
   "home": {
     "hero": "Deine Vision in die digitale Realität verwandeln",
-    "heroDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität - wir machen Ihre Vision Realität.",
-    "getStarted": "Starten"
+    "heroDescription": "Leistungsstarke Web-Lösungen für wachsende Unternehmen",
+    "getStarted": "Loslegen",
+    "SubheadingDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität",
+    "commonChallenges": {
+      "title": "Häufige Geschäftsprobleme",
+      "description": "Die digitale Herausforderung",
+      "revenueGrowth": {
+        "title": "Umsatz- und Wachstumsschwierigkeiten",
+        "1": "Potentielle Kunden an Wettbewerber verlieren, die eine bessere Online-Präsenz haben",
+        "2": "Wertvolle Leads aufgrund schlechter Website-Leistung verpassen",
+        "3": "Hohe Absprungraten aufgrund schlechter Benutzererfahrung",
+        "4": "Mobile Benutzer schwer zu navigieren",
+        "5": "Beschränkte Fähigkeit, Geschäftsprozesse digital zu skalieren",
+        "6": "Schwierigkeiten, Website-Inhalte und Produkte zu aktualisieren",
+        "7": "Unterschiedliche Markeinheiten auf verschiedenen Plattformen"
+      },
+      "technicalSecurity": {
+        "title": "Technische & Sicherheitsprobleme",
+        "1": "Veraltete Website, die anfällig für Cyber-Bedrohungen und Angriffe ist",
+        "2": "Langsame Ladezeiten, die Besucher frustrieren und die SEO beeinträchtigen",
+        "3": "Systeme nicht integriert, was zu operativen Ineffizienzen führt",
+        "4": "Datenmanagement wird immer komplexer",
+        "5": "Website-Abstürze bei Spitzenverkehrszeiten",
+        "6": "Beschränkte Backup- und Wiederherstellungsoptionen",
+        "7": "Manuelle Prozesse, die Geschäftsprozesse verlangsamen"
+      }
+    },
+    "solution": {
+      "title": "Die Lösung:",
+      "title2": "Unsere Web-Services",
+      "description": "Transformieren Sie Ihre Online-Präsenz mit unseren umfassenden Web-Lösungen:",
+      "professionalDevelopment": {
+        "title": "Berufliche Entwicklung",
+        "1": "Angepasste Websites, die Ihre Marke zeigen",
+        "2": "Responsive Designs, die auf allen Geräten funktionieren",
+        "3": "Sichere, skalierbare Architektur",
+        "4": "SEO-optimierte Struktur",
+        "5": "Integration mit Ihren bestehenden Systemen"
+      },
+      "businessGrowthTools": {
+        "title": "Wachstumsfördernde Tools",
+        "1": "E-Commerce-Fähigkeiten",
+        "2": "Lead-Generierungsfunktionen",
+        "3": "Analyse und Tracking",
+        "4": "Inhaltsverwaltungssysteme",
+        "5": "Integration von Marketing-Automatisierung"
+      }
+    }
   }
 }

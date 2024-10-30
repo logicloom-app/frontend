@@ -37,11 +37,58 @@
     "yourBalance": "Your Balance",
     "joined": "Joined at",
     "products": "Products",
-    "services": "Services"
+    "services": "Services",
+    "contact": "Contact"
   },
   "home": {
     "hero": "Turn Your Vision Into Digital Reality",
-    "heroDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
-    "getStarted": "Get Started"
+    "heroDescription": "Powerful Web Solutions for Growing Businesses",
+    "getStarted": "Get Started",
+    "SubheadingDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
+    "commonChallenges": {
+      "title": "Common Business Challenges",
+      "description": "The Digital Struggle",
+      "revenueGrowth": {
+        "title": "Revenue & Growth Challenges",
+        "1": "Losing potential customers to competitors with better online presence",
+        "2": "Missing out on valuable leads due to poor website performance",
+        "3": "High bounce rates due to poor user experience",
+        "4": "Mobile users struggling to navigate your website",
+        "5": "Limited ability to scale business operations digitally",
+        "6": "Difficulty updating website content and products",
+        "7": "Inconsistent brand presentation across platforms"
+      },
+      "technicalSecurity": {
+        "title": "Technical & Security Issues",
+        "1": "Outdated website vulnerable to cyber threats and attacks",
+        "2": "Slow loading times frustrating visitors and affecting SEO",
+        "3": "Systems not integrated, causing operational inefficiencies",
+        "4": "Data management becoming increasingly complex",
+        "5": "Website crashes during peak traffic periods",
+        "6": "Limited backup and recovery options",
+        "7": "Manual processes slowing down business operations"
+      }
+    },
+    "solution": {
+      "title": "The Solution:",
+      "title2": "Our Web Services",
+      "description": "Transform your online presence with our comprehensive web solutions:",
+      "professionalDevelopment": {
+        "title": "Professional Development",
+        "1": "Custom-built websites that showcase your brand",
+        "2": "Responsive designs that work on all devices",
+        "3": "Secure, scalable architecture",
+        "4": "SEO-optimized structure",
+        "5": "Integration with your existing systems"
+      },
+      "businessGrowthTools": {
+        "title": "Business Growth Tools",
+        "1": "E-commerce capabilities",
+        "2": "Lead generation features",
+        "3": "Analytics and tracking",
+        "4": "Content management systems",
+        "5": "Marketing automation integration"
+      }
+    }
   }
 }
