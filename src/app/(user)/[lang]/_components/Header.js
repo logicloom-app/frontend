@@ -230,7 +230,7 @@ export default function Header({ dict }) {
                 </div>
               </PopoverTrigger>
 
-              <PopoverContent className="w-80 rounded-[30px] dark:bg-gray-950/90 mt-1 flex flex-col items-center">
+              <PopoverContent className="w-80 px-3 py-4 rounded-3xl flex flex-col items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                 <div className="flex items-center gap-2 mb-4">
                   <Avatar className="w-16 h-16">
                     <AvatarImage src={user?.avatar} />
