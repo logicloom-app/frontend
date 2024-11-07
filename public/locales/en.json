@@ -9,7 +9,8 @@
       "noAccount": "Don't have an account?",
       "register": "Register",
       "google": "Login with Google",
-      "or": "or"
+      "or": "or",
+      "forgotPassword": "Forgot password?"
     },
     "register": {
       "title": "Register",
@@ -27,6 +28,31 @@
         "minutes": "10 minutes",
         "submit": "Verify",
         "success": "Account successfully verified"
+      }
+    },
+    "passwordReset": {
+      "title": "Reset Password",
+      "description": "Please enter your email below to reset your password.",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Reset Password",
+      "emailRequired": "Enter your email",
+      "spaceNotAllowedInEmail": "Space is not allowed in email",
+      "validEmailAddress": "Enter a valid email address",
+      "passwordRequired": "Enter your password",
+      "spaceNotAllowedInPassword": "Space is not allowed in password",
+      "atLeastSixCharacters": "Enter at least six characters",
+      "confirmPasswordRequired": "Confirm your password",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "verify": {
+        "title": "Reset Password",
+        "description": "Please enter the OTP sent to your email.",
+        "otpRequired": "Enter the OTP sent to your email",
+        "expiry": "The OTP will expire in",
+        "minutes": "10 minutes",
+        "submit": "Reset Password",
+        "error": "Something went wrong"
       }
     }
   },

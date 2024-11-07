@@ -2,8 +2,6 @@ import "./globals.css";
 import Header from "./_components/Header";
 import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";
-import { ThemeProvider } from "next-themes";
-import { Toaster } from "@/components/ui/toaster";
 import { getDictionary } from "@/lib/utils/dictionary";
 
 const poppins = Poppins({
@@ -27,13 +25,10 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={poppins.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Providers>
-            <Header dict={dict.header} />
-            {children}
-          </Providers>
-          <Toaster />
-        </ThemeProvider>
+        <Providers>
+          <Header dict={dict.header} />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -15,3 +15,10 @@ export function googleCallback(data) {
   return http.get(`/auth/google/callback?${data}`).then(({ data }) => data);
 }
 
+export function resetPasswordSendOtp(data) {
+  return http.post("/forgot-password", data).then(({ data }) => data);
+}
+
+export function resetPassword(data) {
+  return http.post("/reset-password", data).then(({ data }) => data);
+}

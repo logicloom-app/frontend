@@ -9,7 +9,8 @@
       "noAccount": "Sie haben noch kein Konto?",
       "register": "Registrieren",
       "google": "Mit Google anmelden",
-      "or": "oder"
+      "or": "oder",
+      "forgotPassword": "Passwort vergessen?"
     },
     "register": {
       "title": "Registrieren",
@@ -27,6 +28,31 @@
         "minutes": "10 Minuten",
         "submit": "Bestätigen",
         "success": "Konto erfolgreich bestätigt"
+      }
+    },
+    "passwordReset": {
+      "title": "Passwort zurücksetzen",
+      "description": "Bitte geben Sie Ihre E-Mail-Adresse ein, um Ihr Passwort zurückzusetzen.",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen",
+      "emailRequired": "E-Mail eingeben",
+      "spaceNotAllowedInEmail": "Leerzeichen sind in der E-Mail nicht erlaubt",
+      "validEmailAddress": "Gültige E-Mail-Adresse eingeben",
+      "passwordRequired": "Passwort eingeben",
+      "spaceNotAllowedInPassword": "Leerzeichen sind im Passwort nicht erlaubt",
+      "atLeastSixCharacters": "Mindestens sechs Zeichen eingeben",
+      "confirmPasswordRequired": "Passwort bestätigen",
+      "passwordsDoNotMatch": "Passwörter stimmen nicht überein",
+      "verify": {
+        "title": "Passwort zurücksetzen",
+        "description": "Bitte geben Sie den an Ihre E-Mail gesendeten OTP-Code ein.",
+        "otpRequired": "OTP eingeben",
+        "expiry": "Der OTP-Code läuft ab in",
+        "minutes": "10 Minuten",
+        "submit": "Passwort zurücksetzen",
+        "error": "Etwas ist schief gelaufen"
       }
     }
   },

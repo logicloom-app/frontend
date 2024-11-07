@@ -125,17 +125,23 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
             disabled={!loginFormik.isValid}
             type="submit"
             variant="custom"
-            className=""
+            className="mb-2"
           >
             {dict?.submit}
           </Button>
 
-          <p className="text-sm">
-            {dict?.noAccount}{" "}
-            <Button variant="link" onClick={() => setIsLogin(false)}>
-              {dict?.register}
-            </Button>
-          </p>
+          <div>
+            <Link href="/auth/password-reset" className="underline-offset-4 hover:underline">
+              <p className="text-sm">{dict?.forgotPassword}</p>
+            </Link>
+
+            <div className="text-sm">
+              {dict?.noAccount}{" "}
+              <Button variant="link" onClick={() => setIsLogin(false)}>
+                {dict?.register}
+              </Button>
+            </div>
+          </div>
         </div>
       </form>
     </>
