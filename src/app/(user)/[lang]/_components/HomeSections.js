@@ -17,14 +17,16 @@ import GradualSpacing from "@/components/ui/gradual-spacing";
 export default function HomeSections({ dict, lang }) {
   const theme = useTheme();
   return (
-    <div className="relative mt-10 flex gap-10 w-full flex-col items-center overflow-hidden rounded-lg bg-background pointer-events-none">
+    <div className="relative md:mt-10 px-5 flex flex-col gap-10 w-full items-center overflow-hidden rounded-lg bg-background pointer-events-none">
       <div>
-        <h3 className="text-center text-4xl">{dict.commonChallenges.title}</h3>
-        <h4 className="text-center text-2xl text-gray-400">
+        <h3 className="text-center text-2xl md:text-4xl">
+          {dict.commonChallenges.title}
+        </h3>
+        <h4 className="text-center text-xl md:text-2xl text-gray-400">
           {dict.commonChallenges.description}
         </h4>
 
-        <div className="flex items-center justify-center gap-12 p-4 my-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-12 p-4 my-4">
           <BlurFade delay={0.1} inView>
             <div className="p-3 bg-pink-500/20 text-pink-500 rounded-full inline-block">
               <TrendingUpDown size={24} />
@@ -35,7 +37,7 @@ export default function HomeSections({ dict, lang }) {
             </h5>
 
             <ul
-              className={`dark:text-gray-300 text-gray-600 ${
+              className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base ${
                 lang === "de" && "text-sm"
               }`}
             >
@@ -59,7 +61,7 @@ export default function HomeSections({ dict, lang }) {
             </h5>
 
             <ul
-              className={`dark:text-gray-300 text-gray-600 ${
+              className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base ${
                 lang === "de" && "text-sm"
               }`}
             >
@@ -77,11 +79,11 @@ export default function HomeSections({ dict, lang }) {
 
       <div className="relative z-10">
         <div className="absolute -inset-14 bg-sky-500/10 blur-3xl -z-10 rounded-[200px]" />
-        <div className="flex text-4xl items-center justify-center gap-2">
+        <div className="flex flex-col sm:flex-row text-2xl md:text-4xl items-center justify-center gap-2">
           {dict.solution.title} <GradualSpacing text={dict.solution.title2} />
         </div>
 
-        <h4 className="text-center text-xl dark:text-gray-300 text-gray-600">
+        <h4 className="text-center sm:text-xl dark:text-gray-300 text-gray-600">
           {dict.solution.description}
         </h4>
 
@@ -91,7 +93,7 @@ export default function HomeSections({ dict, lang }) {
               {dict.solution.professionalDevelopment.title}
             </h5>
 
-            <ul className="dark:text-gray-300 text-gray-600 flex flex-col gap-2 mb-10">
+            <ul className="dark:text-gray-300 text-gray-600 flex flex-col gap-2 mb-10 max-md:text-sm max-sm:text-xs">
               <BlurFade
                 className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
                 as="li"
