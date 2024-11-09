@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useToast } from "@/lib/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { googleCallback } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AuthCallback() {
+function AuthCallbackContent() {
   const [isLoading, setIsLoading] = useState(true);
-
   const { toast } = useToast();
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -55,7 +54,7 @@ export default function AuthCallback() {
     };
 
     handleCallback();
-  }, []);
+  }, [allParams, allParamsString, queryClient, router, toast]);
 
   if (isLoading) {
     return (
@@ -66,4 +65,18 @@ export default function AuthCallback() {
   }
 
   return null;
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center min-h-screen">
+          <div>Loading...</div>
+        </div>
+      }
+    >
+      <AuthCallbackContent />
+    </Suspense>
+  );
 }
