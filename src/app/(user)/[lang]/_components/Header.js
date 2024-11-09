@@ -10,6 +10,9 @@ import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Sheet,
   SheetContent,
@@ -17,8 +20,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   HoverCard,
   HoverCardContent,
@@ -230,7 +231,7 @@ export default function Header({ dict }) {
                 </div>
               </PopoverTrigger>
 
-              <PopoverContent className="w-80 px-3 py-4 rounded-3xl flex flex-col items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+              <PopoverContent className="w-80 p-5 rounded-3xl flex flex-col items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                 <div className="flex items-center gap-2 mb-4">
                   <Avatar className="w-16 h-16">
                     <AvatarImage src={user?.avatar} />
@@ -262,16 +263,22 @@ export default function Header({ dict }) {
                   </div>
                 </div>
 
+                <Link href="/loom" className="w-full rounded-2xl">
+                  <RainbowButton className="w-full rounded-2xl">
+                    {dict?.buyLooms}
+                  </RainbowButton>
+                </Link>
+
                 <Link
                   href="/profile"
-                  className="p-3 mb-4 text-center w-full focus:outline-none font-bold rounded-2xl hover:dark:bg-sky-500/40 hover:bg-sky-600 bg-sky-600/70 text-white transition-all duration-300"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-2xl px-8 py-2 font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors mb-4"
                 >
                   {dict?.viewProfile}
                 </Link>
 
                 <button
                   onClick={logoutHandler}
-                  className="px-3 py-1 w-full text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-300"
+                  className="px-3 py-2 w-full text-red-100 hover:text-red-500 bg-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/20 transition-all duration-300"
                 >
                   {dict?.logout}
                 </button>

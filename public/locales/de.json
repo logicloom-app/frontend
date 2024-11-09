@@ -58,6 +58,7 @@
   },
   "header": {
     "viewProfile": "Profil ansehen",
+    "buyLooms": "Looms kaufen",
     "logout": "Abmelden",
     "login": "Anmelden",
     "yourBalance": "Dein Guthaben",
@@ -116,5 +117,15 @@
         "5": "Integration von Marketing-Automatisierung"
       }
     }
+  },
+  "loom": {
+    "purchase_looms": "Looms kaufen",
+    "one_euro_equals_five_looms": "1 Euro = 5 Looms",
+    "amount_in_euros": "Betrag (€)",
+    "total_looms": "Gesamtzahl Looms",
+    "credit_or_debit_card": "Kredit- oder Debitkarte",
+    "amount_total": "Betrag Total",
+    "paypal_order_created_successfully": "Paypal-Bestellung erfolgreich erstellt.",
+    "redirecting_to_payment": "Umleitung zur Zahlung..."
   }
 }

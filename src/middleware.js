@@ -32,6 +32,18 @@ export async function middleware(request) {
     }
   }
 
+  if (pathname.startsWith(`/${locale}/loom`)) {
+    if (!user?.is_active) {
+      return NextResponse.redirect(new URL(`/${locale}/auth`, url));
+    }
+  }
+
+  if (pathname.startsWith(`/${locale}/profile`)) {
+    if (!user?.is_active) {
+      return NextResponse.redirect(new URL(`/${locale}/auth`, url));
+    }
+  }
+
   if (pathnameHasLocale) return;
 
   request.nextUrl.pathname = `/${locale}${pathname}`;
@@ -39,5 +51,11 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|images).*)", "/"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|images).*)",
+    "/",
+    "/auth",
+    "/profile/:path*",
+    "/loom/:path*",
+  ],
 };
