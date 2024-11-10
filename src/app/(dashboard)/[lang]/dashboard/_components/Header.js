@@ -1,18 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { TbUser } from "react-icons/tb";
-import { useParams } from "next/navigation";
-
-import { useGetUser } from "@/lib/hooks/useAuth";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { deleteCookies } from "@/lib/utils/deleteCookies";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Sheet,
   SheetContent,
@@ -21,16 +8,30 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+  Euro,
+  Folder,
+  FolderInput,
+  KeyRound,
+  LayoutDashboard,
+  UserCog,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
-export default function Header({ dict }) {
+import { useGetUser } from "@/lib/hooks/useAuth";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { deleteCookies } from "@/lib/utils/deleteCookies";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { TbUser } from "react-icons/tb";
+
+export default function DashboardHeader({ dict, lang }) {
   const [open, setOpen] = useState(false);
   const { data, error, isLoading } = useGetUser();
   const { user } = data || {};
-  const params = useParams();
 
   const logoutHandler = async () => {
     await deleteCookies("access_token", "refresh_token");
@@ -43,57 +44,24 @@ export default function Header({ dict }) {
         isLoading && "blur-sm"
       }`}
     >
-      <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between">
-        <div className="flex items-center gap-5">
-          <Link
-            href={`/${params.lang}`}
-            className="flex items-center justify-center gap-3"
-          >
-            <Image
-              src="/images/logo.png"
-              width={40}
-              height={40}
-              alt="LogicLoom logo"
-              priority
-              className="saturate-200"
-            />
-            <h1 className="text-xl">LogicLoom</h1>
-          </Link>
-
-          <div className="flex items-center max-md:hidden">
-            {/* <HoverCard openDelay={0} closeDelay={0}>
-              <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
-                  {dict?.products}
-                </button>
-              </HoverCardTrigger>
-
-              <HoverCardContent className="w-80" sideOffset={4}>
-                <div className="flex flex-col gap-2">Comming soon...</div>
-              </HoverCardContent>
-            </HoverCard> */}
-
-            <HoverCard openDelay={0} closeDelay={0}>
-              <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
-                  {dict?.services}
-                </button>
-              </HoverCardTrigger>
-
-              <HoverCardContent className="w-80" sideOffset={4}>
-                <div className="flex flex-col gap-2">Comming soon...</div>
-              </HoverCardContent>
-            </HoverCard>
-
-            <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
-              {dict?.contact}
-            </button>
-          </div>
-        </div>
+      <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between md:justify-end">
+        <Link
+          href={`/${lang}`}
+          className="flex items-center justify-center md:hidden"
+        >
+          <Image
+            src="/images/logo.png"
+            width={40}
+            height={40}
+            alt="LogicLoom logo"
+            priority
+            className="saturate-200"
+          />
+        </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <button>
+            <button className="p-2">
               <div className="space-y-2" dir="rtl">
                 <span
                   className={`block h-[2px] w-8 origin-center rounded-full dark:bg-white bg-gray-900 transition-transform ease-in-out ${
@@ -110,7 +78,7 @@ export default function Header({ dict }) {
             </button>
           </SheetTrigger>
 
-          <SheetContent className="border-gray-800" side="right">
+          <SheetContent className="border-gray-800 overflow-y-auto" side="right">
             <div className="">
               <div className="flex items-center gap-3 mb-4">
                 <ThemeToggle />
@@ -169,38 +137,59 @@ export default function Header({ dict }) {
               <div className="flex flex-col gap-2">
                 {user && (
                   <Link
-                    href="/dashboard"
+                    href={`/${lang}/dashboard`}
                     className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                     onClick={() => setOpen(false)}
                   >
-                    <TbUser size={20} strokeWidth={3} />
+                    <LayoutDashboard size={20} strokeWidth={2} />
                     {dict?.viewProfile}
                   </Link>
                 )}
 
                 <Link
-                  href="#"
+                  href={`/${lang}/dashboard/projects`}
                   className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
                 >
-                  {dict?.services}
+                  <Folder size={20} strokeWidth={2} />
+                  {dict?.projects}
                 </Link>
 
                 <Link
-                  href="#"
+                  href={`/${lang}/dashboard/requests`}
                   className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
                 >
-                  {dict?.contact}
+                  <FolderInput size={20} strokeWidth={2} />
+                  {dict?.requests}
                 </Link>
 
-                {/* <Link
-                  href="#"
+                <Link
+                  href={`/${lang}/dashboard/payments`}
                   className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
                 >
-                  {dict?.products}
-                </Link> */}
+                  <Euro size={20} strokeWidth={2} />
+                  {dict?.payments}
+                </Link>
+
+                <Link
+                  href={`/${lang}/dashboard/password`}
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  onClick={() => setOpen(false)}
+                >
+                  <KeyRound size={20} strokeWidth={2} />
+                  {dict?.password}
+                </Link>
+
+                <Link
+                  href={`/${lang}/dashboard/info`}
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  onClick={() => setOpen(false)}
+                >
+                  <UserCog size={20} strokeWidth={2} />
+                  {dict?.info}
+                </Link>
 
                 {user ? (
                   <button
@@ -212,7 +201,7 @@ export default function Header({ dict }) {
                 ) : (
                   <Link
                     onClick={() => setOpen(false)}
-                    href={`/${params.lang}/auth`}
+                    href={`/${lang}/auth`}
                     className="px-6 mt-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-2xl transition-all duration-300"
                   >
                     {dict?.login}
@@ -224,21 +213,41 @@ export default function Header({ dict }) {
         </Sheet>
 
         <div className="flex justify-center items-center gap-3 max-md:hidden">
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <LanguageSwitcher />
-          </div>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-1 py-2 px-6 bg-gray-500/20 dark:bg-gray-400/20 rounded-2xl text-nowrap">
+              <span className="text-sm text-gray-500 dark:text-gray-400">
+                {dict?.yourBalance}:
+              </span>
 
-          {user ? (
-            <Popover>
-              <PopoverTrigger asChild>
-                <div className="p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
-                  <TbUser size={20} strokeWidth={3} />
-                </div>
-              </PopoverTrigger>
+              <div className="font-bold flex items-center gap-1">
+                {user?.loom_balance}
+                <span className="text-xs">
+                  {user?.loom_balance > 1 ? "LOOMs" : "LOOM"}
+                </span>
+              </div>
+            </div>
 
-              <PopoverContent className="w-80 p-5 rounded-3xl flex flex-col items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                <div className="flex items-center gap-2 mb-4">
+            <Link
+              href="/loom"
+              className="w-full rounded-2xl hover:text-sky-500 transition-all duration-300 text-nowrap"
+            >
+              {dict?.buyLooms}
+            </Link>
+
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
+            </div>
+
+            {user ? (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="xl:hidden p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
+                    <TbUser size={20} strokeWidth={3} />
+                  </div>
+                </PopoverTrigger>
+
+                <PopoverContent className="w-80 p-5 rounded-3xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                   <Avatar className="w-16 h-16">
                     <AvatarImage src={user?.avatar} />
                     <AvatarFallback className="font-bold text-xl text-gray-500 dark:text-gray-400">
@@ -249,15 +258,6 @@ export default function Header({ dict }) {
                   <div className="flex flex-col gap-1 p-2">
                     <div>{user?.email}</div>
 
-                    <div className="flex items-center gap-1">
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {dict?.yourBalance}
-                      </span>
-                      <div className="font-bold flex items-center gap-1">
-                        {user?.loom_balance} <span className="text-xs">LOOM</span>
-                      </div>
-                    </div>
-
                     <div className="text-xs text-gray-500 dark:text-gray-400">
                       {dict?.joined}{" "}
                       {new Date(user?.created_at).toLocaleDateString("en-DE", {
@@ -267,37 +267,17 @@ export default function Header({ dict }) {
                       })}
                     </div>
                   </div>
-                </div>
-
-                <Link href="/loom" className="w-full rounded-2xl">
-                  <RainbowButton className="w-full rounded-2xl">
-                    {dict?.buyLooms}
-                  </RainbowButton>
-                </Link>
-
-                <Link
-                  href="/dashboard"
-                  className="inline-flex h-11 w-full items-center justify-center rounded-2xl px-8 py-2 font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors mb-4"
-                >
-                  {dict?.viewProfile}
-                </Link>
-
-                <button
-                  onClick={logoutHandler}
-                  className="px-3 py-2 w-full text-red-100 hover:text-red-500 bg-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/20 transition-all duration-300"
-                >
-                  {dict?.logout}
-                </button>
-              </PopoverContent>
-            </Popover>
-          ) : (
-            <Link
-              className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-3xl transition-all duration-300"
-              href={`/${params.lang}/auth`}
-            >
-              {dict?.login}
-            </Link>
-          )}
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <Link
+                className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-3xl transition-all duration-300"
+                href={`/${lang}/auth`}
+              >
+                {dict?.login}
+              </Link>
+            )}
+          </div>
         </div>
       </nav>
     </header>

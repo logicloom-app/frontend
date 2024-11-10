@@ -1,12 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import PaypalPayment from "./PaypalPayment";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import { createStripeOrder } from "@/services/paymentService";
-import { useRouter } from "next/navigation";
-import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/lib/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function StripePayment({ formik, dict }) {
   const { toast } = useToast();

@@ -38,7 +38,7 @@ export async function middleware(request) {
     }
   }
 
-  if (pathname.startsWith(`/${locale}/profile`)) {
+  if (pathname.startsWith(`/${locale}/dashboard`)) {
     if (!user?.is_active) {
       return NextResponse.redirect(new URL(`/${locale}/auth`, url));
     }
@@ -55,7 +55,7 @@ export const config = {
     "/((?!api|_next/static|_next/image|favicon.ico|images).*)",
     "/",
     "/auth",
-    "/profile/:path*",
+    "/dashboard/:path*",
     "/loom/:path*",
   ],
 };

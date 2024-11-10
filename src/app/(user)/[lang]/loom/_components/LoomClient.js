@@ -25,7 +25,7 @@ export default function LoomClient({ dict }) {
       <div className="flex flex-col items-center justify-center gap-4 max-[400px]:gap-0">
         <h2 className="text-2xl font-bold">{dict.purchase_looms}</h2>
 
-        <div className="p-16 max-[400px]:p-8 flex flex-col items-center justify-center gap-4 sm:border-2 border-border rounded-[50px] shadow-lg dark:shadow-none">
+        <div className="p-16 max-[400px]:p-8 flex flex-col items-center justify-center gap-4 sm:border-2 border-border rounded-[50px] shadow-lg dark:shadow-none dark:bg-gray-400/10">
           <p>{dict.one_euro_equals_five_looms}</p>
 
           <div className="flex max-[400px]:flex-col items-center max-[400px]:items-start justify-center gap-4 mb-4">
@@ -40,6 +40,7 @@ export default function LoomClient({ dict }) {
                 value={formik.values.amount}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                className="dark:bg-gray-500/20"
               />
 
               {formik.touched.amount && formik.errors.amount ? (
@@ -51,7 +52,7 @@ export default function LoomClient({ dict }) {
               <label className="text-xs sm:text-base text-nowrap">
                 {dict.total_looms}
               </label>
-              <span className="py-2 px-6 max-[400px]:w-full font-bold border border-border rounded-md max-[400px]:px-3">
+              <span className="py-2 px-6 max-[400px]:w-full font-bold border border-border rounded-md max-[400px]:px-3 dark:bg-gray-500/20">
                 {formik.values.amount <= 0 ? "-" : formik.values.amount * 5}
               </span>
             </div>

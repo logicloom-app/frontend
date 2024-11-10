@@ -57,14 +57,19 @@
     }
   },
   "header": {
-    "viewProfile": "View Profile",
-    "buyLooms": "Buy Looms",
+    "viewProfile": "Dashboard",
+    "buyLooms": "Buy LOOMs",
     "logout": "Logout",
     "login": "Login",
     "yourBalance": "Your Balance",
     "joined": "Joined at",
     "products": "Products",
     "services": "Services",
+    "projects": "Projects",
+    "requests": "Requests",
+    "payments": "Payments",
+    "password": "Password",
+    "info": "Account Info",
     "contact": "Contact"
   },
   "home": {
@@ -128,5 +133,15 @@
     "paypal_order_created_successfully": "Paypal order created successfully.",
     "redirecting_to_payment": "Redirecting to payment...",
     "stripe_order_created_successfully": "Stripe order created successfully."
+  },
+  "sidebar": {
+    "password": "Password",
+    "info": "Account Info",
+    "projects": "Projects",
+    "requests": "Requests",
+    "payments": "Payments",
+    "logout": "Logout",
+    "joined": "Joined at",
+    "buyLooms": "Buy LOOMs"
   }
 }

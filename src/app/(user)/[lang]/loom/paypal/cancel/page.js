@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, Suspense } from "react";
-import { useToast } from "@/lib/hooks/use-toast";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useRouter, useSearchParams } from "next/navigation";
-import { capturePaypalOrder } from "@/services/paymentService";
+import { useRouter } from "next/navigation";
 import Spinner from "@/components/ui/Spinner";
+import { useToast } from "@/lib/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 function PaypalCancelContent() {
   const { toast } = useToast();

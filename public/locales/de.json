@@ -57,14 +57,19 @@
     }
   },
   "header": {
-    "viewProfile": "Profil ansehen",
-    "buyLooms": "Looms kaufen",
+    "viewProfile": "Dashboard",
+    "buyLooms": "LOOMs kaufen",
     "logout": "Abmelden",
     "login": "Anmelden",
     "yourBalance": "Dein Guthaben",
     "joined": "Beigetreten am",
     "products": "Produkte",
     "services": "Services",
+    "projects": "Projekte",
+    "requests": "Anfragen",
+    "payments": "Zahlungen",
+    "password": "Passwort",
+    "info": "Konto-Infos",
     "contact": "Kontakt"
   },
   "home": {
@@ -127,5 +132,15 @@
     "amount_total": "Betrag Total",
     "paypal_order_created_successfully": "Paypal-Bestellung erfolgreich erstellt.",
     "redirecting_to_payment": "Umleitung zur Zahlung..."
+  },
+  "sidebar": {
+    "password": "Passwort",
+    "info": "Konto-Infos",
+    "projects": "Projekte",
+    "requests": "Anfragen",
+    "payments": "Zahlungen",
+    "logout": "Abmelden",
+    "joined": "Beigetreten am",
+    "buyLooms": "LOOMs kaufen"
   }
 }

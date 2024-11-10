@@ -131,7 +131,10 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
           </Button>
 
           <div>
-            <Link href="/auth/password-reset" className="underline-offset-4 hover:underline">
+            <Link
+              href="/auth/password-reset"
+              className="underline-offset-4 hover:underline"
+            >
               <p className="text-sm">{dict?.forgotPassword}</p>
             </Link>
 
