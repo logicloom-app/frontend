@@ -5,6 +5,7 @@ import { useToast } from "@/lib/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { googleCallback } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
+import Spinner from "@/components/ui/Spinner";
 
 function AuthCallbackContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,11 +55,12 @@ function AuthCallbackContent() {
     };
 
     handleCallback();
-  }, [allParams, allParamsString, queryClient, router, toast]);
+  }, []);
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+        <Spinner className="w-10 h-10" />
         <div>Loading...</div>
       </div>
     );
@@ -71,7 +73,8 @@ export default function AuthCallback() {
   return (
     <Suspense
       fallback={
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+          <Spinner className="w-10 h-10" />
           <div>Loading...</div>
         </div>
       }
