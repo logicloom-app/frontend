@@ -97,7 +97,7 @@ export default function DashboardHeader({ dict, lang }) {
                     </Avatar>
 
                     <div className="flex flex-col gap-1 p-2">
-                      <div>{user?.email}</div>
+                      <div className="truncate text-sm">{user?.email}</div>
 
                       <div className="flex items-center gap-1">
                         <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -255,7 +255,7 @@ export default function DashboardHeader({ dict, lang }) {
                   </Avatar>
 
                   <div className="flex flex-col gap-1 p-2">
-                    <div>{user?.email}</div>
+                    <div className="truncate text-sm">{user?.email}</div>
 
                     <div className="text-xs text-gray-500 dark:text-gray-400">
                       {dict?.joined}{" "}
