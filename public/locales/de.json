@@ -160,6 +160,14 @@
       "newPassword": "Neues Passwort",
       "confirmPassword": "Passwort bestätigen",
       "update": "Passwort aktualisieren"
+    },
+    "payments": {
+      "amount": "Betrag",
+      "status": "Status",
+      "createdAt": "Erstellt am",
+      "updatedAt": "Aktualisiert am",
+      "currency": "Währung",
+      "payment": "Zahlung"
     }
   }
 }

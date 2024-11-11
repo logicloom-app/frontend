@@ -51,3 +51,13 @@ export async function createStripeOrder(amount) {
     )
     .then(({ data }) => data);
 }
+
+export async function getPayments() {
+  const token = await useGetToken();
+
+  return http
+    .get("/payments", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}

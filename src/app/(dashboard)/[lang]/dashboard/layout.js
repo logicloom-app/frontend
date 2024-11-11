@@ -33,7 +33,7 @@ export default async function DashboardLayout({ children, params }) {
             <div className="flex-1">
               <>
                 <DashboardHeader dict={dict.header} lang={lang} />
-                <div className="dark:bg-gray-500/20 bg-black/10 p-10 w-full h-[80vh] rounded-tl-3xl rounded-bl-3xl flex justify-center items-center">
+                <div className="dark:bg-gray-500/20 bg-black/10 w-full h-[80vh] overflow-y-auto rounded-tl-3xl rounded-bl-3xl flex justify-center items-center">
                   {children}
                 </div>
               </>

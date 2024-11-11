@@ -161,6 +161,14 @@
       "newPassword": "New Password",
       "confirmPassword": "Confirm Password",
       "update": "Update Password"
+    },
+    "payments": {
+      "amount": "Amount",
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "currency": "Currency",
+      "payment": "Payment"
     }
   }
 }

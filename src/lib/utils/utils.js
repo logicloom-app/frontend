@@ -22,3 +22,7 @@ export async function getUserDataMiddleware(request) {
     console.log(error);
   }
 }
+
+export const formatDate = (dateString) => {
+  return dateString?.split("T")[0].split("-").reverse().join(".");
+};
