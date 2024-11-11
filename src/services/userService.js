@@ -12,3 +12,15 @@ export async function getUser() {
     })
     .then(({ data }) => data);
 }
+
+export async function updateProfile(data) {
+  const token = await useGetToken();
+
+  return http
+    .put("/profile", data, {
+      headers: {
+        Authorization: `Bearer ${token?.value}`,
+      },
+    })
+    .then(({ data }) => data);
+}

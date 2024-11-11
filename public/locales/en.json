@@ -143,5 +143,16 @@
     "logout": "Logout",
     "joined": "Joined at",
     "buyLooms": "Buy LOOMs"
+  },
+  "dashboard": {
+    "info": {
+      "profileInfo": "Profile Information",
+      "name": "Name",
+      "phoneNumber": "Phone Number",
+      "linkedinUrl": "LinkedIn URL",
+      "whatsappLink": "Whatsapp URL",
+      "companyName": "Company Name",
+      "bio": "Bio"
+    }
   }
 }

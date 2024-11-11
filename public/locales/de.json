@@ -142,5 +142,16 @@
     "logout": "Abmelden",
     "joined": "Beigetreten am",
     "buyLooms": "LOOMs kaufen"
+  },
+  "dashboard": {
+    "info": {
+      "profileInfo": "Profilinformationen",
+      "name": "Name",
+      "phoneNumber": "Telefonnummer",
+      "linkedinUrl": "LinkedIn URL",
+      "whatsappLink": "Whatsapp URL",
+      "companyName": "Firmenname",
+      "bio": "Bio"
+    }
   }
 }

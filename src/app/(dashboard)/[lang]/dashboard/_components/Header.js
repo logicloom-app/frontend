@@ -18,7 +18,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-
+import { TbUser } from "react-icons/tb";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
@@ -26,7 +26,6 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { TbUser } from "react-icons/tb";
 
 export default function DashboardHeader({ dict, lang }) {
   const [open, setOpen] = useState(false);
@@ -40,7 +39,7 @@ export default function DashboardHeader({ dict, lang }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center items-center ${
+      className={`sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-end items-center ${
         isLoading && "blur-sm"
       }`}
     >
