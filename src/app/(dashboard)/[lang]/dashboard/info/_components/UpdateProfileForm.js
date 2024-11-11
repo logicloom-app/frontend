@@ -91,7 +91,7 @@ export default function UpdateProfileForm({ dict }) {
       onSubmit={formik.handleSubmit}
       className="flex flex-col gap-5 max-w-2xl mx-auto"
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <UserRound className="w-4 h-4" />
 
         <Input
@@ -111,7 +111,7 @@ export default function UpdateProfileForm({ dict }) {
         ) : null}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <Phone className="w-4 h-4" />
 
         <Input
@@ -131,7 +131,7 @@ export default function UpdateProfileForm({ dict }) {
         ) : null}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <Linkedin className="w-4 h-4" />
         <Input
           type="url"
@@ -150,7 +150,7 @@ export default function UpdateProfileForm({ dict }) {
         ) : null}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <PiWhatsappLogo size={20} />
         <Input
           type="url"
@@ -169,7 +169,7 @@ export default function UpdateProfileForm({ dict }) {
         ) : null}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <Building2 className="w-4 h-4" />
         <Input
           type="text"
@@ -192,7 +192,7 @@ export default function UpdateProfileForm({ dict }) {
         id="bio"
         name="bio"
         placeholder={user?.bio || dict?.bio}
-        className="rounded-2xl px-4 py-2 bg-background/90"
+        className="rounded-2xl px-4 py-2 bg-background/90 max-h-[150px]"
         onBlur={formik.handleBlur}
         value={formik.values.bio}
         onChange={formik.handleChange}
