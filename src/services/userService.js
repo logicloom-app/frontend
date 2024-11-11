@@ -24,3 +24,15 @@ export async function updateProfile(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function updatePassword(data) {
+  const token = await useGetToken();
+
+  return http
+    .put("/password", data, {
+      headers: {
+        Authorization: `Bearer ${token?.value}`,
+      },
+    })
+    .then(({ data }) => data);
+}

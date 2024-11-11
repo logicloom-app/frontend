@@ -152,7 +152,15 @@
       "linkedinUrl": "LinkedIn URL",
       "whatsappLink": "Whatsapp URL",
       "companyName": "Company Name",
-      "bio": "Bio"
+      "bio": "Bio",
+      "update": "Update Profile"
+    },
+    "password": {
+      "title": "Update Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "update": "Update Password"
     }
   }
 }
