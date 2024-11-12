@@ -168,6 +168,22 @@
       "updatedAt": "Aktualisiert am",
       "currency": "Währung",
       "payment": "Zahlung"
+    },
+    "requests": {
+      "id": "ID",
+      "title": "Title",
+      "status": "Status",
+      "createdAt": "Erstellt am",
+      "updatedAt": "Aktualisiert am",
+      "actions": "Aktionen",
+      "rejected": "ABGELEHNT",
+      "no_requests": "Keine Anfragen gefunden",
+      "rejectedDescription": "Ihre Anfrage wurde abgelehnt.",
+      "message": "Nachricht",
+      "dialogTitle": "Anfrage Details",
+      "acceptedMessage": "Ihre Anfrage wurde akzeptiert. Bitte gehen Sie zu Ihren",
+      "projects": "Projekten",
+      "sendRequest": "Anfrage senden"
     }
   }
 }

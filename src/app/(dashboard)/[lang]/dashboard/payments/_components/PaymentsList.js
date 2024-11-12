@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { formatDate } from "@/lib/utils/utils";
 import { BsPaypal, BsStripe } from "react-icons/bs";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -11,6 +11,8 @@ export default function PaymentsList({ dict }) {
   const { data, isLoading } = useGetPayments();
   const { payments } = data || {};
   const [showScrollHint, setShowScrollHint] = useState(true);
+
+  const memoizedPayments = useMemo(() => payments, [payments]);
 
   if (isLoading) {
     return (
@@ -108,7 +110,7 @@ export default function PaymentsList({ dict }) {
         </thead>
 
         <tbody className="divide-y dark:divide-gray-200/20 divide-gray-600/20">
-          {payments?.map((payment) => (
+          {memoizedPayments?.map((payment) => (
             <tr key={payment?.id}>
               <td className="px-10 md:pl-16 py-4 whitespace-nowrap text-sm font-medium">
                 {payment?.currency === "EUR" ? "€" : payment?.currency}{" "}

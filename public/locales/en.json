@@ -169,6 +169,22 @@
       "updatedAt": "Updated At",
       "currency": "Currency",
       "payment": "Payment"
+    },
+    "requests": {
+      "id": "ID",
+      "title": "Title",
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "actions": "Actions",
+      "rejected": "REJECTED",
+      "no_requests": "No requests found",
+      "rejectedDescription": "Your request has been rejected.",
+      "message": "Message",
+      "dialogTitle": "Request Details",
+      "acceptedMessage": "Your request has been accepted. please go to your",
+      "projects": "projects",
+      "sendRequest": "Send a Request"
     }
   }
 }
