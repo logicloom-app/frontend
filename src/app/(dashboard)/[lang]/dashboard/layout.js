@@ -28,15 +28,13 @@ export default async function DashboardLayout({ children, params }) {
     <html lang={lang} suppressHydrationWarning>
       <body className={poppins.className}>
         <Providers>
-          <div className="flex flex-row w-full">
+          <div className="flex flex-row w-full min-h-screen pb-6">
             <DashboardSidebar dict={dict.sidebar} lang={lang} />
-            <div className="flex-1">
-              <>
-                <DashboardHeader dict={dict.header} lang={lang} />
-                <div className="dark:bg-gray-500/20 bg-black/10 w-full h-[80vh] overflow-auto rounded-tl-3xl rounded-bl-3xl flex justify-center items-center">
-                  {children}
-                </div>
-              </>
+            <div className="flex-1 flex flex-col">
+              <DashboardHeader dict={dict.header} lang={lang} />
+              <div className="dark:bg-gray-500/20 bg-black/10 flex-1 overflow-auto rounded-tl-3xl rounded-bl-3xl flex justify-center items-center">
+                {children}
+              </div>
             </div>
           </div>
         </Providers>

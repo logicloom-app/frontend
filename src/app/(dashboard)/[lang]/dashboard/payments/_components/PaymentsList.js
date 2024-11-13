@@ -82,7 +82,7 @@ export default function PaymentsList({ dict }) {
 
   return (
     <div
-      className="w-full h-[calc(100vh-10rem)] overflow-y-auto relative"
+      className="w-full h-[calc(100vh-7rem)] overflow-y-auto relative"
       onScroll={handleScroll}
     >
       <table className="min-w-full divide-y dark:divide-gray-200/30 divide-gray-600/30">
