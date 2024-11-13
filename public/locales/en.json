@@ -190,6 +190,16 @@
       "send": "Send Request",
       "deleteDialogTitle": "Delete Request with ID",
       "delete": "Delete"
+    },
+    "projects": {
+      "statuses": {
+        "demo_ready": "Demo Ready",
+        "paid": "Paid",
+        "unpaid": "Unpaid"
+      },
+      "price": "Price",
+      "view_project": "View Project",
+      "status": "Status"
     }
   }
 }

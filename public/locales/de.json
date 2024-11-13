@@ -189,6 +189,16 @@
       "send": "Anfrage senden",
       "deleteDialogTitle": "Anfrage löschen, ID:",
       "delete": "Löschen"
+    },
+    "projects": {
+      "statuses": {
+        "demo_ready": "Demo Bereit",
+        "paid": "Bezahlt",
+        "unpaid": "Unbezahlt"
+      },
+      "price": "Preis",
+      "view_project": "Projekt ansehen",
+      "status": "Status"
     }
   }
 }

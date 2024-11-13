@@ -43,3 +43,23 @@ export async function deleteRequest(id) {
     headers: { Authorization: `Bearer ${token?.value}` },
   });
 }
+
+export async function getProjects() {
+  const token = await useGetToken();
+
+  return http
+    .get("/projects/all", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function getProjectById(id) {
+  const token = await useGetToken();
+
+  return http
+    .get(`/projects/${id}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}

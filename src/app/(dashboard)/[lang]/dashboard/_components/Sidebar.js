@@ -11,18 +11,18 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useGetUser } from "@/lib/hooks/useAuth";
+import { useParams, usePathname } from "next/navigation";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export default function DashboardSidebar({ dict, lang }) {
+  const { id } = useParams();
   const pathname = usePathname();
   const { data, error, isLoading } = useGetUser();
   const { user } = data || {};
 
   const isActive = (path) => {
-    return pathname === `/${lang}${path}`;
+    return pathname === `/${lang}${path}` || pathname === `/${lang}${path}/${id}`;
   };
 
   const logoutHandler = async () => {
@@ -61,7 +61,7 @@ export default function DashboardSidebar({ dict, lang }) {
           <Link
             href={`/${lang}/dashboard/projects`}
             className={`flex items-center gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/dashboard/projects")
+              isActive("/dashboard/projects") || isActive("/dashboard/projects/[id]")
                 ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
                 : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
             }`}
