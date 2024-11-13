@@ -6,8 +6,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Eye } from "lucide-react";
 import { formatDate } from "@/lib/utils/utils";
+import { Eye } from "lucide-react";
 import Link from "next/link";
 
 export default function RequestDetails({ request, dict }) {

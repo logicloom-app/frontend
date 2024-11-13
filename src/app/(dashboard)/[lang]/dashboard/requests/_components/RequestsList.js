@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import DeleteRequest from "./DeleteRequest";
 import RequestDetails from "./RequestDetails";
 import { formatDate } from "@/lib/utils/utils";
 import SendRequestForm from "./SendRequestForm";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGetRequests } from "@/lib/hooks/useProjects";
 import RequestRejectedDualog from "./RequestRejectedDualog";
-import { Check, CircleChevronDown, Hourglass, MailQuestion } from "lucide-react";
+import { Check, CircleChevronDown, Hourglass } from "lucide-react";
 
 export default function RequestsList({ dict }) {
   const { data, isLoading } = useGetRequests();
@@ -92,8 +93,6 @@ export default function RequestsList({ dict }) {
     return contentHeight > containerHeight;
   };
 
-  console.log(showScrollHint);
-
   return (
     <div className="w-full h-full">
       <div className="w-full flex p-10">
@@ -139,41 +138,45 @@ export default function RequestsList({ dict }) {
             </thead>
 
             <tbody className="divide-y dark:divide-gray-200/20 divide-gray-600/20">
-              {memoizedRequests?.map((request, index) => (
-                <tr key={request?.id}>
-                  <td className="px-10 md:pl-16 pr-0 py-4 whitespace-nowrap text-sm font-medium">
-                    {index + 1}
-                  </td>
-                  <td className="px-10 md:pl-16 pr-0 py-4 whitespace-nowrap text-sm font-medium">
-                    {request?.id}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm truncate max-w-[200px]">
-                    {request?.title}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    {request?.status === "accepted" ? (
-                      <span className="text-green-500">
-                        <Check />
-                      </span>
-                    ) : request?.status === "rejected" ? (
-                      <RequestRejectedDualog dict={dict} request={request} />
-                    ) : (
-                      <span className="text-yellow-600 dark:text-yellow-500">
-                        <Hourglass />
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    {formatDate(request?.created_at)}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    {formatDate(request?.updated_at)}
-                  </td>
-                  <td className="px-6 py-2 whitespace-nowrap text-sm">
-                    <RequestDetails request={request} dict={dict} />
-                  </td>
-                </tr>
-              ))}
+              {memoizedRequests
+                ?.slice()
+                .reverse()
+                ?.map((request, index) => (
+                  <tr key={request?.id}>
+                    <td className="px-10 md:pl-16 pr-0 py-4 whitespace-nowrap text-sm font-medium">
+                      {index + 1}
+                    </td>
+                    <td className="px-10 md:pl-16 pr-0 py-4 whitespace-nowrap text-sm font-medium">
+                      {request?.id}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm truncate max-w-[200px]">
+                      {request?.title}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      {request?.status === "accepted" ? (
+                        <span className="text-green-500">
+                          <Check />
+                        </span>
+                      ) : request?.status === "rejected" ? (
+                        <RequestRejectedDualog dict={dict} request={request} />
+                      ) : (
+                        <span className="text-yellow-600 dark:text-yellow-500">
+                          <Hourglass />
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      {formatDate(request?.created_at)}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      {formatDate(request?.updated_at)}
+                    </td>
+                    <td className="flex items-center gap-2 px-6 py-2 whitespace-nowrap text-sm">
+                      <RequestDetails request={request} dict={dict} />
+                      <DeleteRequest request={request} dict={dict} />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         ) : (

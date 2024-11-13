@@ -61,7 +61,7 @@
     "buyLooms": "LOOMs kaufen",
     "logout": "Abmelden",
     "login": "Anmelden",
-    "yourBalance": "Dein Guthaben",
+    "yourBalance": "Guthaben",
     "joined": "Beigetreten am",
     "products": "Produkte",
     "services": "Services",
@@ -171,7 +171,7 @@
     },
     "requests": {
       "id": "ID",
-      "title": "Title",
+      "title": "Titel",
       "status": "Status",
       "createdAt": "Erstellt am",
       "updatedAt": "Aktualisiert am",
@@ -183,7 +183,12 @@
       "dialogTitle": "Anfrage Details",
       "acceptedMessage": "Ihre Anfrage wurde akzeptiert. Bitte gehen Sie zu Ihren",
       "projects": "Projekten",
-      "sendRequest": "Anfrage senden"
+      "sendRequest": "Anfrage senden",
+      "description": "Beschreibung",
+      "file": "Datei",
+      "send": "Anfrage senden",
+      "deleteDialogTitle": "Anfrage löschen, ID:",
+      "delete": "Löschen"
     }
   }
 }

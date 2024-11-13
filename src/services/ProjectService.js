@@ -20,3 +20,26 @@ export async function getRequestById(id) {
     })
     .then(({ data }) => data);
 }
+
+export async function sendRequest(data) {
+  const token = await useGetToken();
+  const formData = new FormData();
+  Object.entries(data).forEach(([key, value]) => {
+    formData.append(key, value);
+  });
+
+  return http.post("/projects/request", formData, {
+    headers: {
+      Authorization: `Bearer ${token?.value}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+}
+
+export async function deleteRequest(id) {
+  const token = await useGetToken();
+
+  return http.delete(`/projects/requests/${id}`, {
+    headers: { Authorization: `Bearer ${token?.value}` },
+  });
+}

@@ -49,8 +49,6 @@ export default function ResetPasswordForm({ setStep, dict, setEmail, setPassword
     },
   });
 
-  console.log(isPending);
-
   const resetPasswordHandler = async ({ email, password, confirmPassword }) => {
     await mutateResetPasswordSendOtp({ email });
 
