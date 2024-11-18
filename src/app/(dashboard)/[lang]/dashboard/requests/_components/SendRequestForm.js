@@ -18,6 +18,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useGetUser } from "@/lib/hooks/useAuth";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const RequestSchema = Yup.object().shape({
   title: Yup.string().required("Title is required"),
@@ -34,6 +37,10 @@ const RequestSchema = Yup.object().shape({
 export default function SendRequestForm({ dict }) {
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  const { lang } = useParams();
+
+  const { data: userData, isLoading: isLoadingUser } = useGetUser();
+  const { user } = userData || {};
 
   const { isLoading, mutateAsync: mutateSendRequest } = useMutation({
     mutationFn: sendRequest,
@@ -82,90 +89,105 @@ export default function SendRequestForm({ dict }) {
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={formik.handleSubmit} className="space-y-4">
-          <div className="flex flex-col items-start gap-1">
-            <Input
-              type="text"
-              id="title"
-              name="title"
-              placeholder={dict?.title}
-              className="rounded-2xl px-4 py-2"
-              onBlur={formik.handleBlur}
-              value={formik.values.title}
-              onChange={formik.handleChange}
-            />
-            {formik?.touched?.title && formik?.errors?.title ? (
-              <div className="ml-2 text-rose-500 text-left text-xs">
-                {formik.errors?.title}
-              </div>
-            ) : null}
-          </div>
-
-          <div className="flex flex-col items-start gap-2">
-            <div className="flex items-center gap-2">
-              <CircleAlert className="w-4 h-4 text-rose-500" />
-              <p className="text-sm text-gray-500">
-                Please provide a summary of the project description and details
-              </p>
+        {user?.whatsapp_link || user?.phone_number ? (
+          <form onSubmit={formik.handleSubmit} className="space-y-4">
+            <div className="flex flex-col items-start gap-1">
+              <Input
+                type="text"
+                id="title"
+                name="title"
+                placeholder={dict?.title}
+                className="rounded-2xl px-4 py-2"
+                onBlur={formik.handleBlur}
+                value={formik.values.title}
+                onChange={formik.handleChange}
+              />
+              {formik?.touched?.title && formik?.errors?.title ? (
+                <div className="ml-2 text-rose-500 text-left text-xs">
+                  {formik.errors?.title}
+                </div>
+              ) : null}
             </div>
 
-            <Textarea
-              id="description"
-              name="description"
-              placeholder={dict?.description}
-              className="rounded-2xl px-4 py-2 mb-1 bg-background/90 max-h-[150px]"
-              onBlur={formik.handleBlur}
-              value={formik.values.description}
-              onChange={formik.handleChange}
-              rows={4}
-            />
-            {formik?.touched?.description && formik?.errors?.description ? (
-              <div className="ml-2 -mt-2 text-rose-500 text-left text-xs">
-                {formik.errors?.description}
+            <div className="flex flex-col items-start gap-2">
+              <div className="flex items-center gap-2">
+                <CircleAlert className="w-4 h-4 text-rose-500" />
+                <p className="text-sm text-gray-500">
+                  Please provide a summary of the project description and details
+                </p>
               </div>
-            ) : null}
-          </div>
 
-          <div className="flex flex-col items-start gap-2">
-            <div className="flex items-center gap-2">
-              <CircleAlert className="w-4 h-4 text-rose-500" />
-              <p className="text-sm text-gray-500">
-                Please provide a comprehensive project description and details in PDF
-                format
-              </p>
+              <Textarea
+                id="description"
+                name="description"
+                placeholder={dict?.description}
+                className="rounded-2xl px-4 py-2 mb-1 bg-background/90 max-h-[150px]"
+                onBlur={formik.handleBlur}
+                value={formik.values.description}
+                onChange={formik.handleChange}
+                rows={4}
+              />
+              {formik?.touched?.description && formik?.errors?.description ? (
+                <div className="ml-2 -mt-2 text-rose-500 text-left text-xs">
+                  {formik.errors?.description}
+                </div>
+              ) : null}
             </div>
 
-            <Input
-              type="file"
-              id="file"
-              name="file"
-              placeholder={dict?.file}
-              className="rounded-2xl px-4 py-2 mb-1"
-              onBlur={formik.handleBlur}
-              onChange={(e) => {
-                formik.setFieldValue("file", e.currentTarget.files[0]);
-              }}
-            />
-            {formik?.touched?.file && formik?.errors?.file ? (
-              <div className="ml-2 -mt-2 text-rose-500 text-left text-xs">
-                {formik.errors?.file}
+            <div className="flex flex-col items-start gap-2">
+              <div className="flex items-center gap-2">
+                <CircleAlert className="w-4 h-4 text-rose-500" />
+                <p className="text-sm text-gray-500">
+                  Please provide a comprehensive project description and details in
+                  PDF format
+                </p>
               </div>
-            ) : null}
-          </div>
 
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button
-                type="submit"
-                disabled={!formik.isValid || isLoading}
-                variant="custom"
-                className="w-full"
-              >
-                {isLoading ? <Spinner className="w-5 h-5" /> : dict?.send}
-              </Button>
-            </DialogClose>
-          </DialogFooter>
-        </form>
+              <Input
+                type="file"
+                id="file"
+                name="file"
+                placeholder={dict?.file}
+                className="rounded-2xl px-4 py-2 mb-1"
+                onBlur={formik.handleBlur}
+                onChange={(e) => {
+                  formik.setFieldValue("file", e.currentTarget.files[0]);
+                }}
+              />
+              {formik?.touched?.file && formik?.errors?.file ? (
+                <div className="ml-2 -mt-2 text-rose-500 text-left text-xs">
+                  {formik.errors?.file}
+                </div>
+              ) : null}
+            </div>
+
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button
+                  type="submit"
+                  disabled={!formik.isValid || isLoading}
+                  variant="custom"
+                  className="w-full"
+                >
+                  {isLoading ? <Spinner className="w-5 h-5" /> : dict?.send}
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </form>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-[300px] px-6">
+            <p className="text-sm">
+              Please add your contact information in your profile to send a request
+            </p>
+
+            <Link
+              href={`/${lang}/dashboard/info`}
+              className="w-full text-center underline hover:text-blue-500 transition-colors duration-300"
+            >
+              Account info
+            </Link>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );

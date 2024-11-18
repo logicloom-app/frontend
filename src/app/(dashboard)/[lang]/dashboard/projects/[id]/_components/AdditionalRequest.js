@@ -1,6 +1,5 @@
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -8,6 +7,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  additionalRequest,
+  deleteAdditionalRequest,
+  payForAdditionalRequest,
+} from "@/services/ProjectService";
+import * as Yup from "yup";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { ArrowRight, X } from "lucide-react";
@@ -17,14 +22,8 @@ import { Button } from "@/components/ui/button";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { useToast } from "@/lib/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  additionalRequest,
-  deleteAdditionalRequest,
-  payForAdditionalRequest,
-} from "@/services/ProjectService";
 import { useGetAdditionalRequests } from "@/lib/hooks/useProjects";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import * as Yup from "yup";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const AdditionalRequestSchema = Yup.object().shape({

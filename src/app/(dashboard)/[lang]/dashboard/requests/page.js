@@ -5,5 +5,5 @@ export default async function Requests({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
-  return <RequestsList dict={dict?.dashboard?.requests} />;
+  return <RequestsList dict={dict?.dashboard?.requests} lang={lang} />;
 }

@@ -7,10 +7,10 @@ import { formatDate } from "@/lib/utils/utils";
 import SendRequestForm from "./SendRequestForm";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGetRequests } from "@/lib/hooks/useProjects";
-import RequestRejectedDualog from "./RequestRejectedDualog";
+import RequestRejectedDialog from "./RequestRejectedDialog";
 import { Check, CircleChevronDown, Hourglass } from "lucide-react";
 
-export default function RequestsList({ dict }) {
+export default function RequestsList({ dict, lang }) {
   const { data, isLoading } = useGetRequests();
   const { requests } = data || {};
   const [showScrollHint, setShowScrollHint] = useState(true);
@@ -21,7 +21,7 @@ export default function RequestsList({ dict }) {
     return (
       <div className="w-full h-[calc(100vh-10rem)] overflow-y-auto relative">
         <div className="w-full flex p-10 pointer-events-none">
-          <SendRequestForm dict={dict} />
+          <SendRequestForm dict={dict} lang={lang} />
         </div>
 
         <table className="min-w-full divide-y dark:divide-gray-200/30 divide-gray-600/30">
@@ -158,7 +158,7 @@ export default function RequestsList({ dict }) {
                           <Check />
                         </span>
                       ) : request?.status === "rejected" ? (
-                        <RequestRejectedDualog dict={dict} request={request} />
+                        <RequestRejectedDialog dict={dict} request={request} />
                       ) : (
                         <span className="text-yellow-600 dark:text-yellow-500">
                           <Hourglass />

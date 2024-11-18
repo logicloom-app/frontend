@@ -89,7 +89,7 @@ export default function UpdateProfileForm({ dict }) {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="flex flex-col gap-5 max-w-2xl mx-auto"
+      className="flex flex-col gap-5 max-w-2xl mx-auto px-6"
     >
       <div className="flex items-center gap-3">
         <UserRound className="w-4 h-4" />
