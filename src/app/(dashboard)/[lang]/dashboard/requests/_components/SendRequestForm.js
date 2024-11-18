@@ -112,9 +112,7 @@ export default function SendRequestForm({ dict }) {
             <div className="flex flex-col items-start gap-2">
               <div className="flex items-center gap-2">
                 <CircleAlert className="w-4 h-4 text-rose-500" />
-                <p className="text-sm text-gray-500">
-                  Please provide a summary of the project description and details
-                </p>
+                <p className="text-sm text-gray-500">{dict?.summaryDescription}</p>
               </div>
 
               <Textarea
@@ -137,10 +135,7 @@ export default function SendRequestForm({ dict }) {
             <div className="flex flex-col items-start gap-2">
               <div className="flex items-center gap-2">
                 <CircleAlert className="w-4 h-4 text-rose-500" />
-                <p className="text-sm text-gray-500">
-                  Please provide a comprehensive project description and details in
-                  PDF format
-                </p>
+                <p className="text-sm text-gray-500">{dict?.fileDescription}</p>
               </div>
 
               <Input

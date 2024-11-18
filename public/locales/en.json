@@ -189,7 +189,9 @@
       "file": "File",
       "send": "Send Request",
       "deleteDialogTitle": "Delete Request with ID",
-      "delete": "Delete"
+      "delete": "Delete",
+      "summaryDescription": "Please provide a summary of the project description and details",
+      "fileDescription": "Please provide a comprehensive project description and details in PDF format"
     },
     "projects": {
       "accept": "Accept",
