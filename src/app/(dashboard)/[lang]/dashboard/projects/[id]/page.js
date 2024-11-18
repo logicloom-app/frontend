@@ -1,9 +1,8 @@
-"use client";
+import { getDictionary } from "@/lib/utils/dictionary";
+import ProjectDetails from "./_components/ProjectDetails";
 
-import React from "react";
-
-export default function ProjectPage({ params }) {
-  const { id } = React.use(params);
-
-  return <div>ProjectPage {id}</div>;
+export default async function ProjectPage({ params }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+  return <ProjectDetails params={params} dict={dict?.dashboard?.projects} />;
 }

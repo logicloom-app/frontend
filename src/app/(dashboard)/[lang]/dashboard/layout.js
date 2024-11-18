@@ -32,7 +32,7 @@ export default async function DashboardLayout({ children, params }) {
             <DashboardSidebar dict={dict.sidebar} lang={lang} />
             <div className="flex-1 flex flex-col">
               <DashboardHeader dict={dict.header} lang={lang} />
-              <div className="dark:bg-gray-500/20 bg-black/10 flex-1 overflow-auto rounded-tl-3xl rounded-bl-3xl flex justify-center items-center">
+              <div className="dark:bg-gray-500/20 bg-black/10 flex-1 overflow-auto rounded-tl-[30px] rounded-bl-[30px] flex justify-center items-center">
                 {children}
               </div>
             </div>

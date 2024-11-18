@@ -1,12 +1,13 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import {
+  getAdditionalRequests,
   getProjectById,
   getProjects,
   getRequestById,
   getRequests,
 } from "@/services/ProjectService";
-import { useQuery } from "@tanstack/react-query";
 
 export const useGetRequests = () =>
   useQuery({
@@ -36,6 +37,14 @@ export const useGetProjectById = (id) =>
   useQuery({
     queryKey: ["get-project-by-id", id],
     queryFn: () => getProjectById(id),
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useGetAdditionalRequests = (projectId, userId) =>
+  useQuery({
+    queryKey: ["get-additional-requests", projectId, userId],
+    queryFn: () => getAdditionalRequests(projectId, userId),
     retry: false,
     refetchOnWindowFocus: true,
   });

@@ -53,8 +53,12 @@ export default function ProjectsList({ dict }) {
     );
   }
 
+  if (projects?.length === 0) {
+    return <div>{dict?.no_projects}</div>;
+  }
+
   return (
-    <div className="flex flex-wrap justify-center w-full h-full p-2 md:p-4 lg:p-6">
+    <div className="h-[calc(100vh-7rem)] overflow-y-auto relative w-full p-2 md:p-4 lg:p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
         {projects?.map((project) => (
           <MagicCard
@@ -88,7 +92,7 @@ export default function ProjectsList({ dict }) {
                   {dict?.status}:{" "}
                   <span className="font-bold capitalize">
                     {project?.status === "demo_ready"
-                      ? dict?.demo_ready
+                      ? dict?.statuses?.demo_ready
                       : project?.status}
                   </span>
                 </div>

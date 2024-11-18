@@ -110,51 +110,53 @@ export default function PaymentsList({ dict }) {
         </thead>
 
         <tbody className="divide-y dark:divide-gray-200/20 divide-gray-600/20">
-          {memoizedPayments?.map((payment) => (
-            <tr key={payment?.id}>
-              <td className="px-10 md:pl-16 py-4 whitespace-nowrap text-sm font-medium">
-                {payment?.currency === "EUR" ? "€" : payment?.currency}{" "}
-                <span className="font-bold text-base">{payment?.amount}</span>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                {payment?.status === "completed" ? (
-                  <span className="text-green-500">
-                    <Check />
-                  </span>
-                ) : (
-                  <span className="text-red-500">
-                    <X />
-                  </span>
-                )}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                {formatDate(payment?.created_at)}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                {formatDate(payment?.updated_at)}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                {payment?.currency}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                {payment?.payment_method === "paypal" && (
-                  <BsPaypal className="text-xl text-blue-800" />
-                )}
-                {payment?.payment_method === "stripe" && (
-                  <BsStripe className="text-xl text-indigo-500 bg-white rounded-[5px]" />
-                )}
-              </td>
-            </tr>
-          ))}
+          {memoizedPayments
+            ?.slice()
+            .reverse()
+            ?.map((payment) => (
+              <tr key={payment?.id}>
+                <td className="px-10 md:pl-16 py-4 whitespace-nowrap text-sm font-medium">
+                  {payment?.currency === "EUR" ? "€" : payment?.currency}{" "}
+                  <span className="font-bold text-base">{payment?.amount}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {payment?.status === "completed" ? (
+                    <span className="text-green-500">
+                      <Check />
+                    </span>
+                  ) : (
+                    <span className="text-red-500">
+                      <X />
+                    </span>
+                  )}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {formatDate(payment?.created_at)}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {formatDate(payment?.updated_at)}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {payment?.currency}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {payment?.payment_method === "paypal" && (
+                    <BsPaypal className="text-xl text-blue-800" />
+                  )}
+                  {payment?.payment_method === "stripe" && (
+                    <BsStripe className="text-xl text-indigo-500 bg-white rounded-[5px]" />
+                  )}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
 
-      {showScrollHint &&
-        isContentOverflowing() && ( // Check if content is overflowing
-          <div className="text-gray-500 absolute bottom-0 md:right-2 max-md:left-4">
-            <CircleChevronDown />
-          </div>
-        )}
+      {showScrollHint && isContentOverflowing() && (
+        <div className="text-gray-500 absolute bottom-0 md:right-2 max-md:left-4">
+          <CircleChevronDown />
+        </div>
+      )}
     </div>
   );
 }
