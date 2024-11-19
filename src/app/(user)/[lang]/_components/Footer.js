@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export default function Footer({ dict, lang }) {
   return (
@@ -72,7 +73,23 @@ export default function Footer({ dict, lang }) {
         </div>
       </div>
 
-      <div className="flex items-center md:justify-end justify-center p-4 md:p-0 md:mr-4 xl:mr-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
+      <div className="flex items-center justify-between p-4 md:p-0 md:px-4 xl:px-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 ">
+          <Link
+            href={`https://www.linkedin.com/in/pakzadjs/`}
+            target="_blank"
+            className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
+          >
+            <FaLinkedinIn size={18} />
+          </Link>
+          <Link
+            href={`https://github.com/pakzadjs`}
+            target="_blank"
+            className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
+          >
+            <FaGithub size={18} />
+          </Link>
+        </div>
         <p>{dict?.copyright}</p>
       </div>
     </div>
