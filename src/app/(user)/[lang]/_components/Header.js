@@ -116,9 +116,12 @@ export default function Header({ dict, lang }) {
               </HoverCardContent>
             </HoverCard>
 
-            <button className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
+            <Link
+              href={`/${lang}/contact`}
+              className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300"
+            >
               {dict?.contact}
-            </button>
+            </Link>
           </div>
         </div>
 
