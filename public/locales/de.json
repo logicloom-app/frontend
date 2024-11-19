@@ -273,5 +273,9 @@
       "privacy": "Datenschutz"
     },
     "copyright": "Copyright © 2024 LogicLoom. Alle Rechte vorbehalten."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "sendEmail": "Senden Sie uns eine E-Mail an"
   }
 }

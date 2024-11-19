@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { TbUser } from "react-icons/tb";
-import { Lightbulb } from "lucide-react";
+import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -203,28 +203,68 @@ export default function Header({ dict, lang }) {
               <div className="flex flex-col gap-2">
                 {user && (
                   <Link
-                    href="/dashboard"
+                    href={`/${lang}/dashboard`}
                     className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                     onClick={() => setOpen(false)}
                   >
-                    <TbUser size={20} strokeWidth={3} />
+                    <LayoutDashboard size={20} strokeWidth={3} />
                     {dict?.viewProfile}
                   </Link>
                 )}
 
-                <Link
-                  href="#"
-                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
-                  onClick={() => setOpen(false)}
-                >
-                  {dict?.services}
-                </Link>
+                <HoverCard openDelay={0} closeDelay={0}>
+                  <HoverCardTrigger asChild>
+                    <button className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300">
+                      <Code2 size={20} strokeWidth={3} />
+                      {dict?.services}
+                    </button>
+                  </HoverCardTrigger>
+
+                  <HoverCardContent
+                    className="min-w-[500px] flex gap-4"
+                    sideOffset={4}
+                  >
+                    <Link
+                      href={`/${lang}/dashboard/requests`}
+                      className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
+                    >
+                      <Lightbulb size={20} />
+                      <div className="font-bold">{dict?.webServices}</div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {dict?.webServicesDescription}
+                      </p>
+                    </Link>
+
+                    <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
+                      <Link
+                        href={`/${lang}/dashboard/requests`}
+                        className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                      >
+                        <div className="font-bold">{dict?.consulting}</div>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {dict?.consultingDescription}
+                        </p>
+                      </Link>
+
+                      <Link
+                        href={`/${lang}/dashboard/requests`}
+                        className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                      >
+                        <div className="font-bold">{dict?.development}</div>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {dict?.developmentDescription}
+                        </p>
+                      </Link>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
 
                 <Link
-                  href="#"
+                  href={`/${lang}/contact`}
                   className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
                   onClick={() => setOpen(false)}
                 >
+                  <Mail size={20} strokeWidth={3} />
                   {dict?.contact}
                 </Link>
 
