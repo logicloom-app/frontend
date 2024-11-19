@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import Particles from "@/components/ui/particles";
 import { TbArrowNarrowRight } from "react-icons/tb";
+import Link from "next/link";
 
 export default function Hero({ dict, lang }) {
   const { theme } = useTheme();
@@ -25,10 +26,13 @@ export default function Hero({ dict, lang }) {
       </p>
 
       <div className="flex items-center gap-4 pointer-events-auto">
-        <Button className="rounded-3xl transition-all duration-300 flex items-center gap-2 px-5 hover:bg-cyan-700 dark:hover:bg-cyan-400">
+        <Link
+          href={`/${lang}/dashboard/requests`}
+          className="bg-slate-900 text-slate-50 dark:bg-slate-50 dark:text-slate-900 hover:bg-cyan-700 dark:hover:bg-cyan-400 rounded-3xl transition-all duration-300 flex items-center gap-2 px-5 py-2"
+        >
           {dict?.getStarted}
           <TbArrowNarrowRight size={20} />
-        </Button>
+        </Link>
       </div>
 
       <Particles
