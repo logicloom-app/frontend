@@ -60,6 +60,7 @@ export default function UpdatePasswordForm({ dict }) {
     },
     validationSchema: PasswordSchema,
     onSubmit: submitHandler,
+    validateOnMount: true,
   });
 
   return (

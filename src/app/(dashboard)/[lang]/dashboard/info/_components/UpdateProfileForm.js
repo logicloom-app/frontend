@@ -84,6 +84,7 @@ export default function UpdateProfileForm({ dict }) {
     },
     validationSchema: ProfileSchema,
     onSubmit: submitHandler,
+    validateOnMount: true,
   });
 
   return (
