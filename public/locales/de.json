@@ -64,7 +64,7 @@
     "yourBalance": "Guthaben",
     "joined": "Beigetreten am",
     "products": "Produkte",
-    "services": "Services",
+    "services": "Leistungen",
     "projects": "Projekte",
     "requests": "Anfragen",
     "payments": "Zahlungen",
@@ -251,5 +251,21 @@
       "you_need_loom_to_add_premium_design": "Sie benötigen 1000 LOOMs, um Premium Design zu Ihrem Projekt hinzuzufügen",
       "you_need_loom_to_add_priority_ticket": "Sie benötigen 500 LOOMs, um Priorität Ticket zu Ihrem Projekt hinzuzufügen"
     }
+  },
+  "footer": {
+    "description": "Web-Lösungen für wachsende Unternehmen",
+    "socials": {
+      "title": "SOCIALS",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "Github",
+      "freelancer": "Freelancer"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutz"
+    },
+    "copyright": "Copyright © 2024 LogicLoom. Alle Rechte vorbehalten."
   }
 }

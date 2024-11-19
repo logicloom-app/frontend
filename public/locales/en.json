@@ -252,5 +252,21 @@
       "you_need_loom_to_add_premium_design": "You need 1000 LOOMs to add premium design to your project",
       "you_need_loom_to_add_priority_ticket": "You need 500 LOOMs to add priority ticket to your project"
     }
+  },
+  "footer": {
+    "description": "Web Solutions for Growing Businesses",
+    "socials": {
+      "title": "SOCIALS",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "Github",
+      "freelancer": "Freelancer"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "terms": "Terms",
+      "privacy": "Privacy"
+    },
+    "copyright": "Copyright © 2024 LogicLoom. All Rights Reserved."
   }
 }

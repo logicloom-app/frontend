@@ -83,7 +83,7 @@ export default function HomeSections({ dict, lang }) {
             </div>
           </div>
 
-          <div className="relative z-10">
+          <div className="relative z-10 mb-10">
             <div className="absolute -inset-14 bg-sky-500/10 blur-3xl -z-10 rounded-[200px]" />
             <div className="flex flex-col sm:flex-row text-2xl md:text-4xl items-center justify-center gap-2">
               {dict.solution.title} <GradualSpacing text={dict.solution.title2} />

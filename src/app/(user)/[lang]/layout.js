@@ -1,5 +1,6 @@
 import "../../globals.css";
 import Header from "./_components/Header";
+import Footer from "./_components/Footer";
 import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";
 import { getDictionary } from "@/lib/utils/dictionary";
@@ -28,6 +29,7 @@ export default async function RootLayout({ children, params }) {
         <Providers>
           <Header dict={dict.header} />
           {children}
+          <Footer dict={dict.footer} lang={lang} />
         </Providers>
       </body>
     </html>
