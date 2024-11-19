@@ -70,7 +70,13 @@
     "payments": "Payments",
     "password": "Password",
     "info": "Account Info",
-    "contact": "Contact"
+    "contact": "Contact",
+    "webServices": "Web Services",
+    "consulting": "Consulting",
+    "development": "Development",
+    "webServicesDescription": "We offer a wide range of web services to help your business grow.",
+    "consultingDescription": "Unlock growth with our diverse consulting services.",
+    "developmentDescription": "Elevate your business with our expert development services."
   },
   "home": {
     "hero": "Turn Your Vision Into Digital Reality",

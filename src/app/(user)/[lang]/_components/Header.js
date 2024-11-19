@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { TbUser } from "react-icons/tb";
+import { Lightbulb } from "lucide-react";
 import { useParams } from "next/navigation";
-
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
@@ -26,7 +26,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
-export default function Header({ dict }) {
+export default function Header({ dict, lang }) {
   const [open, setOpen] = useState(false);
   const { data, error, isLoading } = useGetUser();
   const { user } = data || {};
@@ -80,8 +80,39 @@ export default function Header({ dict }) {
                 </button>
               </HoverCardTrigger>
 
-              <HoverCardContent className="w-80" sideOffset={4}>
-                <div className="flex flex-col gap-2">Comming soon...</div>
+              <HoverCardContent className="min-w-[500px] flex gap-4" sideOffset={4}>
+                <Link
+                  href={`/${lang}/dashboard/requests`}
+                  className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
+                >
+                  <Lightbulb size={20} />
+                  <div className="font-bold">{dict?.webServices}</div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {dict?.webServicesDescription}
+                  </p>
+                </Link>
+
+                <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
+                  <Link
+                    href={`/${lang}/dashboard/requests`}
+                    className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                  >
+                    <div className="font-bold">{dict?.consulting}</div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {dict?.consultingDescription}
+                    </p>
+                  </Link>
+
+                  <Link
+                    href={`/${lang}/dashboard/requests`}
+                    className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                  >
+                    <div className="font-bold">{dict?.development}</div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {dict?.developmentDescription}
+                    </p>
+                  </Link>
+                </div>
               </HoverCardContent>
             </HoverCard>
 

@@ -70,7 +70,13 @@
     "payments": "Zahlungen",
     "password": "Passwort",
     "info": "Konto-Infos",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "webServices": "Web-Services",
+    "consulting": "Beratung",
+    "development": "Entwicklung",
+    "webServicesDescription": "Web-Dienstleistungen für Ihr Wachstum.",
+    "consultingDescription": "Wachstum entdecken mit unserer Beratung.",
+    "developmentDescription": "Steigern Sie Ihr Unternehmen mit unserer Entwicklung."
   },
   "home": {
     "hero": "Deine Vision in die digitale Realität verwandeln",
