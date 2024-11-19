@@ -144,6 +144,9 @@
     "buyLooms": "LOOMs kaufen"
   },
   "dashboard": {
+    "joined": "Beigetreten am",
+    "welcome": "Willkommen",
+    "sendRequest": "Anfrage senden um ein Projekt zu erhalten",
     "info": {
       "profileInfo": "Profilinformationen",
       "name": "Name",
