@@ -1,14 +1,12 @@
-import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
 
 export default function Footer({ dict, lang }) {
   return (
-    <div className="z-0 flex flex-col items-center justify-between gap-4 p-4 h-[300px] border-t border-slate-200 dark:border-slate-800">
-      <div className="flex items-center justify-between gap-4 w-full max-w-[1200px] py-4">
-        <div className="flex flex-col gap-3">
-          <Link href={`/${lang}`} className="flex items-center gap-3">
+    <div className="z-0 flex flex-col items-center justify-between gap-4 p-4 h-[300px] border-t border-slate-200 dark:border-slate-800 relative bg-gradient-to-b from-white/50 to-transparent dark:from-sky-900/10 dark:to-transparent rounded-b-3xl">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 w-full max-w-[1200px] py-4">
+        <div className="flex flex-col justify-center items-center md:items-start gap-3 mb-4 md:mb-0 md:ml-4 xl:ml-0">
+          <div className="flex items-center gap-3 pointer-events-none">
             <Image
               src="/images/logo.png"
               width={40}
@@ -17,12 +15,12 @@ export default function Footer({ dict, lang }) {
               priority
               className="saturate-200"
             />
-            <h1 className="text-xl">LogicLoom</h1>
-          </Link>
+            <h1 className="text-xl font-bold">LogicLoom</h1>
+          </div>
           <p>{dict?.description}</p>
         </div>
 
-        <div className="flex gap-10 mr-14">
+        <div className="flex gap-10 md:mr-14">
           <div>
             <h6 className="mb-4">{dict?.socials?.title}</h6>
 
@@ -74,17 +72,7 @@ export default function Footer({ dict, lang }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-end w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
-        {/* <Link
-          href="https://github.com/pakzadjs"
-          target="_blank"
-          className="hover:text-cyan-500 transition-all duration-300 rounded-full"
-        >
-          <BsGithub
-            size={20}
-            className="shadow-lg shadow-cyan-500/50 rounded-full"
-          />
-        </Link> */}
+      <div className="flex items-center md:justify-end justify-center p-4 md:p-0 md:mr-4 xl:mr-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
         <p>{dict?.copyright}</p>
       </div>
     </div>
