@@ -44,9 +44,11 @@ export default function DeleteRequest({ request, dict }) {
   return (
     <Dialog>
       <DialogTrigger className="rounded-full">
-        <div className="p-2 rounded-full text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-400/20 transition duration-300">
-          <X />
-        </div>
+        {request?.status === "pending" && (
+          <div className="p-2 rounded-full text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-400/20 transition duration-300">
+            <X />
+          </div>
+        )}
       </DialogTrigger>
 
       <DialogContent className="sm:rounded-3xl max-w-[700px]">
