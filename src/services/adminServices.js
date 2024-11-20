@@ -42,3 +42,23 @@ export async function removeLoomBalance(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function getLoomPricing() {
+  const token = await useGetToken();
+
+  return http
+    .get("/admin/loom-pricing", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function editLoomPrice(data) {
+  const token = await useGetToken();
+
+  return http
+    .put("/admin/loom-pricing", data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}

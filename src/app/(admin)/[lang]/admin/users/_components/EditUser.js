@@ -1,22 +1,20 @@
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useFormik } from "formik";
 import { Pencil } from "lucide-react";
 import Spinner from "@/components/ui/Spinner";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
 import { editUser } from "@/services/adminServices";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Input } from "@/components/ui/input";
 
 const EditUserSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
