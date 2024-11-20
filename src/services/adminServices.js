@@ -62,3 +62,21 @@ export async function editLoomPrice(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function getPayments() {
+  const token = await useGetToken();
+
+  return http
+    .get("/admin/payments", { headers: { Authorization: `Bearer ${token?.value}` } })
+    .then(({ data }) => data);
+}
+
+export async function getUserPayments(userId) {
+  const token = await useGetToken();
+
+  return http
+    .get(`/admin/users/${userId}/payments`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}

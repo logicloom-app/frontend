@@ -1,4 +1,9 @@
-import { getLoomPricing, getUsers } from "@/services/adminServices";
+import {
+  getLoomPricing,
+  getPayments,
+  getUserPayments,
+  getUsers,
+} from "@/services/adminServices";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetUsers = () =>
@@ -15,4 +20,18 @@ export const useGetLoomPricing = () =>
     queryFn: getLoomPricing,
     retry: false,
     refetchOnWindowFocus: true,
+  });
+
+export const useGetPayments = () =>
+  useQuery({
+    queryKey: ["get-payments"],
+    queryFn: getPayments,
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useGetUserPayments = (userId) =>
+  useQuery({
+    queryKey: ["get-user-payments", userId],
+    queryFn: () => getUserPayments(userId),
   });

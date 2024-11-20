@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import EditUser from "./_components/EditUser";
 import { formatDate } from "@/lib/utils/utils";
 import { useGetUsers } from "@/lib/hooks/useAdmin";
+import UserPayments from "./_components/UserPayments";
 import AddRemoveLoom from "./_components/AddRemoveLoom";
 
 export default function Users() {
@@ -69,6 +70,7 @@ export default function Users() {
                 </td>
                 <td className="flex items-center gap-2 px-4 py-2">
                   <EditUser user={user} />
+                  <UserPayments user={user} />
                   <AddRemoveLoom user={user} />
                 </td>
               </tr>
