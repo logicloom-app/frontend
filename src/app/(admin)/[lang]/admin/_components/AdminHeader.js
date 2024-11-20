@@ -7,25 +7,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Euro,
-  Folder,
-  FolderInput,
-  KeyRound,
-  LayoutDashboard,
-  UserCog,
-} from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
-import { TbUser } from "react-icons/tb";
+import { UserCircle } from "lucide-react";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default function AdminHeader() {
   const [open, setOpen] = useState(false);
@@ -92,6 +80,10 @@ export default function AdminHeader() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
               <ThemeToggle />
+
+              <Link href="/dashboard">
+                <UserCircle />
+              </Link>
             </div>
           </div>
         </div>

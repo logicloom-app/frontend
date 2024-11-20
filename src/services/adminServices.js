@@ -80,3 +80,54 @@ export async function getUserPayments(userId) {
     })
     .then(({ data }) => data);
 }
+
+export async function getRequests() {
+  const token = await useGetToken();
+
+  return http
+    .get("/admin/projects/requests", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminDownloadRequest(userId, fileName) {
+  const token = await useGetToken();
+
+  return http.get(`/admin/projects/download/${userId}?file=${fileName}`, {
+    responseType: "blob",
+    headers: {
+      Authorization: `Bearer ${token?.value}`,
+    },
+  });
+}
+
+export async function adminDeleteRequest(requestId) {
+  const token = await useGetToken();
+
+  return http
+    .delete(`/admin/projects/requests/${requestId}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminUpdateRequest(data) {
+  const token = await useGetToken();
+
+  return http
+    .put(`/admin/projects/requests/status`, data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminCreateProject(data) {
+  const token = await useGetToken();
+
+  return http
+    .post("/admin/projects/create", data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}

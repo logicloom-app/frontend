@@ -2,11 +2,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { sendRequest } from "@/services/ProjectService";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/lib/hooks/use-toast";
+import { useGetUser } from "@/lib/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Spinner from "@/components/ui/Spinner";
+import { useParams } from "next/navigation";
 import { CircleAlert } from "lucide-react";
 import { useFormik } from "formik";
+import Link from "next/link";
 import * as Yup from "yup";
 import {
   Dialog,
@@ -18,9 +21,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useGetUser } from "@/lib/hooks/useAuth";
-import Link from "next/link";
-import { useParams } from "next/navigation";
 
 const RequestSchema = Yup.object().shape({
   title: Yup.string().required("Title is required"),
@@ -73,6 +73,7 @@ export default function SendRequestForm({ dict }) {
     },
     validationSchema: RequestSchema,
     onSubmit: submitHandler,
+    validateOnMount: true,
   });
 
   return (

@@ -1,6 +1,8 @@
 import {
+  adminDownloadRequest,
   getLoomPricing,
   getPayments,
+  getRequests,
   getUserPayments,
   getUsers,
 } from "@/services/adminServices";
@@ -34,4 +36,14 @@ export const useGetUserPayments = (userId) =>
   useQuery({
     queryKey: ["get-user-payments", userId],
     queryFn: () => getUserPayments(userId),
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useAdminGetRequests = () =>
+  useQuery({
+    queryKey: ["get-requests"],
+    queryFn: getRequests,
+    retry: false,
+    refetchOnWindowFocus: true,
   });
