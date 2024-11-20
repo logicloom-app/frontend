@@ -158,9 +158,7 @@ export default function AddRemoveLoom({ user }) {
             <DialogContent className="sm:rounded-3xl max-w-[700px]">
               <DialogHeader>
                 <DialogTitle className="mb-1">Add Loom Balance</DialogTitle>
-                <DialogDescription className="text-sm dark:text-white truncate max-w-[600px]">
-                  {user?.name}
-                </DialogDescription>
+                <DialogDescription className=""></DialogDescription>
               </DialogHeader>
 
               <div
@@ -168,6 +166,13 @@ export default function AddRemoveLoom({ user }) {
                 className="absolute top-4 right-10 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 cursor-pointer"
               >
                 <ArrowRight size={20} />
+              </div>
+
+              <div className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[600px]">
+                <div>{user?.email}</div>
+                <div>
+                  {user?.name} #{user?.id}
+                </div>
               </div>
 
               <form
@@ -209,21 +214,20 @@ export default function AddRemoveLoom({ user }) {
             <DialogContent className="sm:rounded-3xl max-w-[700px]">
               <DialogHeader>
                 <DialogTitle className="mb-1">Remove Loom Balance</DialogTitle>
-                <DialogDescription className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[600px]">
-                  <div>{user?.email}</div>
-                  <div>
-                    {user?.name} #{user?.id}
-                  </div>
-                </DialogDescription>
-              </DialogHeader>
-
+                <DialogDescription className=""></DialogDescription>
+              </DialogHeader>{" "}
               <div
                 onClick={() => setStep(0)}
                 className="absolute top-4 right-10 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 cursor-pointer"
               >
                 <ArrowRight size={20} />
               </div>
-
+              <div className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[600px]">
+                <div>{user?.email}</div>
+                <div>
+                  {user?.name} #{user?.id}
+                </div>
+              </div>
               <form
                 className="flex flex-col gap-5"
                 onSubmit={removeFormik.handleSubmit}
