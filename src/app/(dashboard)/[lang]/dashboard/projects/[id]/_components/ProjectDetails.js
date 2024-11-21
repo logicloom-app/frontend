@@ -155,7 +155,7 @@ export default function ProjectDetails({ dict }) {
                   ? "bg-cyan-500/20 text-cyan-700 dark:bg-cyan-500/50 dark:text-cyan-400"
                   : project?.status === "completed"
                   ? "bg-green-500/20 text-green-700 dark:bg-green-500/50 dark:text-green-400"
-                  : project?.status === "cancelled"
+                  : project?.status === "canceled"
                   ? "bg-red-500/20 text-red-700 dark:bg-red-500/50 dark:text-red-400"
                   : ""
               }`}

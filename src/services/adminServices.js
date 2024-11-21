@@ -131,3 +131,55 @@ export async function adminCreateProject(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function adminGetProjects() {
+  const token = await useGetToken();
+
+  return http
+    .get("/admin/projects/all", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminGetProjectById(projectId) {
+  const token = await useGetToken();
+
+  return http
+    .get(`/admin/projects/${projectId}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminDeleteProject(projectId) {
+  const token = await useGetToken();
+
+  return http
+    .delete(`/admin/projects/${projectId}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminUpdateProjectStatus(data) {
+  const token = await useGetToken();
+
+  return http
+    .put("/admin/projects/status", data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminUpdateProject({ data, projectId }) {
+  const token = await useGetToken();
+
+  console.log(data, projectId);
+
+  return http
+    .put(`/admin/projects/${projectId}`, data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
