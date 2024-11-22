@@ -97,11 +97,11 @@ export default function ProjectDetails({ dict }) {
             <div>
               {project?.demo_status === "ready" ? (
                 <div className="text-sm">
-                  <div className="flex items-center gap-1">
+                  <div className="flex flex-col gap-1 mb-2">
                     <div className="text-gray-500 dark:text-gray-400">
                       {dict?.demo_message}:
                     </div>
-                    <div>{project?.demo_message}</div>
+                    <div className="max-w-[600px]">{project?.demo_message}</div>
                   </div>
 
                   <div className="flex items-center gap-1">

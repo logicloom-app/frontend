@@ -58,7 +58,7 @@ export default function AdminProjectDetails() {
             </div>
 
             {project?.comment ? (
-              <p className="text-sm">{project?.comment}</p>
+              <p className="text-sm max-w-[500px]">{project?.comment}</p>
             ) : (
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 No comment yet
@@ -93,14 +93,14 @@ export default function AdminProjectDetails() {
             <div>
               {project?.demo_status === "ready" ? (
                 <div className="text-sm">
-                  <div className="flex items-center gap-1">
+                  <div className="flex flex-col gap-1 mb-2">
                     <div className="text-gray-500 dark:text-gray-400">
                       Demo message:
                     </div>
-                    <div>{project?.demo_message}</div>
+                    <div className="max-w-[600px]">{project?.demo_message}</div>
                   </div>
 
-                  <div className="flex items-center gap-1">
+                  <div className="flex flex-col gap-1 mb-2">
                     <div className="text-gray-500 dark:text-gray-400">Demo url:</div>
                     <div>
                       <Link

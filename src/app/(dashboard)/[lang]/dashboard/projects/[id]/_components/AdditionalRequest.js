@@ -150,8 +150,8 @@ export default function AdditionalRequest({ project, dict }) {
       case 0:
         return (
           <Dialog>
-            <DialogTrigger className="w-full dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 p-3 rounded-2xl dark:text-black text-white transition-all duration-300">
-              {dict?.additional_request}
+            <DialogTrigger className="w-full text-nowrap dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 p-3 rounded-2xl dark:text-black text-white transition-all duration-300">
+              {dict?.additional_request} ({additionalRequestsData?.length})
             </DialogTrigger>
 
             <DialogContent className="sm:rounded-3xl max-w-[700px] max-h-[600px] overflow-y-auto">

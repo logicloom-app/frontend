@@ -6,7 +6,6 @@ import Spinner from "@/components/ui/Spinner";
 import { Input } from "@/components/ui/input";
 import { formatDate } from "@/lib/utils/utils";
 import { Button } from "@/components/ui/button";
-import { useGetUser } from "@/lib/hooks/useAuth";
 import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAdminGetAdditionalRequests } from "@/lib/hooks/useAdmin";
@@ -42,9 +41,6 @@ export default function AdminAdditionalRequests({ project, dict }) {
   const [step, setStep] = useState(0);
   const queryClient = useQueryClient();
   const { toast } = useToast();
-
-  const { data } = useGetUser();
-  const { user } = data || {};
 
   const { data: additionalRequests } = useAdminGetAdditionalRequests(project?.id);
 
@@ -131,7 +127,7 @@ export default function AdminAdditionalRequests({ project, dict }) {
         return (
           <Dialog>
             <DialogTrigger className="w-full dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 p-3 rounded-2xl dark:text-black text-white transition-all duration-300">
-              Additional Requests
+              Additional Requests ({additionalRequestsData?.length})
             </DialogTrigger>
 
             <DialogContent className="sm:rounded-3xl max-w-[700px] max-h-[600px] overflow-y-auto">
