@@ -5,11 +5,9 @@ import {
   Euro,
   Folder,
   FolderInput,
-  KeyRound,
   LayoutDashboard,
   LogOut,
   User,
-  UserCog,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -128,8 +126,13 @@ export default function AdminSidebar() {
           <div className="flex-col gap-1 p-2 hidden xl:flex">
             <div className="truncate text-sm">{user?.email}</div>
 
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-gray-500 dark:text-gray-400">ID:</span>
+              <span className="text-sm">{user?.id}</span>
+            </div>
+
             <div className="text-xs text-gray-500 dark:text-gray-400">
-              Joined
+              Joined{" "}
               {new Date(user?.created_at).toLocaleDateString("en-DE", {
                 day: "2-digit",
                 month: "2-digit",

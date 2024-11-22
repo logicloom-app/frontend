@@ -1,5 +1,5 @@
 import {
-  adminDownloadRequest,
+  adminAdditionalRequest,
   adminGetProjectById,
   adminGetProjects,
   getLoomPricing,
@@ -62,6 +62,14 @@ export const useAdminGetProjectById = (projectId) =>
   useQuery({
     queryKey: ["admin-get-project-by-id", projectId],
     queryFn: () => adminGetProjectById(projectId),
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useAdminGetAdditionalRequests = (projectId) =>
+  useQuery({
+    queryKey: ["admin-get-additional-requests", projectId],
+    queryFn: () => adminAdditionalRequest(projectId),
     retry: false,
     refetchOnWindowFocus: true,
   });

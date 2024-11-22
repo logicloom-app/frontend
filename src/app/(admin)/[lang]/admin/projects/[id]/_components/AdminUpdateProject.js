@@ -3,6 +3,7 @@ import { adminUpdateProject } from "@/services/adminServices";
 import CreatableSelect from "react-select/creatable";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/lib/hooks/use-toast";
+import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Spinner from "@/components/ui/Spinner";
@@ -24,7 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
 
 const ProjectStatusSchema = Yup.object().shape({
   status: Yup.string().required("Status is required"),
@@ -152,7 +152,7 @@ export default function AdminUpdateProject({ project }) {
 
   return (
     <Dialog>
-      <DialogTrigger className="px-4 py-2 dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 rounded-2xl dark:text-black text-white transition-all duration-300">
+      <DialogTrigger className="w-full p-3 dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 rounded-2xl dark:text-black text-white transition-all duration-300">
         Update project
       </DialogTrigger>
 

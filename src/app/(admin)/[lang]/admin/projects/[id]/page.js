@@ -15,6 +15,7 @@ import { useAdminGetProjectById } from "@/lib/hooks/useAdmin";
 import AdminUpdateProject from "./_components/AdminUpdateProject";
 import AdminDeleteProjectDialog from "./_components/DeleteProjectDialog";
 import AdminUpdateProjectStatus from "./_components/AdminUpdateProjectStatus";
+import AdminAdditionalRequests from "./_components/AdminAdditionalRequests";
 
 export default function AdminProjectDetails() {
   const params = useParams();
@@ -29,7 +30,7 @@ export default function AdminProjectDetails() {
 
   return (
     <div className="w-full h-full p-6 flex lg:flex-row flex-col gap-6 justify-between overflow-auto">
-      <div className="flex flex-col  gap-4 min-h-[300px]">
+      <div className="flex flex-col gap-4 min-h-[300px] xl:min-w-[500px]">
         <div>
           <div className="flex items-center gap-2 md:text-2xl text-xl font-bold mb-4">
             <h2 className="">Project details for</h2>
@@ -44,7 +45,7 @@ export default function AdminProjectDetails() {
 
           <h4 className="md:text-lg text-base">{project?.title}</h4>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400 max-w-[800px]">
+          <p className="text-sm text-gray-500 dark:text-gray-400 xl:max-w-[800px] md:max-w-[500px]">
             {project?.description}
           </p>
         </div>
@@ -185,9 +186,14 @@ export default function AdminProjectDetails() {
           <AdminDeleteProjectDialog project={project} />
         </div>
 
-        <div className="flex items-center gap-2">
-          <AdminUpdateProjectStatus project={project} />
-          <AdminUpdateProject project={project} />
+        <div className="flex flex-col items-center gap-2 w-full">
+          <div className="w-full">
+            <AdminAdditionalRequests project={project} />
+          </div>
+          <div className="flex items-center gap-2 w-full">
+            <AdminUpdateProjectStatus project={project} />
+            <AdminUpdateProject project={project} />
+          </div>
         </div>
       </div>
     </div>

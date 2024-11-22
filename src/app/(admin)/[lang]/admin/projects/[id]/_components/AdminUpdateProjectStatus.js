@@ -67,7 +67,7 @@ export default function AdminUpdateProjectStatus({ project }) {
 
   return (
     <Dialog>
-      <DialogTrigger className="px-4 py-2 dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 rounded-2xl dark:text-black text-white transition-all duration-300">
+      <DialogTrigger className="w-full p-3 dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 rounded-2xl dark:text-black text-white transition-all duration-300">
         Update status
       </DialogTrigger>
 
@@ -76,7 +76,7 @@ export default function AdminUpdateProjectStatus({ project }) {
           <DialogTitle className="mb-1">
             Update project {project?.id} status
           </DialogTitle>
-          <DialogDescription className="text-sm dark:text-white truncate max-w-[600px]">
+          <DialogDescription className="text-sm dark:text-white truncate md:max-w-[600px] max-w-[400px]">
             <span className="text-gray-500">Title:</span> {project?.title}
           </DialogDescription>
         </DialogHeader>

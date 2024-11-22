@@ -183,3 +183,31 @@ export async function adminUpdateProject({ data, projectId }) {
     })
     .then(({ data }) => data);
 }
+
+export async function adminAdditionalRequest(projectId) {
+  const token = await useGetToken();
+
+  return http
+    .get(`/admin/projects/${projectId}/additional-requests`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminUpdateAdditionalRequestStatus(data) {
+  const token = await useGetToken();
+
+  return http
+    .put("/admin/projects/additional-requests/status", data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function adminDeleteAdditionalRequest(requestId) {
+  const token = await useGetToken();
+
+  return http.delete(`/admin/projects/additional-requests/${requestId}`, {
+    headers: { Authorization: `Bearer ${token?.value}` },
+  });
+}
