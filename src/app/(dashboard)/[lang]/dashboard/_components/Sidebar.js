@@ -123,6 +123,11 @@ export default function DashboardSidebar({ dict, lang }) {
           <div className="flex-col gap-1 p-2 hidden xl:flex">
             <div className="truncate text-sm">{user?.email}</div>
 
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-gray-500 dark:text-gray-400">ID:</span>
+              <span className="text-sm">{user?.id}</span>
+            </div>
+
             <div className="text-xs text-gray-500 dark:text-gray-400">
               {dict?.joined}{" "}
               {new Date(user?.created_at).toLocaleDateString("en-DE", {

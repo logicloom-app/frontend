@@ -59,7 +59,7 @@ export default function ProjectsList({ dict }) {
 
   return (
     <div className="h-[calc(100vh-7rem)] overflow-y-auto relative w-full p-2 md:p-4 lg:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
         {projects?.map((project) => (
           <MagicCard
             key={project?.id}

@@ -34,7 +34,7 @@ export default function ProjectDetails({ dict }) {
 
   return (
     <div className="w-full h-full p-6 flex lg:flex-row flex-col gap-6 justify-between overflow-auto">
-      <div className="flex flex-col  gap-4 min-h-[300px]">
+      <div className="flex flex-col gap-4 min-h-[300px] xl:min-w-[500px]">
         <div>
           <div className="flex items-center gap-2 md:text-2xl text-xl font-bold mb-4">
             <h2 className="">{dict?.project_details_for}</h2>
@@ -49,7 +49,7 @@ export default function ProjectDetails({ dict }) {
 
           <h4 className="md:text-lg text-base">{project?.title}</h4>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-400 xl:max-w-[800px] md:max-w-[500px]">
             {project?.description}
           </p>
         </div>

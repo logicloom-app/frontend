@@ -127,9 +127,11 @@ export async function deleteAdditionalRequest(requestId) {
 export async function getAdditionalRequests(projectId, userId) {
   const token = await useGetToken();
 
-  return http.get(`/projects/additional-requests/${projectId}/${userId}`, {
-    headers: { Authorization: `Bearer ${token?.value}` },
-  });
+  return http
+    .get(`/projects/additional-requests/${projectId}/${userId}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
 }
 
 export async function payForAdditionalRequest(data) {

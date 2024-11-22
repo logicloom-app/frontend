@@ -38,7 +38,7 @@ export default function PayForProjectDialog({ project, dict }) {
   });
 
   const payForProjectHandler = async () => {
-    await mutatePayForProject(project?.id, months);
+    await mutatePayForProject(project?.id);
   };
 
   return (

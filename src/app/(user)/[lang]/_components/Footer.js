@@ -27,7 +27,7 @@ export default function Footer({ dict, lang }) {
 
             <div className="flex flex-col gap-2">
               <Link
-                href={`mailto:info@logicloom.de`}
+                href={`mailto:support@logicloom.app`}
                 className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
               >
                 {dict?.socials?.email}

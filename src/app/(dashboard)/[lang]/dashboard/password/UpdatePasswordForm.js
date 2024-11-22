@@ -66,7 +66,7 @@ export default function UpdatePasswordForm({ dict }) {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="flex flex-col gap-5 max-w-2xl mx-auto"
+      className="flex flex-col gap-5 max-w-2xl mx-auto px-4 lg:px-0"
     >
       <h3 className="text-2xl font-bold">{dict?.title}</h3>
 

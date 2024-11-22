@@ -44,7 +44,7 @@ export default function AdditionalRequest({ project, dict }) {
     user?.id
   );
 
-  const additionalRequestsData = additionalRequests?.data?.additional_requests || [];
+  const additionalRequestsData = additionalRequests?.additional_requests || [];
 
   const { isLoading, mutateAsync: mutateAdditionalRequest } = useMutation({
     mutationFn: additionalRequest,
@@ -227,25 +227,33 @@ export default function AdditionalRequest({ project, dict }) {
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                          <span className="text-gray-500 dark:text-gray-400">
-                            {dict?.price}:
-                          </span>
-                          <span className="text-xs md:text-base capitalize">
-                            {request?.price === 0
-                              ? dict?.the_price_is_not_set_yet
-                              : `€${request?.price}`}
-                          </span>
-                          {request?.price > 0 && (
-                            <span
-                              className={`text-sm ${
-                                request?.paid ? "text-green-500" : "text-red-500"
-                              }`}
-                            >
-                              {request?.paid ? dict?.paid : dict?.unpaid}
+                        {request?.status !== "rejected" && (
+                          <div className="flex items-center gap-2">
+                            <span className="text-gray-500 dark:text-gray-400">
+                              {dict?.price}:
                             </span>
-                          )}
-                        </div>
+                            <span className="text-xs md:text-base capitalize">
+                              {request?.price === 0
+                                ? dict?.the_price_is_not_set_yet
+                                : null}
+
+                              {request?.status === "accepted" && (
+                                <span className="text-sm text-green-500">
+                                  €{request?.price}
+                                </span>
+                              )}
+                            </span>
+                            {request?.price > 0 && (
+                              <span
+                                className={`text-sm ${
+                                  request?.paid ? "text-green-500" : "text-red-500"
+                                }`}
+                              >
+                                {request?.paid ? dict?.paid : dict?.unpaid}
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       <div className="text-sm mb-2 max-w-[400px] md:max-w-[600px] overflow-hidden text-ellipsis">
@@ -266,7 +274,10 @@ export default function AdditionalRequest({ project, dict }) {
                         </span>
                       </div>
 
-                      {request?.paid || request?.price === 0 ? null : (
+                      {request?.paid ||
+                      request?.price === 0 ||
+                      request?.status === "rejected" ||
+                      request?.status === "pending" ? null : (
                         <Button
                           variant="custom"
                           className="rounded-2xl"
