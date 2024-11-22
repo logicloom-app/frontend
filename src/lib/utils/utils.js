@@ -15,6 +15,7 @@ export async function getUserDataMiddleware(request) {
       headers: {
         Authorization: `Bearer ${accessToken?.value}`,
       },
+      credentials: "include",
     }).then((res) => res.json());
 
     return userData;
