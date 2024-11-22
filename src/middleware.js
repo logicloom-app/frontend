@@ -44,6 +44,12 @@ export async function middleware(request) {
     }
   }
 
+  if (pathname.startsWith(`/${locale}/admin`)) {
+    if (!user?.role !== "admin") {
+      return NextResponse.redirect(new URL(`/${locale}/dashboard`, url));
+    }
+  }
+
   if (pathnameHasLocale) return;
 
   request.nextUrl.pathname = `/${locale}${pathname}`;
@@ -57,5 +63,6 @@ export const config = {
     "/auth",
     "/dashboard/:path*",
     "/loom/:path*",
+    "/admin/:path*",
   ],
 };
