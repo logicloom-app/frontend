@@ -43,7 +43,8 @@ export default function PaypalPayment({ formik, dict }) {
 
   return (
     <Button
-      disabled={!formik.isValid || isPendingCreatePaypalOrder}
+      // disabled={!formik.isValid || isPendingCreatePaypalOrder}
+      disabled
       className="w-full rounded-2xl font-bold text-lg text-blue-900 bg-yellow-400 dark:bg-yellow-500 hover:bg-yellow-500 dark:hover:bg-yellow-600"
       onClick={createPaypalOrderHandler}
     >

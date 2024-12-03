@@ -137,7 +137,10 @@
     "credit_or_debit_card": "Kredit- oder Debitkarte",
     "amount_total": "Betrag Total",
     "paypal_order_created_successfully": "Paypal-Bestellung erfolgreich erstellt.",
-    "redirecting_to_payment": "Umleitung zur Zahlung..."
+    "redirecting_to_payment": "Umleitung zur Zahlung...",
+    "stripe_order_created_successfully": "Stripe-Bestellung erfolgreich erstellt.",
+    "payment_methods_unavailable": "Zahlungsmethoden sind derzeit nicht verfügbar.",
+    "contact_us_for_purchasing_looms": "Bitte wenden Sie sich an support@logicloom.app für den Kauf von Looms."
   },
   "sidebar": {
     "password": "Passwort",

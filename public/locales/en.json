@@ -138,7 +138,9 @@
     "amount_total": "Amount Total",
     "paypal_order_created_successfully": "Paypal order created successfully.",
     "redirecting_to_payment": "Redirecting to payment...",
-    "stripe_order_created_successfully": "Stripe order created successfully."
+    "stripe_order_created_successfully": "Stripe order created successfully.",
+    "payment_methods_unavailable": "Payment methods are unavailable for now.",
+    "contact_us_for_purchasing_looms": "Please contact us at support@logicloom.app for purchasing looms."
   },
   "sidebar": {
     "password": "Password",

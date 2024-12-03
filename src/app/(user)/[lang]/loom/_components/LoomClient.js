@@ -64,7 +64,14 @@ export default function LoomClient({ dict }) {
 
             <div className="w-full flex flex-col gap-2">
               <StripePayment formik={formik} dict={dict} />
-              {/* <PaypalPayment formik={formik} dict={dict} /> */}
+              <PaypalPayment formik={formik} dict={dict} />
+
+              <div className="flex flex-col items-center justify-center py-4">
+                <p className="">{dict.payment_methods_unavailable}</p>
+                <p className="max-w-[400px]">
+                  {dict.contact_us_for_purchasing_looms}
+                </p>
+              </div>
             </div>
           </div>
         </NeonGradientCard>
