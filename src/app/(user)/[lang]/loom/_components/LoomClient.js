@@ -64,7 +64,7 @@ export default function LoomClient({ dict }) {
 
             <div className="w-full flex flex-col gap-2">
               <StripePayment formik={formik} dict={dict} />
-              <PaypalPayment formik={formik} dict={dict} />
+              {/* <PaypalPayment formik={formik} dict={dict} /> */}
             </div>
           </div>
         </NeonGradientCard>
