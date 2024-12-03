@@ -42,7 +42,7 @@ export default function Footer({ dict, lang }) {
               </Link>
 
               <Link
-                href={`https://github.com/pakzadjs`}
+                href={`https://github.com/logicloom-app`}
                 target="_blank"
                 className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
               >

@@ -45,7 +45,7 @@ export async function middleware(request) {
   }
 
   if (pathname.startsWith(`/${locale}/admin`)) {
-    if (!user?.role !== "admin") {
+    if (user?.role !== "admin") {
       return NextResponse.redirect(new URL(`/${locale}/dashboard`, url));
     }
   }

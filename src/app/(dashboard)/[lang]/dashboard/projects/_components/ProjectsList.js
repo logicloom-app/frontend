@@ -53,12 +53,15 @@ export default function ProjectsList({ dict }) {
     );
   }
 
-  if (projects?.length === 0) {
-    return <div>{dict?.no_projects}</div>;
-  }
-
   return (
     <div className="h-[calc(100vh-7rem)] overflow-y-auto relative w-full p-2 md:p-4 lg:p-6">
+      {projects?.length === 0 ||
+        (!projects && (
+          <div className="w-full p-10 flex items-center justify-center text-center">
+            <p className="text-gray-500">{dict?.no_projects}</p>
+          </div>
+        ))}
+        
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
         {projects?.map((project) => (
           <MagicCard
@@ -125,6 +128,10 @@ export default function ProjectsList({ dict }) {
             </div>
           </MagicCard>
         ))}
+
+        <div className="w-full p-10 flex items-center justify-center">
+          <p className="text-gray-500">{dict?.no_requests}</p>
+        </div>
       </div>
     </div>
   );

@@ -176,7 +176,8 @@
       "createdAt": "Erstellt am",
       "updatedAt": "Aktualisiert am",
       "currency": "Währung",
-      "payment": "Zahlung"
+      "payment": "Zahlung",
+      "no_payments": "Keine Zahlungen gefunden"
     },
     "requests": {
       "id": "ID",

@@ -80,6 +80,16 @@ export default function PaymentsList({ dict }) {
     return contentHeight > containerHeight;
   };
 
+  if (payments?.length === 0 || !payments) {
+    return (
+      <div className="w-full h-[calc(100vh-7rem)] overflow-y-auto relative">
+        <div className="w-full p-14 flex justify-center">
+          <p className="text-gray-500">{dict?.no_payments}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="w-full h-[calc(100vh-7rem)] overflow-y-auto relative"
