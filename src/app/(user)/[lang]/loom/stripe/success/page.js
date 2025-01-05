@@ -25,7 +25,7 @@ function StripeSuccessContent() {
 
   return (
     <div>
-      <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+      <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh] h-[calc(100vh-300px)]">
         <Spinner className="w-10 h-10" />
         <div>Processing...</div>
       </div>
@@ -38,14 +38,16 @@ export default function StripeSuccess() {
     <Suspense
       fallback={
         <div>
-          <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+          <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh] h-[calc(100vh-300px)]">
             <Spinner className="w-10 h-10" />
             <div>Processing...</div>
           </div>
         </div>
       }
     >
-      <StripeSuccessContent />
+      <div className="h-[calc(100vh-300px)]">
+        <StripeSuccessContent />
+      </div>
     </Suspense>
   );
 }
