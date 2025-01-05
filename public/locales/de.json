@@ -88,8 +88,8 @@
       "description": "Die digitale Herausforderung",
       "revenueGrowth": {
         "title": "Umsatz- und Wachstumsschwierigkeiten",
-        "1": "Potentielle Kunden an Wettbewerber verlieren, die eine bessere Online-Präsenz haben",
-        "2": "Wertvolle Leads aufgrund schlechter Website-Leistung verpassen",
+        "1": "Kunden an Wettbewerber mit besserer Online-Präsenz verlieren",
+        "2": "Leads wegen schlechter Website-Leistung verpassen",
         "3": "Hohe Absprungraten aufgrund schlechter Benutzererfahrung",
         "4": "Mobile Benutzer schwer zu navigieren",
         "5": "Beschränkte Fähigkeit, Geschäftsprozesse digital zu skalieren",
@@ -98,8 +98,8 @@
       },
       "technicalSecurity": {
         "title": "Technische & Sicherheitsprobleme",
-        "1": "Veraltete Website, die anfällig für Cyber-Bedrohungen und Angriffe ist",
-        "2": "Langsame Ladezeiten, die Besucher frustrieren und die SEO beeinträchtigen",
+        "1": "Veraltete Website, anfällig für Cyber-Bedrohungen und Angriffe",
+        "2": "Langsame Ladezeiten frustrieren Besucher und beeinträchtigen die SEO",
         "3": "Systeme nicht integriert, was zu operativen Ineffizienzen führt",
         "4": "Datenmanagement wird immer komplexer",
         "5": "Website-Abstürze bei Spitzenverkehrszeiten",
