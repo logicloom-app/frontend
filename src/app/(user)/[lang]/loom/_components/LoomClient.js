@@ -67,10 +67,10 @@ export default function LoomClient({ dict }) {
               <PaypalPayment formik={formik} dict={dict} />
 
               <div className="flex flex-col items-center justify-center py-4">
-                <p className="">{dict.payment_methods_unavailable}</p>
+                {/* <p className="">{dict.payment_methods_unavailable}</p>
                 <p className="max-w-[400px]">
                   {dict.contact_us_for_purchasing_looms}
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
