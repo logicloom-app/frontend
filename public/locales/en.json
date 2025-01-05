@@ -130,6 +130,7 @@
     }
   },
   "loom": {
+    "contact_page": "Contact Page",
     "purchase_looms": "Purchase Looms",
     "one_euro_equals_five_looms": "1 Euro = 5 Looms",
     "amount_in_euros": "Amount (€)",
@@ -140,7 +141,7 @@
     "redirecting_to_payment": "Redirecting to payment...",
     "stripe_order_created_successfully": "Stripe order created successfully.",
     "payment_methods_unavailable": "Payment methods are unavailable for now.",
-    "contact_us_for_purchasing_looms": "Please contact us at support@logicloom.app for purchasing looms."
+    "contact_us_for_purchasing_looms": "Please contact us for purchasing looms."
   },
   "sidebar": {
     "password": "Password",
@@ -280,6 +281,8 @@
   },
   "contact": {
     "title": "Contact",
-    "sendEmail": "Send us an email at"
+    "sendEmail": "Send us an email at",
+    "sendMessage": "Send a Message on",
+    "or": "or"
   }
 }

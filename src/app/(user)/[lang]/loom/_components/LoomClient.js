@@ -1,13 +1,19 @@
 "use client";
 
 import * as Yup from "yup";
+import Link from "next/link";
 import { useFormik } from "formik";
 import PaypalPayment from "./PaypalPayment";
 import StripePayment from "./StripePayment";
+import { useParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { TbArrowNarrowRight } from "react-icons/tb";
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 
 export default function LoomClient({ dict }) {
+  const { lang } = useParams();
+
   const formik = useFormik({
     initialValues: {
       amount: 1,
@@ -67,10 +73,17 @@ export default function LoomClient({ dict }) {
               <PaypalPayment formik={formik} dict={dict} />
 
               <div className="flex flex-col items-center justify-center py-4">
-                {/* <p className="">{dict.payment_methods_unavailable}</p>
+                <p className="">{dict.payment_methods_unavailable}</p>
                 <p className="max-w-[400px]">
                   {dict.contact_us_for_purchasing_looms}
-                </p> */}
+                </p>
+
+                <Link href={`/${lang}/contact`} className="w-full">
+                  <Button className="mt-4 px-5 rounded-full">
+                    <span>{dict?.contact_page}</span>
+                    <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
