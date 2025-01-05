@@ -10,7 +10,7 @@ import { GridPattern } from "@/components/ui/animated-grid-pattern";
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 
 export default function AuthPageClient({ dict }) {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [step, setStep] = useState(0);
   const { theme } = useTheme();
   const cardSize =

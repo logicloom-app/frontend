@@ -59,7 +59,7 @@ function AuthCallbackContent() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+      <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh] h-[calc(100vh-300px)]">
         <Spinner className="w-10 h-10" />
         <div>Loading...</div>
       </div>
@@ -73,13 +73,15 @@ export default function AuthCallback() {
   return (
     <Suspense
       fallback={
-        <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh]">
+        <div className="flex flex-col gap-2 items-center justify-center min-h-[50vh] h-[calc(100vh-300px)]">
           <Spinner className="w-10 h-10" />
           <div>Loading...</div>
         </div>
       }
     >
-      <AuthCallbackContent />
+      <div className="h-[calc(100vh-300px)]">
+        <AuthCallbackContent />
+      </div>
     </Suspense>
   );
 }

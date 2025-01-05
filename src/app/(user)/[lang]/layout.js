@@ -25,7 +25,7 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body className={poppins.className}>
+      <body className={`${poppins.className}`}>
         <Providers>
           <Header dict={dict.header} lang={lang} />
           {children}

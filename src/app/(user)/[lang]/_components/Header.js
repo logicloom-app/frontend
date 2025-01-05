@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { TbUser } from "react-icons/tb";
-import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -34,7 +34,7 @@ export default function Header({ dict, lang }) {
 
   const logoutHandler = async () => {
     await deleteCookies("access_token", "refresh_token");
-    window.location.reload();
+    document.location.href = "/";
   };
 
   return (

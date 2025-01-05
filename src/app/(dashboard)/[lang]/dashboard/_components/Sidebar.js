@@ -7,7 +7,7 @@ import {
   KeyRound,
   LayoutDashboard,
   LogOut,
-  UserCog,
+  UserPen,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -27,7 +27,7 @@ export default function DashboardSidebar({ dict, lang }) {
 
   const logoutHandler = async () => {
     await deleteCookies("access_token", "refresh_token");
-    window.location.reload();
+    document.location.href = "/";
   };
 
   return (
@@ -114,7 +114,7 @@ export default function DashboardSidebar({ dict, lang }) {
                 : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
             }`}
           >
-            <UserCog />
+            <UserPen />
             <span className="hidden xl:block text-nowrap">{dict?.info}</span>
           </Link>
         </div>

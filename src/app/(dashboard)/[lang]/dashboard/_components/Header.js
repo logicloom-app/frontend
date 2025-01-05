@@ -215,14 +215,12 @@ export default function DashboardHeader({ dict, lang }) {
           <div className="flex items-center gap-6">
             <div>
               {user?.role === "admin" && (
-                <Link
-                  href="/admin"
-                  className="hover:bg-sky-400/10 rounded-full px-3 py-2"
-                >
-                  <span className="text-transparent">A</span>
+                <Link href="/admin" className="rounded-full p-2">
+                  <UserCog size={20} />
                 </Link>
               )}
             </div>
+
             <div className="flex items-center gap-1 py-2 px-6 bg-gray-500/20 dark:bg-gray-400/20 rounded-2xl text-nowrap">
               <span className="text-sm text-gray-500 dark:text-gray-400">
                 {dict?.yourBalance}:
