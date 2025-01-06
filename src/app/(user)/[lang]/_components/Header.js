@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { TbUser } from "react-icons/tb";
 import { useParams } from "next/navigation";
+import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
@@ -33,7 +33,7 @@ export default function Header({ dict, lang }) {
   const params = useParams();
 
   const logoutHandler = async () => {
-    await deleteCookies("access_token", "refresh_token");
+    await logout();
     document.location.href = "/";
   };
 

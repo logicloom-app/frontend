@@ -18,9 +18,9 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { UserCircle } from "lucide-react";
+import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function AdminHeader() {
@@ -29,8 +29,8 @@ export default function AdminHeader() {
   const { user } = data || {};
 
   const logoutHandler = async () => {
-    await deleteCookies("access_token", "refresh_token");
-    window.location.reload();
+    await logout();
+    document.location.href = "/";
   };
 
   return (

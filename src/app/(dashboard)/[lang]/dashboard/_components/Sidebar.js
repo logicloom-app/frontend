@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { useParams, usePathname } from "next/navigation";
-import { deleteCookies } from "@/lib/utils/deleteCookies";
 
 export default function DashboardSidebar({ dict, lang }) {
   const { id } = useParams();
@@ -26,7 +26,7 @@ export default function DashboardSidebar({ dict, lang }) {
   };
 
   const logoutHandler = async () => {
-    await deleteCookies("access_token", "refresh_token");
+    await logout();
     document.location.href = "/";
   };
 

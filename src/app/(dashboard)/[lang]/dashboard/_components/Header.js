@@ -19,9 +19,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { TbUser } from "react-icons/tb";
+import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { deleteCookies } from "@/lib/utils/deleteCookies";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,8 +33,8 @@ export default function DashboardHeader({ dict, lang }) {
   const { user } = data || {};
 
   const logoutHandler = async () => {
-    await deleteCookies("access_token", "refresh_token");
-    window.location.reload();
+    await logout();
+    document.location.href = "/";
   };
 
   return (
