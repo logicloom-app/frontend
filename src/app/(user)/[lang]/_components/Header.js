@@ -221,7 +221,7 @@ export default function Header({ dict, lang }) {
                   </HoverCardTrigger>
 
                   <HoverCardContent
-                    className="min-w-[500px] flex gap-4"
+                    className="min-w-[500px] flex gap-4 max-md:w-full max-md:flex-col"
                     sideOffset={4}
                   >
                     <Link

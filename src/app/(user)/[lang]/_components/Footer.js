@@ -1,6 +1,7 @@
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+
 import Image from "next/image";
 import Link from "next/link";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export default function Footer({ dict, lang }) {
   return (
@@ -47,14 +48,6 @@ export default function Footer({ dict, lang }) {
                 className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
               >
                 Github
-              </Link>
-
-              <Link
-                href={`https://www.freelancer.com/u/pakzadjs`}
-                target="_blank"
-                className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
-              >
-                Freelancer.com
               </Link>
             </div>
           </div>

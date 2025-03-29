@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   Cable,
   CodeXml,
@@ -11,6 +10,7 @@ import {
   TrendingUpDown,
 } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
 import { MagicCard2 } from "@/components/ui/magic-card2";
 import GradualSpacing from "@/components/ui/gradual-spacing";
@@ -52,16 +52,22 @@ export default function HomeSections({ dict, lang }) {
                     className="p-6 bg-pink-500/20 text-pink-500 rounded-full inline-block"
                   >
                     <ul
-                      className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base ${
+                      className={`dark:text-gray-300 text-gray-600 max-xl:text-sm max-lg:text-base ${
                         lang === "de" && "text-sm"
                       }`}
                     >
                       <li>{dict.commonChallenges.revenueGrowth[1]}</li>
-                      <li>{dict.commonChallenges.revenueGrowth[2]}</li>
+                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
+                        {dict.commonChallenges.revenueGrowth[2]}
+                      </li>
                       <li>{dict.commonChallenges.revenueGrowth[3]}</li>
-                      <li>{dict.commonChallenges.revenueGrowth[4]}</li>
+                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
+                        {dict.commonChallenges.revenueGrowth[4]}
+                      </li>
                       <li>{dict.commonChallenges.revenueGrowth[5]}</li>
-                      <li>{dict.commonChallenges.revenueGrowth[6]}</li>
+                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
+                        {dict.commonChallenges.revenueGrowth[6]}
+                      </li>
                       <li>{dict.commonChallenges.revenueGrowth[7]}</li>
                     </ul>
                   </MagicCard2>
@@ -84,16 +90,22 @@ export default function HomeSections({ dict, lang }) {
                     className="p-6 bg-cyan-500/20 text-cyan-500 rounded-full inline-block"
                   >
                     <ul
-                      className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base ${
+                      className={`dark:text-gray-300 text-gray-600 max-xl:text-sm max-lg:text-base ${
                         lang === "de" && "text-sm"
                       }`}
                     >
                       <li>{dict.commonChallenges.technicalSecurity[1]}</li>
-                      <li>{dict.commonChallenges.technicalSecurity[2]}</li>
+                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
+                        {dict.commonChallenges.technicalSecurity[2]}
+                      </li>
                       <li>{dict.commonChallenges.technicalSecurity[3]}</li>
-                      <li>{dict.commonChallenges.technicalSecurity[4]}</li>
+                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
+                        {dict.commonChallenges.technicalSecurity[4]}
+                      </li>
                       <li>{dict.commonChallenges.technicalSecurity[5]}</li>
-                      <li>{dict.commonChallenges.technicalSecurity[6]}</li>
+                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
+                        {dict.commonChallenges.technicalSecurity[6]}
+                      </li>
                       <li>{dict.commonChallenges.technicalSecurity[7]}</li>
                     </ul>
                   </MagicCard2>
