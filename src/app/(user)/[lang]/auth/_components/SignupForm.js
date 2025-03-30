@@ -61,7 +61,7 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
         <div className="flex-grow border-t border-zinc-700"></div>
       </div>
 
-      <form className="flex flex-col gap-5 md:p-10 py-4 my-4">
+      <form className="flex flex-col gap-5 md:p-10 py-4 my-4 md:my-0">
         <Input
           type="text"
           id="name"
