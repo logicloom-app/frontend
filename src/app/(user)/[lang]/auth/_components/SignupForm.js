@@ -1,5 +1,7 @@
-import { useToast } from "@/lib/hooks/use-toast";
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/lib/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "@tanstack/react-query";
 import { generateOtp } from "@/services/authService";
@@ -41,6 +43,22 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
       <div className="flex flex-col px-10 pt-10 my-4">
         <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
         <p className="text-base">{dict?.welcome}</p>
+      </div>
+
+      <Link
+        href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google`}
+        className="inline-flex justify-center items-center gap-3 rounded-2xl px-6 py-3 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 hover:dark:bg-zinc-700/80 transition-colors duration-300"
+      >
+        <FcGoogle size={30} />
+        <p className="text-base">{dict?.google}</p>
+      </Link>
+
+      <div className="flex items-center mx-10 mt-10">
+        <div className="flex-grow border-t border-zinc-700"></div>
+        <span className="mx-4 text-sm text-zinc-400">
+          {dict?.or || "or"} {dict?.email}
+        </span>
+        <div className="flex-grow border-t border-zinc-700"></div>
       </div>
 
       <form className="flex flex-col gap-5 md:p-10 py-4 my-4">

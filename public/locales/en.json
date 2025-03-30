@@ -21,6 +21,7 @@
       "submit": "SUBMIT",
       "hasAccount": "Already have an account?",
       "login": "Login",
+      "google": "Register with Google",
       "verify": {
         "title": "Verify your account",
         "description": "Please enter the OTP sent to your email.",

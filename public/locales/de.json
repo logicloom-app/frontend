@@ -21,6 +21,7 @@
       "submit": "ABSENDEN",
       "hasAccount": "Sie haben bereits ein Konto?",
       "login": "Anmelden",
+      "google": "Mit Google registrieren",
       "verify": {
         "title": "Konto bestätigen",
         "description": "Bitte geben Sie den an Ihre E-Mail gesendeten OTP-Code ein.",

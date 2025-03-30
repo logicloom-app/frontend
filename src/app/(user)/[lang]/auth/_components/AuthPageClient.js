@@ -10,14 +10,14 @@ import { GridPattern } from "@/components/ui/animated-grid-pattern";
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 
 export default function AuthPageClient({ dict }) {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [step, setStep] = useState(0);
   const { theme } = useTheme();
   const cardSize =
     step === 0 ? "max-w-[500px] max-h-[600px]" : "max-w-[450px] max-h-[400px]";
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center sm:h-[100vh] h-[80vh] mb-20">
       <div className="flex justify-center items-center">
         <NeonGradientCard
           className={`items-center justify-center text-center ${cardSize}`}
