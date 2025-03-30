@@ -284,5 +284,41 @@
     "sendEmail": "Senden Sie uns eine E-Mail an",
     "sendMessage": "Senden Sie uns eine Nachricht auf",
     "or": "oder"
+  },
+  "services": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Wir bieten eine Reihe von professionellen Dienstleistungen an, um Ihrem Unternehmen in der digitalen Landschaft zum Erfolg zu verhelfen.",
+    "sendRequest": "Anfrage senden",
+    "service1": {
+      "title": "Softwareentwicklung",
+      "description": "Maßgeschneiderte Softwarelösungen für Ihre Geschäftsanforderungen"
+    },
+    "service2": {
+      "title": "Webentwicklung",
+      "description": "Responsive und moderne Webanwendungen"
+    },
+    "service3": {
+      "title": "Mobile Entwicklung",
+      "description": "Native und plattformübergreifende mobile Anwendungen"
+    },
+    "service4": {
+      "title": "KI-Lösungen",
+      "description": "Intelligente Automatisierungs- und Datenanalyselösungen"
+    },
+    "whyChooseUs": {
+      "title": "Warum uns wählen",
+      "reason1": {
+        "title": "Fachkompetenz",
+        "description": "Unser Team besteht aus erfahrenen Fachleuten mit fundiertem Know-how in verschiedenen Technologien."
+      },
+      "reason2": {
+        "title": "Maßgeschneiderte Lösungen",
+        "description": "Wir erstellen maßgeschneiderte Lösungen, die Ihre spezifischen Geschäftsherausforderungen adressieren."
+      },
+      "reason3": {
+        "title": "Support",
+        "description": "Wir bieten kontinuierliche Unterstützung und Wartung für alle unsere Dienstleistungen."
+      }
+    }
   }
 }

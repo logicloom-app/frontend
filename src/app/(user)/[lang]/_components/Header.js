@@ -3,10 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { TbUser } from "react-icons/tb";
 import { useParams } from "next/navigation";
 import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
+import { TbArrowRight, TbUser } from "react-icons/tb";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
@@ -35,6 +35,18 @@ export default function Header({ dict, lang }) {
   const logoutHandler = async () => {
     await logout();
     document.location.href = "/";
+  };
+
+  const handleMouseEnter = (e) => {
+    const div = e.currentTarget.querySelector("div");
+    div.style.transition = "transform 0.5s";
+    div.style.transform = "translateX(70%)";
+  };
+
+  const handleMouseLeave = (e) => {
+    const div = e.currentTarget.querySelector("div");
+    div.style.transition = "transform 0.5s";
+    div.style.transform = "translateX(0)";
   };
 
   return (
@@ -80,39 +92,56 @@ export default function Header({ dict, lang }) {
                 </button>
               </HoverCardTrigger>
 
-              <HoverCardContent className="min-w-[500px] flex gap-4" sideOffset={4}>
-                <Link
-                  href={`/${lang}/dashboard/requests`}
-                  className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
-                >
-                  <Lightbulb size={20} />
-                  <div className="font-bold">{dict?.webServices}</div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {dict?.webServicesDescription}
-                  </p>
-                </Link>
-
-                <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
+              <HoverCardContent className="min-w-[500px]" sideOffset={4}>
+                <div className="flex gap-4">
                   <Link
-                    href={`/${lang}/dashboard/requests`}
-                    className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                    href={`/${lang}/services`}
+                    className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
                   >
-                    <div className="font-bold">{dict?.consulting}</div>
+                    <Lightbulb size={20} />
+                    <div className="font-bold">{dict?.webServices}</div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {dict?.consultingDescription}
+                      {dict?.webServicesDescription}
                     </p>
                   </Link>
 
-                  <Link
-                    href={`/${lang}/dashboard/requests`}
-                    className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
-                  >
-                    <div className="font-bold">{dict?.development}</div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {dict?.developmentDescription}
-                    </p>
-                  </Link>
+                  <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
+                    <Link
+                      href={`/${lang}/dashboard/requests`}
+                      className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                    >
+                      <div className="font-bold">{dict?.consulting}</div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {dict?.consultingDescription}
+                      </p>
+                    </Link>
+
+                    <Link
+                      href={`/${lang}/dashboard/requests`}
+                      className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
+                    >
+                      <div className="font-bold">{dict?.development}</div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {dict?.developmentDescription}
+                      </p>
+                    </Link>
+                  </div>
                 </div>
+
+                <Link
+                  href={`/${lang}/services`}
+                  className="flex mt-4 gap-2 items-center p-4 rounded-3xl w-full hover:bg-sky-100 dark:hover:bg-sky-900/20 bg-gray-100 dark:bg-gray-900/20 transition-all duration-300 group"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="flex items-center w-full mx-6 gap-1">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Find out more
+                    </p>
+
+                    <TbArrowRight size={20} className="" />
+                  </div>
+                </Link>
               </HoverCardContent>
             </HoverCard>
 
@@ -212,52 +241,13 @@ export default function Header({ dict, lang }) {
                   </Link>
                 )}
 
-                <HoverCard openDelay={0} closeDelay={0}>
-                  <HoverCardTrigger asChild>
-                    <button className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300">
-                      <Code2 size={20} strokeWidth={3} />
-                      {dict?.services}
-                    </button>
-                  </HoverCardTrigger>
-
-                  <HoverCardContent
-                    className="min-w-[500px] flex gap-4 max-md:w-full max-md:flex-col"
-                    sideOffset={4}
-                  >
-                    <Link
-                      href={`/${lang}/dashboard/requests`}
-                      className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
-                    >
-                      <Lightbulb size={20} />
-                      <div className="font-bold">{dict?.webServices}</div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {dict?.webServicesDescription}
-                      </p>
-                    </Link>
-
-                    <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
-                      <Link
-                        href={`/${lang}/dashboard/requests`}
-                        className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
-                      >
-                        <div className="font-bold">{dict?.consulting}</div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {dict?.consultingDescription}
-                        </p>
-                      </Link>
-
-                      <Link
-                        href={`/${lang}/dashboard/requests`}
-                        className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
-                      >
-                        <div className="font-bold">{dict?.development}</div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {dict?.developmentDescription}
-                        </p>
-                      </Link>
-                    </div>
-                  </HoverCardContent>
-                </HoverCard>
+                <Link
+                  href={`/${lang}/services`}
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                >
+                  <Code2 size={20} strokeWidth={3} />
+                  {dict?.services}
+                </Link>
 
                 <Link
                   href={`/${lang}/contact`}

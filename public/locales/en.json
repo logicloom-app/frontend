@@ -284,5 +284,41 @@
     "sendEmail": "Send us an email at",
     "sendMessage": "Send a Message on",
     "or": "or"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer a range of professional services to help your business thrive in the digital landscape.",
+    "sendRequest": "Send a Request",
+    "service1": {
+      "title": "Software Development",
+      "description": "Custom software solutions tailored to your business needs"
+    },
+    "service2": {
+      "title": "Web Development",
+      "description": "Responsive and modern web applications"
+    },
+    "service3": {
+      "title": "Mobile Development",
+      "description": "Native and cross-platform mobile applications"
+    },
+    "service4": {
+      "title": "AI Solutions",
+      "description": "Intelligent automation and data analysis solutions"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "reason1": {
+        "title": "Expertise",
+        "description": "Our team consists of experienced professionals with deep expertise in various technologies."
+      },
+      "reason2": {
+        "title": "Custom Solutions",
+        "description": "We create tailored solutions that address your specific business challenges."
+      },
+      "reason3": {
+        "title": "Support",
+        "description": "We provide ongoing support and maintenance for all our services."
+      }
+    }
   }
 }
