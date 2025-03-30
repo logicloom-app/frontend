@@ -46,7 +46,8 @@ export default function StripePayment({ formik, dict }) {
   return (
     <Button
       onClick={createStripeOrderHandler}
-      disabled={!formik.isValid}
+      // disabled={!formik.isValid}
+      disabled
       className="w-full rounded-2xl font-bold text-lg"
     >
       {dict.credit_or_debit_card}

@@ -72,7 +72,7 @@ export default function LoomClient({ dict }) {
               <StripePayment formik={formik} dict={dict} />
               <PaypalPayment formik={formik} dict={dict} />
 
-              {/* <div className="flex flex-col items-center justify-center py-4">
+              <div className="flex flex-col items-center justify-center py-4">
                 <p className="">{dict.payment_methods_unavailable}</p>
                 <p className="max-w-[400px]">
                   {dict.contact_us_for_purchasing_looms}
@@ -84,7 +84,7 @@ export default function LoomClient({ dict }) {
                     <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
                   </Button>
                 </Link>
-              </div> */}
+              </div>
             </div>
           </div>
         </NeonGradientCard>
