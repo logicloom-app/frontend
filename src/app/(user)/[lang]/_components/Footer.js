@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer({ dict, lang }) {
   return (
-    <div className="z-0 flex flex-col items-center justify-between gap-4 p-4 h-[300px] border-t border-slate-200 dark:border-slate-800 relative bg-gradient-to-b from-white/50 to-transparent dark:from-sky-900/10 dark:to-transparent rounded-b-3xl">
+    <div className="z-0 flex flex-col items-center justify-between gap-4 p-4 h-auto border-t border-slate-200 dark:border-slate-800 relative bg-gradient-to-b from-white to-transparent dark:from-sky-900/10 dark:to-transparent rounded-b-3xl">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 w-full max-w-[1200px] py-4">
         <div className="flex flex-col justify-center items-center md:items-start gap-3 mb-4 md:mb-0 md:ml-4 xl:ml-0">
           <div className="flex items-center gap-3 pointer-events-none">
@@ -66,8 +66,8 @@ export default function Footer({ dict, lang }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between p-4 md:p-0 md:px-4 xl:px-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
-        <div className="flex items-center gap-2 ">
+      <div className="flex flex-col md:flex-row items-center justify-between p-4 md:p-0 md:px-4 xl:px-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 mb-2 md:mb-0">
           <Link
             href={`https://www.linkedin.com/in/pakzadjs/`}
             target="_blank"
@@ -83,7 +83,9 @@ export default function Footer({ dict, lang }) {
             <FaGithub size={18} />
           </Link>
         </div>
-        <p>{dict?.copyright}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 text-center md:text-left">
+          © {new Date().getFullYear()} LogicLoom. All rights reserved.
+        </p>
       </div>
     </div>
   );

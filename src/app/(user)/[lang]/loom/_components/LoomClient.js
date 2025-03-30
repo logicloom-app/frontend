@@ -28,7 +28,7 @@ export default function LoomClient({ dict }) {
   });
 
   return (
-    <div className="flex justify-center items-center h-[80vh]">
+    <div className="flex justify-center items-center h-[80vh] my-10">
       <div className="flex flex-col items-center justify-center gap-4 max-[400px]:gap-0">
         <h2 className="text-2xl font-bold">{dict.purchase_looms}</h2>
 
