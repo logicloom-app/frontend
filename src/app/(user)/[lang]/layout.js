@@ -4,6 +4,7 @@ import Footer from "./_components/Footer";
 import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";
 import { getDictionary } from "@/lib/utils/dictionary";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const poppins = Poppins({
   weight: ["300", "400", "600", "700"],
@@ -27,6 +28,7 @@ export default async function RootLayout({ children, params }) {
     <html lang={lang} suppressHydrationWarning>
       <body className={`${poppins.className}`}>
         <Providers>
+          <GoogleAnalytics />
           <Header dict={dict.header} lang={lang} />
           {children}
           <Footer dict={dict.footer} lang={lang} />
