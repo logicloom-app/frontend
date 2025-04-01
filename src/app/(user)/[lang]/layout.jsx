@@ -1,4 +1,5 @@
 import "../../globals.css";
+import { Suspense } from "react";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { Poppins } from "next/font/google";
@@ -28,7 +29,9 @@ export default async function RootLayout({ children, params }) {
     <html lang={lang} suppressHydrationWarning>
       <body className={`${poppins.className}`}>
         <Providers>
-          <GoogleAnalytics />
+          <Suspense>
+            <GoogleAnalytics />
+          </Suspense>
           <Header dict={dict.header} lang={lang} />
           {children}
           <Footer dict={dict.footer} lang={lang} />
