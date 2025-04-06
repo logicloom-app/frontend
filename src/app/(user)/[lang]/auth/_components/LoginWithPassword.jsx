@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
+import Spinner from "@/components/ui/Spinner";
 import { login } from "@/services/authService";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
@@ -30,7 +31,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const { isLoading, mutateAsync: mutateLogin } = useMutation({
+  const { isPending, mutateAsync: mutateLogin } = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
       toast({
@@ -38,7 +39,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
         className: "rounded-2xl",
       });
 
-      router.push("/");
+      router.back();
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
     },
     onError: (error) => {
@@ -127,7 +128,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
             variant="custom"
             className="mb-2"
           >
-            {dict?.submit}
+            {isPending ? <Spinner className="w-4 h-4" /> : dict?.submit}
           </Button>
 
           <div>

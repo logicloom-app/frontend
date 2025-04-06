@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { useToast } from "@/lib/hooks/use-toast";
+import Spinner from "@/components/ui/Spinner";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/lib/hooks/use-toast";
 import { register } from "@/services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
@@ -10,7 +11,7 @@ export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
   const { toast } = useToast();
   const [otp, setOtp] = useState("");
 
-  const { isLoading, mutateAsync: mutateRegister } = useMutation({
+  const { isPending, mutateAsync: mutateRegister } = useMutation({
     mutationFn: register,
     onSuccess: (data) => {
       setIsLogin(true);
@@ -102,7 +103,7 @@ export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
           type="submit"
           className="w-full"
         >
-          {dict?.verify?.submit}
+          {isPending ? <Spinner className="w-4 h-4" /> : dict?.verify?.submit}
         </Button>
       </form>
     </>

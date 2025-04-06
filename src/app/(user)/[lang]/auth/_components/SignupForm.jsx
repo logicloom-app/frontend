@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import Spinner from "@/components/ui/Spinner";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/lib/hooks/use-toast";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { generateOtp } from "@/services/authService";
 
 export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }) {
   const { toast } = useToast();
 
-  const { isLoading, mutateAsync: mutateGenerateOtp } = useMutation({
+  const { isPending, mutateAsync: mutateGenerateOtp } = useMutation({
     mutationFn: generateOtp,
     onSuccess: (data) => {
       toast({
@@ -116,7 +117,7 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
           className=""
           onClick={handleUserInfo}
         >
-          {dict?.submit}
+          {isPending ? <Spinner className="w-4 h-4" /> : dict?.submit}
         </Button>
 
         <p className="text-sm">
