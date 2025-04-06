@@ -9,15 +9,50 @@ import {
   ShieldAlert,
   TrendingUpDown,
 } from "lucide-react";
+import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
+import { TbArrowNarrowRight } from "react-icons/tb";
+import { IconCloud } from "@/components/ui/icon-cloud";
 import { MagicCard2 } from "@/components/ui/magic-card2";
 import GradualSpacing from "@/components/ui/gradual-spacing";
+
+const slugs = [
+  "typescript",
+  "javascript",
+  "rust",
+  "react",
+  "go",
+  "android",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "prisma",
+  "postgresql",
+  "firebase",
+  "nginx",
+  "vercel",
+  "testinglibrary",
+  "jest",
+  "expo",
+  "docker",
+  "git",
+  "django",
+  "github",
+  "gitlab",
+  "androidstudio",
+  "python",
+  "figma",
+];
 
 export default function HomeSections({ dict, lang }) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
+
+  const images = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
 
   useEffect(() => {
     setIsMounted(true);
@@ -114,7 +149,7 @@ export default function HomeSections({ dict, lang }) {
             </div>
           </div>
 
-          <div className="relative z-10 mb-10">
+          <div className="relative z-10">
             <div className="absolute -inset-14 bg-sky-500/10 blur-3xl -z-10 rounded-[200px]" />
             <div className="flex flex-col sm:flex-row text-2xl md:text-4xl items-center justify-center gap-2">
               {dict.solution.title} <GradualSpacing text={dict.solution.title2} />
@@ -197,6 +232,28 @@ export default function HomeSections({ dict, lang }) {
                   </BlurFade>
                 </ul>
               </div>
+            </div>
+          </div>
+
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 z-10 -mt-20 mb-20 md:mb-10">
+            <div className="flex items-center justify-center w-full">
+              <IconCloud images={images} />
+            </div>
+
+            <div className="flex items-center justify-center gap-4 pointer-events-auto">
+              <Link href={`/${lang}/request`} className="relative group">
+                <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">
+                    <div className="relative z-10 flex items-center space-x-2">
+                      <span className="transition-all duration-500 group-hover:translate-x-1 text-nowrap">
+                        {dict?.sendRequest}
+                      </span>
+                      <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                    </div>
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
         </>
@@ -313,6 +370,22 @@ export default function HomeSections({ dict, lang }) {
                 </ul>
               </div>
             </div>
+          </div>
+
+          <div className="flex items-center justify-center mb-10 gap-4 pointer-events-auto">
+            <Link href={`/${lang}/request`} className="relative group">
+              <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+                <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">
+                  <div className="relative z-10 flex items-center space-x-2">
+                    <span className="transition-all duration-500 group-hover:translate-x-1">
+                      {dict?.sendRequest}
+                    </span>
+                    <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                  </div>
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       )}

@@ -1,41 +1,11 @@
 "use client";
 
+import { AnimatedBeamComponent } from "../../_components/AnimatedBeam";
 import { BiBrain, BiCodeAlt, BiGlobe, BiMobile } from "react-icons/bi";
-import { IconCloud } from "@/components/ui/icon-cloud";
+import { TbArrowNarrowRight } from "react-icons/tb";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { TbArrowNarrowRight } from "react-icons/tb";
-
-const slugs = [
-  "typescript",
-  "javascript",
-  "rust",
-  "react",
-  "go",
-  "android",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "prisma",
-  "postgresql",
-  "firebase",
-  "nginx",
-  "vercel",
-  "testinglibrary",
-  "jest",
-  "expo",
-  "docker",
-  "git",
-  "django",
-  "github",
-  "gitlab",
-  "androidstudio",
-  "python",
-  "figma",
-];
 
 export default function ServicesClient({ dict, lang }) {
   const { theme } = useTheme();
@@ -44,8 +14,6 @@ export default function ServicesClient({ dict, lang }) {
   useEffect(() => {
     setIsClient(true);
   }, []);
-
-  const images = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
 
   const services = [
     {
@@ -86,7 +54,7 @@ export default function ServicesClient({ dict, lang }) {
   ];
 
   return (
-    <div className="container mx-auto px-8 py-16">
+    <div className="container mx-auto px-8 mt-16">
       {isClient &&
         (theme === "dark" ? (
           <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-30" />
@@ -163,7 +131,7 @@ export default function ServicesClient({ dict, lang }) {
         </div>
 
         {/* Send Request Button */}
-        <div className="flex items-center gap-4 pointer-events-auto justify-center mt-12">
+        <div className="flex items-center gap-4 pointer-events-auto justify-center mt-14">
           <Link href={`/${lang}/request`} className="relative group">
             <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
@@ -181,7 +149,7 @@ export default function ServicesClient({ dict, lang }) {
       </div>
 
       <div className="relative flex size-full items-center justify-center overflow-hidden">
-        <IconCloud images={images} />
+        <AnimatedBeamComponent />
       </div>
     </div>
   );

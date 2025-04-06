@@ -42,25 +42,31 @@ export default function Footer({ dict, lang }) {
                 LinkedIn
               </Link>
 
-              <Link
+              {/* <Link
                 href={`https://github.com/logicloom-app`}
                 target="_blank"
                 className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
               >
                 Github
-              </Link>
+              </Link> */}
             </div>
           </div>
 
           <div>
             <h6 className="mb-4">{dict?.legal?.title}</h6>
 
-            <div className="text-sm text-slate-500 dark:text-slate-400 mb-2 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300">
-              <Link href="#">{dict?.legal?.terms}</Link>
-            </div>
+            <div className="flex flex-col gap-2">
+              <div className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300">
+                <Link href="#">{dict?.legal?.terms}</Link>
+              </div>
 
-            <div className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300">
-              <Link href="#">{dict?.legal?.privacy}</Link>
+              <div className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300">
+                <Link href="#">{dict?.legal?.privacy}</Link>
+              </div>
+
+              <div className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300">
+                <Link href="#">{dict?.legal?.imprint}</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -68,13 +74,6 @@ export default function Footer({ dict, lang }) {
 
       <div className="flex flex-col md:flex-row items-center justify-between p-4 md:p-0 md:px-4 xl:px-0 w-full max-w-[1200px] gap-2 text-sm text-slate-500 dark:text-slate-400">
         <div className="flex items-center gap-2 mb-2 md:mb-0">
-          <Link
-            href={`https://www.linkedin.com/in/pakzadjs/`}
-            target="_blank"
-            className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300"
-          >
-            <FaLinkedinIn size={18} />
-          </Link>
           <Link
             href={`https://github.com/pakzadjs`}
             target="_blank"

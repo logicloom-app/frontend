@@ -278,8 +278,9 @@
     },
     "legal": {
       "title": "LEGAL",
-      "terms": "Terms",
-      "privacy": "Privacy"
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "imprint": "Imprint"
     },
     "copyright": "Copyright © 2024 LogicLoom. All Rights Reserved."
   },

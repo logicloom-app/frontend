@@ -175,8 +175,6 @@ export async function adminUpdateProjectStatus(data) {
 export async function adminUpdateProject({ data, projectId }) {
   const token = await useGetToken();
 
-  console.log(data, projectId);
-
   return http
     .put(`/admin/projects/${projectId}`, data, {
       headers: { Authorization: `Bearer ${token?.value}` },
