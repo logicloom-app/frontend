@@ -77,7 +77,8 @@
     "development": "Entwicklung",
     "webServicesDescription": "Web-Dienstleistungen für Ihr Wachstum.",
     "consultingDescription": "Wachstum entdecken mit unserer Beratung.",
-    "developmentDescription": "Steigern Sie Ihr Unternehmen mit unserer Entwicklung."
+    "developmentDescription": "Steigern Sie Ihr Unternehmen mit unserer Entwicklung.",
+    "addPhoneNumber": "Telefonnummer hinzufügen"
   },
   "home": {
     "hero": "Deine Vision in die digitale Realität verwandeln",

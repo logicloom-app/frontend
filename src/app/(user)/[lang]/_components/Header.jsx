@@ -6,11 +6,11 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
-import { TbArrowRight, TbUser } from "react-icons/tb";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
+import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -296,8 +296,11 @@ export default function Header({ dict, lang }) {
           {user ? (
             <Popover>
               <PopoverTrigger asChild>
-                <div className="p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
+                <div className="relative p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
                   <TbUser size={20} strokeWidth={3} />
+                  {!user?.phone_number && (
+                    <span className="absolute top-0 left-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                  )}
                 </div>
               </PopoverTrigger>
 
@@ -333,7 +336,17 @@ export default function Header({ dict, lang }) {
                   </div>
                 </div>
 
-                <Link href="/loom" className="w-full rounded-2xl">
+                {!user?.phone_number && (
+                  <Link
+                    href={`/${lang}/dashboard/info`}
+                    className="inline-flex h-11 w-full gap-2 text-sm text-nowrap items-center justify-center rounded-2xl px-8 py-2 font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors mb-4"
+                  >
+                    <TbExclamationCircle size={24} className="text-red-500" />
+                    {dict?.addPhoneNumber}
+                  </Link>
+                )}
+
+                <Link href={`/${lang}/loom`} className="w-full rounded-2xl">
                   <RainbowButton className="w-full rounded-2xl">
                     {dict?.buyLooms}
                   </RainbowButton>

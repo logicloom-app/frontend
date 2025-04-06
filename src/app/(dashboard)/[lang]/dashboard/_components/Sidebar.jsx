@@ -108,7 +108,7 @@ export default function DashboardSidebar({ dict, lang }) {
 
           <Link
             href={`/${lang}/dashboard/info`}
-            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
+            className={`relative flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
               isActive("/dashboard/info")
                 ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
                 : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
@@ -116,6 +116,12 @@ export default function DashboardSidebar({ dict, lang }) {
           >
             <UserPen />
             <span className="hidden xl:block text-nowrap">{dict?.info}</span>
+
+            {!user?.phone_number && (
+              <span className="absolute right-4 animate-pulse text-red-500 font-bold">
+                !
+              </span>
+            )}
           </Link>
         </div>
 

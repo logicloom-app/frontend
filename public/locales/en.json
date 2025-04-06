@@ -77,7 +77,8 @@
     "development": "Development",
     "webServicesDescription": "We offer a wide range of web services to help your business grow.",
     "consultingDescription": "Unlock growth with our diverse consulting services.",
-    "developmentDescription": "Elevate your business with our expert development services."
+    "developmentDescription": "Elevate your business with our expert development services.",
+    "addPhoneNumber": "Add your phone number"
   },
   "home": {
     "hero": "Turn Your Vision Into Digital Reality",
