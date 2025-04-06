@@ -39,10 +39,10 @@ export default function SendRequestForm({ dict }) {
   const { toast } = useToast();
   const { lang } = useParams();
 
-  const { data: userData, isLoading: isLoadingUser } = useGetUser();
+  const { data: userData, isPending: isLoadingUser } = useGetUser();
   const { user } = userData || {};
 
-  const { isLoading, mutateAsync: mutateSendRequest } = useMutation({
+  const { isPending: isLoading, mutateAsync: mutateSendRequest } = useMutation({
     mutationFn: sendRequest,
     onSuccess: (data) => {
       toast({
@@ -85,9 +85,7 @@ export default function SendRequestForm({ dict }) {
       <DialogContent className="sm:rounded-3xl max-w-[700px]">
         <DialogHeader>
           <DialogTitle>{dict?.sendRequest}</DialogTitle>
-          <DialogDescription>
-            Send a request to the admin to get a project.
-          </DialogDescription>
+          <DialogDescription>{dict?.sendRequestDescription}</DialogDescription>
         </DialogHeader>
 
         {user?.whatsapp_link || user?.phone_number ? (

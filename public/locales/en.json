@@ -84,6 +84,7 @@
     "hero": "Turn Your Vision Into Digital Reality",
     "heroDescription": "Powerful Web Solutions for Growing Businesses",
     "getStarted": "Get Started",
+    "sendRequest": "Send a Request",
     "SubheadingDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
     "commonChallenges": {
       "title": "Common Business Challenges",
@@ -206,7 +207,8 @@
       "deleteDialogTitle": "Delete Request with ID",
       "delete": "Delete",
       "summaryDescription": "Please provide a summary of the project description and details",
-      "fileDescription": "Please provide a comprehensive project description and details in PDF format"
+      "fileDescription": "Please provide a comprehensive project description and details in PDF format",
+      "sendRequestDescription": "Send a request to the admin to get a project."
     },
     "projects": {
       "accept": "Accept",
@@ -322,5 +324,17 @@
         "description": "We provide ongoing support and maintenance for all our services."
       }
     }
+  },
+  "request": {
+    "title": "Title",
+    "description": "Description",
+    "file": "File",
+    "accountInfo": "Account Info",
+    "send": "Send Request",
+    "summaryDescription": "Please provide a summary of the project description and details",
+    "fileDescription": "Please provide a comprehensive project description and details in PDF format",
+    "sendRequest": "Send a Request",
+    "addContactInfo": "Please add your contact information in your profile to send a request",
+    "sendRequestDescription": "Send a request to the admin to get a project."
   }
 }

@@ -38,6 +38,12 @@ export async function middleware(request) {
     }
   }
 
+  if (pathname.startsWith(`/${locale}/request`)) {
+    if (!user?.is_active) {
+      return NextResponse.redirect(new URL(`/${locale}/auth`, url));
+    }
+  }
+
   if (pathname.startsWith(`/${locale}/dashboard`)) {
     if (!user?.is_active) {
       return NextResponse.redirect(new URL(`/${locale}/auth`, url));

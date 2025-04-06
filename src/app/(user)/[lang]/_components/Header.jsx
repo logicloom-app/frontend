@@ -107,7 +107,7 @@ export default function Header({ dict, lang }) {
 
                   <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
                     <Link
-                      href={`/${lang}/dashboard/requests`}
+                      href={`/${lang}/request`}
                       className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
                     >
                       <div className="font-bold">{dict?.consulting}</div>
@@ -117,7 +117,7 @@ export default function Header({ dict, lang }) {
                     </Link>
 
                     <Link
-                      href={`/${lang}/dashboard/requests`}
+                      href={`/${lang}/request`}
                       className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
                     >
                       <div className="font-bold">{dict?.development}</div>
