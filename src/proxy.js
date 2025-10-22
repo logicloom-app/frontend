@@ -15,7 +15,7 @@ function getLocale(request) {
   return locale;
 }
 
-export async function middleware(request) {
+export async function proxy(request) {
   const url = request.url;
   const { pathname } = request.nextUrl;
   const locale = getLocale(request);

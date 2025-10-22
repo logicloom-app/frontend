@@ -36,3 +36,7 @@ export async function updatePassword(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function sendContactMessage(data) {
+  return http.post("/contact", data).then(({ data }) => data);
+}

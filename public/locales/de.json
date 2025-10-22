@@ -84,6 +84,7 @@
     "hero": "Deine Vision in die digitale Realität verwandeln",
     "heroDescription": "Leistungsstarke Web-Lösungen für wachsende Unternehmen",
     "getStarted": "Loslegen",
+    "contactUs": "Kontaktiere uns",
     "sendRequest": "Eine Anfrage senden",
     "SubheadingDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität",
     "commonChallenges": {
@@ -288,7 +289,16 @@
     "title": "Kontakt",
     "sendEmail": "Senden Sie uns eine E-Mail an",
     "sendMessage": "Senden Sie uns eine Nachricht auf",
-    "or": "oder"
+    "or": "oder",
+    "description": "Erzählen Sie uns von Ihrem Projekt, wir werden uns so schnell wie möglich melden.",
+    "name": "Name",
+    "company": "Firma",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "contactDescription": "Über Ihr Projekt",
+    "send": "Nachricht senden",
+    "sendContactRequest": "Kontaktieren Sie uns",
+    "sendContactDescription": "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden."
   },
   "services": {
     "title": "Unsere Dienstleistungen",

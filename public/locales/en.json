@@ -84,6 +84,7 @@
     "hero": "Turn Your Vision Into Digital Reality",
     "heroDescription": "Powerful Web Solutions for Growing Businesses",
     "getStarted": "Get Started",
+    "contactUs": "Contact Us",
     "sendRequest": "Send a Request",
     "SubheadingDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
     "commonChallenges": {
@@ -288,7 +289,16 @@
     "title": "Contact",
     "sendEmail": "Send us an email at",
     "sendMessage": "Send a Message on",
-    "or": "or"
+    "or": "or",
+    "description": "Tell us about your project, we will get back to you as soon as possible.",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "contactDescription": "About your project",
+    "send": "Send Message",
+    "sendContactRequest": "Contact Us",
+    "sendContactDescription": "Fill out the form below and we'll get back to you as soon as possible."
   },
   "services": {
     "title": "Our Services",
