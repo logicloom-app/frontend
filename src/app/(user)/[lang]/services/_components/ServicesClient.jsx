@@ -100,9 +100,9 @@ export default function ServicesClient({ dict, lang }) {
     <div className="min-h-screen">
       {isClient &&
         (theme === "dark" ? (
-          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-30" />
+          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-40" />
         ) : (
-          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-30" />
+          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-40" />
         ))}
 
       <div className="relative z-10">

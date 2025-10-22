@@ -296,9 +296,11 @@
     "email": "Email",
     "phone": "Phone",
     "contactDescription": "About your project",
+    "getInTouch": "Get in Touch",
     "send": "Send Message",
     "sendContactRequest": "Contact Us",
-    "sendContactDescription": "Fill out the form below and we'll get back to you as soon as possible."
+    "sendContactDescription": "Fill out the form below and we'll get back to you as soon as possible.",
+    "sendContactDescription2": "Tell us about your project, requirements, and timeline..."
   },
   "services": {
     "title": "Custom Software Development Services",
