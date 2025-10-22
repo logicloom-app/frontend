@@ -129,7 +129,7 @@ export default function ServicesClient({ dict, lang }) {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
+                className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
               >
                 <div
                   className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -171,7 +171,7 @@ export default function ServicesClient({ dict, lang }) {
               {[1, 2, 3, 4].map((num) => (
                 <div
                   key={num}
-                  className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4">
                     {num}
@@ -190,7 +190,7 @@ export default function ServicesClient({ dict, lang }) {
 
         {/* CTA Section */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white shadow-2xl">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-[35px] p-12 text-center text-white shadow-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               Ready to Build Your Project?
             </h2>

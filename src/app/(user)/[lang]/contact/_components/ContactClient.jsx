@@ -93,10 +93,12 @@ export default function ContactClient({ dict }) {
 
         {/* Contact Form Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white">
-              <h2 className="text-3xl font-bold mb-2">{dict?.getInTouch}</h2>
-              <p className="text-blue-100">{dict?.sendContactDescription2}</p>
+              <h2 className="text-3xl font-bold mb-2 md:ml-4">{dict?.getInTouch}</h2>
+              <p className="text-blue-100 md:ml-4">
+                {dict?.sendContactDescription2}
+              </p>
             </div>
 
             <form onSubmit={formik.handleSubmit} className="p-8 space-y-6">
@@ -110,9 +112,9 @@ export default function ContactClient({ dict }) {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="John Doe"
+                  placeholder={dict?.namePlaceholder}
                   noBorder={true}
-                  className="rounded-xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                  className="rounded-2xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                   onChange={formik.handleChange}
@@ -134,9 +136,9 @@ export default function ContactClient({ dict }) {
                   type="text"
                   id="company"
                   name="company"
-                  placeholder="Your company name"
+                  placeholder={dict?.companyPlaceholder}
                   noBorder={true}
-                  className="rounded-xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                  className="rounded-2xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                   onBlur={formik.handleBlur}
                   value={formik.values.company}
                   onChange={formik.handleChange}
@@ -155,9 +157,9 @@ export default function ContactClient({ dict }) {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="john@example.com"
+                    placeholder={dict?.emailPlaceholder}
                     noBorder={true}
-                    className="rounded-xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                    className="rounded-2xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -179,7 +181,7 @@ export default function ContactClient({ dict }) {
                     type="tel"
                     id="phone"
                     name="phone"
-                    placeholder="+49 123 456 789"
+                    placeholder={dict?.phonePlaceholder}
                     noBorder={true}
                     className="rounded-xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                     onBlur={formik.handleBlur}
@@ -203,8 +205,8 @@ export default function ContactClient({ dict }) {
                 <Textarea
                   id="description"
                   name="description"
-                  placeholder="Tell us about your project, requirements, and timeline..."
-                  className="rounded-xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors min-h-[150px]"
+                  placeholder={dict?.sendContactDescription2}
+                  className="rounded-2xl px-4 py-3 border-2 focus:border-blue-500 dark:focus:border-blue-400 transition-colors min-h-[150px]"
                   onBlur={formik.handleBlur}
                   value={formik.values.description}
                   onChange={formik.handleChange}
@@ -221,7 +223,7 @@ export default function ContactClient({ dict }) {
               <button
                 type="submit"
                 disabled={!formik.isValid || isLoading}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold px-8 py-4 rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl disabled:hover:scale-100 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-2">
@@ -238,7 +240,7 @@ export default function ContactClient({ dict }) {
 
         {/* Info Cards */}
         <div className="max-w-4xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <TbMail className="w-6 h-6 text-white" />
             </div>
@@ -248,7 +250,7 @@ export default function ContactClient({ dict }) {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <TbPhone className="w-6 h-6 text-white" />
             </div>
@@ -256,7 +258,7 @@ export default function ContactClient({ dict }) {
             <p className="text-sm text-gray-600 dark:text-gray-400">not available</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-[35px] p-6 text-center shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <TbMessageCircle className="w-6 h-6 text-white" />
             </div>

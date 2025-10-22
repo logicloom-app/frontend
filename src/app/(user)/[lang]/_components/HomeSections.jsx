@@ -8,14 +8,15 @@ import {
   MonitorCheck,
   ShieldAlert,
   TrendingUpDown,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
-import { TbArrowNarrowRight } from "react-icons/tb";
+import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
 import { IconCloud } from "@/components/ui/icon-cloud";
-import { MagicCard2 } from "@/components/ui/magic-card2";
 import GradualSpacing from "@/components/ui/gradual-spacing";
 
 const slugs = [
@@ -59,321 +60,332 @@ export default function HomeSections({ dict, lang }) {
   }, []);
 
   return (
-    <div className="relative md:mt-10 px-5 flex flex-col gap-10 w-full items-center overflow-hidden rounded-lg bg-background pointer-events-none">
+    <div className="relative md:mt-10 px-5 flex flex-col gap-20 w-full items-center overflow-hidden rounded-lg bg-background">
       {isMounted ? (
         <>
-          <div>
-            <h3 className="text-center text-2xl md:text-4xl">
-              {dict.commonChallenges.title}
-            </h3>
-            <h4 className="text-center text-xl md:text-2xl text-gray-400">
-              {dict.commonChallenges.description}
-            </h4>
+          {/* Challenges Section */}
+          <div className="w-full max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-5xl lg:h-[55px] font-bold mb-4 bg-gradient-to-r from-pink-600 to-cyan-600 dark:from-pink-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                {dict.commonChallenges.title}
+              </h3>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+                {dict.commonChallenges.description}
+              </p>
+            </div>
 
-            <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-12 p-4 my-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <BlurFade delay={0.1} inView as="div">
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <div className="p-3 bg-pink-500/20 text-pink-500 rounded-full inline-block">
-                    <TrendingUpDown size={24} />
+                <div className="group bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl">
+                      <TrendingUpDown size={32} className="text-white" />
+                    </div>
+                    <h5 className="text-2xl font-bold">
+                      {dict.commonChallenges.revenueGrowth.title}
+                    </h5>
                   </div>
 
-                  <h5 className="font-bold text-lg mb-2">
-                    {dict.commonChallenges.revenueGrowth.title}
-                  </h5>
-
-                  <MagicCard2
-                    gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
-                    gradientOpacity={0.8}
-                    className="p-6 bg-pink-500/20 text-pink-500 rounded-full inline-block"
-                  >
-                    <ul
-                      className={`dark:text-gray-300 text-gray-600 max-xl:text-sm max-lg:text-base ${
-                        lang === "de" && "text-sm"
-                      }`}
-                    >
-                      <li>{dict.commonChallenges.revenueGrowth[1]}</li>
-                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
-                        {dict.commonChallenges.revenueGrowth[2]}
+                  <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                      <li key={num} className="flex items-start gap-3">
+                        <TbCheck className="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base">
+                          {dict.commonChallenges.revenueGrowth[num]}
+                        </span>
                       </li>
-                      <li>{dict.commonChallenges.revenueGrowth[3]}</li>
-                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
-                        {dict.commonChallenges.revenueGrowth[4]}
-                      </li>
-                      <li>{dict.commonChallenges.revenueGrowth[5]}</li>
-                      <li className="max-md:dark:text-sky-200/80 max-md:text-sky-700">
-                        {dict.commonChallenges.revenueGrowth[6]}
-                      </li>
-                      <li>{dict.commonChallenges.revenueGrowth[7]}</li>
-                    </ul>
-                  </MagicCard2>
+                    ))}
+                  </ul>
                 </div>
               </BlurFade>
 
               <BlurFade delay={0.2} inView as="div">
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <div className="p-3 bg-cyan-500/20 text-cyan-500 rounded-full inline-block">
-                    <ShieldAlert size={24} />
+                <div className="group bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/10 dark:to-blue-900/10 rounded-3xl p-8 border-2 border-cyan-200 dark:border-cyan-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
+                      <ShieldAlert size={32} className="text-white" />
+                    </div>
+                    <h5 className="text-2xl font-bold">
+                      {dict.commonChallenges.technicalSecurity.title}
+                    </h5>
                   </div>
 
-                  <h5 className="font-bold text-lg mb-2">
-                    {dict.commonChallenges.technicalSecurity.title}
-                  </h5>
-
-                  <MagicCard2
-                    gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
-                    gradientOpacity={0.8}
-                    className="p-6 bg-cyan-500/20 text-cyan-500 rounded-full inline-block"
-                  >
-                    <ul
-                      className={`dark:text-gray-300 text-gray-600 max-xl:text-sm max-lg:text-base ${
-                        lang === "de" && "text-sm"
-                      }`}
-                    >
-                      <li>{dict.commonChallenges.technicalSecurity[1]}</li>
-                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
-                        {dict.commonChallenges.technicalSecurity[2]}
+                  <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                      <li key={num} className="flex items-start gap-3">
+                        <TbCheck className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base">
+                          {dict.commonChallenges.technicalSecurity[num]}
+                        </span>
                       </li>
-                      <li>{dict.commonChallenges.technicalSecurity[3]}</li>
-                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
-                        {dict.commonChallenges.technicalSecurity[4]}
-                      </li>
-                      <li>{dict.commonChallenges.technicalSecurity[5]}</li>
-                      <li className="max-md:dark:text-rose-200/80 max-md:text-rose-900">
-                        {dict.commonChallenges.technicalSecurity[6]}
-                      </li>
-                      <li>{dict.commonChallenges.technicalSecurity[7]}</li>
-                    </ul>
-                  </MagicCard2>
+                    ))}
+                  </ul>
                 </div>
               </BlurFade>
             </div>
           </div>
 
-          <div className="relative z-10">
-            <div className="absolute -inset-14 bg-sky-500/10 blur-3xl -z-10 rounded-[200px]" />
-            <div className="flex flex-col sm:flex-row text-2xl md:text-4xl items-center justify-center gap-2">
-              {dict.solution.title} <GradualSpacing text={dict.solution.title2} />
+          {/* Solution Section */}
+          <div className="w-full max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="flex flex-col sm:flex-row text-3xl md:text-5xl font-bold items-center justify-center gap-2 mb-4">
+                <span>{dict.solution.title}</span>
+                <GradualSpacing
+                  text={dict.solution.title2}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent"
+                />
+              </div>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                {dict.solution.description}
+              </p>
             </div>
 
-            <h4 className="text-center sm:text-xl dark:text-gray-300 text-gray-600">
-              {dict.solution.description}
-            </h4>
-
-            <div className="flex flex-col justify-center p-4 my-4">
-              <div>
-                <h5 className="font-bold text-lg mb-4">
-                  {dict.solution.professionalDevelopment.title}
-                </h5>
-
-                <ul className="dark:text-gray-300 text-gray-600 flex flex-col gap-2 mb-10 max-md:text-sm max-sm:text-xs">
-                  <BlurFade
-                    className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-                    as="li"
-                    delay={0.2}
-                    inView
-                  >
-                    <div className="p-2 bg-yellow-500 rounded-full text-white">
-                      <CodeXml size={16} />
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 auto-rows-fr">
+              <BlurFade delay={0.1} inView as="div" className="h-full">
+                <div className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  {/* Icon at top left, not spanning full row */}
+                  <div className="mb-4 flex items-center">
+                    <div className="p-3 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl mr-3">
+                      <CodeXml size={24} className="text-white" />
                     </div>
-
+                    {/* empty span for alignment (could add title if needed) */}
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
                     {dict.solution.professionalDevelopment[1]}
-                  </BlurFade>
+                  </p>
+                </div>
+              </BlurFade>
 
-                  <BlurFade
-                    className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-                    as="li"
-                    delay={0.24}
-                    inView
-                  >
-                    <div className="p-2 bg-rose-500 rounded-full text-white">
-                      <MonitorCheck size={16} />
+              <BlurFade delay={0.15} inView as="div" className="h-full">
+                <div className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="mb-4 flex items-center">
+                    <div className="p-3 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl mr-3">
+                      <MonitorCheck size={24} className="text-white" />
                     </div>
-
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
                     {dict.solution.professionalDevelopment[2]}
-                  </BlurFade>
+                  </p>
+                </div>
+              </BlurFade>
 
-                  <BlurFade
-                    className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-                    as="li"
-                    delay={0.28}
-                    inView
-                  >
-                    <div className="p-2 bg-blue-500 rounded-full text-white">
-                      <Grid2x2Check size={16} />
+              <BlurFade delay={0.2} inView as="div" className="h-full">
+                <div className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="mb-4 flex items-center">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl mr-3">
+                      <Grid2x2Check size={24} className="text-white" />
                     </div>
-
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
                     {dict.solution.professionalDevelopment[3]}
-                  </BlurFade>
+                  </p>
+                </div>
+              </BlurFade>
 
-                  <BlurFade
-                    className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-                    as="li"
-                    delay={0.32}
-                    inView
-                  >
-                    <div className="p-2 bg-emerald-500 rounded-full text-white">
-                      <FileSearch size={16} />
+              <BlurFade delay={0.25} inView as="div" className="h-full">
+                <div className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="mb-4 flex items-center">
+                    <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl mr-3">
+                      <FileSearch size={24} className="text-white" />
                     </div>
-
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
                     {dict.solution.professionalDevelopment[4]}
-                  </BlurFade>
+                  </p>
+                </div>
+              </BlurFade>
 
-                  <BlurFade
-                    className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
-                    as="li"
-                    delay={0.36}
-                    inView
-                  >
-                    <div className="p-2 bg-violet-600 rounded-full text-white">
-                      <Cable size={16} />
+              <BlurFade delay={0.3} inView as="div" className="h-full">
+                <div className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="mb-4 flex items-center">
+                    <div className="p-3 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl mr-3">
+                      <Cable size={24} className="text-white" />
                     </div>
-
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300">
                     {dict.solution.professionalDevelopment[5]}
-                  </BlurFade>
-                </ul>
-              </div>
+                  </p>
+                </div>
+              </BlurFade>
+
+              <BlurFade delay={0.35} inView as="div" className="h-full">
+                <div className="group bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full flex items-center justify-center">
+                  <Link
+                    href={`/${lang}/contact`}
+                    className="pointer-events-auto flex flex-col items-center gap-3 text-white"
+                  >
+                    <Zap size={32} className="text-yellow-300" />
+                    <span className="font-semibold text-center">
+                      {dict?.getStartedToday}
+                    </span>
+                    <TbArrowNarrowRight
+                      size={24}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </Link>
+                </div>
+              </BlurFade>
             </div>
           </div>
 
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 z-10 -mt-20 mb-20 md:mb-10">
-            <div className="flex items-center justify-center w-full">
-              <IconCloud images={images} />
-            </div>
+          {/* Tech Stack Section */}
+          <div className="w-full max-w-7xl mx-auto mb-20">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-1">
+              <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12 relative z-10">
+                {theme === "dark" ? (
+                  <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-40" />
+                ) : (
+                  <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-40" />
+                )}
 
-            <div className="flex items-center justify-center gap-4 pointer-events-auto">
-              <Link href={`/${lang}/request`} className="relative group">
-                <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                  <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">
-                    <div className="relative z-10 flex items-center space-x-2">
-                      <span className="transition-all duration-500 group-hover:translate-x-1 text-nowrap">
-                        {dict?.sendRequest}
-                      </span>
-                      <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                <div className="text-center mb-8">
+                  <BlurFade delay={0.1} inView>
+                    <div className="inline-block p-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl mb-4">
+                      <Sparkles size={32} className="text-white" />
                     </div>
-                  </span>
-                </button>
-              </Link>
+                    <h3 className="text-3xl md:text-5xl md:h-[55px] font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+                      Technologies We Master
+                    </h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                      We use cutting-edge technologies to build fast, secure, and
+                      scalable solutions
+                    </p>
+                  </BlurFade>
+                </div>
+
+                {/* Tech Icons Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <BlurFade delay={0.15} inView>
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-6 text-center border border-blue-200 dark:border-blue-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="text-3xl mb-2">⚡</div>
+                      <h4 className="font-semibold mb-1">Fast</h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Lightning speed
+                      </p>
+                    </div>
+                  </BlurFade>
+
+                  <BlurFade delay={0.2} inView>
+                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 text-center border border-purple-200 dark:border-purple-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="text-3xl mb-2">🔒</div>
+                      <h4 className="font-semibold mb-1">Secure</h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Bank-level security
+                      </p>
+                    </div>
+                  </BlurFade>
+
+                  <BlurFade delay={0.25} inView>
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 text-center border border-green-200 dark:border-green-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="text-3xl mb-2">📈</div>
+                      <h4 className="font-semibold mb-1">Scalable</h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Grows with you
+                      </p>
+                    </div>
+                  </BlurFade>
+
+                  <BlurFade delay={0.3} inView>
+                    <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 text-center border border-orange-200 dark:border-orange-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="text-3xl mb-2">🎨</div>
+                      <h4 className="font-semibold mb-1">Modern</h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Latest tech
+                      </p>
+                    </div>
+                  </BlurFade>
+                </div>
+
+                <BlurFade delay={0.35} inView>
+                  <div className="flex justify-center items-center pointer-events-auto">
+                    <IconCloud images={images} />
+                  </div>
+                </BlurFade>
+
+                <BlurFade delay={0.4} inView>
+                  <div className="flex items-center justify-center pointer-events-auto">
+                    <Link href={`/${lang}/request`} className="relative group">
+                      <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+                        <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                        <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">
+                          <div className="relative z-10 flex items-center space-x-2">
+                            <span className="transition-all duration-500 group-hover:translate-x-1 text-nowrap">
+                              {dict?.sendRequest}
+                            </span>
+                            <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                          </div>
+                        </span>
+                      </button>
+                    </Link>
+                  </div>
+                </BlurFade>
+              </div>
             </div>
           </div>
         </>
       ) : (
-        <div>
-          <h3 className="text-center text-2xl md:text-4xl">
-            {dict.commonChallenges.title}
-          </h3>
-          <h4 className="text-center text-xl md:text-2xl text-gray-400">
-            {dict.commonChallenges.description}
-          </h4>
-
-          <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-12 p-4 my-4 mb-10">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="p-3 bg-pink-500/20 text-pink-500 rounded-full inline-block">
-                <TrendingUpDown size={24} />
-              </div>
-
-              <h5 className="font-bold text-lg mb-2">
-                {dict.commonChallenges.revenueGrowth.title}
-              </h5>
-
-              <ul
-                className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base border rounded-2xl p-6 ${
-                  lang === "de" && "text-sm"
-                }`}
-              >
-                <li>{dict.commonChallenges.revenueGrowth[1]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[2]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[3]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[4]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[5]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[6]}</li>
-                <li>{dict.commonChallenges.revenueGrowth[7]}</li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="p-3 bg-cyan-500/20 text-cyan-500 rounded-full inline-block">
-                <ShieldAlert size={24} />
-              </div>
-
-              <h5 className="font-bold text-lg mb-2">
-                {dict.commonChallenges.technicalSecurity.title}
-              </h5>
-
-              <ul
-                className={`dark:text-gray-300 text-gray-600 max-md:text-xs max-xl:text-sm max-lg:text-base border rounded-2xl p-6 ${
-                  lang === "de" && "text-sm"
-                }`}
-              >
-                <li>{dict.commonChallenges.technicalSecurity[1]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[2]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[3]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[4]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[5]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[6]}</li>
-                <li>{dict.commonChallenges.technicalSecurity[7]}</li>
-              </ul>
-            </div>
+        <div className="w-full">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-5xl font-bold mb-4">
+              {dict.commonChallenges.title}
+            </h3>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+              {dict.commonChallenges.description}
+            </p>
           </div>
 
-          <div className="relative z-10 mb-10">
-            <div className="absolute -inset-14 bg-sky-500/10 blur-3xl -z-10 rounded-[200px]" />
-            <div className="flex flex-col sm:flex-row text-2xl md:text-4xl items-center justify-center gap-2">
-              {dict.solution.title} <GradualSpacing text={dict.solution.title2} />
-            </div>
-
-            <h4 className="text-center sm:text-xl dark:text-gray-300 text-gray-600">
-              {dict.solution.description}
-            </h4>
-
-            <div className="flex flex-col justify-center mx-auto p-4 my-4 max-w-2xl">
-              <div>
-                <h5 className="font-bold text-lg mb-4">
-                  {dict.solution.professionalDevelopment.title}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
+            <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl">
+                  <TrendingUpDown size={32} className="text-white" />
+                </div>
+                <h5 className="text-2xl font-bold">
+                  {dict.commonChallenges.revenueGrowth.title}
                 </h5>
-
-                <ul className="dark:text-gray-300 text-gray-600 flex flex-col gap-2 mb-10 max-md:text-sm max-sm:text-xs">
-                  <li className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                    <div className="p-2 bg-yellow-500 rounded-full text-white">
-                      <CodeXml size={16} />
-                    </div>
-                    {dict.solution.professionalDevelopment[1]}
-                  </li>
-
-                  <li className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                    <div className="p-2 bg-rose-500 rounded-full text-white">
-                      <MonitorCheck size={16} />
-                    </div>
-                    {dict.solution.professionalDevelopment[2]}
-                  </li>
-
-                  <li className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                    <div className="p-2 bg-blue-500 rounded-full text-white">
-                      <Grid2x2Check size={16} />
-                    </div>
-                    {dict.solution.professionalDevelopment[3]}
-                  </li>
-
-                  <li className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                    <div className="p-2 bg-emerald-500 rounded-full text-white">
-                      <FileSearch size={16} />
-                    </div>
-                    {dict.solution.professionalDevelopment[4]}
-                  </li>
-
-                  <li className="px-3 py-2 rounded-2xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                    <div className="p-2 bg-violet-600 rounded-full text-white">
-                      <Cable size={16} />
-                    </div>
-                    {dict.solution.professionalDevelopment[5]}
-                  </li>
-                </ul>
               </div>
+
+              <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                  <li key={num} className="flex items-start gap-3">
+                    <TbCheck className="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base">
+                      {dict.commonChallenges.revenueGrowth[num]}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-cyan-200 dark:border-cyan-800">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
+                  <ShieldAlert size={32} className="text-white" />
+                </div>
+                <h5 className="text-2xl font-bold">
+                  {dict.commonChallenges.technicalSecurity.title}
+                </h5>
+              </div>
+
+              <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                  <li key={num} className="flex items-start gap-3">
+                    <TbCheck className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base">
+                      {dict.commonChallenges.technicalSecurity[num]}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div className="flex items-center justify-center mb-10 gap-4 pointer-events-auto">
-            <Link href={`/${lang}/request`} className="relative group">
+          <div className="text-center mb-20">
+            <Link
+              href={`/${lang}/request`}
+              className="relative group pointer-events-auto"
+            >
               <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
                 <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">

@@ -84,6 +84,7 @@
     "hero": "Deine Vision in die digitale Realität verwandeln",
     "heroDescription": "Leistungsstarke Web-Lösungen für wachsende Unternehmen",
     "getStarted": "Loslegen",
+    "getStartedToday": "Jetzt loslegen",
     "contactUs": "Kontaktiere uns",
     "sendRequest": "Eine Anfrage senden",
     "SubheadingDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität",
@@ -292,14 +293,19 @@
     "or": "oder",
     "description": "Erzählen Sie uns von Ihrem Projekt, wir werden uns so schnell wie möglich melden.",
     "name": "Name",
+    "namePlaceholder": "Ihr Name",
     "company": "Firma",
+    "companyPlaceholder": "Ihre Firma",
     "email": "E-Mail",
+    "emailPlaceholder": "john@example.com",
+    "phonePlaceholder": "+49 123 456 789",
     "phone": "Telefon",
     "contactDescription": "Über Ihr Projekt",
     "getInTouch": "Kontaktieren Sie uns",
     "send": "Nachricht senden",
     "sendContactRequest": "Kontaktieren Sie uns",
-    "sendContactDescription": "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden."
+    "sendContactDescription": "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
+    "sendContactDescription2": "Erzählen Sie uns von Ihrem Projekt, Anforderungen, und Timeline..."
   },
   "services": {
     "title": "Individuelle Softwareentwicklungsdienste",
