@@ -273,10 +273,14 @@
     "description": "Web-Lösungen für wachsende Unternehmen",
     "socials": {
       "title": "SOCIALS",
-      "email": "Email",
+      "freelancer": "Freelancer",
+      "email": "E-Mail",
       "linkedin": "LinkedIn",
-      "github": "Github",
-      "freelancer": "Freelancer"
+      "quickLinks": "Schnelle Links",
+      "services": "Dienste",
+      "contact": "Kontakt",
+      "aboutUs": "Über uns",
+      "emailUs": "E-Mail senden"
     },
     "legal": {
       "title": "LEGAL",

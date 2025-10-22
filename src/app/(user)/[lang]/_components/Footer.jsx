@@ -69,7 +69,7 @@ export default function Footer({ dict, lang }) {
           <div>
             <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
               <TbSparkles className="w-5 h-5 text-blue-500" />
-              {dict?.socials?.title}
+              {dict?.socials?.quickLinks}
             </h3>
             <div className="flex flex-col gap-3">
               <Link
@@ -77,21 +77,21 @@ export default function Footer({ dict, lang }) {
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-blue-500 group-hover:w-4 transition-all duration-300"></span>
-                Services
+                {dict?.socials?.services}
               </Link>
               <Link
                 href={`/${lang}/contact`}
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-blue-500 group-hover:w-4 transition-all duration-300"></span>
-                Contact
+                {dict?.socials?.contact}
               </Link>
               <Link
-                href={`/${lang}/request`}
+                href={`/${lang}/about`}
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-blue-500 group-hover:w-4 transition-all duration-300"></span>
-                Request
+                {dict?.socials?.aboutUs}
               </Link>
             </div>
           </div>

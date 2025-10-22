@@ -276,7 +276,12 @@
       "email": "Email",
       "linkedin": "LinkedIn",
       "github": "Github",
-      "freelancer": "Freelancer"
+      "freelancer": "Freelancer",
+      "quickLinks": "Quick Links",
+      "services": "Services",
+      "contact": "Contact",
+      "aboutUs": "About Us",
+      "emailUs": "Email Us"
     },
     "legal": {
       "title": "LEGAL",
