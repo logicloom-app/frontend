@@ -1,8 +1,14 @@
 "use client";
 
-import { AnimatedBeamComponent } from "../../_components/AnimatedBeam";
-import { BiBrain, BiCodeAlt, BiGlobe, BiMobile } from "react-icons/bi";
-import { TbArrowNarrowRight } from "react-icons/tb";
+import {
+  BiMobile,
+  BiGlobe,
+  BiPalette,
+  BiCheckShield,
+  BiCog,
+  BiRocket,
+} from "react-icons/bi";
+import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -18,138 +24,188 @@ export default function ServicesClient({ dict, lang }) {
   const services = [
     {
       id: 1,
-      title: dict?.service1?.title || "Software Development",
-      description:
-        dict?.service1?.description ||
-        "Custom software solutions tailored to your business needs",
-      icon: <BiCodeAlt size={26} className="text-rose-500 dark:text-rose-300" />,
-      bgColor: "bg-rose-100 dark:bg-rose-900",
+      title: dict?.mobileDev?.title || "Mobile App Development",
+      description: dict?.mobileDev?.description,
+      icon: <BiMobile className="w-8 h-8" />,
+      features: [
+        dict?.mobileDev?.features?.ios || "iOS app development",
+        dict?.mobileDev?.features?.android || "Android app development",
+        dict?.mobileDev?.features?.flutter || "Flutter app development",
+      ],
+      color: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
-      title: dict?.service2?.title || "Web Development",
-      description:
-        dict?.service2?.description || "Responsive and modern web applications",
-      icon: <BiGlobe size={26} className="text-green-500 dark:text-green-300" />,
-      bgColor: "bg-green-100 dark:bg-green-900",
+      title: dict?.webDev?.title || "Web App Development",
+      description: dict?.webDev?.description,
+      icon: <BiGlobe className="w-8 h-8" />,
+      features: [
+        dict?.webDev?.features?.pwa || "PWA development",
+        dict?.webDev?.features?.webapp || "Website and web app creation",
+        dict?.webDev?.features?.responsive || "Responsive design",
+      ],
+      color: "from-green-500 to-emerald-500",
     },
     {
       id: 3,
-      title: dict?.service3?.title || "Mobile Development",
-      description:
-        dict?.service3?.description ||
-        "Native and cross-platform mobile applications",
-      icon: <BiMobile size={26} className="text-blue-500 dark:text-blue-300" />,
-      bgColor: "bg-blue-100 dark:bg-blue-900",
+      title: dict?.uiux?.title || "UI/UX Design",
+      description: dict?.uiux?.description,
+      icon: <BiPalette className="w-8 h-8" />,
+      features: [
+        dict?.uiux?.features?.wireframing || "Wireframing and prototyping",
+        dict?.uiux?.features?.consulting || "UX consulting",
+        dict?.uiux?.features?.design || "Product design",
+      ],
+      color: "from-purple-500 to-pink-500",
     },
     {
       id: 4,
-      title: dict?.service4?.title || "AI Solutions",
-      description:
-        dict?.service4?.description ||
-        "Intelligent automation and data analysis solutions",
-      icon: <BiBrain size={26} className="text-purple-500 dark:text-purple-300" />,
-      bgColor: "bg-purple-100 dark:bg-purple-900",
+      title: dict?.qa?.title || "QA Services",
+      description: dict?.qa?.description,
+      icon: <BiCheckShield className="w-8 h-8" />,
+      features: [
+        dict?.qa?.features?.testing || "Software testing",
+        dict?.qa?.features?.functional || "Functional testing",
+        dict?.qa?.features?.nonfunctional || "Non-functional testing",
+      ],
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      id: 5,
+      title: dict?.devops?.title || "DevOps Services",
+      description: dict?.devops?.description,
+      icon: <BiCog className="w-8 h-8" />,
+      features: [
+        dict?.devops?.features?.cloud || "Cloud Infrastructure services",
+        dict?.devops?.features?.cicd || "CI/CD services",
+        dict?.devops?.features?.optimization || "Cloud cost optimization",
+      ],
+      color: "from-indigo-500 to-blue-500",
+    },
+    {
+      id: 6,
+      title: dict?.startup?.title || "Startup Services",
+      description: dict?.startup?.description,
+      icon: <BiRocket className="w-8 h-8" />,
+      features: [
+        dict?.startup?.features?.discovery || "Discovery phase",
+        dict?.startup?.features?.mvp || "MVP development",
+        dict?.startup?.features?.cto || "CTO as a service",
+      ],
+      color: "from-yellow-500 to-orange-500",
     },
   ];
 
   return (
-    <div className="container mx-auto px-8 mt-16">
+    <div className="min-h-screen">
       {isClient &&
         (theme === "dark" ? (
-          <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-30" />
+          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-30" />
         ) : (
-          <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-30" />
+          <div className="fixed inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-30" />
         ))}
 
-      {/* Services Hero */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold mb-6">{dict?.title || "Our Services"}</h1>
-        <p className="text-lg max-w-3xl mx-auto">
-          {dict?.subtitle ||
-            "We offer a range of professional services to help your business thrive in the digital landscape."}
-        </p>
-      </div>
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+              {dict?.title}
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8">
+              {dict?.subtitle}
+            </p>
+            <Link href={`/${lang}/contact`}>
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                {dict?.sendRequest}
+              </button>
+            </Link>
+          </div>
+        </div>
 
-      {/* Services List */}
-      <div className="flex flex-wrap justify-center gap-8">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className={`flex-1 min-w-[250px] w-full sm:px-4 bg-white dark:bg-gray-800 rounded-3xl shadow-md p-6 hover:shadow-lg transition-shadow`}
-          >
-            <div className="mb-4">
-              {/* You can replace this with actual icons */}
+        {/* Services Grid */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
               <div
-                className={`w-12 h-12 ${service.bgColor} rounded-full flex items-center justify-center`}
+                key={service.id}
+                className="group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
               >
-                {service.icon}
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-            <p className="text-gray-600 dark:text-gray-400">{service.description}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Why Choose Us Section */}
-      <div className="mt-24">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          {dict?.whyChooseUs?.title || "Why Choose Us"}
-        </h2>
-
-        <div className="flex flex-wrap justify-center gap-8">
-          <div className="flex-1 min-w-[250px] md:max-w-[300px] sm:w-full sm:px-4 bg-gray-100 dark:bg-gray-800 p-6 rounded-3xl">
-            <h3 className="text-xl font-semibold mb-3">
-              {dict?.whyChooseUs?.reason1?.title || "Expertise"}
-            </h3>
-            <p>
-              {dict?.whyChooseUs?.reason1?.description ||
-                "Our team consists of experienced professionals with deep expertise in various technologies."}
-            </p>
-          </div>
-
-          <div className="flex-1 min-w-[250px] md:max-w-[300px] sm:w-full sm:px-4 bg-gray-100 dark:bg-gray-800 p-6 rounded-3xl">
-            <h3 className="text-xl font-semibold mb-3">
-              {dict?.whyChooseUs?.reason2?.title || "Custom Solutions"}
-            </h3>
-            <p>
-              {dict?.whyChooseUs?.reason2?.description ||
-                "We create tailored solutions that address your specific business challenges."}
-            </p>
-          </div>
-
-          <div className="flex-1 min-w-[250px] md:max-w-[300px] sm:w-full sm:px-4 bg-gray-100 dark:bg-gray-800 p-6 rounded-3xl">
-            <h3 className="text-xl font-semibold mb-3">
-              {dict?.whyChooseUs?.reason3?.title || "Support"}
-            </h3>
-            <p>
-              {dict?.whyChooseUs?.reason3?.description ||
-                "We provide ongoing support and maintenance for all our services."}
-            </p>
-          </div>
-        </div>
-
-        {/* Send Request Button */}
-        <div className="flex items-center gap-4 pointer-events-auto justify-center mt-14">
-          <Link href={`/${lang}/request`} className="relative group">
-            <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-              <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-              <span className="relative z-10 block px-6 py-3 rounded-2xl bg-gray-950">
-                <div className="relative z-10 flex items-center space-x-2">
-                  <span className="transition-all duration-500 group-hover:translate-x-1">
-                    {dict?.sendRequest}
-                  </span>
-                  <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  {service.icon}
                 </div>
-              </span>
-            </button>
-          </Link>
-        </div>
-      </div>
 
-      <div className="relative flex size-full items-center justify-center overflow-hidden">
-        <AnimatedBeamComponent />
+                <h3 className="text-2xl font-bold mb-4 dark:text-white">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <ul className="space-y-3">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <TbCheck className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Why Choose Us Section */}
+        <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/50 dark:to-gray-800/30 py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-16 dark:text-white">
+              {dict?.whyChooseUs?.title}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4].map((num) => (
+                <div
+                  key={num}
+                  className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4">
+                    {num}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 dark:text-white">
+                    {dict?.whyChooseUs?.[`reason${num}`]?.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {dict?.whyChooseUs?.[`reason${num}`]?.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white shadow-2xl">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Ready to Build Your Project?
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Schedule a meeting with our specialists to get an individual tech
+              consultation
+            </p>
+            <Link href={`/${lang}/contact`} className="inline-block">
+              <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto">
+                <span>{dict?.sendRequest}</span>
+                <TbArrowNarrowRight className="w-6 h-6" />
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

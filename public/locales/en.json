@@ -301,38 +301,80 @@
     "sendContactDescription": "Fill out the form below and we'll get back to you as soon as possible."
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "We offer a range of professional services to help your business thrive in the digital landscape.",
-    "sendRequest": "Send a Request",
-    "service1": {
-      "title": "Software Development",
-      "description": "Custom software solutions tailored to your business needs"
+    "title": "Custom Software Development Services",
+    "subtitle": "We create solutions that solve business problems, meet requirements, respond to market needs, and transform internal operations.",
+    "sendRequest": "Get Free Estimation",
+    "mobileDev": {
+      "title": "Mobile App Development",
+      "description": "Our mobile developers use well-proven agile practices and follow a client-oriented approach to develop custom mobile apps that highlight your brand identity.",
+      "features": {
+        "ios": "iOS app development",
+        "android": "Android app development",
+        "flutter": "Flutter app development"
+      }
     },
-    "service2": {
-      "title": "Web Development",
-      "description": "Responsive and modern web applications"
+    "webDev": {
+      "title": "Web App Development",
+      "description": "We've gained our experience in building web applications through cooperating with companies that follow various business models.",
+      "features": {
+        "pwa": "PWA development",
+        "webapp": "Website and web app creation",
+        "responsive": "Responsive design"
+      }
     },
-    "service3": {
-      "title": "Mobile Development",
-      "description": "Native and cross-platform mobile applications"
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "Our UI/UX design team's expertise and creativity will help you get the product you've pictured.",
+      "features": {
+        "wireframing": "Wireframing and prototyping",
+        "consulting": "UX consulting",
+        "design": "Product design"
+      }
     },
-    "service4": {
-      "title": "AI Solutions",
-      "description": "Intelligent automation and data analysis solutions"
+    "qa": {
+      "title": "QA Services",
+      "description": "We run manual and automated tests to eliminate problems and bugs, enhance performance, and improve business logic.",
+      "features": {
+        "testing": "Software testing",
+        "functional": "Functional testing",
+        "nonfunctional": "Non-functional testing"
+      }
+    },
+    "devops": {
+      "title": "DevOps Services",
+      "description": "Bring new code and features to your products painlessly with our experienced DevOps engineers.",
+      "features": {
+        "cloud": "Cloud Infrastructure services",
+        "cicd": "CI/CD services",
+        "optimization": "Cloud cost optimization"
+      }
+    },
+    "startup": {
+      "title": "Startup Services",
+      "description": "If you're a brave startup with an idea and you want to test waters, we'll help you bring it to life.",
+      "features": {
+        "discovery": "Discovery phase",
+        "mvp": "MVP development",
+        "cto": "CTO as a service"
+      }
     },
     "whyChooseUs": {
-      "title": "Why Choose Us",
+      "title": "How We Can Help Your Business",
       "reason1": {
-        "title": "Expertise",
-        "description": "Our team consists of experienced professionals with deep expertise in various technologies."
+        "title": "Modern Technologies",
+        "description": "Our team uses a wide range of programming languages to build complex projects and be flexible to changes."
       },
       "reason2": {
-        "title": "Custom Solutions",
-        "description": "We create tailored solutions that address your specific business challenges."
+        "title": "Full Transparency",
+        "description": "Using well-known project management tools and practices, we keep our processes transparent and catch you up to the latest updates."
       },
       "reason3": {
-        "title": "Support",
-        "description": "We provide ongoing support and maintenance for all our services."
+        "title": "Established Data Protection",
+        "description": "We sign an NDA agreement to protect your idea. It contains information about the procedure of data collection and project transfer."
+      },
+      "reason4": {
+        "title": "Goal-Oriented Architecture",
+        "description": "We design architecture from the ground up to make sure it goes along with your business goals from the early stages."
       }
     }
   },

@@ -301,38 +301,80 @@
     "sendContactDescription": "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden."
   },
   "services": {
-    "title": "Unsere Dienstleistungen",
-    "subtitle": "Wir bieten eine Reihe von professionellen Dienstleistungen an, um Ihrem Unternehmen in der digitalen Landschaft zum Erfolg zu verhelfen.",
-    "sendRequest": "Anfrage senden",
-    "service1": {
-      "title": "Softwareentwicklung",
-      "description": "Maßgeschneiderte Softwarelösungen für Ihre Geschäftsanforderungen"
+    "title": "Individuelle Softwareentwicklungsdienste",
+    "subtitle": "Wir erstellen Lösungen, die Geschäftsprobleme lösen, Anforderungen erfüllen, auf Marktbedürfnisse reagieren und interne Abläufe transformieren.",
+    "sendRequest": "Kostenlose Schätzung erhalten",
+    "mobileDev": {
+      "title": "Mobile App-Entwicklung",
+      "description": "Unsere mobilen Entwickler nutzen bewährte agile Praktiken und verfolgen einen kundenorientierten Ansatz zur Entwicklung von Apps.",
+      "features": {
+        "ios": "iOS App-Entwicklung",
+        "android": "Android App-Entwicklung",
+        "flutter": "Flutter App-Entwicklung"
+      }
     },
-    "service2": {
-      "title": "Webentwicklung",
-      "description": "Responsive und moderne Webanwendungen"
+    "webDev": {
+      "title": "Web-App-Entwicklung",
+      "description": "Wir haben unsere Erfahrung beim Aufbau von Webanwendungen durch die Zusammenarbeit mit Unternehmen gesammelt.",
+      "features": {
+        "pwa": "PWA-Entwicklung",
+        "webapp": "Website- und Web-App-Erstellung",
+        "responsive": "Responsives Design"
+      }
     },
-    "service3": {
-      "title": "Mobile Entwicklung",
-      "description": "Native und plattformübergreifende mobile Anwendungen"
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "Die Expertise und Kreativität unseres UI/UX-Design-Teams hilft Ihnen, das Produkt zu erhalten, das Sie sich vorgestellt haben.",
+      "features": {
+        "wireframing": "Wireframing und Prototyping",
+        "consulting": "UX-Beratung",
+        "design": "Produktdesign"
+      }
     },
-    "service4": {
-      "title": "KI-Lösungen",
-      "description": "Intelligente Automatisierungs- und Datenanalyselösungen"
+    "qa": {
+      "title": "QA-Dienste",
+      "description": "Wir führen manuelle und automatisierte Tests durch, um Probleme zu beseitigen und die Leistung zu verbessern.",
+      "features": {
+        "testing": "Softwaretest",
+        "functional": "Funktionstest",
+        "nonfunctional": "Nicht-funktionaler Test"
+      }
+    },
+    "devops": {
+      "title": "DevOps-Dienste",
+      "description": "Bringen Sie neuen Code und Funktionen schmerzlos in Ihre Produkte mit unseren erfahrenen DevOps-Ingenieuren.",
+      "features": {
+        "cloud": "Cloud-Infrastrukturdienste",
+        "cicd": "CI/CD-Dienste",
+        "optimization": "Cloud-Kostenoptimierung"
+      }
+    },
+    "startup": {
+      "title": "Startup-Dienste",
+      "description": "Wenn Sie ein mutiges Startup mit einer Idee sind, helfen wir Ihnen, diese zum Leben zu erwecken.",
+      "features": {
+        "discovery": "Discovery-Phase",
+        "mvp": "MVP-Entwicklung",
+        "cto": "CTO als Service"
+      }
     },
     "whyChooseUs": {
-      "title": "Warum uns wählen",
+      "title": "Wie wir Ihrem Unternehmen helfen können",
       "reason1": {
-        "title": "Fachkompetenz",
-        "description": "Unser Team besteht aus erfahrenen Fachleuten mit fundiertem Know-how in verschiedenen Technologien."
+        "title": "Moderne Technologien",
+        "description": "Unser Team nutzt eine breite Palette von Programmiersprachen, um komplexe Projekte zu erstellen und flexibel auf Änderungen zu reagieren."
       },
       "reason2": {
-        "title": "Maßgeschneiderte Lösungen",
-        "description": "Wir erstellen maßgeschneiderte Lösungen, die Ihre spezifischen Geschäftsherausforderungen adressieren."
+        "title": "Volle Transparenz",
+        "description": "Mit bekannten Projektmanagement-Tools und -Praktiken halten wir unsere Prozesse transparent und informieren Sie über die neuesten Updates."
       },
       "reason3": {
-        "title": "Support",
-        "description": "Wir bieten kontinuierliche Unterstützung und Wartung für alle unsere Dienstleistungen."
+        "title": "Etablierter Datenschutz",
+        "description": "Wir unterzeichnen eine NDA-Vereinbarung zum Schutz Ihrer Idee. Sie enthält Informationen über die Datenerfassung und Projektübertragung."
+      },
+      "reason4": {
+        "title": "Zielorientierte Architektur",
+        "description": "Wir entwerfen die Architektur von Grund auf, um sicherzustellen, dass sie von Anfang an mit Ihren Geschäftszielen übereinstimmt."
       }
     }
   },
