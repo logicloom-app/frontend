@@ -17,8 +17,8 @@ export default function AuthPageClient({ dict }) {
     step === 0 ? "max-w-[500px] max-h-[600px]" : "max-w-[450px] max-h-[400px]";
 
   return (
-    <div className="flex justify-center items-center sm:h-[100vh] h-[80vh] mb-20">
-      <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center sm:h-[105vh] h-[80vh]">
+      <div className="flex justify-center items-center mb-10">
         <NeonGradientCard
           className={`items-center justify-center text-center ${cardSize}`}
         >
