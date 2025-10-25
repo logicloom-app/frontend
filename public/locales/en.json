@@ -330,6 +330,7 @@
     "company": "Company",
     "companyPlaceholder": "Your company name",
     "emailPlaceholder": "john@example.com",
+    "email": "Email",
     "phonePlaceholder": "+49 123 456 789",
     "phone": "Phone",
     "contactDescription": "About your project",
@@ -658,5 +659,68 @@
       "email": "Email: hi@logicloom.de"
     },
     "lastUpdated": "Last updated: October 2025"
+  },
+  "pricing": {
+    "popular": "Popular",
+    "title": "Website Packages",
+    "subtitle": "Professional solutions for your online business",
+    "onePager": {
+      "title": "One-Page Website",
+      "subtitle": "All content on one scrollable page.",
+      "features": [
+        "8 Menu items",
+        "Professional Design",
+        "Self-editing capability",
+        "Professional Email Addresses",
+        "Responsive for all devices",
+        "SEO optimized texts",
+        "Contact form",
+        "SSL Certificate"
+      ],
+      "originalPrice": "€1,549",
+      "price": "€499"
+    },
+    "multiPager": {
+      "title": "Multi-Page Website",
+      "subtitle": "Multiple pages for different content.",
+      "features": [
+        "8 Pages",
+        "Professional Design",
+        "Self-editing capability",
+        "Professional Email Addresses",
+        "Responsive for all devices",
+        "SEO optimized texts",
+        "Contact form",
+        "SSL Certificate"
+      ],
+      "originalPrice": "€2,249",
+      "price": "€699"
+    },
+    "enterprise": {
+      "title": "Enterprise Website",
+      "subtitle": "For comprehensive and scalable projects.",
+      "features": [
+        "Unlimited Pages",
+        "Custom Design & Branding",
+        "Advanced Features & Integrations",
+        "Professional Email Addresses",
+        "Multi-Language Support",
+        "Responsive for all devices",
+        "SEO & Performance Optimization",
+        "Advanced Forms & APIs",
+        "SSL Certificate",
+        "Priority Support",
+        "Dedicated Project Manager"
+      ],
+      "originalPrice": "€2,999",
+      "price": "€1,699"
+    },
+    "cta": "Free Consultation",
+    "priceNote": "All prices are subject to applicable VAT.",
+    "domainHosting": {
+      "title": "Domain & Hosting",
+      "description": "Domain and hosting are not included in the packages. We are happy to advise you on selecting a suitable provider or can organize this for you.",
+      "note": "Recommended providers: IONOS, Hetzner, All-Inkl, Cloudflare"
+    }
   }
 }

@@ -658,5 +658,68 @@
       "email": "E-Mail: hi@logicloom.de"
     },
     "lastUpdated": "Stand: Oktober 2025"
+  },
+  "pricing": {
+    "popular": "Beliebt",
+    "title": "Website-Pakete",
+    "subtitle": "Professionelle Lösungen für Ihr Online-Business",
+    "onePager": {
+      "title": "One-Pager Webseite",
+      "subtitle": "Alle Inhalte auf einer scrollbaren Seite.",
+      "features": [
+        "8 Menüpunkte",
+        "Professionelles Design",
+        "Eigene Bearbeitung der Website",
+        "Professionelle E-Mail Adressen",
+        "Angepasst für alle Endgeräte",
+        "SEO optimierte Texte",
+        "Kontaktformular",
+        "SSL-Zertifikat"
+      ],
+      "originalPrice": "1.749€",
+      "price": "799€"
+    },
+    "multiPager": {
+      "title": "Multi-Pager Webseite",
+      "subtitle": "Mehrere Seiten für unterschiedliche Inhalte.",
+      "features": [
+        "8 Seiten",
+        "Professionelles Design",
+        "Eigene Bearbeitung der Website",
+        "Professionelle E-Mail Adressen",
+        "Angepasst für alle Endgeräte",
+        "SEO optimierte Texte",
+        "Kontaktformular",
+        "SSL-Zertifikat"
+      ],
+      "originalPrice": "2.249€",
+      "price": "999€"
+    },
+    "enterprise": {
+      "title": "Enterprise Webseite",
+      "subtitle": "Für umfangreiche und skalierbare Projekte.",
+      "features": [
+        "Unbegrenzte Seiten",
+        "Custom Design & Branding",
+        "Erweiterte Funktionen & Integrationen",
+        "Professionelle E-Mail Adressen",
+        "Multi-Language Support",
+        "Responsive für alle Endgeräte",
+        "SEO & Performance Optimierung",
+        "Erweiterte Formulare & APIs",
+        "SSL-Zertifikat",
+        "Prioritäts-Support",
+        "Dedizierter Projektmanager"
+      ],
+      "originalPrice": "2.999€",
+      "price": "1.699€"
+    },
+    "cta": "Kostenlose Beratung",
+    "priceNote": "Alle Preise sind zzgl. der gesetzlichen MwSt.",
+    "domainHosting": {
+      "title": "Domain & Hosting",
+      "description": "Domain und Hosting sind in den Paketen nicht enthalten. Wir beraten Sie gerne bei der Auswahl eines geeigneten Providers oder können dies für Sie organisieren.",
+      "note": "Empfohlene Provider: IONOS, Hetzner, All-Inkl, Cloudflare"
+    }
   }
 }

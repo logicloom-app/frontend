@@ -217,6 +217,14 @@ export default function Header({ dict, lang }) {
             </HoverCard>
 
             <Link
+              href={`/${lang}/pricing`}
+              className="relative px-5 py-2 font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-300 group overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="relative">{dict?.pricing?.title || "Pricing"}</span>
+            </Link>
+
+            <Link
               href={`/${lang}/contact`}
               className="relative px-5 py-2 rounded-r-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 group overflow-hidden"
             >
@@ -321,6 +329,7 @@ export default function Header({ dict, lang }) {
                 <Link
                   href={`/${lang}/services`}
                   className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 bg-gradient-to-r from-purple-50/50 to-pink-50/50 dark:from-purple-950/20 dark:to-pink-950/20 hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-950/40 dark:hover:to-pink-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
+                  onClick={() => setOpen(false)}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"></span>
                   <Code2
@@ -329,6 +338,22 @@ export default function Header({ dict, lang }) {
                     className="relative text-purple-600 dark:text-purple-400"
                   />
                   <span className="relative font-medium">{dict?.services}</span>
+                </Link>
+
+                <Link
+                  href={`/${lang}/pricing`}
+                  className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-500 dark:hover:border-orange-500 bg-gradient-to-r from-orange-50/50 to-yellow-50/50 dark:from-orange-950/20 dark:to-yellow-950/20 hover:from-orange-50 hover:to-yellow-50 dark:hover:from-orange-950/40 dark:hover:to-yellow-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-yellow-500/0 group-hover:from-orange-500/10 group-hover:to-yellow-500/10 transition-all duration-300"></span>
+                  <Lightbulb
+                    size={20}
+                    strokeWidth={2.5}
+                    className="relative text-orange-600 dark:text-orange-400"
+                  />
+                  <span className="relative font-medium">
+                    {dict?.pricing?.title || "Pricing"}
+                  </span>
                 </Link>
 
                 <Link
