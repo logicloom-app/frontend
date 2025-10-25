@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer({ dict, lang }) {
   return (
-    <footer className="relative mt-20 overflow-hidden">
+    <footer className="relative overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/50 to-purple-50/50 dark:from-transparent dark:via-blue-950/20 dark:to-purple-950/20"></div>
 
@@ -138,7 +138,7 @@ export default function Footer({ dict, lang }) {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <p className="text-gray-600 dark:text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} LogicLoom. All rights reserved.
+            © {new Date().getFullYear()} LogicLoom. {dict?.allRightsReserved}
           </p>
           <p className="text-gray-500 dark:text-gray-500 text-center md:text-right">
             Made with <span className="text-red-500 animate-pulse">❤️</span> by

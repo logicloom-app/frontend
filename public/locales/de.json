@@ -315,6 +315,7 @@
       "privacy": "Datenschutz",
       "imprint": "Impressum"
     },
+    "allRightsReserved": "Alle Rechte vorbehalten.",
     "copyright": "Copyright © 2024 LogicLoom. Alle Rechte vorbehalten."
   },
   "contact": {
@@ -442,5 +443,220 @@
   "privacyPolicy": "Datenschutz",
   "imprint": "Impressum",
   "underConstruction": "Diese Seite befindet sich derzeit im Aufbau",
-  "underConstructionMessage": "Wir arbeiten hart daran, Ihnen etwas Großartiges zu bieten. Diese Seite wird bald mit detaillierten Informationen verfügbar sein."
+  "underConstructionMessage": "Wir arbeiten hart daran, Ihnen etwas Großartiges zu bieten. Diese Seite wird bald mit detaillierten Informationen verfügbar sein.",
+  "imprintPage": {
+    "title": "Impressum (Legal Notice)",
+    "subtitle": "Rechtliche Informationen gemäß deutschem Recht",
+    "section1Title": "Angaben gemäß § 5 TMG:",
+    "companyName": "LogicLoom – Hamidreza Pakzad",
+    "location": "Hannover, Deutschland",
+    "contactTitle": "Kontakt:",
+    "email": "E-Mail: hi@logicloom.de",
+    "website": "Website: https://logicloom.de",
+    "vatTitle": "Umsatzsteuer-ID (VAT ID):",
+    "vatInfo": "Wird nachgereicht (beantragt beim Finanzamt Hannover)",
+    "taxTitle": "Steuernummer:",
+    "taxInfo": "Wird nachgereicht (beantragt beim Finanzamt Hannover)",
+    "responsibleTitle": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:",
+    "responsibleName": "Hamidreza Pakzad",
+    "responsibleLocation": "Hannover, Deutschland",
+    "disclaimerTitle": "Haftungsausschluss",
+    "contentLiabilityTitle": "Haftung für Inhalte",
+    "contentLiability": "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
+    "linksLiabilityTitle": "Haftung für Links",
+    "linksLiability": "Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.",
+    "copyrightTitle": "Urheberrecht",
+    "copyright": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.",
+    "lastUpdated": "Stand: Oktober 2025"
+  },
+  "privacyPage": {
+    "title": "Datenschutzerklärung (Privacy Policy)",
+    "subtitle": "Ihre Privatsphäre ist uns wichtig",
+    "section1": {
+      "title": "1. Allgemeine Informationen",
+      "website": "Website: LogicLoom – https://logicloom.de",
+      "operator": "Betreiber der Website:",
+      "operatorName": "Hamidreza Pakzad",
+      "location": "Hannover, Deutschland",
+      "email": "E-Mail: hi@logicloom.de"
+    },
+    "section2": {
+      "title": "2. Erhebung und Speicherung personenbezogener Daten",
+      "dataTypes": "Arten der gesammelten Daten:",
+      "dataTypesDesc": "Wir erheben personenbezogene Daten wie Name, E-Mail-Adresse, Telefonnummer, Projektinformationen und IP-Adresse, die Sie uns über Kontaktformulare oder beim Login auf unserer Website bereitstellen.",
+      "purpose": "Zweck der Datenerhebung:",
+      "purposes": [
+        "zur Kontaktaufnahme und Kommunikation",
+        "zur Erstellung und Durchführung von Projektangeboten",
+        "zur Verbesserung der Funktionalität und Benutzererfahrung der Website",
+        "zur Analyse des Nutzerverhaltens (Google Analytics)",
+        "zur Sicherstellung des Logins und der Session-Verwaltung (Cookies)"
+      ],
+      "methods": "Methoden der Datenerhebung:",
+      "methodsList": [
+        "durch Formulare auf der Website",
+        "durch Cookies und Tracking-Tools",
+        "durch die Server-Logs (automatisch generierte technische Daten)"
+      ]
+    },
+    "section3": {
+      "title": "3. Datenverarbeitung und -weitergabe",
+      "thirdParty": "Einsatz von Drittanbietern:",
+      "thirdPartyDesc": "Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Limited. Google Analytics verwendet Cookies, um die Nutzung der Website zu analysieren. Die durch Cookies erzeugten Informationen über Ihre Nutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Die IP-Adresse wird dabei anonymisiert („IP-Anonymisierung”).",
+      "dataSharing": "Datenweitergabe:",
+      "dataSharingDesc": "Die im Rahmen der Nutzung von Google Analytics erfassten Daten können an Google übermittelt werden. Diese Daten dienen ausschließlich statistischen und analytischen Zwecken und werden nicht zur Identifizierung einzelner Nutzer verwendet."
+    },
+    "section4": {
+      "title": "4. Rechte der Nutzer",
+      "intro": "Sie haben das Recht:",
+      "rights": [
+        "gemäß Art. 15 DSGVO Auskunft über Ihre gespeicherten Daten zu erhalten",
+        "gemäß Art. 16 DSGVO die Berichtigung unrichtiger oder unvollständiger Daten zu verlangen",
+        "gemäß Art. 17 DSGVO die Löschung Ihrer Daten zu verlangen",
+        "gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung zu verlangen",
+        "gemäß Art. 20 DSGVO Ihre Daten in einem übertragbaren Format zu erhalten",
+        "sowie gemäß Art. 21 DSGVO der Verarbeitung zu widersprechen"
+      ],
+      "contact": "Für die Wahrnehmung dieser Rechte können Sie uns jederzeit unter hi@logicloom.de kontaktieren."
+    },
+    "section5": {
+      "title": "5. Cookies und Tracking",
+      "cookies": "Cookies:",
+      "cookiesDesc": "Unsere Website verwendet Cookies, um den Login-Prozess und technische Funktionen sicherzustellen. Diese Cookies speichern keine sensiblen persönlichen Informationen und werden nach dem Logout automatisch gelöscht.",
+      "analytics": "Google Analytics:",
+      "analyticsDesc": "Zur Analyse und Verbesserung unseres Online-Angebots wird Google Analytics eingesetzt. Sie können die Speicherung von Cookies durch Ihre Browser-Einstellungen verhindern oder Ihre Einwilligung jederzeit über das Cookie-Banner widerrufen.",
+      "settings": "Cookie-Einstellungen:",
+      "settingsDesc": "Sie können Ihre Cookie-Einstellungen jederzeit ändern, indem Sie auf das Cookie-Icon am unteren Rand der Seite klicken."
+    },
+    "section6": {
+      "title": "6. Sicherheit Ihrer Daten",
+      "description": "Wir verwenden technische und organisatorische Maßnahmen, um Ihre personenbezogenen Daten vor Verlust, Missbrauch oder unbefugtem Zugriff zu schützen. Unsere Sicherheitsmaßnahmen werden regelmäßig überprüft und entsprechend dem Stand der Technik angepasst."
+    },
+    "section7": {
+      "title": "7. Rechtliche Grundlagen der Datenverarbeitung",
+      "intro": "Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf folgenden Rechtsgrundlagen gemäß DSGVO:",
+      "bases": [
+        "Art. 6 Abs. 1 lit. a DSGVO: Einwilligung (z. B. bei der Nutzung des Kontaktformulars oder Cookies)",
+        "Art. 6 Abs. 1 lit. b DSGVO: Vertragserfüllung oder vorvertragliche Maßnahmen",
+        "Art. 6 Abs. 1 lit. f DSGVO: Berechtigtes Interesse an der Verbesserung und Sicherheit unserer Website"
+      ]
+    },
+    "section8": {
+      "title": "8. NDA und Vertraulichkeit",
+      "description": "Für Kundenprojekte bietet LogicLoom den Abschluss eines separaten Non-Disclosure Agreements (NDA) an. Dadurch wird gewährleistet, dass sämtliche bereitgestellten Ideen, Konzepte und Daten streng vertraulich behandelt werden. Diese Informationen werden weder veröffentlicht noch an Dritte weitergegeben."
+    },
+    "section9": {
+      "title": "9. Datenaufbewahrung und Löschung",
+      "description": "Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Nach Wegfall des Zweckes oder Ablauf der gesetzlichen Fristen werden die Daten gelöscht."
+    },
+    "section10": {
+      "title": "10. Kontakt bei Datenschutzfragen",
+      "intro": "Für alle Fragen, Anliegen oder Anträge bezüglich Ihrer personenbezogenen Daten wenden Sie sich bitte an:",
+      "name": "Hamidreza Pakzad",
+      "email": "E-Mail: hi@logicloom.de",
+      "website": "Website: https://logicloom.de"
+    },
+    "effectiveDate": "Effective Date: 01.10.2025",
+    "lastUpdated": "Last Updated: 01.10.2025"
+  },
+  "termsPage": {
+    "title": "Allgemeine Geschäftsbedingungen (AGB)",
+    "subtitle": "Ihre Rechte und Pflichten",
+    "section1": {
+      "title": "1. Geltungsbereich",
+      "intro": "Diese allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen LogicLoom – Hamidreza Pakzad, Hannover, Deutschland (nachfolgend „LogicLoom“ genannt) und dem jeweiligen Auftraggeber (nachfolgend „Kunde“ genannt).",
+      "points": [
+        "Abweichende oder entgegenstehende Bedingungen des Kunden werden nicht anerkannt, es sei denn, LogicLoom stimmt ihnen ausdrücklich schriftlich zu.",
+        "LogicLoom erbringt seine Leistungen ausschließlich für Unternehmer im Sinne des § 14 BGB, also im Rahmen einer gewerblichen oder selbständigen beruflichen Tätigkeit."
+      ]
+    },
+    "section2": {
+      "title": "2. Zustandekommen des Vertrages",
+      "points": [
+        "Ein Vertrag kommt zustande, sobald der Kunde ein Angebot von LogicLoom schriftlich oder per E-Mail annimmt.",
+        "Auch die Annahme eines Kostenvoranschlags oder einer Projektbeschreibung gilt als Vertragsabschluss."
+      ]
+    },
+    "section3": {
+      "title": "3. Leistungsumfang",
+      "intro": "LogicLoom bietet Dienstleistungen in den Bereichen",
+      "services": [
+        "Web-Entwicklung (Frontend & Backend)",
+        "Mobile App-Entwicklung (iOS & Android)",
+        "UI/UX-Design",
+        "Implementierung von CI/CD-Prozessen"
+      ],
+      "details": [
+        "Der genaue Leistungsumfang ergibt sich aus dem individuellen Angebot oder der Projektvereinbarung.",
+        "Die Inhalte (Texte, Bilder, Logos u. ä.), die zur Projekterstellung benötigt werden, stellt der Kunde zur Verfügung. Der Kunde sichert zu, dass er alle Rechte an den bereitgestellten Materialien besitzt.",
+        "Nach Fertigstellung erhält der Kunde eine Preview-Version zur Prüfung. Änderungswünsche innerhalb des vereinbarten Umfangs sind kostenlos; zusätzliche Anpassungen werden nach Aufwand berechnet. Nach finaler Abnahme gilt das Projekt als abgeschlossen."
+      ]
+    },
+    "section4": {
+      "title": "4. Mitwirkungspflichten des Kunden",
+      "description": "Der Kunde verpflichtet sich, alle erforderlichen Informationen, Dateien und Freigaben rechtzeitig bereitzustellen. Verzögerungen, die durch verspätete Mitwirkung entstehen, beeinflussen den Zahlungsplan nicht."
+    },
+    "section5": {
+      "title": "5. Zahlungsbedingungen",
+      "intro": "Sofern nichts anderes vereinbart, erfolgt die Zahlung in zwei Raten:",
+      "payments": [
+        "50 % bei Projektbeginn (Anzahlung)",
+        "50 % nach Fertigstellung und Abnahme"
+      ],
+      "cancellation": "Bei Stornierung durch den Kunden:",
+      "cancellationRules": [
+        "Innerhalb von 3 Tagen nach Vertragsabschluss → volle Rückerstattung.",
+        "Nach 3 Tagen → 50 % der Anzahlung (25 % des Gesamtbetrags) werden einbehalten; der Rest wird erstattet."
+      ],
+      "delay": "Bei Zahlungsverzug ist LogicLoom berechtigt, weitere Arbeiten bis zum Ausgleich der offenen Beträge auszusetzen."
+    },
+    "section6": {
+      "title": "6. Urheber- und Nutzungsrechte",
+      "points": [
+        "Bis zur vollständigen Zahlung bleiben alle erstellten Designs, Codes und Konzepte Eigentum von LogicLoom.",
+        "Nach vollständiger Bezahlung erhält der Kunde ein uneingeschränktes, einfaches Nutzungsrecht.",
+        "Eine Weitergabe, Wiederverwendung oder der Verkauf an Dritte bedarf der Zustimmung von LogicLoom.",
+        "LogicLoom darf abgeschlossene Projekte (z. B. Screenshots, Links oder Logos) als Referenz auf der eigenen Website oder in Portfolios nennen, sofern der Kunde dem nicht ausdrücklich widerspricht."
+      ]
+    },
+    "section7": {
+      "title": "7. Vertraulichkeit und NDA",
+      "description": "LogicLoom behandelt alle projektbezogenen Informationen vertraulich. Auf Wunsch wird zusätzlich eine separate NDA (Non-Disclosure Agreement) mit dem Kunden geschlossen, um die Sicherheit von Ideen und Projektdaten zu gewährleisten."
+    },
+    "section8": {
+      "title": "8. Haftung",
+      "points": [
+        "LogicLoom haftet nur für Vorsatz und grobe Fahrlässigkeit.",
+        "Für mittelbare Schäden, entgangenen Gewinn oder Datenverlust wird keine Haftung übernommen, es sei denn, es liegt Vorsatz oder grobe Fahrlässigkeit vor.",
+        "Die Haftungssumme ist auf den Auftragswert begrenzt."
+      ]
+    },
+    "section9": {
+      "title": "9. Datenschutz",
+      "description": "LogicLoom verarbeitet personenbezogene Daten ausschließlich gemäß der geltenden Datenschutz-Grundverordnung (DSGVO). Details sind in der Datenschutzerklärung unter https://logicloom.de/datenschutz beschrieben."
+    },
+    "section10": {
+      "title": "10. Laufzeit und Kündigung",
+      "points": [
+        "Die Zusammenarbeit gilt für die im Angebot vereinbarte Projektdauer.",
+        "Nach Abschluss kann der Kunde Zusatz- oder Wartungsleistungen separat beauftragen.",
+        "Eine vorzeitige Kündigung ist möglich, jedoch gelten die unter Punkt 5 genannten Rückerstattungsbedingungen."
+      ]
+    },
+    "section11": {
+      "title": "11. Schlussbestimmungen",
+      "points": [
+        "Es gilt das Recht der Bundesrepublik Deutschland.",
+        "Gerichtsstand ist Hannover.",
+        "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Die Parteien verpflichten sich, die unwirksame Regelung durch eine wirtschaftlich gleichwertige zu ersetzen."
+      ]
+    },
+    "contact": {
+      "name": "Hamidreza Pakzad",
+      "company": "LogicLoom – Web & App Development",
+      "location": "Hannover, Deutschland",
+      "email": "E-Mail: hi@logicloom.de"
+    },
+    "lastUpdated": "Stand: Oktober 2025"
+  }
 }

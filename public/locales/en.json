@@ -316,6 +316,7 @@
       "privacy": "Privacy Policy",
       "imprint": "Imprint"
     },
+    "allRightsReserved": "All Rights Reserved.",
     "copyright": "Copyright © 2024 LogicLoom. All Rights Reserved."
   },
   "contact": {
@@ -442,5 +443,220 @@
   "privacyPolicy": "Privacy Policy",
   "imprint": "Imprint",
   "underConstruction": "This page is currently under construction",
-  "underConstructionMessage": "We're working hard to bring you something amazing. This page will be available soon with detailed information."
+  "underConstructionMessage": "We're working hard to bring you something amazing. This page will be available soon with detailed information.",
+  "imprintPage": {
+    "title": "Legal Notice (Impressum)",
+    "subtitle": "Legal information according to German law",
+    "section1Title": "Information according to § 5 TMG:",
+    "companyName": "LogicLoom – Hamidreza Pakzad",
+    "location": "Hannover, Germany",
+    "contactTitle": "Contact:",
+    "email": "Email: hi@logicloom.de",
+    "website": "Website: https://logicloom.de",
+    "vatTitle": "VAT ID:",
+    "vatInfo": "To be submitted (applied for at Hannover Tax Office)",
+    "taxTitle": "Tax Number:",
+    "taxInfo": "To be submitted (applied for at Hannover Tax Office)",
+    "responsibleTitle": "Responsible for content according to § 55 Abs. 2 RStV:",
+    "responsibleName": "Hamidreza Pakzad",
+    "responsibleLocation": "Hannover, Germany",
+    "disclaimerTitle": "Disclaimer",
+    "contentLiabilityTitle": "Liability for Content",
+    "contentLiability": "As a service provider, I am responsible for my own content on these pages in accordance with § 7 Para. 1 TMG under general law. However, according to §§ 8 to 10 TMG, I am not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information according to general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. Upon becoming aware of corresponding legal violations, I will remove this content immediately.",
+    "linksLiabilityTitle": "Liability for Links",
+    "linksLiability": "My website contains links to external third-party websites over whose content I have no influence. Therefore, I cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of an infringement. Upon becoming aware of legal violations, I will remove such links immediately.",
+    "copyrightTitle": "Copyright",
+    "copyright": "The content and works created by the site operator on these pages are subject to German copyright law. Third-party contributions are identified as such. The reproduction, editing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately.",
+    "lastUpdated": "Last updated: October 2025"
+  },
+  "privacyPage": {
+    "title": "Privacy Policy (Datenschutzerklärung)",
+    "subtitle": "Your privacy matters to us",
+    "section1": {
+      "title": "1. General Information",
+      "website": "Website: LogicLoom – https://logicloom.de",
+      "operator": "Website Operator:",
+      "operatorName": "Hamidreza Pakzad",
+      "location": "Hannover, Germany",
+      "email": "Email: hi@logicloom.de"
+    },
+    "section2": {
+      "title": "2. Collection and Storage of Personal Data",
+      "dataTypes": "Types of Data Collected:",
+      "dataTypesDesc": "We collect personal data such as name, email address, phone number, project information, and IP address that you provide to us through contact forms or when logging in to our website.",
+      "purpose": "Purpose of Data Collection:",
+      "purposes": [
+        "for contact and communication",
+        "for creating and executing project offers",
+        "for improving website functionality and user experience",
+        "for analyzing user behavior (Google Analytics)",
+        "for ensuring login and session management (Cookies)"
+      ],
+      "methods": "Data Collection Methods:",
+      "methodsList": [
+        "through forms on the website",
+        "through cookies and tracking tools",
+        "through server logs (automatically generated technical data)"
+      ]
+    },
+    "section3": {
+      "title": "3. Data Processing and Sharing",
+      "thirdParty": "Use of Third-Party Services:",
+      "thirdPartyDesc": "This website uses Google Analytics, a web analytics service provided by Google Ireland Limited. Google Analytics uses cookies to analyze website usage. Information generated by cookies about your use of this website is usually transferred to and stored on a Google server in the USA. The IP address is anonymized ('IP anonymization').",
+      "dataSharing": "Data Sharing:",
+      "dataSharingDesc": "Data collected through Google Analytics may be transmitted to Google. This data is used exclusively for statistical and analytical purposes and is not used to identify individual users."
+    },
+    "section4": {
+      "title": "4. User Rights",
+      "intro": "You have the right to:",
+      "rights": [
+        "obtain information about your stored data according to Art. 15 GDPR",
+        "request correction of incorrect or incomplete data according to Art. 16 GDPR",
+        "request deletion of your data according to Art. 17 GDPR",
+        "request restriction of processing according to Art. 18 GDPR",
+        "receive your data in a portable format according to Art. 20 GDPR",
+        "object to processing according to Art. 21 GDPR"
+      ],
+      "contact": "To exercise these rights, you can contact us anytime at hi@logicloom.de"
+    },
+    "section5": {
+      "title": "5. Cookies and Tracking",
+      "cookies": "Cookies:",
+      "cookiesDesc": "Our website uses cookies to ensure the login process and technical functions. These cookies do not store sensitive personal information and are automatically deleted after logout.",
+      "analytics": "Google Analytics:",
+      "analyticsDesc": "Google Analytics is used to analyze and improve our online services. You can prevent cookie storage through your browser settings or revoke your consent at any time via the cookie banner.",
+      "settings": "Cookie Settings:",
+      "settingsDesc": "You can change your cookie settings at any time by clicking on the cookie icon at the bottom of the page."
+    },
+    "section6": {
+      "title": "6. Data Security",
+      "description": "We use technical and organizational measures to protect your personal data from loss, misuse, or unauthorized access. Our security measures are regularly reviewed and adapted according to the state of the art."
+    },
+    "section7": {
+      "title": "7. Legal Basis for Data Processing",
+      "intro": "The processing of your personal data is based on the following legal grounds according to GDPR:",
+      "bases": [
+        "Art. 6 Para. 1 lit. a GDPR: Consent (e.g., when using the contact form or cookies)",
+        "Art. 6 Para. 1 lit. b GDPR: Contract fulfillment or pre-contractual measures",
+        "Art. 6 Para. 1 lit. f GDPR: Legitimate interest in improving and securing our website"
+      ]
+    },
+    "section8": {
+      "title": "8. NDA and Confidentiality",
+      "description": "For customer projects, LogicLoom offers the conclusion of a separate Non-Disclosure Agreement (NDA). This ensures that all provided ideas, concepts, and data are treated strictly confidentially. This information will neither be published nor shared with third parties."
+    },
+    "section9": {
+      "title": "9. Data Retention and Deletion",
+      "description": "Personal data is only stored for as long as necessary for the respective purpose or as required by legal retention obligations. After the purpose ceases or the legal deadlines expire, the data will be deleted."
+    },
+    "section10": {
+      "title": "10. Contact for Privacy Questions",
+      "intro": "For all questions, concerns, or requests regarding your personal data, please contact:",
+      "name": "Hamidreza Pakzad",
+      "email": "Email: hi@logicloom.de",
+      "website": "Website: https://logicloom.de"
+    },
+    "effectiveDate": "Effective Date: 01.10.2025",
+    "lastUpdated": "Last Updated: 01.10.2025"
+  },
+  "termsPage": {
+    "title": "Terms & Conditions (AGB)",
+    "subtitle": "Your rights and obligations",
+    "section1": {
+      "title": "1. Scope of Application",
+      "intro": "These general terms and conditions apply to all contracts between LogicLoom – Hamidreza Pakzad, Hannover, Germany (hereinafter referred to as \"LogicLoom\") and the respective client (hereinafter referred to as \"Customer\").",
+      "points": [
+        "Deviating or conflicting conditions of the customer will not be recognized unless LogicLoom expressly agrees to them in writing.",
+        "LogicLoom provides its services exclusively to entrepreneurs within the meaning of § 14 BGB, i.e. within the framework of commercial or independent professional activity."
+      ]
+    },
+    "section2": {
+      "title": "2. Contract Formation",
+      "points": [
+        "A contract is concluded as soon as the customer accepts an offer from LogicLoom in writing or by email.",
+        "Acceptance of a cost estimate or project description also constitutes contract formation."
+      ]
+    },
+    "section3": {
+      "title": "3. Scope of Services",
+      "intro": "LogicLoom offers services in the following areas:",
+      "services": [
+        "Web Development (Frontend & Backend)",
+        "Mobile App Development (iOS & Android)",
+        "UI/UX Design",
+        "Implementation of CI/CD processes"
+      ],
+      "details": [
+        "The exact scope of services is determined by the individual offer or project agreement.",
+        "The content (texts, images, logos, etc.) required for project creation is provided by the customer. The customer guarantees that they own all rights to the provided materials.",
+        "Upon completion, the customer receives a preview version for review. Change requests within the agreed scope are free of charge; additional adjustments will be charged according to effort. After final acceptance, the project is considered completed."
+      ]
+    },
+    "section4": {
+      "title": "4. Customer Cooperation Obligations",
+      "description": "The customer commits to providing all necessary information, files, and approvals in a timely manner. Delays caused by late cooperation do not affect the payment schedule."
+    },
+    "section5": {
+      "title": "5. Payment Terms",
+      "intro": "Unless otherwise agreed, payment is made in two installments:",
+      "payments": [
+        "50% at project start (deposit)",
+        "50% after completion and acceptance"
+      ],
+      "cancellation": "In case of cancellation by the customer:",
+      "cancellationRules": [
+        "Within 3 days after contract conclusion → full refund.",
+        "After 3 days → 50% of the deposit (25% of the total amount) is retained; the rest is refunded."
+      ],
+      "delay": "In case of payment delay, LogicLoom is entitled to suspend further work until outstanding amounts are settled."
+    },
+    "section6": {
+      "title": "6. Copyright and Usage Rights",
+      "points": [
+        "Until full payment, all created designs, codes, and concepts remain the property of LogicLoom.",
+        "After full payment, the customer receives an unrestricted, simple usage right.",
+        "Transfer, reuse, or sale to third parties requires LogicLoom's consent.",
+        "LogicLoom may mention completed projects (e.g., screenshots, links, or logos) as references on its own website or in portfolios, unless the customer expressly objects."
+      ]
+    },
+    "section7": {
+      "title": "7. Confidentiality and NDA",
+      "description": "LogicLoom treats all project-related information confidentially. Upon request, a separate NDA (Non-Disclosure Agreement) will be concluded with the customer to ensure the security of ideas and project data."
+    },
+    "section8": {
+      "title": "8. Liability",
+      "points": [
+        "LogicLoom is only liable for intent and gross negligence.",
+        "No liability is assumed for indirect damages, lost profits, or data loss, unless there is intent or gross negligence.",
+        "The liability amount is limited to the contract value."
+      ]
+    },
+    "section9": {
+      "title": "9. Data Protection",
+      "description": "LogicLoom processes personal data exclusively in accordance with the applicable General Data Protection Regulation (GDPR). Details are described in the privacy policy at https://logicloom.de/privacy"
+    },
+    "section10": {
+      "title": "10. Term and Termination",
+      "points": [
+        "The collaboration applies for the project duration agreed in the offer.",
+        "After completion, the customer can commission additional or maintenance services separately.",
+        "Early termination is possible, but the refund conditions mentioned under point 5 apply."
+      ]
+    },
+    "section11": {
+      "title": "11. Final Provisions",
+      "points": [
+        "German law applies.",
+        "The place of jurisdiction is Hannover.",
+        "Should individual provisions of these terms and conditions be or become invalid, the validity of the remaining provisions remains unaffected. The parties commit to replacing the invalid provision with an economically equivalent one."
+      ]
+    },
+    "contact": {
+      "name": "Hamidreza Pakzad",
+      "company": "LogicLoom – Web & App Development",
+      "location": "Hannover, Germany",
+      "email": "Email: hi@logicloom.de"
+    },
+    "lastUpdated": "Last updated: October 2025"
+  }
 }
