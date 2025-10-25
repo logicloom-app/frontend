@@ -74,8 +74,12 @@ export default function ResetPasswordForm({ setStep, dict, setEmail, setPassword
       </div>
 
       <div className="flex flex-col px-10 pt-10 mt-6 mb-5">
-        <h1 className="text-2xl font-bold mb-5">{dict?.title}</h1>
-        <p className="text-base">{dict?.description}</p>
+        <h1 className="text-2xl font-bold mb-5 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          {dict?.title}
+        </h1>
+        <p className="text-base text-gray-600 dark:text-gray-400">
+          {dict?.description}
+        </p>
       </div>
 
       <form
@@ -134,10 +138,10 @@ export default function ResetPasswordForm({ setStep, dict, setEmail, setPassword
         ) : null}
 
         <Button
-          disabled={!resetPasswordFormik.isValid}
+          disabled={!resetPasswordFormik.isValid || isPending}
           type="submit"
           variant="custom"
-          className="mb-2 flex items-center justify-center"
+          className="mb-2 flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
         >
           {!isPending ? dict?.submit : "Pending ..."}
         </Button>

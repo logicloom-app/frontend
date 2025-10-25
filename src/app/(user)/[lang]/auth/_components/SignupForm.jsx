@@ -42,8 +42,10 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
   return (
     <>
       <div className="flex flex-col px-10 pt-10 my-4">
-        <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
-        <p className="text-base">{dict?.welcome}</p>
+        <h1 className="text-5xl font-bold mb-5 pb-1 leading-tight bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          {dict?.title}
+        </h1>
+        <p className="text-base text-gray-600 dark:text-gray-400">{dict?.welcome}</p>
       </div>
 
       <Link
@@ -112,20 +114,37 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
         ) : null}
 
         <Button
-          disabled={!registerFormik.isValid}
+          disabled={!registerFormik.isValid || isPending}
           variant="custom"
-          className=""
+          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl hover:shadow-purple-500/50 transition-all duration-300"
           onClick={handleUserInfo}
         >
           {isPending ? <Spinner className="w-4 h-4" /> : dict?.submit}
         </Button>
 
-        <p className="text-sm">
-          {dict?.hasAccount}
-          <Button variant="link" onClick={() => setIsLogin(true)}>
-            {dict?.login}
-          </Button>
-        </p>
+        <div className="flex flex-col gap-3 mt-2">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200 dark:border-gray-700"></div>
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="bg-white dark:bg-gray-900 px-2 rounded-full text-gray-500 dark:text-gray-400">
+                or
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsLogin(true)}
+            className="text-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+          >
+            {dict?.hasAccount}{" "}
+            <span className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300">
+              {dict?.login}
+            </span>
+          </button>
+        </div>
       </form>
     </>
   );

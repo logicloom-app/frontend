@@ -65,8 +65,10 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
   return (
     <>
       <div className="flex flex-col px-10 pt-10 mt-6 mb-5">
-        <h1 className="text-5xl font-bold mb-5">{dict?.title}</h1>
-        <p className="text-base">{dict?.welcome}</p>
+        <h1 className="text-5xl font-bold mb-5 pb-1 leading-tight bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          {dict?.title}
+        </h1>
+        <p className="text-base text-gray-600 dark:text-gray-400">{dict?.welcome}</p>
       </div>
 
       <Link
@@ -121,31 +123,44 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
           </div>
         ) : null}
 
-        <div className="flex flex-col gap-4">
-          <Button
-            disabled={!loginFormik.isValid}
-            type="submit"
-            variant="custom"
-            className="mb-2"
+        <Button
+          disabled={!loginFormik.isValid || isPending}
+          type="submit"
+          variant="custom"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
+        >
+          {isPending ? <Spinner className="w-4 h-4" /> : dict?.submit}
+        </Button>
+
+        <div className="flex flex-col gap-3 mt-2">
+          <Link
+            href="/auth/password-reset"
+            className="text-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"
           >
-            {isPending ? <Spinner className="w-4 h-4" /> : dict?.submit}
-          </Button>
+            {dict?.forgotPassword}
+          </Link>
 
-          <div>
-            <Link
-              href="/auth/password-reset"
-              className="underline-offset-4 hover:underline"
-            >
-              <p className="text-sm">{dict?.forgotPassword}</p>
-            </Link>
-
-            <div className="text-sm">
-              {dict?.noAccount}{" "}
-              <Button variant="link" onClick={() => setIsLogin(false)}>
-                {dict?.register}
-              </Button>
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200 dark:border-gray-700"></div>
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="bg-white dark:bg-gray-900 px-2 rounded-full text-gray-500 dark:text-gray-400">
+                or
+              </span>
             </div>
           </div>
+
+          <button
+            type="button"
+            onClick={() => setIsLogin(false)}
+            className="text-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+          >
+            {dict?.noAccount}{" "}
+            <span className="text-purple-600 dark:text-purple-400 font-semibold hover:text-purple-700 dark:hover:text-purple-300">
+              {dict?.register}
+            </span>
+          </button>
         </div>
       </form>
     </>

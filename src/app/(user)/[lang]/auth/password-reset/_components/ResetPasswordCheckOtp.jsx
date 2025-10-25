@@ -52,11 +52,15 @@ export default function ResetPasswordCheckOtp({
       </div>
 
       <div className="flex flex-col px-10 pt-10 my-6">
-        <h1 className="text-3xl font-bold mb-5">{dict?.verify?.title}</h1>
-        <p className="text-sm">{dict?.verify?.description}</p>
-        <p className="text-sm dark:text-gray-300">
+        <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          {dict?.verify?.title}
+        </h1>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          {dict?.verify?.description}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
           {dict?.verify?.expiry}{" "}
-          <span className="font-bold dark:text-gray-100">
+          <span className="font-bold text-gray-800 dark:text-gray-100">
             {dict?.verify?.minutes}
           </span>
           .
@@ -69,35 +73,53 @@ export default function ResetPasswordCheckOtp({
       >
         <InputOTP maxLength={6} onChange={setOtp}>
           <InputOTPGroup>
-            <InputOTPSlot index={0} className="border-zinc-500" />
+            <InputOTPSlot
+              index={0}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
 
           <InputOTPGroup>
-            <InputOTPSlot index={1} className="border-zinc-500" />
+            <InputOTPSlot
+              index={1}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
 
           <InputOTPGroup>
-            <InputOTPSlot index={2} className="border-zinc-500" />
+            <InputOTPSlot
+              index={2}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
 
           <InputOTPGroup>
-            <InputOTPSlot index={3} className="border-zinc-500" />
+            <InputOTPSlot
+              index={3}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
 
           <InputOTPGroup>
-            <InputOTPSlot index={4} className="border-zinc-500" />
+            <InputOTPSlot
+              index={4}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
 
           <InputOTPGroup>
-            <InputOTPSlot index={5} className="border-zinc-500" />
+            <InputOTPSlot
+              index={5}
+              className="border-2 border-blue-300 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-500"
+            />
           </InputOTPGroup>
         </InputOTP>
 
         <Button
-          disabled={otp?.length !== 6}
+          disabled={otp?.length !== 6 || isResetPasswordPending}
           variant="custom"
           type="submit"
-          className="w-full"
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
         >
           {!isResetPasswordPending ? dict?.verify?.submit : "Pending ..."}
         </Button>
