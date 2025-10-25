@@ -8,6 +8,7 @@ import {
   BiCog,
   BiRocket,
 } from "react-icons/bi";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
@@ -116,9 +117,9 @@ export default function ServicesClient({ dict, lang }) {
               {dict?.subtitle}
             </p>
             <Link href={`/${lang}/contact`}>
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <GradientButton variant="primary" size="lg">
                 {dict?.sendRequest}
-              </button>
+              </GradientButton>
             </Link>
           </div>
         </div>
@@ -199,7 +200,7 @@ export default function ServicesClient({ dict, lang }) {
               consultation
             </p>
             <Link href={`/${lang}/contact`} className="inline-block">
-              <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto">
+              <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto hover:bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700">
                 <span>{dict?.sendRequest}</span>
                 <TbArrowNarrowRight className="w-6 h-6" />
               </button>

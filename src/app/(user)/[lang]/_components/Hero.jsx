@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Particles from "@/components/ui/particles";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { TbArrowNarrowRight, TbSparkles } from "react-icons/tb";
 import BlurFade from "@/components/ui/blur-fade";
 
@@ -59,24 +60,15 @@ export default function Hero({ dict, lang }) {
         <div className="flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
           <Link href={`/${lang}/contact`} className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-            <button className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <div className="flex items-center space-x-2">
-                <span>{dict?.contactUs}</span>
-                <TbArrowNarrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </button>
+            <GradientButton variant="primary" size="lg" className="relative">
+              {dict?.contactUs}
+              <TbArrowNarrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </GradientButton>
           </Link>
 
-          <Link
-            href={`/${lang}/services`}
-            className="relative group pointer-events-auto"
-          >
+          <Link href={`/${lang}/services`}>
             <button className="px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-purple-500 text-gray-700 dark:text-gray-300 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <div className="flex items-center space-x-2">
-                <span>
-                  {lang === "en" ? "Our Services" : "Unsere Dienstleistungen"}
-                </span>
-              </div>
+              {lang === "en" ? "Our Services" : "Unsere Dienstleistungen"}
             </button>
           </Link>
         </div>
