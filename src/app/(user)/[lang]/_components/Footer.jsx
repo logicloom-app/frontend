@@ -101,21 +101,21 @@ export default function Footer({ dict, lang }) {
             <h3 className="font-bold text-lg mb-4">{dict?.legal?.title}</h3>
             <div className="flex flex-col gap-3">
               <Link
-                href="#"
+                href={`/${lang}/terms`}
                 className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-300"></span>
                 {dict?.legal?.terms}
               </Link>
               <Link
-                href="#"
+                href={`/${lang}/privacy`}
                 className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-300"></span>
                 {dict?.legal?.privacy}
               </Link>
               <Link
-                href="#"
+                href={`/${lang}/imprint`}
                 className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 flex items-center gap-2 group"
               >
                 <span className="w-0 h-0.5 bg-purple-500 group-hover:w-4 transition-all duration-300"></span>

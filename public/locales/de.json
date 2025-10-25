@@ -436,5 +436,11 @@
     "home": "Zurück zur Startseite",
     "back": "Zurück",
     "errorCode": "Fehlercode:"
-  }
+  },
+  "aboutUs": "Über uns",
+  "termsConditions": "Nutzungsbedingungen",
+  "privacyPolicy": "Datenschutz",
+  "imprint": "Impressum",
+  "underConstruction": "Diese Seite befindet sich derzeit im Aufbau",
+  "underConstructionMessage": "Wir arbeiten hart daran, Ihnen etwas Großartiges zu bieten. Diese Seite wird bald mit detaillierten Informationen verfügbar sein."
 }

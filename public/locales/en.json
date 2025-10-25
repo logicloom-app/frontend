@@ -436,5 +436,11 @@
     "home": "Back to Home",
     "back": "Go Back",
     "errorCode": "Error Code:"
-  }
+  },
+  "aboutUs": "About Us",
+  "termsConditions": "Terms & Conditions",
+  "privacyPolicy": "Privacy Policy",
+  "imprint": "Imprint",
+  "underConstruction": "This page is currently under construction",
+  "underConstructionMessage": "We're working hard to bring you something amazing. This page will be available soon with detailed information."
 }
