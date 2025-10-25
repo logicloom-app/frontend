@@ -10,6 +10,10 @@ import {
   TrendingUpDown,
   Sparkles,
   Zap,
+  Monitor,
+  Server,
+  Smartphone,
+  GitBranch,
 } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -429,14 +433,136 @@ export default function HomeSections({ dict, lang }) {
                   </BlurFade>
                 </div>
 
-                <BlurFade delay={0.35} inView>
-                  <div className="flex justify-center items-center pointer-events-auto">
-                    <IconCloud images={images} />
-                  </div>
-                </BlurFade>
+                {/* Tech Stack Categories */}
+                <div className="relative z-10 mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center px-4">
+                  {/* Left Side - IconCloud */}
+                  <BlurFade delay={0.35} inView>
+                    <div className="flex justify-center items-center pointer-events-auto min-h-[400px]">
+                      <IconCloud images={images} />
+                    </div>
+                  </BlurFade>
 
-                <BlurFade delay={0.4} inView>
-                  <div className="flex items-center justify-center pointer-events-auto">
+                  {/* Right Side - Tech Stack Categories */}
+                  <div className="space-y-6">
+                    {/* Frontend */}
+                    <BlurFade delay={0.4} inView>
+                      <div className="group cursor-pointer">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Monitor className="text-white w-5 h-5" />
+                          </div>
+                          <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
+                            Frontend Development
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 ml-13">
+                          <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            React
+                          </span>
+                          <span className="px-3 py-1 bg-gray-700/10 border border-gray-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Next.js
+                          </span>
+                          <span className="px-3 py-1 bg-blue-600/10 border border-blue-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            TypeScript
+                          </span>
+                          <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Tailwind CSS
+                          </span>
+                        </div>
+                      </div>
+                    </BlurFade>
+
+                    {/* Backend */}
+                    <BlurFade delay={0.45} inView>
+                      <div className="group cursor-pointer">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Server className="text-white w-5 h-5" />
+                          </div>
+                          <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
+                            Backend Development
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 ml-13">
+                          <span className="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Node.js
+                          </span>
+                          <span className="px-3 py-1 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Golang
+                          </span>
+                          <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Python
+                          </span>
+                          <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            PostgreSQL
+                          </span>
+                          <span className="px-3 py-1 bg-green-600/10 border border-green-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Microservices
+                          </span>
+                        </div>
+                      </div>
+                    </BlurFade>
+
+                    {/* Mobile */}
+                    <BlurFade delay={0.5} inView>
+                      <div className="group cursor-pointer">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Smartphone className="text-white w-5 h-5" />
+                          </div>
+                          <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
+                            Mobile Development
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 ml-13">
+                          <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            React Native
+                          </span>
+                          <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Flutter
+                          </span>
+                          <span className="px-3 py-1 bg-gray-700/10 border border-gray-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Swift
+                          </span>
+                          <span className="px-3 py-1 bg-green-600/10 border border-green-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Kotlin
+                          </span>
+                        </div>
+                      </div>
+                    </BlurFade>
+
+                    {/* CI/CD & DevOps */}
+                    <BlurFade delay={0.55} inView>
+                      <div className="group cursor-pointer">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <GitBranch className="text-white w-5 h-5" />
+                          </div>
+                          <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
+                            CI/CD & DevOps
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 ml-13">
+                          <span className="px-3 py-1 bg-blue-400/10 border border-blue-400/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Docker
+                          </span>
+                          <span className="px-3 py-1 bg-blue-600/10 border border-blue-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            Kubernetes
+                          </span>
+                          <span className="px-3 py-1 bg-gray-700/10 border border-gray-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            GitHub Actions
+                          </span>
+                          <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            GitLab CI
+                          </span>
+                        </div>
+                      </div>
+                    </BlurFade>
+                  </div>
+                </div>
+
+                <BlurFade delay={0.5} inView>
+                  <div className="flex items-center justify-center pointer-events-auto mt-4">
                     <Link href={`/${lang}/contact`}>
                       <GradientButton variant="primary" size="lg">
                         {dict?.sendRequest}

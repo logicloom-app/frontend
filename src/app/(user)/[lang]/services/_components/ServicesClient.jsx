@@ -197,7 +197,7 @@ export default function ServicesClient({ dict, lang }) {
             </h2>
             <p className="text-xl mb-8 opacity-90">{dict?.scheduleConsultation}</p>
             <Link href={`/${lang}/contact`} className="inline-block">
-              <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto hover:bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700">
+              <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto hover:bg-blue-50">
                 <span>{dict?.sendRequest}</span>
                 <TbArrowNarrowRight className="w-6 h-6" />
               </button>
