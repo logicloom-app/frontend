@@ -87,9 +87,15 @@
     "getStartedToday": "Jetzt loslegen",
     "contactUs": "Kontaktiere uns",
     "sendRequest": "Eine Anfrage senden",
+    "welcomeToFuture": "Willkommen in der Zukunft",
+    "ourServices": "Unsere Dienstleistungen",
+    "projects": "Projekte",
+    "clients": "Kunden",
+    "support": "Support",
     "SubheadingDescription": "Maßgeschneiderte Webentwicklungslösungen für Ihren Erfolg. Von atemberaubenden Designs bis hin zu leistungsstarker Funktionalität",
     "commonChallenges": {
       "title": "Häufige Geschäftsprobleme",
+      "titleBadge": "Häufige Herausforderungen",
       "description": "Die digitale Herausforderung",
       "revenueGrowth": {
         "title": "Umsatz- und Wachstumsschwierigkeiten",
@@ -115,6 +121,7 @@
     "solution": {
       "title": "Die Lösung:",
       "title2": "Unsere Web-Services",
+      "titleBadge": "Unsere Lösung",
       "description": "Transformieren Sie Ihre Online-Präsenz mit unseren umfassenden Web-Lösungen:",
       "professionalDevelopment": {
         "title": "Berufliche Entwicklung",
@@ -131,6 +138,26 @@
         "3": "Analyse und Tracking",
         "4": "Inhaltsverwaltungssysteme",
         "5": "Integration von Marketing-Automatisierung"
+      }
+    },
+    "techStack": {
+      "title": "Technologien, die wir beherrschen",
+      "description": "Wir nutzen modernste Technologien, um schnelle, sichere und skalierbare Lösungen zu entwickeln",
+      "fast": {
+        "title": "Schnell",
+        "description": "Blitzschnell"
+      },
+      "secure": {
+        "title": "Sicher",
+        "description": "Bank-Level-Sicherheit"
+      },
+      "scalable": {
+        "title": "Skalierbar",
+        "description": "Wächst mit Ihnen"
+      },
+      "modern": {
+        "title": "Modern",
+        "description": "Neueste Technologie"
       }
     }
   },
@@ -315,6 +342,8 @@
     "title": "Individuelle Softwareentwicklungsdienste",
     "subtitle": "Wir erstellen Lösungen, die Geschäftsprobleme lösen, Anforderungen erfüllen, auf Marktbedürfnisse reagieren und interne Abläufe transformieren.",
     "sendRequest": "Kostenlose Schätzung erhalten",
+    "readyToBuild": "Bereit, Ihr Projekt zu starten?",
+    "scheduleConsultation": "Vereinbaren Sie ein Treffen mit unseren Spezialisten, um eine individuelle technische Beratung zu erhalten",
     "mobileDev": {
       "title": "Mobile App-Entwicklung",
       "description": "Unsere mobilen Entwickler nutzen bewährte agile Praktiken und verfolgen einen kundenorientierten Ansatz zur Entwicklung von Apps.",

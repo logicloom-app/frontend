@@ -70,7 +70,7 @@ export default function HomeSections({ dict, lang }) {
               <BlurFade delay={0.1} inView>
                 <div className="inline-block mb-4">
                   <span className="px-4 py-2 rounded-full  border border-pink-500/20 dark:border-cyan-500/20 text-sm font-semibold bg-gradient-to-r from-pink-600 to-cyan-600 dark:from-pink-400 dark:to-cyan-400 bg-clip-text text-transparent">
-                    Common Challenges
+                    {dict.commonChallenges.titleBadge}
                   </span>
                 </div>
               </BlurFade>
@@ -167,8 +167,10 @@ export default function HomeSections({ dict, lang }) {
             <div className="relative z-10 text-center mb-16">
               <BlurFade delay={0.1} inView>
                 <div className="inline-block mb-4">
-                  <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-purple-500/20 text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                    Our Solution
+                  <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-purple-500/20 text-sm font-semibold bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+                      {dict.solution.titleBadge}
+                    </span>
                   </span>
                 </div>
               </BlurFade>
@@ -346,13 +348,12 @@ export default function HomeSections({ dict, lang }) {
                   </BlurFade>
                   <BlurFade delay={0.2} inView>
                     <h3 className="text-3xl md:text-5xl md:h-[55px] font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-                      Technologies We Master
+                      {dict?.techStack?.title}
                     </h3>
                   </BlurFade>
                   <BlurFade delay={0.3} inView>
                     <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                      We use cutting-edge technologies to build fast, secure, and
-                      scalable solutions
+                      {dict?.techStack?.description}
                     </p>
                   </BlurFade>
                 </div>
@@ -366,9 +367,11 @@ export default function HomeSections({ dict, lang }) {
                         <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                           ⚡
                         </div>
-                        <h4 className="font-bold mb-1 text-lg">Fast</h4>
+                        <h4 className="font-bold mb-1 text-lg">
+                          {dict?.techStack?.fast?.title}
+                        </h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Lightning speed
+                          {dict?.techStack?.fast?.description}
                         </p>
                       </div>
                     </div>
@@ -381,9 +384,11 @@ export default function HomeSections({ dict, lang }) {
                         <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                           🔒
                         </div>
-                        <h4 className="font-bold mb-1 text-lg">Secure</h4>
+                        <h4 className="font-bold mb-1 text-lg">
+                          {dict?.techStack?.secure?.title}
+                        </h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Bank-level security
+                          {dict?.techStack?.secure?.description}
                         </p>
                       </div>
                     </div>
@@ -396,9 +401,11 @@ export default function HomeSections({ dict, lang }) {
                         <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                           📈
                         </div>
-                        <h4 className="font-bold mb-1 text-lg">Scalable</h4>
+                        <h4 className="font-bold mb-1 text-lg">
+                          {dict?.techStack?.scalable?.title}
+                        </h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Grows with you
+                          {dict?.techStack?.scalable?.description}
                         </p>
                       </div>
                     </div>
@@ -411,9 +418,11 @@ export default function HomeSections({ dict, lang }) {
                         <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                           🎨
                         </div>
-                        <h4 className="font-bold mb-1 text-lg">Modern</h4>
+                        <h4 className="font-bold mb-1 text-lg">
+                          {dict?.techStack?.modern?.title}
+                        </h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Latest tech
+                          {dict?.techStack?.modern?.description}
                         </p>
                       </div>
                     </div>

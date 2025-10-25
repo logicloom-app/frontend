@@ -29,7 +29,7 @@ export default function Hero({ dict, lang }) {
           <div className="flex items-center gap-2">
             <TbSparkles className="w-4 h-4 text-blue-600 dark:text-blue-400 animate-pulse" />
             <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-              {lang === "en" ? "Welcome to the Future" : "Willkommen in der Zukunft"}
+              {dict?.welcomeToFuture}
             </span>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Hero({ dict, lang }) {
 
           <Link href={`/${lang}/services`}>
             <button className="px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-purple-500 text-gray-700 dark:text-gray-300 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              {lang === "en" ? "Our Services" : "Unsere Dienstleistungen"}
+              {dict?.ourServices}
             </button>
           </Link>
         </div>
@@ -82,7 +82,7 @@ export default function Hero({ dict, lang }) {
               100+
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {lang === "en" ? "Projects" : "Projekte"}
+              {dict?.projects}
             </div>
           </div>
           <div className="text-center">
@@ -90,7 +90,7 @@ export default function Hero({ dict, lang }) {
               50+
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {lang === "en" ? "Clients" : "Kunden"}
+              {dict?.clients}
             </div>
           </div>
           <div className="text-center">
@@ -98,7 +98,7 @@ export default function Hero({ dict, lang }) {
               24/7
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {lang === "en" ? "Support" : "Support"}
+              {dict?.support}
             </div>
           </div>
         </div>

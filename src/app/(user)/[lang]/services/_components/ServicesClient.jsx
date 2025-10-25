@@ -193,12 +193,9 @@ export default function ServicesClient({ dict, lang }) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-[35px] p-12 text-center text-white shadow-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Ready to Build Your Project?
+              {dict?.readyToBuild}
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Schedule a meeting with our specialists to get an individual tech
-              consultation
-            </p>
+            <p className="text-xl mb-8 opacity-90">{dict?.scheduleConsultation}</p>
             <Link href={`/${lang}/contact`} className="inline-block">
               <button className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2 mx-auto hover:bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700">
                 <span>{dict?.sendRequest}</span>

@@ -87,9 +87,15 @@
     "getStartedToday": "Get Started Today",
     "contactUs": "Contact Us",
     "sendRequest": "Send a Request",
+    "welcomeToFuture": "Welcome to the Future",
+    "ourServices": "Our Services",
+    "projects": "Projects",
+    "clients": "Clients",
+    "support": "Support",
     "SubheadingDescription": "Custom web development solutions that drive results. From stunning designs to powerful functionality, we deliver the tools you need to succeed online.",
     "commonChallenges": {
       "title": "Common Business Challenges",
+      "titleBadge": "Common Challenges",
       "description": "The Digital Struggle",
       "revenueGrowth": {
         "title": "Revenue & Growth Challenges",
@@ -115,6 +121,7 @@
     "solution": {
       "title": "The Solution:",
       "title2": "Our Web Services",
+      "titleBadge": "Our Solution",
       "description": "Transform your online presence with our comprehensive web solutions:",
       "professionalDevelopment": {
         "title": "Professional Development",
@@ -131,6 +138,26 @@
         "3": "Analytics and tracking",
         "4": "Content management systems",
         "5": "Marketing automation integration"
+      }
+    },
+    "techStack": {
+      "title": "Technologies We Master",
+      "description": "We use cutting-edge technologies to build fast, secure, and scalable solutions",
+      "fast": {
+        "title": "Fast",
+        "description": "Lightning speed"
+      },
+      "secure": {
+        "title": "Secure",
+        "description": "Bank-level security"
+      },
+      "scalable": {
+        "title": "Scalable",
+        "description": "Grows with you"
+      },
+      "modern": {
+        "title": "Modern",
+        "description": "Latest tech"
       }
     }
   },
@@ -315,6 +342,8 @@
     "title": "Custom Software Development Services",
     "subtitle": "We create solutions that solve business problems, meet requirements, respond to market needs, and transform internal operations.",
     "sendRequest": "Get Free Estimation",
+    "readyToBuild": "Ready to Build Your Project?",
+    "scheduleConsultation": "Schedule a meeting with our specialists to get an individual tech consultation",
     "mobileDev": {
       "title": "Mobile App Development",
       "description": "Our mobile developers use well-proven agile practices and follow a client-oriented approach to develop custom mobile apps that highlight your brand identity.",
