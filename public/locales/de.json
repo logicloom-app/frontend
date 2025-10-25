@@ -400,5 +400,12 @@
     "sendRequest": "Anfrage senden",
     "addContactInfo": "Bitte fügen Sie Ihre Kontaktinformationen in Ihrem Profil hinzu, um eine Anfrage zu senden",
     "sendRequestDescription": "Senden Sie eine Anfrage an den Admin, um ein Projekt zu erhalten."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Hoppla! Die gesuchte Seite existiert nicht. Sie wurde möglicherweise verschoben oder gelöscht.",
+    "home": "Zurück zur Startseite",
+    "back": "Zurück",
+    "errorCode": "Fehlercode:"
   }
 }

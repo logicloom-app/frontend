@@ -400,5 +400,12 @@
     "sendRequest": "Send a Request",
     "addContactInfo": "Please add your contact information in your profile to send a request",
     "sendRequestDescription": "Send a request to the admin to get a project."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
+    "home": "Back to Home",
+    "back": "Go Back",
+    "errorCode": "Error Code:"
   }
 }
