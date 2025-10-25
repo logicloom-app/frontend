@@ -9,6 +9,7 @@ import { useGetUser } from "@/lib/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
 import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -51,7 +52,7 @@ export default function Header({ dict, lang }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center items-center ${
+      className={`sticky top-0 z-50 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-900/60 flex justify-center items-center shadow-sm ${
         isLoading && "blur-sm"
       }`}
     >
@@ -59,17 +60,22 @@ export default function Header({ dict, lang }) {
         <div className="flex items-center gap-5">
           <Link
             href={`/${params.lang}`}
-            className="flex items-center justify-center gap-3"
+            className="group flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105"
           >
-            <Image
-              src="/images/logo.png"
-              width={40}
-              height={40}
-              alt="LogicLoom logo"
-              priority
-              className="saturate-200"
-            />
-            <h1 className="text-xl">LogicLoom</h1>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <Image
+                src="/images/logo.png"
+                width={40}
+                height={40}
+                alt="LogicLoom logo"
+                priority
+                className="relative saturate-200 group-hover:rotate-12 transition-transform duration-300"
+              />
+            </div>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+              LogicLoom
+            </h1>
           </Link>
 
           <div className="flex items-center max-md:hidden">
@@ -89,9 +95,10 @@ export default function Header({ dict, lang }) {
               <HoverCardTrigger asChild>
                 <Link
                   href={`/${lang}/services`}
-                  className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300"
+                  className="relative px-5 py-2 rounded-l-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group overflow-hidden"
                 >
-                  {dict?.services}
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                  <span className="relative">{dict?.services}</span>
                 </Link>
               </HoverCardTrigger>
 
@@ -150,26 +157,27 @@ export default function Header({ dict, lang }) {
 
             <Link
               href={`/${lang}/contact`}
-              className="px-5 py-2 rounded-r-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300"
+              className="relative px-5 py-2 rounded-r-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 group overflow-hidden"
             >
-              {dict?.contact}
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="relative">{dict?.contact}</span>
             </Link>
           </div>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <button>
+            <button className="relative p-2 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-950/50 dark:hover:to-purple-950/50 transition-all duration-300 border border-gray-200 dark:border-gray-700">
               <div className="space-y-2" dir="rtl">
                 <span
-                  className={`block h-[2px] w-8 origin-center rounded-full dark:bg-white bg-gray-900 transition-transform ease-in-out ${
+                  className={`block h-[2.5px] w-7 origin-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 transition-transform ease-in-out ${
                     open && "translate-y-1.5 rotate-45"
                   }`}
                 ></span>
 
                 <span
-                  className={`block h-[2px] w-6 origin-center rounded-full dark:bg-white bg-gray-900 transition-transform ease-in-out ${
-                    open && "w-[32px] -translate-y-1 -rotate-45"
+                  className={`block h-[2.5px] w-5 origin-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 transition-transform ease-in-out ${
+                    open && "w-[28px] -translate-y-1 -rotate-45"
                   }`}
                 ></span>
               </div>
@@ -236,29 +244,44 @@ export default function Header({ dict, lang }) {
                 {user && (
                   <Link
                     href={`/${lang}/dashboard`}
-                    className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                    className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20 hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-950/40 dark:hover:to-purple-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
                     onClick={() => setOpen(false)}
                   >
-                    <LayoutDashboard size={20} strokeWidth={3} />
-                    {dict?.viewProfile}
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300"></span>
+                    <LayoutDashboard
+                      size={20}
+                      strokeWidth={2.5}
+                      className="relative text-blue-600 dark:text-blue-400"
+                    />
+                    <span className="relative font-medium">{dict?.viewProfile}</span>
                   </Link>
                 )}
 
                 <Link
                   href={`/${lang}/services`}
-                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 bg-gradient-to-r from-purple-50/50 to-pink-50/50 dark:from-purple-950/20 dark:to-pink-950/20 hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-950/40 dark:hover:to-pink-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
                 >
-                  <Code2 size={20} strokeWidth={3} />
-                  {dict?.services}
+                  <span className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"></span>
+                  <Code2
+                    size={20}
+                    strokeWidth={2.5}
+                    className="relative text-purple-600 dark:text-purple-400"
+                  />
+                  <span className="relative font-medium">{dict?.services}</span>
                 </Link>
 
                 <Link
                   href={`/${lang}/contact`}
-                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-pink-500 dark:hover:border-pink-500 bg-gradient-to-r from-pink-50/50 to-rose-50/50 dark:from-pink-950/20 dark:to-rose-950/20 hover:from-pink-50 hover:to-rose-50 dark:hover:from-pink-950/40 dark:hover:to-rose-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
                   onClick={() => setOpen(false)}
                 >
-                  <Mail size={20} strokeWidth={3} />
-                  {dict?.contact}
+                  <span className="absolute inset-0 bg-gradient-to-r from-pink-500/0 to-rose-500/0 group-hover:from-pink-500/10 group-hover:to-rose-500/10 transition-all duration-300"></span>
+                  <Mail
+                    size={20}
+                    strokeWidth={2.5}
+                    className="relative text-pink-600 dark:text-pink-400"
+                  />
+                  <span className="relative font-medium">{dict?.contact}</span>
                 </Link>
 
                 {/* <Link
@@ -270,19 +293,22 @@ export default function Header({ dict, lang }) {
                 </Link> */}
 
                 {user ? (
-                  <button
+                  <GradientButton
                     onClick={logoutHandler}
-                    className="px-3 mt-6 py-2 text-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/10 transition-all duration-200"
+                    variant="danger"
+                    className="w-full mt-6"
                   >
                     {dict?.logout}
-                  </button>
+                  </GradientButton>
                 ) : (
                   <Link
                     onClick={() => setOpen(false)}
                     href={`/${params.lang}/auth`}
-                    className="px-6 mt-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-2xl transition-all duration-300"
+                    className="mt-6 block"
                   >
-                    {dict?.login}
+                    <GradientButton variant="primary" className="w-full">
+                      {dict?.login}
+                    </GradientButton>
                   </Link>
                 )}
               </div>
@@ -299,10 +325,14 @@ export default function Header({ dict, lang }) {
           {user ? (
             <Popover>
               <PopoverTrigger asChild>
-                <div className="relative p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
-                  <TbUser size={20} strokeWidth={3} />
+                <div className="relative p-2.5 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-2 border-gray-300 dark:border-gray-700 hover:border-blue-500 hover:dark:border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 hover:from-blue-500/20 hover:to-purple-500/20 rounded-full transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md">
+                  <TbUser
+                    size={20}
+                    strokeWidth={3}
+                    className="text-blue-600 dark:text-blue-400"
+                  />
                   {!user?.phone_number && (
-                    <span className="absolute top-0 left-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                    <span className="absolute top-0 left-0 w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
                   )}
                 </div>
               </PopoverTrigger>
@@ -371,11 +401,10 @@ export default function Header({ dict, lang }) {
               </PopoverContent>
             </Popover>
           ) : (
-            <Link
-              className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-3xl transition-all duration-300"
-              href={`/${params.lang}/auth`}
-            >
-              {dict?.login}
+            <Link href={`/${params.lang}/auth`}>
+              <GradientButton variant="primary" rounded="full">
+                {dict?.login}
+              </GradientButton>
             </Link>
           )}
         </div>
