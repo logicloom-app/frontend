@@ -10,7 +10,17 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { Code2, LayoutDashboard, Lightbulb, Mail } from "lucide-react";
+import {
+  Code2,
+  LayoutDashboard,
+  Lightbulb,
+  Mail,
+  Monitor,
+  Server,
+  Smartphone,
+  GitBranch,
+  ArrowRight,
+} from "lucide-react";
 import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -102,55 +112,106 @@ export default function Header({ dict, lang }) {
                 </Link>
               </HoverCardTrigger>
 
-              <HoverCardContent className="min-w-[500px]" sideOffset={4}>
-                <div className="flex gap-4">
+              <HoverCardContent className="min-w-[600px] p-6" sideOffset={8}>
+                {/* Header Section */}
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+                    {dict?.webServices}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {dict?.webServicesDescription}
+                  </p>
+                </div>
+
+                {/* Services Grid */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  {/* Frontend */}
                   <Link
                     href={`/${lang}/services`}
-                    className="flex flex-col gap-2 p-4 w-1/2 justify-end pb-10 py-4 bg-sky-100 dark:bg-sky-900/20 rounded-3xl"
+                    className="group relative p-4 rounded-2xl border border-blue-200 dark:border-blue-800/50 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                   >
-                    <Lightbulb size={20} />
-                    <div className="font-bold">{dict?.webServices}</div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {dict?.webServicesDescription}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <Monitor className="text-white w-4 h-4" />
+                      </div>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                        Frontend
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      Modern web interfaces
                     </p>
                   </Link>
 
-                  <div className="flex flex-col gap-2 w-2/3 rounded-2xl">
-                    <Link
-                      href={`/${lang}/contact`}
-                      className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
-                    >
-                      <div className="font-bold">{dict?.consulting}</div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {dict?.consultingDescription}
-                      </p>
-                    </Link>
+                  {/* Backend */}
+                  <Link
+                    href={`/${lang}/services`}
+                    className="group relative p-4 rounded-2xl border border-green-200 dark:border-green-800/50 hover:border-green-400 dark:hover:border-green-600 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <Server className="text-white w-4 h-4" />
+                      </div>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                        Backend
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      Scalable server solutions
+                    </p>
+                  </Link>
 
-                    <Link
-                      href={`/${lang}/contact`}
-                      className="flex flex-col gap-2 py-2 px-4 rounded-3xl hover:bg-sky-100 dark:hover:bg-sky-900/20 transition-all duration-300"
-                    >
-                      <div className="font-bold">{dict?.development}</div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {dict?.developmentDescription}
-                      </p>
-                    </Link>
-                  </div>
+                  {/* Mobile */}
+                  <Link
+                    href={`/${lang}/services`}
+                    className="group relative p-4 rounded-2xl border border-purple-200 dark:border-purple-800/50 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <Smartphone className="text-white w-4 h-4" />
+                      </div>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                        Mobile
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      Native & cross-platform apps
+                    </p>
+                  </Link>
+
+                  {/* DevOps */}
+                  <Link
+                    href={`/${lang}/services`}
+                    className="group relative p-4 rounded-2xl border border-blue-200 dark:border-blue-800/50 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <GitBranch className="text-white w-4 h-4" />
+                      </div>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                        DevOps
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      CI/CD & infrastructure
+                    </p>
+                  </Link>
                 </div>
 
+                {/* CTA Button */}
                 <Link
                   href={`/${lang}/services`}
-                  className="flex mt-4 gap-2 items-center p-4 rounded-3xl w-full hover:bg-sky-100 dark:hover:bg-sky-900/20 bg-gray-100 dark:bg-gray-900/20 transition-all duration-300 group"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="flex items-center w-full mx-6 gap-1">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Find out more
+                  <div>
+                    <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                      View All Services
                     </p>
-
-                    <TbArrowRight size={20} className="" />
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Discover our full range of solutions
+                    </p>
                   </div>
+                  <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </HoverCardContent>
             </HoverCard>
