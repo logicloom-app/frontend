@@ -101,7 +101,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
                         <div className="relative p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <TrendingUpDown size={32} className="text-white" />
+                          <TrendingUpDown size={32} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                       <h5 className="text-2xl font-bold">
@@ -136,7 +136,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
                         <div className="relative p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <ShieldAlert size={32} className="text-white" />
+                          <ShieldAlert size={32} className="text-white drop-shadow-lg" />
                         </div>
                   </div>
                       <h5 className="text-2xl font-bold">
@@ -206,7 +206,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative p-3 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <CodeXml size={24} className="text-white" />
+                          <CodeXml size={24} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                     </div>
@@ -226,7 +226,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative p-3 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <MonitorCheck size={24} className="text-white" />
+                          <MonitorCheck size={24} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                     </div>
@@ -246,7 +246,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <Grid2x2Check size={24} className="text-white" />
+                          <Grid2x2Check size={24} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                     </div>
@@ -266,7 +266,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative p-3 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <FileSearch size={24} className="text-white" />
+                          <FileSearch size={24} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                     </div>
@@ -286,7 +286,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative p-3 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <Cable size={24} className="text-white" />
+                          <Cable size={24} className="text-white drop-shadow-lg" />
                         </div>
                       </div>
                     </div>
@@ -345,7 +345,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
                         <div className="relative p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl">
-                          <Sparkles size={36} className="text-white" />
+                          <Sparkles size={36} className="text-white drop-shadow-lg" />
               </div>
             </div>
                     </div>
@@ -449,7 +449,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="group cursor-pointer">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <Monitor className="text-white w-5 h-5" />
+                            <Monitor className="text-white w-5 h-5 drop-shadow-lg" />
                           </div>
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             Frontend Development
@@ -477,7 +477,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="group cursor-pointer">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <Server className="text-white w-5 h-5" />
+                            <Server className="text-white w-5 h-5 drop-shadow-lg" />
                           </div>
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             Backend Development
@@ -508,7 +508,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="group cursor-pointer">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <Smartphone className="text-white w-5 h-5" />
+                            <Smartphone className="text-white w-5 h-5 drop-shadow-lg" />
                           </div>
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             Mobile Development
@@ -536,7 +536,7 @@ export default function HomeSections({ dict, lang }) {
                       <div className="group cursor-pointer">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <GitBranch className="text-white w-5 h-5" />
+                            <GitBranch className="text-white w-5 h-5 drop-shadow-lg" />
                           </div>
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             CI/CD & DevOps
@@ -590,7 +590,7 @@ export default function HomeSections({ dict, lang }) {
             <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl">
-                  <TrendingUpDown size={32} className="text-white" />
+                  <TrendingUpDown size={32} className="text-white drop-shadow-lg" />
                 </div>
                 <h5 className="text-2xl font-bold">
                 {dict.commonChallenges.revenueGrowth.title}
@@ -612,7 +612,7 @@ export default function HomeSections({ dict, lang }) {
             <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-cyan-200 dark:border-cyan-800">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
-                  <ShieldAlert size={32} className="text-white" />
+                  <ShieldAlert size={32} className="text-white drop-shadow-lg" />
               </div>
                 <h5 className="text-2xl font-bold">
                 {dict.commonChallenges.technicalSecurity.title}
