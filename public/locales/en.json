@@ -162,6 +162,13 @@
     }
   },
   "loom": {
+    "title": "Purchase LOOMs",
+    "subtitle": "Invest in the future of your projects",
+    "comingSoon": "Coming Soon",
+    "futureFeature": "LOOMs are reserved for future features and are not currently available for purchase.",
+    "futureFeatureDescription": "We're working on exciting new features that will utilize LOOMs. Stay tuned for updates!",
+    "contactForInfo": "Contact us for more information",
+    "goToDashboard": "Go to Dashboard",
     "contact_page": "Contact Page",
     "purchase_looms": "Purchase Looms",
     "one_euro_equals_five_looms": "1 Euro = 5 Looms",
