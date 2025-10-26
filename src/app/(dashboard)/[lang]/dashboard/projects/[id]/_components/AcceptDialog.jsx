@@ -42,8 +42,8 @@ export default function AcceptDialog({ project, dict }) {
 
   return (
     <Dialog>
-      <DialogTrigger className="w-full dark:bg-white bg-black shadow-lg active:mt-[14px] active:bg-sky-500 mt-3 shadow-gray-700 hover:dark:shadow-sky-700 hover:dark:bg-sky-400 hover:bg-sky-600 hover:shadow-sky-800 p-3 rounded-2xl dark:text-black text-white transition-all duration-300">
-        {dict?.accept_project}
+      <DialogTrigger asChild>
+        <Button className="w-full rounded-full mt-3">{dict?.accept_project}</Button>
       </DialogTrigger>
 
       <DialogContent className="sm:rounded-3xl max-w-[700px]">
@@ -57,11 +57,11 @@ export default function AcceptDialog({ project, dict }) {
         <DialogFooter>
           <DialogClose asChild>
             <Button
-              variant="custom"
-              className="w-full rounded-2xl"
+              className="w-full rounded-full"
               onClick={acceptHandler}
+              disabled={isLoading}
             >
-              {isLoading ? <Spinner className="w-6 h-6" /> : dict?.accept}
+              {isLoading ? <Spinner className="w-5 h-5" /> : dict?.accept}
             </Button>
           </DialogClose>
         </DialogFooter>

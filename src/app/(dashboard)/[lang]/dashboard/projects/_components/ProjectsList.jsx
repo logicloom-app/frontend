@@ -1,137 +1,186 @@
 "use client";
 
 import { useGetProjects } from "@/lib/hooks/useProjects";
-import { MagicCard } from "@/components/ui/magic-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import {
+  Briefcase,
+  Euro,
+  Calendar,
+  Eye,
+  Check,
+  Clock,
+  Rocket,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
+import BlurFade from "@/components/ui/blur-fade";
 import Link from "next/link";
+import { formatDate } from "@/lib/utils/utils";
 
 export default function ProjectsList({ dict }) {
   const { data, isLoading } = useGetProjects();
   const { projects } = data || {};
-  const { theme } = useTheme();
 
-  const skeletons = Array.from({ length: 3 });
+  const getStatusIcon = (status) => {
+    if (status === "completed")
+      return <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />;
+    if (status === "ongoing")
+      return <Rocket className="w-4 h-4 text-blue-600 dark:text-blue-400" />;
+    if (status === "demo_ready")
+      return <Eye className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+    if (status === "cancelled")
+      return <XCircle className="w-4 h-4 text-red-600 dark:text-red-400" />;
+    return <Clock className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />;
+  };
 
   if (isLoading) {
     return (
-      <div className="flex flex-wrap justify-center w-full h-full p-2 md:p-4 lg:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
-          {skeletons.map((_, index) => (
-            <MagicCard
-              key={index}
-              gradientOpacity={0.8}
-              gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
-              className="rounded-3xl flex flex-col justify-between p-4 lg:p-6 h-72"
-              additionalClassName="flex flex-col justify-between h-full"
-            >
-              <div className="mb-4">
-                <div className="flex justify-between items-center mb-2">
-                  <Skeleton className="w-full h-10 rounded-2xl" />
-                </div>
+      <div className="w-full h-full p-4 md:p-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <Skeleton className="h-10 w-48" />
+          </div>
 
-                <div className="flex items-center justify-end mb-2">
-                  <Skeleton className="w-28 h-8 rounded-2xl" />
-                </div>
-
-                <div className="text-sm flex flex-col gap-2 md:font-thin max-h-[90px] overflow-hidden dark:text-gray-200">
-                  <Skeleton className="w-[60%] h-4" />
-                  <Skeleton className="w-[80%] h-4" />
-                  <Skeleton className="w-[70%] h-4" />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <Skeleton className="w-32 h-4 rounded-2xl mb-2" />
-                <Skeleton className="w-full h-10 rounded-2xl" />
-              </div>
-            </MagicCard>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[...Array(6)].map((_, index) => (
+              <Skeleton key={index} className="h-64 rounded-3xl" />
+            ))}
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="h-[calc(100vh-7rem)] overflow-y-auto relative w-full p-2 md:p-4 lg:p-6">
-      {projects?.length === 0 ||
-        (!projects && (
-          <div className="w-full p-10 flex items-center justify-center text-center">
-            <p className="text-gray-500">{dict?.no_projects}</p>
+    <div className="w-full h-full p-4 md:p-6 overflow-auto">
+      <div className="max-w-7xl md:px-4 mx-auto scrollarea overflow-y-scroll max-h-[calc(100vh-10rem)] min-h-[calc(100vh-10rem)]">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent pb-1">
+              {dict?.title || "Projects"}
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {projects?.length || 0} {dict?.total || "total projects"}
+            </p>
           </div>
-        ))}
-        
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-6 w-full justify-items-center py-6 md:py-0 md:pb-6">
-        {projects?.map((project) => (
-          <MagicCard
-            key={project?.id}
-            gradientOpacity={0.8}
-            gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
-            className="rounded-3xl flex flex-col justify-between p-4 lg:p-6 h-72"
-            additionalClassName="flex flex-col justify-between h-full"
-          >
-            <div className="h-full mb-2">
-              <div className="flex justify-between items-center mb-2">
-                <h5 className="font-bold">{project?.title}</h5>
-              </div>
-
-              <div className="flex items-center justify-end mb-2">
-                <div
-                  className={`text-xs md:text-sm px-2 py-1 rounded-lg ${
-                    project?.status === "pending"
-                      ? "bg-yellow-500/20 text-yellow-700 dark:bg-yellow-500/50 dark:text-yellow-400"
-                      : project?.status === "ongoing"
-                      ? "bg-blue-500/20 text-blue-700 dark:bg-blue-500/50 dark:text-blue-400"
-                      : project?.status === "demo_ready"
-                      ? "bg-cyan-500/20 text-cyan-700 dark:bg-cyan-500/50 dark:text-cyan-400"
-                      : project?.status === "completed"
-                      ? "bg-green-500/20 text-green-700 dark:bg-green-500/50 dark:text-green-400"
-                      : project?.status === "cancelled"
-                      ? "bg-red-500/20 text-red-700 dark:bg-red-500/50 dark:text-red-400"
-                      : ""
-                  }`}
-                >
-                  {dict?.status}:{" "}
-                  <span className="font-bold capitalize">
-                    {project?.status === "demo_ready"
-                      ? dict?.statuses?.demo_ready
-                      : project?.status}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-sm md:font-thin max-h-[90px] overflow-hidden dark:text-gray-200">
-                {project?.description}
-              </p>
-            </div>
-
-            <div className="">
-              <div className="flex items-center gap-2">
-                <span>
-                  {dict?.price}: €{project?.price}
-                </span>
-
-                <div>
-                  {project?.paid ? (
-                    <span className="text-green-500">{dict?.statuses?.paid}</span>
-                  ) : (
-                    <span className="text-red-500">{dict?.statuses?.unpaid}</span>
-                  )}
-                </div>
-              </div>
-              <Link href={`/dashboard/projects/${project?.id}`} className="w-full">
-                <Button variant="custom" className="w-full">
-                  {dict?.view_project}
-                </Button>
-              </Link>
-            </div>
-          </MagicCard>
-        ))}
-
-        <div className="w-full p-10 flex items-center justify-center">
-          <p className="text-gray-500">{dict?.no_requests}</p>
         </div>
+
+        {/* Projects Grid */}
+        {projects?.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {projects?.map((project, index) => (
+              <BlurFade key={project?.id} delay={0.1 + index * 0.05} inView>
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 relative group h-full flex flex-col">
+                  {/* Status Badge */}
+                  <div className="absolute top-4 right-4">
+                    <div
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border ${
+                        project?.status === "completed"
+                          ? "bg-green-500/10 border-green-500/20"
+                          : project?.status === "ongoing"
+                          ? "bg-blue-500/10 border-blue-500/20"
+                          : project?.status === "demo_ready"
+                          ? "bg-cyan-500/10 border-cyan-500/20"
+                          : project?.status === "cancelled"
+                          ? "bg-red-500/10 border-red-500/20"
+                          : "bg-yellow-500/10 border-yellow-500/20"
+                      }`}
+                    >
+                      {getStatusIcon(project?.status)}
+                      <span
+                        className={`text-xs font-medium capitalize ${
+                          project?.status === "completed"
+                            ? "text-green-600 dark:text-green-400"
+                            : project?.status === "ongoing"
+                            ? "text-blue-600 dark:text-blue-400"
+                            : project?.status === "demo_ready"
+                            ? "text-cyan-600 dark:text-cyan-400"
+                            : project?.status === "cancelled"
+                            ? "text-red-600 dark:text-red-400"
+                            : "text-yellow-600 dark:text-yellow-400"
+                        }`}
+                      >
+                        {project?.status === "demo_ready"
+                          ? dict?.statuses?.demo_ready
+                          : project?.status}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Project ID */}
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    #{project?.id}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold mb-3 line-clamp-2 min-h-[56px]">
+                    {project?.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4 flex-grow">
+                    {project?.description}
+                  </p>
+
+                  {/* Price & Payment Status */}
+                  <div className="flex items-center gap-2 mb-3 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-2xl">
+                    <Euro className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span className="text-sm font-semibold">€{project?.price}</span>
+                    <span
+                      className={`ml-auto text-xs font-medium px-2 py-1 rounded-full ${
+                        project?.paid
+                          ? "bg-green-500/10 text-green-600 dark:text-green-400"
+                          : "bg-red-500/10 text-red-600 dark:text-red-400"
+                      }`}
+                    >
+                      {project?.paid ? (
+                        <span className="flex items-center gap-1">
+                          <Check className="w-3 h-3" />
+                          {dict?.statuses?.paid}
+                        </span>
+                      ) : (
+                        dict?.statuses?.unpaid
+                      )}
+                    </span>
+                  </div>
+
+                  {/* Date */}
+                  <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 mb-4">
+                    <Calendar className="w-3 h-3" />
+                    <span>
+                      {dict?.created_at}: {formatDate(project?.created_at)}
+                    </span>
+                  </div>
+
+                  {/* Action Button */}
+                  <Link
+                    href={`/dashboard/projects/${project?.id}`}
+                    className="w-full mt-auto"
+                  >
+                    <Button className="w-full rounded-full">
+                      <Eye className="w-4 h-4 mr-2" />
+                      {dict?.view_project}
+                    </Button>
+                  </Link>
+                </div>
+              </BlurFade>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500/10 to-teal-500/10 flex items-center justify-center mb-4">
+              <Briefcase className="w-12 h-12 text-gray-400" />
+            </div>
+            <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-2">
+              {dict?.no_projects || "No projects yet"}
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-500">
+              Your accepted requests will appear here as projects
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

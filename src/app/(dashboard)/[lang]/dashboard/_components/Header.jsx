@@ -39,11 +39,11 @@ export default function DashboardHeader({ dict, lang }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-end items-center ${
+      className={`sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/20 flex justify-end items-center ${
         isLoading && "blur-sm"
       }`}
     >
-      <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between md:justify-end">
+      <nav className="container flex h-[80px] px-6 md:px-10 max-w-screen-2xl items-center justify-between md:justify-end">
         <Link
           href={`/${lang}`}
           className="flex items-center justify-center md:hidden"
@@ -221,22 +221,24 @@ export default function DashboardHeader({ dict, lang }) {
               )}
             </div>
 
-            <div className="flex items-center gap-1 py-2 px-6 bg-gray-500/20 dark:bg-gray-400/20 rounded-2xl text-nowrap">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                {dict?.yourBalance}:
-              </span>
-
-              <div className="font-bold flex items-center gap-1">
-                {user?.loom_balance}
-                <span className="text-xs">
-                  {user?.loom_balance > 1 ? "LOOMs" : "LOOM"}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              <div className="relative flex items-center gap-2 py-2.5 px-5 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 dark:border-blue-500/30 rounded-full text-nowrap backdrop-blur-sm">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {dict?.yourBalance}:
                 </span>
+                <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 flex items-center gap-1">
+                  {user?.loom_balance}
+                  <span className="text-xs">
+                    {user?.loom_balance > 1 ? "LOOMs" : "LOOM"}
+                  </span>
+                </div>
               </div>
             </div>
 
             <Link
               href="/loom"
-              className="w-full rounded-2xl hover:text-sky-500 transition-all duration-300 text-nowrap"
+              className="px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-nowrap transition-colors duration-300"
             >
               {dict?.buyLooms}
             </Link>
@@ -249,21 +251,28 @@ export default function DashboardHeader({ dict, lang }) {
             {user ? (
               <Popover>
                 <PopoverTrigger asChild>
-                  <div className="xl:hidden p-2 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-[1px] border-gray-600 dark:border-gray-400 hover:border-sky-500 hover:dark:border-sky-500 hover:text-white hover:dark:bg-sky-500/80 hover:bg-sky-500/90 rounded-full transition-all duration-300">
-                    <TbUser size={20} strokeWidth={3} />
+                  <div className="xl:hidden relative group p-3 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap rounded-full transition-all duration-300 bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 dark:border-blue-500/30">
+                    <TbUser
+                      size={20}
+                      strokeWidth={3}
+                      className="text-blue-600 dark:text-blue-400"
+                    />
                   </div>
                 </PopoverTrigger>
 
-                <PopoverContent className="w-80 p-5 rounded-3xl flex items-center gap-2 bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                  <Avatar className="w-16 h-16">
-                    <AvatarImage src={user?.avatar} />
-                    <AvatarFallback className="font-bold text-xl text-gray-500 dark:text-gray-400">
-                      {user?.name?.[0]}
-                    </AvatarFallback>
-                  </Avatar>
+                <PopoverContent className="w-80 p-5 rounded-3xl flex items-center gap-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 shadow-2xl">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-md opacity-30" />
+                    <Avatar className="relative w-16 h-16 border-2 border-blue-500/30">
+                      <AvatarImage src={user?.avatar} />
+                      <AvatarFallback className="font-bold text-xl bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                        {user?.name?.[0]}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
 
                   <div className="flex flex-col gap-1 p-2">
-                    <div className="truncate text-sm">{user?.email}</div>
+                    <div className="truncate text-sm font-medium">{user?.email}</div>
 
                     <div className="text-xs text-gray-500 dark:text-gray-400">
                       {dict?.joined}{" "}
@@ -278,10 +287,11 @@ export default function DashboardHeader({ dict, lang }) {
               </Popover>
             ) : (
               <Link
-                className="px-6 py-2 font-bold flex gap-1 justify-center items-center cursor-pointer border-[1px] dark:border-gray-600 hover:bg-sky-500/80 hover:text-white shadow-md shadow-sky-500/20 dark:shadow-sky-500/10 rounded-3xl transition-all duration-300"
+                className="relative group px-6 py-2.5 font-semibold flex gap-1 justify-center items-center cursor-pointer rounded-full overflow-hidden text-white"
                 href={`/${lang}/auth`}
               >
-                {dict?.login}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:from-blue-700 group-hover:to-purple-700 transition-all duration-300" />
+                <span className="relative z-10">{dict?.login}</span>
               </Link>
             )}
           </div>

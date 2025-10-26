@@ -5,9 +5,5 @@ export default async function Password({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
-  return (
-    <div className="w-full max-w-4xl mx-auto">
-      <UpdatePasswordForm dict={dict?.dashboard?.password} />
-    </div>
-  );
+  return <UpdatePasswordForm dict={dict?.dashboard?.password} />;
 }

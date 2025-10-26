@@ -190,6 +190,8 @@
     "welcome": "Welcome",
     "sendRequest": "Send a request to get a project",
     "info": {
+      "title": "Account Information",
+      "subtitle": "Manage your personal and professional details",
       "profileInfo": "Profile Information",
       "name": "Name",
       "phoneNumber": "Phone Number",
@@ -197,14 +199,42 @@
       "whatsappLink": "Whatsapp URL",
       "companyName": "Company Name",
       "bio": "Bio",
-      "update": "Update Profile"
+      "update": "Update Profile",
+      "validation": {
+        "invalidPhoneNumber": "Invalid phone number. Example: +49 9876543210",
+        "invalidUrl": "Must be a valid URL with https://"
+      },
+      "success": "Profile updated successfully",
+      "error": "Something went wrong",
+      "noChanges": "No changes detected"
     },
     "password": {
       "title": "Update Password",
+      "subtitle": "Keep your account secure with a strong password",
       "currentPassword": "Current Password",
       "newPassword": "New Password",
       "confirmPassword": "Confirm Password",
-      "update": "Update Password"
+      "update": "Update Password",
+      "requirements": {
+        "title": "Password Requirements:",
+        "minLength": "At least 6 characters",
+        "case": "One uppercase & lowercase letter",
+        "special": "One number & special character (!@#$%^&*)"
+      },
+      "validation": {
+        "currentPasswordRequired": "Current password is required",
+        "newPasswordRequired": "New password is required",
+        "confirmPasswordRequired": "Confirm password is required",
+        "passwordNoSpaces": "Password must not contain spaces",
+        "passwordMinLength": "Password must be at least 6 characters",
+        "passwordNumber": "Password must contain at least one number",
+        "passwordLowercase": "Password must contain at least one lowercase letter",
+        "passwordUppercase": "Password must contain at least one uppercase letter",
+        "passwordSpecialChar": "Password must contain at least one special character",
+        "passwordsMustMatch": "Passwords must match"
+      },
+      "success": "Password updated successfully",
+      "error": "Something went wrong"
     },
     "payments": {
       "amount": "Amount",
@@ -217,13 +247,20 @@
     },
     "requests": {
       "id": "ID",
-      "title": "Title",
+      "title": "Requests",
       "status": "Status",
       "createdAt": "Created At",
       "updatedAt": "Updated At",
       "actions": "Actions",
-      "rejected": "REJECTED",
+      "rejected": "Rejected",
+      "accepted": "Accepted",
+      "pending": "Pending",
+      "view": "View",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "total": "total requests",
       "no_requests": "No requests found",
+      "create_first_request": "Create your first request to get started",
       "rejectedDescription": "Your request has been rejected.",
       "message": "Message",
       "dialogTitle": "Request Details",
@@ -233,11 +270,18 @@
       "description": "Description",
       "file": "File",
       "send": "Send Request",
-      "deleteDialogTitle": "Delete Request with ID",
-      "delete": "Delete",
+      "deleteDialogTitle": "Delete Request",
+      "deleteWarning": "This action cannot be undone.",
+      "requestTitle": "Request Title",
       "summaryDescription": "Please provide a summary of the project description and details",
       "fileDescription": "Please provide a comprehensive project description and details in PDF format",
-      "sendRequestDescription": "Send a request to the admin to get a project."
+      "sendRequestDescription": "Send a request to the admin to get a project.",
+      "validation": {
+        "titleRequired": "Title is required",
+        "descriptionRequired": "Description is required",
+        "fileRequired": "File is required",
+        "fileMustBePDF": "File must be a PDF"
+      }
     },
     "projects": {
       "accept": "Accept",

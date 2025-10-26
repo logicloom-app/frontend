@@ -80,15 +80,15 @@ export default function HomeSections({ dict, lang }) {
               </BlurFade>
               <BlurFade delay={0.2} inView>
                 <h3 className="text-3xl md:text-5xl lg:h-[55px] font-black mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-cyan-600 dark:from-pink-400 dark:via-rose-400 dark:to-cyan-400 bg-clip-text text-transparent">
-                  {dict.commonChallenges.title}
-                </h3>
+              {dict.commonChallenges.title}
+            </h3>
               </BlurFade>
               <BlurFade delay={0.3} inView>
                 <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                  {dict.commonChallenges.description}
+              {dict.commonChallenges.description}
                 </p>
               </BlurFade>
-            </div>
+                  </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <BlurFade delay={0.1} inView as="div">
@@ -105,8 +105,8 @@ export default function HomeSections({ dict, lang }) {
                         </div>
                       </div>
                       <h5 className="text-2xl font-bold">
-                        {dict.commonChallenges.revenueGrowth.title}
-                      </h5>
+                    {dict.commonChallenges.revenueGrowth.title}
+                  </h5>
                     </div>
 
                     <ul className="space-y-3 dark:text-gray-300 text-gray-700">
@@ -119,7 +119,7 @@ export default function HomeSections({ dict, lang }) {
                           <span className="text-sm md:text-base">
                             {dict.commonChallenges.revenueGrowth[num]}
                           </span>
-                        </li>
+                      </li>
                       ))}
                     </ul>
                   </div>
@@ -138,10 +138,10 @@ export default function HomeSections({ dict, lang }) {
                         <div className="relative p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
                           <ShieldAlert size={32} className="text-white" />
                         </div>
-                      </div>
+                  </div>
                       <h5 className="text-2xl font-bold">
-                        {dict.commonChallenges.technicalSecurity.title}
-                      </h5>
+                    {dict.commonChallenges.technicalSecurity.title}
+                  </h5>
                     </div>
 
                     <ul className="space-y-3 dark:text-gray-300 text-gray-700">
@@ -154,7 +154,7 @@ export default function HomeSections({ dict, lang }) {
                           <span className="text-sm md:text-base">
                             {dict.commonChallenges.technicalSecurity[num]}
                           </span>
-                        </li>
+                      </li>
                       ))}
                     </ul>
                   </div>
@@ -211,11 +211,11 @@ export default function HomeSections({ dict, lang }) {
                       </div>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 font-medium">
-                      {dict.solution.professionalDevelopment[1]}
+                    {dict.solution.professionalDevelopment[1]}
                     </p>
                   </div>
                 </div>
-              </BlurFade>
+                  </BlurFade>
 
               <BlurFade delay={0.15} inView as="div" className="h-full">
                 <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-rose-500/50 dark:hover:border-pink-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
@@ -231,11 +231,11 @@ export default function HomeSections({ dict, lang }) {
                       </div>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 font-medium">
-                      {dict.solution.professionalDevelopment[2]}
+                    {dict.solution.professionalDevelopment[2]}
                     </p>
                   </div>
                 </div>
-              </BlurFade>
+                  </BlurFade>
 
               <BlurFade delay={0.2} inView as="div" className="h-full">
                 <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 dark:hover:border-cyan-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
@@ -251,11 +251,11 @@ export default function HomeSections({ dict, lang }) {
                       </div>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 font-medium">
-                      {dict.solution.professionalDevelopment[3]}
+                    {dict.solution.professionalDevelopment[3]}
                     </p>
                   </div>
                 </div>
-              </BlurFade>
+                  </BlurFade>
 
               <BlurFade delay={0.25} inView as="div" className="h-full">
                 <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-emerald-500/50 dark:hover:border-green-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
@@ -274,7 +274,7 @@ export default function HomeSections({ dict, lang }) {
                       {dict.solution.professionalDevelopment[4]}
                     </p>
                   </div>
-                </div>
+                    </div>
               </BlurFade>
 
               <BlurFade delay={0.3} inView as="div" className="h-full">
@@ -295,7 +295,7 @@ export default function HomeSections({ dict, lang }) {
                     </p>
                   </div>
                 </div>
-              </BlurFade>
+                  </BlurFade>
 
               <BlurFade delay={0.35} inView as="div" className="h-full">
                 <div className="group relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex items-center justify-center overflow-hidden">
@@ -324,7 +324,7 @@ export default function HomeSections({ dict, lang }) {
                 </div>
               </BlurFade>
             </div>
-          </div>
+                    </div>
 
           {/* Tech Stack Section */}
           <div className="relative w-full max-w-7xl mx-auto mb-20">
@@ -346,8 +346,8 @@ export default function HomeSections({ dict, lang }) {
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
                         <div className="relative p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl">
                           <Sparkles size={36} className="text-white" />
-                        </div>
-                      </div>
+              </div>
+            </div>
                     </div>
                   </BlurFade>
                   <BlurFade delay={0.2} inView>
@@ -431,15 +431,15 @@ export default function HomeSections({ dict, lang }) {
                       </div>
                     </div>
                   </BlurFade>
-                </div>
+          </div>
 
                 {/* Tech Stack Categories */}
                 <div className="relative z-10 mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center px-4">
                   {/* Left Side - IconCloud */}
                   <BlurFade delay={0.35} inView>
                     <div className="flex justify-center items-center pointer-events-auto min-h-[400px]">
-                      <IconCloud images={images} />
-                    </div>
+              <IconCloud images={images} />
+            </div>
                   </BlurFade>
 
                   {/* Right Side - Tech Stack Categories */}
@@ -526,7 +526,7 @@ export default function HomeSections({ dict, lang }) {
                           </span>
                           <span className="px-3 py-1 bg-green-600/10 border border-green-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             Kotlin
-                          </span>
+                      </span>
                         </div>
                       </div>
                     </BlurFade>
@@ -541,7 +541,7 @@ export default function HomeSections({ dict, lang }) {
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             CI/CD & DevOps
                           </h4>
-                        </div>
+                    </div>
                         <div className="flex flex-wrap gap-2 ml-13">
                           <span className="px-3 py-1 bg-blue-400/10 border border-blue-400/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             Docker
@@ -554,7 +554,7 @@ export default function HomeSections({ dict, lang }) {
                           </span>
                           <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             GitLab CI
-                          </span>
+                  </span>
                         </div>
                       </div>
                     </BlurFade>
@@ -568,7 +568,7 @@ export default function HomeSections({ dict, lang }) {
                         {dict?.sendRequest}
                         <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
                       </GradientButton>
-                    </Link>
+              </Link>
                   </div>
                 </BlurFade>
               </div>
@@ -579,12 +579,12 @@ export default function HomeSections({ dict, lang }) {
         <div className="w-full">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-5xl font-bold mb-4">
-              {dict.commonChallenges.title}
-            </h3>
+            {dict.commonChallenges.title}
+          </h3>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
-              {dict.commonChallenges.description}
+            {dict.commonChallenges.description}
             </p>
-          </div>
+              </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
             <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800">
@@ -593,8 +593,8 @@ export default function HomeSections({ dict, lang }) {
                   <TrendingUpDown size={32} className="text-white" />
                 </div>
                 <h5 className="text-2xl font-bold">
-                  {dict.commonChallenges.revenueGrowth.title}
-                </h5>
+                {dict.commonChallenges.revenueGrowth.title}
+              </h5>
               </div>
 
               <ul className="space-y-3 dark:text-gray-300 text-gray-700">
@@ -613,10 +613,10 @@ export default function HomeSections({ dict, lang }) {
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
                   <ShieldAlert size={32} className="text-white" />
-                </div>
+              </div>
                 <h5 className="text-2xl font-bold">
-                  {dict.commonChallenges.technicalSecurity.title}
-                </h5>
+                {dict.commonChallenges.technicalSecurity.title}
+              </h5>
               </div>
 
               <ul className="space-y-3 dark:text-gray-300 text-gray-700">
@@ -635,8 +635,8 @@ export default function HomeSections({ dict, lang }) {
           <div className="text-center mb-20">
             <Link href={`/${lang}/contact`}>
               <GradientButton variant="primary" size="lg">
-                {dict?.sendRequest}
-                <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                      {dict?.sendRequest}
+                    <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
               </GradientButton>
             </Link>
           </div>

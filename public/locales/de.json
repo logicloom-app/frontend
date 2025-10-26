@@ -190,6 +190,8 @@
     "welcome": "Willkommen",
     "sendRequest": "Anfrage senden um ein Projekt zu erhalten",
     "info": {
+      "title": "Kontoinformationen",
+      "subtitle": "Verwalten Sie Ihre persönlichen und beruflichen Daten",
       "profileInfo": "Profilinformationen",
       "name": "Name",
       "phoneNumber": "Telefonnummer",
@@ -197,14 +199,42 @@
       "whatsappLink": "Whatsapp URL",
       "companyName": "Firmenname",
       "bio": "Bio",
-      "update": "Profil aktualisieren"
+      "update": "Profil aktualisieren",
+      "validation": {
+        "invalidPhoneNumber": "Ungültige Telefonnummer. Beispiel: +49 9876543210",
+        "invalidUrl": "Muss eine gültige URL mit https:// sein"
+      },
+      "success": "Profil erfolgreich aktualisiert",
+      "error": "Etwas ist schief gelaufen",
+      "noChanges": "Keine Änderungen erkannt"
     },
     "password": {
       "title": "Passwort aktualisieren",
+      "subtitle": "Halten Sie Ihr Konto mit einem sicheren Passwort geschützt",
       "currentPassword": "Aktuelles Passwort",
       "newPassword": "Neues Passwort",
       "confirmPassword": "Passwort bestätigen",
-      "update": "Passwort aktualisieren"
+      "update": "Passwort aktualisieren",
+      "requirements": {
+        "title": "Passwortanforderungen:",
+        "minLength": "Mindestens 6 Zeichen",
+        "case": "Ein Groß- & Kleinbuchstabe",
+        "special": "Eine Zahl & Sonderzeichen (!@#$%^&*)"
+      },
+      "validation": {
+        "currentPasswordRequired": "Aktuelles Passwort ist erforderlich",
+        "newPasswordRequired": "Neues Passwort ist erforderlich",
+        "confirmPasswordRequired": "Passwort bestätigen ist erforderlich",
+        "passwordNoSpaces": "Passwort darf keine Leerzeichen enthalten",
+        "passwordMinLength": "Passwort muss mindestens 6 Zeichen lang sein",
+        "passwordNumber": "Passwort muss mindestens eine Zahl enthalten",
+        "passwordLowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",
+        "passwordUppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
+        "passwordSpecialChar": "Passwort muss mindestens ein Sonderzeichen enthalten",
+        "passwordsMustMatch": "Passwörter stimmen nicht überein"
+      },
+      "success": "Passwort erfolgreich aktualisiert",
+      "error": "Etwas ist schief gelaufen"
     },
     "payments": {
       "amount": "Betrag",
@@ -217,13 +247,20 @@
     },
     "requests": {
       "id": "ID",
-      "title": "Titel",
+      "title": "Anfragen",
       "status": "Status",
       "createdAt": "Erstellt am",
       "updatedAt": "Aktualisiert am",
       "actions": "Aktionen",
-      "rejected": "ABGELEHNT",
+      "rejected": "Abgelehnt",
+      "accepted": "Akzeptiert",
+      "pending": "Ausstehend",
+      "view": "Ansehen",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "total": "insgesamt Anfragen",
       "no_requests": "Keine Anfragen gefunden",
+      "create_first_request": "Erstellen Sie Ihre erste Anfrage, um zu beginnen",
       "rejectedDescription": "Ihre Anfrage wurde abgelehnt.",
       "message": "Nachricht",
       "dialogTitle": "Anfrage Details",
@@ -233,11 +270,18 @@
       "description": "Beschreibung",
       "file": "Datei",
       "send": "Anfrage senden",
-      "deleteDialogTitle": "Anfrage löschen, ID:",
-      "delete": "Löschen",
+      "deleteDialogTitle": "Anfrage löschen",
+      "deleteWarning": "Diese Aktion kann nicht rückgängig gemacht werden.",
+      "requestTitle": "Anfragetitel",
       "summaryDescription": "Bitte geben Sie eine Zusammenfassung der Projektbeschreibung und Details an",
       "fileDescription": "Bitte geben Sie eine umfassende Projektbeschreibung und Details in PDF-Format an",
-      "sendRequestDescription": "Senden Sie eine Anfrage an den Admin, um ein Projekt zu erhalten."
+      "sendRequestDescription": "Senden Sie eine Anfrage an den Admin, um ein Projekt zu erhalten.",
+      "validation": {
+        "titleRequired": "Titel ist erforderlich",
+        "descriptionRequired": "Beschreibung ist erforderlich",
+        "fileRequired": "Datei ist erforderlich",
+        "fileMustBePDF": "Datei muss eine PDF sein"
+      }
     },
     "projects": {
       "accept": "Annehmen",
