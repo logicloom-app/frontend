@@ -10,6 +10,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Code2,
   LayoutDashboard,
@@ -21,9 +24,6 @@ import {
   GitBranch,
   ArrowRight,
 } from "lucide-react";
-import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Sheet,
   SheetContent,
@@ -415,7 +415,7 @@ export default function Header({ dict, lang }) {
                   <TbUser
                     size={20}
                     strokeWidth={3}
-                    className="text-blue-600 dark:text-blue-400"
+                    className="text-blue-600 dark:text-blue-100"
                   />
                   {!user?.phone_number && (
                     <span className="absolute top-0 left-0 w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>

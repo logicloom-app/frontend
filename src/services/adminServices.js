@@ -209,3 +209,16 @@ export async function adminDeleteAdditionalRequest(requestId) {
     headers: { Authorization: `Bearer ${token?.value}` },
   });
 }
+
+export async function adminSendFileToUser(formData) {
+  const token = await useGetToken();
+
+  return http
+    .post("/admin/send-document", formData, {
+      headers: {
+        Authorization: `Bearer ${token?.value}`,
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .then(({ data }) => data);
+}

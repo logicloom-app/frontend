@@ -14,6 +14,7 @@ import {
   FolderInput,
   LayoutDashboard,
   UserCog,
+  Mail,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -164,6 +165,15 @@ export default function AdminHeader() {
                 >
                   <UserCog size={20} strokeWidth={2} />
                   Users
+                </Link>
+
+                <Link
+                  href={`/admin/send-file`}
+                  className="px-6 py-2 flex items-center gap-2 border border-gray-600/30 hover:bg-gray-500/20 dark:border-sky-200/30 hover:dark:bg-sky-200/10 focus:outline-none rounded-2xl transition-all duration-300"
+                  onClick={() => setOpen(false)}
+                >
+                  <Mail size={20} strokeWidth={2} />
+                  Send File
                 </Link>
 
                 {user ? (
