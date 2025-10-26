@@ -220,7 +220,7 @@ export default function ContactClient({ dict }) {
                   id="description"
                   name="description"
                   placeholder={dict?.sendContactDescription2}
-                  className="rounded-2xl px-4 py-3 border-2 focus:border-teal-500 dark:focus:border-teal-400 transition-colors min-h-[150px]"
+                  className="rounded-2xl px-4 py-3 bg-background/90 border-2 focus:border-teal-500 dark:focus:border-teal-400 transition-colors min-h-[150px]"
                   onBlur={formik.handleBlur}
                   value={formik.values.description}
                   onChange={formik.handleChange}
