@@ -10,6 +10,7 @@ import {
   User,
   Mail,
   FileText,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -35,146 +36,168 @@ export default function AdminSidebar() {
     document.location.href = "/";
   };
 
+  const navItems = [
+    {
+      href: "",
+      icon: LayoutDashboard,
+      label: "Dashboard",
+      gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+      href: "/projects",
+      icon: Folder,
+      label: "Projects",
+      gradient: "from-purple-500 to-pink-500",
+    },
+    {
+      href: "/requests",
+      icon: FolderInput,
+      label: "Requests",
+      gradient: "from-emerald-500 to-teal-500",
+    },
+    {
+      href: "/payments",
+      icon: Euro,
+      label: "Payments",
+      gradient: "from-orange-500 to-yellow-500",
+    },
+    {
+      href: "/loom",
+      icon: Atom,
+      label: "Loom",
+      gradient: "from-rose-500 to-pink-500",
+    },
+    {
+      href: "/users",
+      icon: User,
+      label: "Users",
+      gradient: "from-indigo-500 to-purple-500",
+    },
+    {
+      href: "/send-file",
+      icon: Mail,
+      label: "Send File",
+      gradient: "from-cyan-500 to-blue-500",
+    },
+    {
+      href: "/blog/posts",
+      icon: FileText,
+      label: "Blog",
+      gradient: "from-emerald-500 to-green-500",
+    },
+  ];
+
   return (
-    <div className="hidden md:flex flex-col px-4 xl:w-1/6">
-      <Link href={`/${lang}`} className="flex items-center ml-4 mt-4 mb-10 gap-3">
-        <Image
-          src="/images/logo.png"
-          width={40}
-          height={40}
-          alt="LogicLoom logo"
-          priority
-          className="saturate-200"
-        />
-        <h1 className="text-xl hidden xl:block">LogicLoom</h1>
-      </Link>
-
-      <div className="flex flex-col justify-between h-full">
-        <div className="flex flex-col gap-2">
-          <Link
-            href={`/${lang}/admin`}
-            className={`flex items-center gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <LayoutDashboard />
-            <span className="hidden xl:block">Dashboard</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/projects`}
-            className={`flex items-center gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/projects") || isActive("/projects/[id]")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <Folder />
-            <span className="hidden xl:block">Projects</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/requests`}
-            className={`flex items-center gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/requests")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <FolderInput />
-            <span className="hidden xl:block">Requests</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/payments`}
-            className={`flex items-center gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/payments")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <Euro />
-            <span className="hidden xl:block">Payments</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/loom`}
-            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/loom")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <Atom />
-            <span className="hidden xl:block">Loom</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/users`}
-            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/users")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <User />
-            <span className="hidden xl:block text-nowrap">Users</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/send-file`}
-            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              isActive("/send-file")
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <Mail />
-            <span className="hidden xl:block text-nowrap">Send File</span>
-          </Link>
-
-          <Link
-            href={`/${lang}/admin/blog/posts`}
-            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
-              pathname?.startsWith(`/${lang}/admin/blog`)
-                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
-                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
-            }`}
-          >
-            <FileText />
-            <span className="hidden xl:block text-nowrap">Blog</span>
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-2 xl:p-3 xl:bg-black/5 dark:xl:bg-gray-500/10 rounded-3xl relative">
-          <div className="flex-col gap-1 p-2 hidden xl:flex">
-            <div className="truncate text-sm">{user?.email}</div>
-
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-500 dark:text-gray-400">ID:</span>
-              <span className="text-sm">{user?.id}</span>
+    <div className="hidden md:flex flex-col w-80 p-4 relative">
+      {/* Glassmorphism Sidebar */}
+      <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-6 shadow-2xl h-full flex flex-col">
+        {/* Logo */}
+        <Link href={`/${lang}`} className="flex items-center gap-3 mb-8 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            <div className="relative bg-white dark:bg-gray-800 p-2 rounded-xl">
+              <Image
+                src="/images/logo.png"
+                width={32}
+                height={32}
+                alt="LogicLoom logo"
+                priority
+                className="saturate-200"
+              />
             </div>
+          </div>
+          <div>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              LogicLoom
+            </h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Admin Panel</p>
+          </div>
+        </Link>
 
-            <div className="text-xs text-gray-500 dark:text-gray-400">
-              Joined{" "}
-              {new Date(user?.created_at).toLocaleDateString("en-DE", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
+        {/* Navigation */}
+        <nav className="flex-1 space-y-2 overflow-y-auto custom-scrollbar">
+          {navItems.map((item) => {
+            const active =
+              item.href === "/blog/posts"
+                ? pathname?.startsWith(`/${lang}/admin/blog`)
+                : isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={`/${lang}/admin${item.href}`}
+                className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${
+                  active
+                    ? "bg-gradient-to-r " +
+                      item.gradient +
+                      " text-white shadow-lg shadow-purple-500/20"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-700 dark:text-gray-300"
+                }`}
+              >
+                {/* Active Indicator */}
+                {active && (
+                  <div className="absolute inset-0 bg-white/20 rounded-xl animate-pulse"></div>
+                )}
+
+                <item.icon
+                  className={`w-5 h-5 relative z-10 ${
+                    active
+                      ? "text-white"
+                      : "text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  }`}
+                />
+                <span
+                  className={`font-medium relative z-10 ${
+                    active ? "text-white" : ""
+                  }`}
+                >
+                  {item.label}
+                </span>
+
+                {active && (
+                  <Sparkles className="w-4 h-4 ml-auto text-white/80 animate-pulse relative z-10" />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* User Profile */}
+        <div className="mt-6 space-y-3">
+          {/* User Info Card */}
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 border border-blue-500/20 dark:border-purple-500/30 rounded-2xl p-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                {user?.email?.[0].toUpperCase()}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                  {user?.email}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  ID: {user?.id}
+                </p>
+              </div>
+            </div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <span>Joined</span>
+              <span>
+                {user?.created_at &&
+                  new Date(user.created_at).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "numeric",
+                  })}
+              </span>
             </div>
           </div>
 
+          {/* Logout Button */}
           <button
             onClick={logoutHandler}
-            className="flex items-center justify-center gap-2 px-3 py-2 xl:w-full text-red-100 hover:text-red-500 bg-red-500 focus:outline-none font-bold rounded-2xl border border-red-500/50 hover:bg-red-500/20 transition-all duration-300"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold rounded-xl shadow-lg shadow-red-500/20 hover:shadow-xl hover:shadow-red-500/30 transition-all duration-300"
           >
-            <div className="flex items-center justify-center xl:hidden">
-              <LogOut />
-            </div>
-            <span className="hidden xl:block">Logout</span>
+            <LogOut className="w-5 h-5" />
+            <span>Logout</span>
           </button>
         </div>
       </div>

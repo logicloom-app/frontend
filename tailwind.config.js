@@ -66,6 +66,7 @@ module.exports = {
         rainbow: "rainbow var(--speed, 2s) infinite linear",
         meteor: "meteor 5s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        blob: "blob 7s infinite",
       },
       keyframes: {
         "background-position-spin": {
@@ -102,6 +103,24 @@ module.exports = {
             "offset-distance": "100%",
           },
         },
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        },
+      },
+      animationDelay: {
+        2000: "2s",
+        4000: "4s",
       },
     },
   },

@@ -36,11 +36,13 @@ export default function AdminHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-end items-center ${
+      className={`sticky top-0 z-50 w-full flex justify-end items-center ${
         isLoading && "blur-sm"
       }`}
     >
-      <nav className="container flex h-[70px] px-10 max-w-screen-2xl items-center justify-between md:justify-end">
+      {/* Glassmorphism Header Card */}
+      <div className="w-full mx-4 mt-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl">
+        <nav className="container flex h-[70px] px-6 max-w-screen-2xl items-center justify-between md:justify-end">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden flex justify-end w-full">
             <button className="p-2">
@@ -205,17 +207,26 @@ export default function AdminHeader() {
         </Sheet>
 
         <div className="flex justify-center items-center gap-3 max-md:hidden">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            {/* Theme Toggle with hover effect */}
+            <div className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors">
               <ThemeToggle />
-
-              <Link href="/dashboard">
-                <UserCircle />
-              </Link>
             </div>
+
+            {/* User Dashboard Link with gradient hover */}
+            <Link 
+              href="/dashboard"
+              className="group relative p-2 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 rounded-xl transition-all duration-300"
+            >
+              <UserCircle className="w-6 h-6 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                User Dashboard
+              </span>
+            </Link>
           </div>
         </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }

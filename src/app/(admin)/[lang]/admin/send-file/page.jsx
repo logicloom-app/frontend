@@ -11,8 +11,9 @@ import { useToast } from "@/lib/hooks/use-toast";
 import { useGetUsers } from "@/lib/hooks/useAdmin";
 import { useMutation } from "@tanstack/react-query";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Mail, FileText, X } from "lucide-react";
+import { Upload, Mail, FileText, X, Sparkles, Package, Languages } from "lucide-react";
 import { adminSendFileToUser } from "@/services/adminServices";
+import BlurFade from "@/components/ui/blur-fade";
 import {
   Select as ShadcnSelect,
   SelectContent,
@@ -125,7 +126,7 @@ export default function SendFilePage() {
       borderRadius: "1rem",
       borderColor: state.isFocused ? "hsl(var(--ring))" : "hsl(var(--input))",
       backgroundColor: "hsl(var(--background))",
-      minHeight: "2.5rem",
+      minHeight: "2.75rem",
       boxShadow: state.isFocused ? "0 0 0 1px hsl(var(--ring))" : "none",
       "&:hover": {
         borderColor: "hsl(var(--ring))",
@@ -181,248 +182,270 @@ export default function SendFilePage() {
   };
 
   return (
-    <div className="w-full h-[calc(100vh-7rem)] overflow-y-auto p-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Mail className="text-sky-500" size={32} />
-            <h1 className="text-3xl font-bold">Send File to User</h1>
+    <div className="w-full h-full p-4 md:p-8 overflow-auto">
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Header with Gradient */}
+        <BlurFade delay={0.1}>
+          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl shadow-lg">
+                <Mail className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  Send Files to User
+                </h1>
+                <p className="text-gray-600 dark:text-gray-400 flex items-center gap-2 mt-1">
+                  <Package className="w-4 h-4" />
+                  Send multiple files directly to users via email
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="text-gray-500 dark:text-gray-400">
-            Send multiple files directly to users via email
-          </p>
-        </div>
+        </BlurFade>
 
-        <form
-          onSubmit={formik.handleSubmit}
-          className="bg-gray-100 dark:bg-zinc-800/50 p-6 rounded-3xl"
-        >
-          <div className="space-y-6">
-            {/* User Selection with Search */}
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                Select User (Optional - or enter manually below)
-              </label>
-              <Select
-                options={userOptions}
-                onChange={handleUserSelect}
-                placeholder="Search and select a user..."
-                isClearable
-                isSearchable
-                styles={customSelectStyles}
-                noOptionsMessage={() => "No users found"}
-                className="react-select-container"
-                classNamePrefix="react-select"
-              />
-            </div>
-
-            {/* User Email */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="user_email"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                User Email *
-              </label>
-              <Input
-                type="email"
-                id="user_email"
-                name="user_email"
-                placeholder="user@example.com"
-                className="rounded-2xl px-4 py-2"
-                value={formik.values.user_email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.user_email && formik.errors.user_email ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.user_email}
-                </div>
-              ) : null}
-            </div>
-
-            {/* User Name */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="user_name"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                User Name *
-              </label>
-              <Input
-                type="text"
-                id="user_name"
-                name="user_name"
-                placeholder="User name"
-                className="rounded-2xl px-4 py-2"
-                value={formik.values.user_name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.user_name && formik.errors.user_name ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.user_name}
-                </div>
-              ) : null}
-            </div>
-
-            {/* Title */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="title"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Email Title *
-              </label>
-              <Input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Project files"
-                className="rounded-2xl px-4 py-2"
-                value={formik.values.title}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              {formik.touched.title && formik.errors.title ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.title}
-                </div>
-              ) : null}
-            </div>
-
-            {/* Description */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="description"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Email Description *
-              </label>
-              <Textarea
-                id="description"
-                name="description"
-                placeholder="Here are your project files..."
-                className="rounded-2xl px-4 py-2 bg-background/90 min-h-[120px]"
-                value={formik.values.description}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                rows={5}
-              />
-              {formik.touched.description && formik.errors.description ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.description}
-                </div>
-              ) : null}
-            </div>
-
-            {/* Language */}
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                Language *
-              </label>
-              <ShadcnSelect
-                onValueChange={(value) => formik.setFieldValue("language", value)}
-                value={formik.values.language}
-              >
-                <SelectTrigger className="w-full rounded-2xl bg-background/90 border">
-                  <SelectValue placeholder="Select a language" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="english">English</SelectItem>
-                  <SelectItem value="german">German</SelectItem>
-                </SelectContent>
-              </ShadcnSelect>
-              {formik.touched.language && formik.errors.language ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.language}
-                </div>
-              ) : null}
-            </div>
-
-            {/* File Upload */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="documents"
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                File Attachments * (Multiple files allowed)
-              </label>
-              <div className="flex items-center gap-4">
-                <label
-                  htmlFor="documents"
-                  className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl cursor-pointer transition-colors duration-300"
-                >
-                  <Upload size={20} />
-                  <span>Choose Files</span>
+        {/* Form */}
+        <BlurFade delay={0.2}>
+          <form
+            onSubmit={formik.handleSubmit}
+            className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-6 shadow-xl"
+          >
+            <div className="space-y-6">
+              {/* User Selection with Search */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                  Quick Select User (Optional)
                 </label>
-                <input
-                  type="file"
-                  id="documents"
-                  name="documents"
-                  multiple
-                  className="hidden"
-                  onChange={handleFileChange}
-                  onBlur={formik.handleBlur}
+                <Select
+                  options={userOptions}
+                  onChange={handleUserSelect}
+                  placeholder="Search and select a user..."
+                  isClearable
+                  isSearchable
+                  styles={customSelectStyles}
+                  noOptionsMessage={() => "No users found"}
+                  className="react-select-container"
+                  classNamePrefix="react-select"
                 />
-                {selectedFiles.length > 0 && (
-                  <span className="text-sm text-gray-500">
-                    {selectedFiles.length} file(s) selected
-                  </span>
-                )}
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Or enter user details manually below
+                </p>
               </div>
 
-              {/* Display selected files */}
-              {selectedFiles.length > 0 && (
-                <div className="flex flex-col gap-2 mt-2 p-4 bg-gray-200 dark:bg-zinc-700/50 rounded-2xl max-h-[200px] overflow-y-auto">
-                  {selectedFiles.map((file, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between gap-2 p-2 bg-white dark:bg-zinc-800 rounded-xl"
-                    >
-                      <div className="flex items-center gap-2 flex-1 min-w-0">
-                        <FileText size={16} className="text-sky-500 flex-shrink-0" />
-                        <span className="truncate text-sm">{file.name}</span>
-                        <span className="text-xs text-gray-500 flex-shrink-0">
-                          ({(file.size / 1024 / 1024).toFixed(2)} MB)
-                        </span>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => removeFile(index)}
-                        className="p-1 rounded-full hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors duration-300"
+              <hr className="border-gray-200 dark:border-gray-700" />
+
+              {/* User Email */}
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="user_email"
+                  className="text-sm font-semibold text-gray-700 dark:text-gray-300"
+                >
+                  User Email *
+                </label>
+                <Input
+                  type="email"
+                  id="user_email"
+                  name="user_email"
+                  placeholder="user@example.com"
+                  className="rounded-xl px-4 py-2.5 bg-background/90"
+                  value={formik.values.user_email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.user_email && formik.errors.user_email ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.user_email}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* User Name */}
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="user_name"
+                  className="text-sm font-semibold text-gray-700 dark:text-gray-300"
+                >
+                  User Name *
+                </label>
+                <Input
+                  type="text"
+                  id="user_name"
+                  name="user_name"
+                  placeholder="John Doe"
+                  className="rounded-xl px-4 py-2.5 bg-background/90"
+                  value={formik.values.user_name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.user_name && formik.errors.user_name ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.user_name}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* Title */}
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="title"
+                  className="text-sm font-semibold text-gray-700 dark:text-gray-300"
+                >
+                  Email Title *
+                </label>
+                <Input
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Your Project Files"
+                  className="rounded-xl px-4 py-2.5 bg-background/90"
+                  value={formik.values.title}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.title && formik.errors.title ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.title}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* Description */}
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="description"
+                  className="text-sm font-semibold text-gray-700 dark:text-gray-300"
+                >
+                  Email Message *
+                </label>
+                <Textarea
+                  id="description"
+                  name="description"
+                  placeholder="Here are your project files. Please review them and let us know if you have any questions..."
+                  className="rounded-xl px-4 py-3 bg-background/90 min-h-[120px]"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  rows={5}
+                />
+                {formik.touched.description && formik.errors.description ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.description}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* Language */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                  <Languages className="w-4 h-4" />
+                  Email Language *
+                </label>
+                <ShadcnSelect
+                  onValueChange={(value) => formik.setFieldValue("language", value)}
+                  value={formik.values.language}
+                >
+                  <SelectTrigger className="w-full rounded-xl bg-background/90 border h-11">
+                    <SelectValue placeholder="Select a language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="english">English</SelectItem>
+                    <SelectItem value="german">German</SelectItem>
+                  </SelectContent>
+                </ShadcnSelect>
+                {formik.touched.language && formik.errors.language ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.language}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* File Upload */}
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="documents"
+                  className="text-sm font-semibold text-gray-700 dark:text-gray-300"
+                >
+                  File Attachments * (Multiple files allowed)
+                </label>
+                <div className="flex items-center gap-4">
+                  <label
+                    htmlFor="documents"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-xl cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
+                  >
+                    <Upload className="w-5 h-5" />
+                    <span>Choose Files</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="documents"
+                    name="documents"
+                    multiple
+                    className="hidden"
+                    onChange={handleFileChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {selectedFiles.length > 0 && (
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                      {selectedFiles.length} file(s) selected
+                    </span>
+                  )}
+                </div>
+
+                {/* Display selected files */}
+                {selectedFiles.length > 0 && (
+                  <div className="flex flex-col gap-2 mt-2 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl max-h-[200px] overflow-y-auto">
+                    {selectedFiles.map((file, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between gap-2 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
                       >
-                        <X size={16} className="text-red-500" />
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <FileText className="w-5 h-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                          <span className="truncate text-sm font-medium">
+                            {file.name}
+                          </span>
+                          <span className="text-xs text-gray-500 flex-shrink-0">
+                            ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeFile(index)}
+                          className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors duration-300"
+                        >
+                          <X className="w-4 h-4 text-red-500" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
-              {formik.touched.documents && formik.errors.documents ? (
-                <div className="ml-2 text-rose-500 text-xs">
-                  {formik.errors.documents}
-                </div>
-              ) : null}
+                {formik.touched.documents && formik.errors.documents ? (
+                  <div className="ml-2 text-rose-500 text-xs">
+                    {formik.errors.documents}
+                  </div>
+                ) : null}
+              </div>
+
+              {/* Submit Button */}
+              <Button
+                type="submit"
+                className="w-full rounded-xl py-6 text-lg bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-lg hover:shadow-xl transition-all duration-300"
+                disabled={!formik.isValid || isLoading}
+              >
+                {isLoading ? (
+                  <Spinner className="w-6 h-6" />
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-5 h-5" />
+                    <span>Send Files via Email</span>
+                  </div>
+                )}
+              </Button>
             </div>
-
-            {/* Submit Button */}
-            <Button
-              type="submit"
-              className="w-full rounded-2xl py-6 text-lg"
-              disabled={!formik.isValid || isLoading}
-            >
-              {isLoading ? (
-                <Spinner className="w-6 h-6" />
-              ) : (
-                <div className="flex items-center gap-2">
-                  <Mail size={20} />
-                  <span>Send Files via Email</span>
-                </div>
-              )}
-            </Button>
-          </div>
-        </form>
+          </form>
+        </BlurFade>
       </div>
     </div>
   );
