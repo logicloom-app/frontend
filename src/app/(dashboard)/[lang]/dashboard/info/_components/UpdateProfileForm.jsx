@@ -94,10 +94,10 @@ export default function UpdateProfileForm({ dict }) {
   });
 
   return (
-    <div className="w-full h-full p-4 md:p-6 max-h-[calc(100vh-10rem)] overflow-auto">
-      <div className="mx-auto">
+    <div className="w-full h-full p-4 md:p-6 lg:p-8 max-h-[calc(100vh-10rem)] overflow-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="mb-6 md:-mt-7 -mt-4">
+        <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl">
               <UserCog className="w-6 h-6 text-white" />

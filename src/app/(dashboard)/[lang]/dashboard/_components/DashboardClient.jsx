@@ -6,11 +6,11 @@ import Meteors from "@/components/ui/meteors";
 import Spinner from "@/components/ui/Spinner";
 import { formatDate } from "@/lib/utils/utils";
 import { useGetUser } from "@/lib/hooks/useAuth";
+import BlurFade from "@/components/ui/blur-fade";
 import { useGetProjects } from "@/lib/hooks/useProjects";
 import { useGetPayments } from "@/lib/hooks/usePayments";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Folder, FolderInput, Euro, ArrowRight, Sparkles } from "lucide-react";
-import BlurFade from "@/components/ui/blur-fade";
 
 export default function DashboardClient({ lang, dict }) {
   const { data, error, isLoading } = useGetUser();
@@ -41,7 +41,7 @@ export default function DashboardClient({ lang, dict }) {
 
         {/* User Info Card */}
         <BlurFade delay={0.2} inView>
-          <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 mb-6 shadow-lg border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+          <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 mb-6 shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent relative overflow-hidden">
             {isLoading ? (
               <div className="h-32 flex items-center justify-center">
                 <Spinner className="w-10 h-10" />
@@ -94,7 +94,7 @@ export default function DashboardClient({ lang, dict }) {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
           <BlurFade delay={0.3} inView>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg">
+            <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg shadow-gray-200/40 dark:shadow-none hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-blue-500/10 rounded-xl">
                   <Folder className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -110,7 +110,7 @@ export default function DashboardClient({ lang, dict }) {
           </BlurFade>
 
           <BlurFade delay={0.4} inView>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-green-500 dark:hover:border-green-500 transition-all duration-300 hover:shadow-lg">
+            <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg shadow-gray-200/40 dark:shadow-none hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-green-500/10 rounded-xl">
                   <FolderInput className="w-6 h-6 text-green-600 dark:text-green-400" />
@@ -126,7 +126,7 @@ export default function DashboardClient({ lang, dict }) {
           </BlurFade>
 
           <BlurFade delay={0.5} inView>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-lg">
+            <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg shadow-gray-200/40 dark:shadow-none hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-purple-500/10 rounded-xl">
                   <Euro className="w-6 h-6 text-purple-600 dark:text-purple-400" />
@@ -144,7 +144,7 @@ export default function DashboardClient({ lang, dict }) {
 
         {/* Quick Actions */}
         <BlurFade delay={0.6} inView>
-          <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
             <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link

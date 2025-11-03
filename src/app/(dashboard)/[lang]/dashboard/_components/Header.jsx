@@ -39,11 +39,13 @@ export default function DashboardHeader({ dict, lang }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/20 flex justify-end items-center ${
+      className={`sticky top-0 z-50 w-full flex justify-end items-center ${
         isLoading && "blur-sm"
       }`}
     >
-      <nav className="container flex h-[80px] px-6 md:px-10 max-w-screen-2xl items-center justify-between md:justify-end">
+      {/* Glassmorphism Header Card */}
+      <div className="w-full mx-4 mt-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl">
+        <nav className="container flex h-[70px] px-6 max-w-screen-2xl items-center justify-between md:justify-end">
         <Link
           href={`/${lang}`}
           className="flex items-center justify-center md:hidden"
@@ -297,6 +299,7 @@ export default function DashboardHeader({ dict, lang }) {
           </div>
         </div>
       </nav>
+      </div>
     </header>
   );
 }
