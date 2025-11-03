@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^41.4.2",
+    "@ckeditor/ckeditor5-react": "^11.0.0",
     "@formatjs/intl-localematcher": "^0.5.6",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -21,11 +23,14 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@tanstack/react-query": "^5.59.16",
     "axios": "^1.7.7",
+    "ckeditor5-custom-build": "^0.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dompurify": "^3.3.0",
     "formik": "^2.4.6",
     "framer-motion": "^11.11.17",
     "input-otp": "^1.2.4",
+    "isomorphic-dompurify": "^2.31.0",
     "lucide-react": "^0.453.0",
     "motion": "^11.18.2",
     "negotiator": "^1.0.0",

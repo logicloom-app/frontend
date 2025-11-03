@@ -10,7 +10,12 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { TbArrowRight, TbUser, TbExclamationCircle } from "react-icons/tb";
+import {
+  TbArrowRight,
+  TbUser,
+  TbExclamationCircle,
+  TbArticle,
+} from "react-icons/tb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -225,6 +230,14 @@ export default function Header({ dict, lang }) {
             </Link>
 
             <Link
+              href={`/${lang}/blog`}
+              className="relative px-5 py-2 font-medium text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300 group overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="relative">{dict?.blog || "Blog"}</span>
+            </Link>
+
+            <Link
               href={`/${lang}/contact`}
               className="relative px-5 py-2 rounded-r-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 group overflow-hidden"
             >
@@ -353,6 +366,22 @@ export default function Header({ dict, lang }) {
                   />
                   <span className="relative font-medium">
                     {dict?.pricing?.title || "Pricing"}
+                  </span>
+                </Link>
+
+                <Link
+                  href={`/${lang}/blog`}
+                  className="group relative px-6 py-3 flex items-center gap-3 border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 bg-gradient-to-r from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/20 dark:to-teal-950/20 hover:from-emerald-50 hover:to-teal-50 dark:hover:from-emerald-950/40 dark:hover:to-teal-950/40 focus:outline-none rounded-2xl transition-all duration-300 overflow-hidden"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 to-teal-500/0 group-hover:from-emerald-500/10 group-hover:to-teal-500/10 transition-all duration-300"></span>
+                  <TbArticle
+                    size={20}
+                    strokeWidth={2.5}
+                    className="relative text-emerald-600 dark:text-emerald-400"
+                  />
+                  <span className="relative font-medium">
+                    {dict?.blog || "Blog"}
                   </span>
                 </Link>
 

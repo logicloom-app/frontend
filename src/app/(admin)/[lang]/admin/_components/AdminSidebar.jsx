@@ -9,6 +9,7 @@ import {
   LogOut,
   User,
   Mail,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -132,6 +133,18 @@ export default function AdminSidebar() {
           >
             <Mail />
             <span className="hidden xl:block text-nowrap">Send File</span>
+          </Link>
+
+          <Link
+            href={`/${lang}/admin/blog/posts`}
+            className={`flex gap-4 py-3 px-6 w-full rounded-2xl transition-colors ${
+              pathname?.startsWith(`/${lang}/admin/blog`)
+                ? "bg-gray-500/20 dark:text-sky-500 text-sky-700"
+                : "hover:bg-gray-100 dark:hover:bg-gray-400/20"
+            }`}
+          >
+            <FileText />
+            <span className="hidden xl:block text-nowrap">Blog</span>
           </Link>
         </div>
 
