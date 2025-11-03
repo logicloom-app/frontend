@@ -15,6 +15,28 @@ import {
 } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
 
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  
+  return {
+    title: lang === "de" 
+      ? "AGB - LogicLoom | Allgemeine Geschäftsbedingungen" 
+      : "Terms & Conditions - LogicLoom | Terms of Service",
+    description: lang === "de"
+      ? "Allgemeine Geschäftsbedingungen von LogicLoom. Lesen Sie unsere Nutzungsbedingungen, Zahlungsbedingungen und rechtliche Vereinbarungen."
+      : "Terms and Conditions of LogicLoom. Read our terms of use, payment terms, and legal agreements.",
+    keywords: lang === "de"
+      ? "AGB, Allgemeine Geschäftsbedingungen, Terms, Nutzungsbedingungen, Rechtliches"
+      : "Terms and Conditions, Terms of Service, Legal Terms, Terms of Use",
+    robots: "index, follow",
+    openGraph: {
+      title: lang === "de" ? "AGB - LogicLoom" : "Terms & Conditions - LogicLoom",
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  };
+}
+
 export default async function TermsPage({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

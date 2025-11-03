@@ -2,6 +2,30 @@ import { getDictionary } from "@/lib/utils/dictionary";
 import { Construction } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
 
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  
+  return {
+    title: lang === "de" 
+      ? "Über Uns - LogicLoom | Unsere Mission & Vision" 
+      : "About Us - LogicLoom | Our Mission & Vision",
+    description: lang === "de"
+      ? "Lernen Sie LogicLoom kennen - Ihr Partner für innovative Webentwicklung und digitale Transformation. Erfahren Sie mehr über unsere Mission, Vision und Werte."
+      : "Learn about LogicLoom - Your partner for innovative web development and digital transformation. Discover our mission, vision, and values.",
+    keywords: lang === "de"
+      ? "Über LogicLoom, Unternehmen, Mission, Vision, Web Development Team, Deutschland"
+      : "About LogicLoom, Company, Mission, Vision, Web Development Team, Germany",
+    openGraph: {
+      title: lang === "de" ? "Über Uns - LogicLoom" : "About Us - LogicLoom",
+      description: lang === "de"
+        ? "Lernen Sie unser Team und unsere Mission kennen"
+        : "Learn about our team and mission",
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  };
+}
+
 export default async function AboutPage({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

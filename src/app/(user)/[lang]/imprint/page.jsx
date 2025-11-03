@@ -2,6 +2,28 @@ import { getDictionary } from "@/lib/utils/dictionary";
 import { Building2, Mail, Globe, FileText, Shield, Scale } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
 
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  
+  return {
+    title: lang === "de" 
+      ? "Impressum - LogicLoom | Rechtliche Informationen" 
+      : "Imprint - LogicLoom | Legal Information",
+    description: lang === "de"
+      ? "Impressum und rechtliche Informationen über LogicLoom. Kontaktdaten, Verantwortlicher und weitere gesetzlich vorgeschriebene Angaben."
+      : "Imprint and legal information about LogicLoom. Contact details, responsible person, and other legally required information.",
+    keywords: lang === "de"
+      ? "Impressum, Rechtliche Informationen, Kontakt, Verantwortlicher, LogicLoom Deutschland"
+      : "Imprint, Legal Information, Contact, Responsible Person, LogicLoom Germany",
+    robots: "index, follow",
+    openGraph: {
+      title: lang === "de" ? "Impressum - LogicLoom" : "Imprint - LogicLoom",
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  };
+}
+
 export default async function ImprintPage({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

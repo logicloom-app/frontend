@@ -10,6 +10,30 @@ import { getDictionary } from "@/lib/utils/dictionary";
 import { featureIcons } from "./_components/featureIcons";
 import { GradientButton } from "@/components/ui/gradient-button";
 
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  
+  return {
+    title: lang === "de" 
+      ? "Preise - LogicLoom | Transparente Web Development Pakete" 
+      : "Pricing - LogicLoom | Transparent Web Development Packages",
+    description: lang === "de"
+      ? "Faire und transparente Preise für Web Development. One-Pager ab €499, Multi-Page Websites ab €699, Enterprise Solutions ab €1.649. Professionelle Webentwicklung zum Festpreis."
+      : "Fair and transparent pricing for web development. One-Pager from €499, Multi-Page Websites from €699, Enterprise Solutions from €1,649. Professional web development at fixed prices.",
+    keywords: lang === "de"
+      ? "Web Development Preise, Website Kosten, Webentwicklung Pakete, Festpreis Website"
+      : "Web Development Pricing, Website Costs, Web Development Packages, Fixed Price Website",
+    openGraph: {
+      title: lang === "de" ? "Preise - LogicLoom" : "Pricing - LogicLoom",
+      description: lang === "de"
+        ? "Transparente Preise für professionelle Webentwicklung"
+        : "Transparent pricing for professional web development",
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  };
+}
+
 export default async function PricingPage({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

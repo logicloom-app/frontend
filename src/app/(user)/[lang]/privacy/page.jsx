@@ -14,6 +14,28 @@ import {
 } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
 
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  
+  return {
+    title: lang === "de" 
+      ? "Datenschutzerklärung - LogicLoom | Ihre Privatsphäre ist wichtig" 
+      : "Privacy Policy - LogicLoom | Your Privacy Matters",
+    description: lang === "de"
+      ? "Datenschutzerklärung von LogicLoom. Erfahren Sie, wie wir Ihre persönlichen Daten schützen und verarbeiten. DSGVO-konform und transparent."
+      : "Privacy Policy of LogicLoom. Learn how we protect and process your personal data. GDPR compliant and transparent.",
+    keywords: lang === "de"
+      ? "Datenschutz, Privacy Policy, DSGVO, Datenschutzerklärung, Persönliche Daten"
+      : "Privacy, Privacy Policy, GDPR, Data Protection, Personal Data",
+    robots: "index, follow",
+    openGraph: {
+      title: lang === "de" ? "Datenschutzerklärung - LogicLoom" : "Privacy Policy - LogicLoom",
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  };
+}
+
 export default async function PrivacyPage({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
