@@ -94,7 +94,7 @@ export default function UpdateProfileForm({ dict }) {
   });
 
   return (
-    <div className="w-full h-full p-4 md:p-6 lg:p-8 max-h-[calc(100vh-10rem)] overflow-auto">
+    <div className="w-full h-full p-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-6">
@@ -116,7 +116,7 @@ export default function UpdateProfileForm({ dict }) {
         {/* Form Card */}
         <form
           onSubmit={formik.handleSubmit}
-          className="bg-white max-w-3xl dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-700"
+          className="bg-gray-100 max-w-3xl dark:bg-gray-800 rounded-3xl p-6 border-2 border-gray-200 dark:border-gray-700"
         >
           <div className="space-y-6">
             {/* Name */}

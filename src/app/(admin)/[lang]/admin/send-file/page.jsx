@@ -182,11 +182,11 @@ export default function SendFilePage() {
   };
 
   return (
-    <div className="w-full h-full p-4 md:p-8 overflow-auto">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
+      <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
             <div className="flex items-center gap-4 mb-2">
               <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl shadow-lg">
                 <Mail className="w-8 h-8 text-white" />
@@ -208,7 +208,7 @@ export default function SendFilePage() {
         <BlurFade delay={0.2}>
           <form
             onSubmit={formik.handleSubmit}
-            className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-6 shadow-xl"
+            className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-6 shadow-xl"
           >
             <div className="space-y-6">
               {/* User Selection with Search */}

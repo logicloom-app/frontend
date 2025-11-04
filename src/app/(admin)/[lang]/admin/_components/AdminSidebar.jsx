@@ -90,7 +90,7 @@ export default function AdminSidebar() {
   return (
     <div className="hidden md:flex flex-col w-80 p-4 relative">
       {/* Glassmorphism Sidebar */}
-      <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-6 shadow-2xl h-full flex flex-col">
+      <div className="bg-gray-50 dark:bg-gray-900/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 shadow-2xl h-full flex flex-col">
         {/* Logo */}
         <Link href={`/${lang}`} className="flex items-center gap-3 mb-8 group">
           <div className="relative">

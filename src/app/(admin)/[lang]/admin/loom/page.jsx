@@ -12,7 +12,7 @@ export default function LoomPricing() {
 
   if (isLoading) {
     return (
-      <div className="w-full h-full p-4 md:p-8 overflow-auto">
+      <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-600"></div>
@@ -23,11 +23,11 @@ export default function LoomPricing() {
   }
 
   return (
-    <div className="w-full h-full p-4 md:p-8 overflow-auto">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent mb-2">
@@ -55,7 +55,7 @@ export default function LoomPricing() {
             .reverse()
             ?.map((price, index) => (
               <BlurFade key={price?.id} delay={0.2 + index * 0.1}>
-                <div className="group bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-1">
+                <div className="group bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-1">
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-teal-500/0 to-emerald-500/0 group-hover:from-cyan-500/5 group-hover:via-teal-500/5 group-hover:to-emerald-500/5 rounded-2xl transition-all duration-500"></div>
 
@@ -108,7 +108,7 @@ export default function LoomPricing() {
         {/* Empty State */}
         {prices?.length === 0 && (
           <BlurFade delay={0.2}>
-            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-12 text-center">
+            <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-12 text-center">
               <Atom className="w-16 h-16 mx-auto mb-4 text-gray-400" />
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 No pricing packages yet. Create your first package!

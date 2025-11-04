@@ -44,7 +44,7 @@ export default function DashboardHeader({ dict, lang }) {
       }`}
     >
       {/* Glassmorphism Header Card */}
-      <div className="w-full mx-4 mt-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl">
+      <div className="w-full mx-4 mt-4 bg-gray-50 dark:bg-gray-900/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl shadow-xl">
         <nav className="container flex h-[70px] px-6 max-w-screen-2xl items-center justify-between md:justify-end">
         <Link
           href={`/${lang}`}

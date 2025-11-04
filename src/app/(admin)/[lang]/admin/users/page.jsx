@@ -28,11 +28,11 @@ export default function Users() {
   }
 
   return (
-    <div className="w-full h-full p-4 md:p-8 overflow-auto">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
@@ -55,7 +55,7 @@ export default function Users() {
 
         {/* Users Table */}
         <BlurFade delay={0.2}>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl shadow-xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
@@ -158,7 +158,7 @@ export default function Users() {
         {/* Empty State */}
         {memoizedUsers?.length === 0 && (
           <BlurFade delay={0.2}>
-            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-12 text-center">
+            <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-12 text-center">
               <UsersIcon className="w-16 h-16 mx-auto mb-4 text-gray-400" />
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 No users found in the system.

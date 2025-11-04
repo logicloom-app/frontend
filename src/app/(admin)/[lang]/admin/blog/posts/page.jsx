@@ -401,10 +401,10 @@ export default function AdminBlogPostsPage() {
   };
 
   return (
-    <div className="w-full h-full p-4 md:p-8 overflow-auto">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
-        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-2">
@@ -442,7 +442,7 @@ export default function AdminBlogPostsPage() {
         </div>
 
         {/* Filters & Search */}
-        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl p-6">
+        <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl shadow-xl p-6">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Search */}
             <div className="flex-1 relative">
@@ -489,14 +489,14 @@ export default function AdminBlogPostsPage() {
             </p>
           </div>
         ) : filteredPosts.length === 0 ? (
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-12 text-center">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-12 text-center">
             <p className="text-gray-600 dark:text-gray-400 text-lg">
               No posts found. Create your first post!
             </p>
           </div>
         ) : (
           <>
-            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl shadow-xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
@@ -592,7 +592,7 @@ export default function AdminBlogPostsPage() {
 
               {/* Pagination */}
               {totalPages > 1 && (
-                <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm rounded-xl p-4 mt-4 mx-4 mb-4">
+                <div className="bg-gray-50 dark:bg-gray-800/40 backdrop-blur-sm rounded-xl p-4 mt-4 mx-4 mb-4">
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Showing {currentPage * postsPerPage + 1} to{" "}
@@ -603,7 +603,7 @@ export default function AdminBlogPostsPage() {
                       <button
                         onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
                         disabled={currentPage === 0}
-                        className="px-4 py-2 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                        className="px-4 py-2 bg-gray-50 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                       >
                         Previous
                       </button>
@@ -615,7 +615,7 @@ export default function AdminBlogPostsPage() {
                             className={`px-4 py-2 rounded-lg transition-all ${
                               currentPage === i
                                 ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg"
-                                : "bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                : "bg-gray-50 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600"
                             }`}
                           >
                             {i + 1}
@@ -627,7 +627,7 @@ export default function AdminBlogPostsPage() {
                           setCurrentPage((p) => Math.min(totalPages - 1, p + 1))
                         }
                         disabled={currentPage === totalPages - 1}
-                        className="px-4 py-2 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                        className="px-4 py-2 bg-gray-50 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                       >
                         Next
                       </button>

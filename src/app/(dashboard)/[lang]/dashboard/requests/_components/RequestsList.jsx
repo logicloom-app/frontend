@@ -28,7 +28,7 @@ export default function RequestsList({ dict, lang }) {
 
   if (isLoading) {
     return (
-      <div className="w-full h-full p-4 md:p-6 lg:p-8 overflow-auto">
+      <div className="w-full h-full px-4 py-6 overflow-auto">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
@@ -39,7 +39,7 @@ export default function RequestsList({ dict, lang }) {
   }
 
   return (
-    <div className="w-full h-full p-4 md:p-6 lg:p-8 overflow-auto">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>

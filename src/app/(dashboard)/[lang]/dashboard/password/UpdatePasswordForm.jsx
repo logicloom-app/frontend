@@ -126,7 +126,7 @@ export default function UpdatePasswordForm({ dict }) {
         {/* Form Card */}
         <form
           onSubmit={formik.handleSubmit}
-          className="bg-white max-w-3xl dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-700"
+          className="bg-gray-100 max-w-3xl dark:bg-gray-800 rounded-3xl p-6 border-2 border-gray-200 dark:border-gray-700"
         >
           <div className="space-y-6">
             {/* Current Password */}

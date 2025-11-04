@@ -75,11 +75,11 @@ export default function AdminRequests() {
   }
 
   return (
-    <div className="w-full h-full p-4 md:p-8 overflow-auto">
+    <div className="w-full h-full px-4 py-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-8 shadow-2xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-2">
@@ -104,7 +104,7 @@ export default function AdminRequests() {
         <div className="space-y-4">
           {requests?.map((request, index) => (
             <BlurFade key={request?.id} delay={0.2 + index * 0.05}>
-              <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 <div className="flex flex-col lg:flex-row justify-between gap-4 p-6">
                   {/* Main Content */}
                   <div className="flex-1 space-y-4">
@@ -212,7 +212,7 @@ export default function AdminRequests() {
         {/* Empty State */}
         {requests?.length === 0 && (
           <BlurFade delay={0.2}>
-            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-12 text-center">
+            <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-2xl p-12 text-center">
               <FolderInput className="w-16 h-16 mx-auto mb-4 text-gray-400" />
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 No requests yet. Waiting for user submissions!
