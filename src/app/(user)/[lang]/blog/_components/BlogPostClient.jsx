@@ -147,7 +147,7 @@ export default function BlogPostClient({ lang, slug, dict }) {
                   {post.reading_time && (
                     <div className="flex items-center gap-2">
                       <TbClock className="w-5 h-5" />
-                      <span>{post.reading_time} min read</span>
+                      <span>{post.reading_time} {dict?.readingTime || "min read"}</span>
                     </div>
                   )}
                 </div>

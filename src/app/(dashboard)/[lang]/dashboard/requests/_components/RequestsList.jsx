@@ -43,7 +43,7 @@ export default function RequestsList({ dict, lang }) {
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header with Gradient */}
         <BlurFade delay={0.1}>
-          <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
+          <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-2">
@@ -79,7 +79,7 @@ export default function RequestsList({ dict, lang }) {
                   <MagicCard
                     gradientOpacity={0.8}
                     gradientColor={theme === "dark" ? "#262626" : "#e9e9e9"}
-                    className="rounded-3xl flex flex-col justify-between p-6 h-full bg-white dark:bg-gray-800/60 backdrop-blur-xl border border-gray-300 dark:border-gray-700/50 shadow-xl shadow-gray-300/60 dark:shadow-none hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:-translate-y-1"
+                    className="rounded-3xl flex flex-col justify-between p-6 h-full bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-300 dark:border-gray-700/50 shadow-xl shadow-gray-300/60 dark:shadow-none hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:-translate-y-1"
                     additionalClassName="flex flex-col justify-between h-full"
                   >
                     <div className="space-y-4 flex-1">
@@ -158,7 +158,7 @@ export default function RequestsList({ dict, lang }) {
           </div>
         ) : (
           <BlurFade delay={0.2}>
-            <div className="bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-12 text-center shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
+            <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-12 text-center shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
               <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 flex items-center justify-center mb-6 mx-auto">
                 <Plus className="w-12 h-12 text-emerald-400" />
               </div>

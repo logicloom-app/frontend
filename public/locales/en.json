@@ -196,6 +196,12 @@
     "joined": "Joined at",
     "welcome": "Welcome",
     "sendRequest": "Send a request to get a project",
+    "loomBalance": "LOOM Balance",
+    "totalProjects": "Total Projects",
+    "completed": "Completed",
+    "totalPayments": "Total Payments",
+    "quickActions": "Quick Actions",
+    "viewProjects": "View Projects",
     "info": {
       "title": "Account Information",
       "subtitle": "Manage your personal and professional details",
@@ -276,6 +282,7 @@
       "sendRequest": "Send a Request",
       "description": "Description",
       "file": "File",
+      "subtitle": "Manage your project requests",
       "send": "Send Request",
       "deleteDialogTitle": "Delete Request",
       "deleteWarning": "This action cannot be undone.",
@@ -291,6 +298,10 @@
       }
     },
     "projects": {
+      "title": "Projects",
+      "subtitle": "Track and manage your projects",
+      "no_projects": "No projects yet",
+      "no_projects_description": "Your accepted requests will appear here as projects",
       "accept": "Accept",
       "accept_project": "Accept the project",
       "accept_the_project": "Accept the project?",
@@ -314,7 +325,6 @@
       "months": "Months",
       "months_of_support_subscription": "months of support subscription",
       "no_comment_yet": "No comment yet",
-      "no_projects": "No projects found",
       "paid": "Paid",
       "pay": "Confirm Payment",
       "pay_for_additional_request": "Pay for additional request",
@@ -773,5 +783,28 @@
       "description": "Domain and hosting are not included in the packages. We are happy to advise you on selecting a suitable provider or can organize this for you.",
       "note": "Recommended providers: IONOS, Hetzner, All-Inkl, Cloudflare"
     }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Web Development Insights, Tutorials & Best Practices",
+    "searchPlaceholder": "Search articles...",
+    "readMore": "Read More",
+    "noPostsFound": "No posts found",
+    "noPostsDescription": "Try adjusting your search or check back later",
+    "previous": "Previous",
+    "next": "Next",
+    "categories": "Categories",
+    "allCategories": "All Categories",
+    "readingTime": "min read",
+    "publishedOn": "Published on",
+    "updatedOn": "Updated on",
+    "author": "Author",
+    "tags": "Tags",
+    "relatedPosts": "Related Posts",
+    "backToBlog": "Back to Blog",
+    "shareArticle": "Share this article",
+    "tableOfContents": "Table of Contents",
+    "postNotFound": "Post Not Found",
+    "viewAllPosts": "View All Posts"
   }
 }

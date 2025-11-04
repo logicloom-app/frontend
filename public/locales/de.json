@@ -196,6 +196,12 @@
     "joined": "Beigetreten am",
     "welcome": "Willkommen",
     "sendRequest": "Anfrage senden um ein Projekt zu erhalten",
+    "loomBalance": "LOOM-Guthaben",
+    "totalProjects": "Projekte insgesamt",
+    "completed": "Abgeschlossen",
+    "totalPayments": "Zahlungen insgesamt",
+    "quickActions": "Schnellaktionen",
+    "viewProjects": "Projekte anzeigen",
     "info": {
       "title": "Kontoinformationen",
       "subtitle": "Verwalten Sie Ihre persönlichen und beruflichen Daten",
@@ -255,6 +261,7 @@
     "requests": {
       "id": "ID",
       "title": "Anfragen",
+      "subtitle": "Verwalten Sie Ihre Projekt-Anfragen",
       "status": "Status",
       "createdAt": "Erstellt am",
       "updatedAt": "Aktualisiert am",
@@ -291,6 +298,11 @@
       }
     },
     "projects": {
+      "title": "Projekte",
+      "subtitle": "Verfolgen und verwalten Sie Ihre Projekte",
+      "view_project": "Projekt ansehen",
+      "no_projects": "Noch keine Projekte",
+      "no_projects_description": "Ihre akzeptierten Anfragen werden hier als Projekte angezeigt",
       "accept": "Annehmen",
       "accept_project": "Projekt annehmen",
       "accept_the_project": "Projekt annehmen?",
@@ -314,7 +326,6 @@
       "months": "Monate",
       "months_of_support_subscription": "Monate der Support Subscription",
       "no_comment_yet": "Noch kein Kommentar",
-      "no_projects": "Keine Projekte gefunden",
       "paid": "Bezahlt",
       "pay": "Bezahlen bestätigen",
       "pay_for_additional_request": "Zusätzliche Anfrage bezahlen",
@@ -341,7 +352,6 @@
       "the_project_will_be_unlocked_for_payment_and_other_actions": "Das Projekt wird für Zahlungen und andere Aktionen freigeschaltet und der Entwickler wird benachrichtigt.",
       "unpaid": "Unbezahlt",
       "updated_at": "Aktualisiert am",
-      "view_project": "Projekt ansehen",
       "you_need": "Sie benötigen",
       "you_need_loom_to_add_premium_design": "Sie benötigen 1000 LOOMs, um Premium Design zu Ihrem Projekt hinzuzufügen",
       "you_need_loom_to_add_priority_ticket": "Sie benötigen 500 LOOMs, um Priorität Ticket zu Ihrem Projekt hinzuzufügen"
@@ -772,5 +782,28 @@
       "description": "Domain und Hosting sind in den Paketen nicht enthalten. Wir beraten Sie gerne bei der Auswahl eines geeigneten Providers oder können dies für Sie organisieren.",
       "note": "Empfohlene Provider: IONOS, Hetzner, All-Inkl, Cloudflare"
     }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Webentwicklungs-Einblicke, Tutorials & Best Practices",
+    "searchPlaceholder": "Artikel suchen...",
+    "readMore": "Weiterlesen",
+    "noPostsFound": "Keine Beiträge gefunden",
+    "noPostsDescription": "Versuchen Sie, Ihre Suche anzupassen oder schauen Sie später noch einmal vorbei",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "categories": "Kategorien",
+    "allCategories": "Alle Kategorien",
+    "readingTime": "Min. Lesezeit",
+    "publishedOn": "Veröffentlicht am",
+    "updatedOn": "Aktualisiert am",
+    "author": "Autor",
+    "tags": "Tags",
+    "relatedPosts": "Verwandte Beiträge",
+    "backToBlog": "Zurück zum Blog",
+    "shareArticle": "Diesen Artikel teilen",
+    "tableOfContents": "Inhaltsverzeichnis",
+    "postNotFound": "Beitrag nicht gefunden",
+    "viewAllPosts": "Alle Beiträge anzeigen"
   }
 }

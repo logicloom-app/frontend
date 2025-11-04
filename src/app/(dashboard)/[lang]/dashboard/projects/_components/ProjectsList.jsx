@@ -201,7 +201,8 @@ export default function ProjectsList({ dict }) {
                 {dict?.no_projects || "No projects yet"}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Your accepted requests will appear here as projects
+                {dict?.no_projects_description ||
+                  "Your accepted requests will appear here as projects"}
               </p>
             </div>
           </BlurFade>

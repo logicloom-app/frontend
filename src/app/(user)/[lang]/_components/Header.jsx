@@ -501,7 +501,7 @@ export default function Header({ dict, lang }) {
                 </Link>
 
                 <Link
-                  href="/dashboard"
+                  href={`/${lang}/dashboard`}
                   className="inline-flex h-11 w-full items-center justify-center rounded-2xl px-8 py-2 font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors mb-4"
                 >
                   {dict?.viewProfile}

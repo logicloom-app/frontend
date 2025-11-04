@@ -72,7 +72,7 @@ export default function DashboardClient({ lang, dict }) {
                   </div>
 
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white px-6 py-3 rounded-2xl text-center">
-                    <div className="text-sm opacity-90">LOOM Balance</div>
+                    <div className="text-sm opacity-90">{dict?.loomBalance}</div>
                     <div className="text-3xl font-bold">{user?.loom_balance}</div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ export default function DashboardClient({ lang, dict }) {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Total Projects
+                    {dict?.totalProjects}
                   </p>
                   <p className="text-2xl font-bold">{projects.length}</p>
                 </div>
@@ -117,7 +117,7 @@ export default function DashboardClient({ lang, dict }) {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Completed
+                    {dict?.completed}
                   </p>
                   <p className="text-2xl font-bold">{completedProjects}</p>
                 </div>
@@ -133,7 +133,7 @@ export default function DashboardClient({ lang, dict }) {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Total Payments
+                    {dict?.totalPayments}
                   </p>
                   <p className="text-2xl font-bold">€{totalPayments}</p>
                 </div>
@@ -145,7 +145,7 @@ export default function DashboardClient({ lang, dict }) {
         {/* Quick Actions */}
         <BlurFade delay={0.6} inView>
           <div className="bg-gray-50 dark:bg-gray-800/60 backdrop-blur-xl border-2 border-gray-200/60 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-200/50 dark:shadow-2xl dark:shadow-transparent">
-            <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
+            <h3 className="text-xl font-bold mb-4">{dict?.quickActions}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
                 href={`/${lang}/dashboard/requests`}
@@ -168,7 +168,7 @@ export default function DashboardClient({ lang, dict }) {
                   <div className="p-2 bg-green-500 rounded-lg">
                     <Folder className="w-5 h-5 text-white" />
                   </div>
-                  <span className="font-medium">View Projects</span>
+                  <span className="font-medium">{dict?.viewProjects}</span>
                 </div>
                 <ArrowRight className="w-5 h-5 text-green-600 dark:text-green-400" />
               </Link>
