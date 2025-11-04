@@ -102,3 +102,8 @@ body {
     background: rgba(156, 163, 175, 0.5);
   }
 }
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}

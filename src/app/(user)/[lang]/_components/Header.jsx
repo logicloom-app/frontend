@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { GradientButton } from "@/components/ui/gradient-button";
@@ -67,7 +67,7 @@ export default function Header({ dict, lang }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-900/40 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-900/40 flex justify-center items-center shadow-sm ${
+      className={`sticky top-0 z-50 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-900/40 backdrop-blur-md supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-gray-900/20 flex justify-center items-center shadow-sm ${
         isLoading && "blur-sm"
       }`}
     >
@@ -273,7 +273,7 @@ export default function Header({ dict, lang }) {
           <SheetContent className="border-gray-800" side="right">
             <div className="">
               <div className="flex items-center gap-3 mb-4">
-                <ThemeToggle />
+                <AnimatedThemeToggler className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-950/50 dark:hover:to-purple-950/50 border border-gray-200 dark:border-gray-700 transition-all duration-300 text-gray-700 dark:text-gray-300" />
                 <LanguageSwitcher />
               </div>
 
@@ -437,21 +437,22 @@ export default function Header({ dict, lang }) {
 
         <div className="flex justify-center items-center gap-3 max-md:hidden">
           <div className="flex items-center gap-3">
-            <ThemeToggle />
             <LanguageSwitcher />
+            <AnimatedThemeToggler className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-950/50 dark:hover:to-purple-950/50 border border-gray-200 dark:border-gray-700 transition-all duration-300 text-gray-700 dark:text-gray-300" />
           </div>
 
           {user ? (
             <Popover>
               <PopoverTrigger asChild>
-                <div className="relative p-2.5 flex gap-1 font-bold justify-center items-center cursor-pointer text-nowrap border-2 border-gray-300 dark:border-gray-700 hover:border-blue-500 hover:dark:border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 hover:from-blue-500/20 hover:to-purple-500/20 rounded-full transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md">
+                <div className="group relative p-2.5 flex gap-1.5 font-bold justify-center items-center cursor-pointer text-nowrap border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400 hover:dark:border-blue-400 bg-gradient-to-br from-blue-50 via-indigo-50 to-violet-50 dark:from-blue-950/40 dark:via-indigo-950/40 dark:to-violet-950/40 hover:from-blue-100 hover:via-indigo-100 hover:to-violet-100 dark:hover:from-blue-900/50 dark:hover:via-indigo-900/50 dark:hover:to-violet-900/50 rounded-full transition-all duration-500 hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-2xl hover:shadow-blue-500/30 dark:hover:shadow-blue-400/20 backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-indigo-500/0 to-violet-500/0 group-hover:from-blue-500/10 group-hover:via-indigo-500/10 group-hover:to-violet-500/10 rounded-2xl transition-all duration-500"></div>
                   <TbUser
-                    size={20}
-                    strokeWidth={3}
-                    className="text-blue-600 dark:text-blue-100"
+                    size={22}
+                    strokeWidth={2.5}
+                    className="relative text-sky-900 dark:text-sky-100 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors duration-300"
                   />
                   {!user?.phone_number && (
-                    <span className="absolute top-0 left-0 w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-orange-500 to-amber-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50 ring-2 ring-white dark:ring-gray-900"></span>
                   )}
                 </div>
               </PopoverTrigger>

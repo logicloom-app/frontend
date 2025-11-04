@@ -65,11 +65,14 @@ const Particles = ({
       context.current = canvasRef.current.getContext("2d");
     }
     initCanvas();
-    animate();
+    const animationId = animate();
     window.addEventListener("resize", initCanvas);
 
     return () => {
       window.removeEventListener("resize", initCanvas);
+      if (animationId) {
+        window.cancelAnimationFrame(animationId);
+      }
     };
   }, [color]);
 
@@ -224,7 +227,7 @@ const Particles = ({
         // update the circle position
       }
     });
-    window.requestAnimationFrame(animate);
+    return window.requestAnimationFrame(animate);
   };
 
   return (
