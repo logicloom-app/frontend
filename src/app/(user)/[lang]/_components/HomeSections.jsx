@@ -345,57 +345,77 @@ export default function HomeSections({ dict, lang }) {
 
                 {/* Tech Icons Grid */}
                 <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                  {[
-                    {
-                      emoji: "⚡",
-                      color: "blue",
-                      title: dict?.techStack?.fast?.title,
-                      desc: dict?.techStack?.fast?.description,
-                      delay: 0.15,
-                    },
-                    {
-                      emoji: "🔒",
-                      color: "purple",
-                      title: dict?.techStack?.secure?.title,
-                      desc: dict?.techStack?.secure?.description,
-                      delay: 0.2,
-                    },
-                    {
-                      emoji: "📈",
-                      color: "green",
-                      title: dict?.techStack?.scalable?.title,
-                      desc: dict?.techStack?.scalable?.description,
-                      delay: 0.25,
-                    },
-                    {
-                      emoji: "🎨",
-                      color: "orange",
-                      title: dict?.techStack?.modern?.title,
-                      desc: dict?.techStack?.modern?.description,
-                      delay: 0.3,
-                    },
-                  ].map(({ emoji, color, title, desc, delay }, i) => (
-                    <BlurFade key={i} delay={delay} inView>
-                      <div
-                        className={`group relative bg-gradient-to-br from-${color}-50 to-${color}-100 dark:from-${color}-900/20 dark:to-${color}-800/20 rounded-3xl p-6 text-center border-2 border-${color}-200 dark:border-${color}-800 hover:border-${color}-500 dark:hover:border-${color}-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden`}
-                      >
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-br from-${color}-500/0 to-${color}-600/0 group-hover:from-${color}-500/10 group-hover:to-${color}-600/10 transition-all duration-500`}
-                        ></div>
-                        <div className="relative z-10">
-                          <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
-                            {emoji}
-                          </div>
-                          <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
-                            {title}
-                          </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
-                            {desc}
-                          </p>
+                  {/* Fast Card */}
+                  <BlurFade delay={0.15} inView>
+                    <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-3xl p-6 text-center border-2 border-blue-200 dark:border-blue-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/10 group-hover:to-blue-600/10 transition-all duration-500"></div>
+                      <div className="relative z-10">
+                        <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                          ⚡
                         </div>
+                        <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
+                          {dict?.techStack?.fast?.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {dict?.techStack?.fast?.description}
+                        </p>
                       </div>
-                    </BlurFade>
-                  ))}
+                    </div>
+                  </BlurFade>
+
+                  {/* Secure Card */}
+                  <BlurFade delay={0.2} inView>
+                    <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-3xl p-6 text-center border-2 border-purple-200 dark:border-purple-800 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-600/0 group-hover:from-purple-500/10 group-hover:to-purple-600/10 transition-all duration-500"></div>
+                      <div className="relative z-10">
+                        <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                          🔒
+                        </div>
+                        <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
+                          {dict?.techStack?.secure?.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {dict?.techStack?.secure?.description}
+                        </p>
+                      </div>
+                    </div>
+                  </BlurFade>
+
+                  {/* Scalable Card */}
+                  <BlurFade delay={0.25} inView>
+                    <div className="group relative bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-3xl p-6 text-center border-2 border-green-200 dark:border-green-800 hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-green-600/0 group-hover:from-green-500/10 group-hover:to-green-600/10 transition-all duration-500"></div>
+                      <div className="relative z-10">
+                        <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                          📈
+                        </div>
+                        <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
+                          {dict?.techStack?.scalable?.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {dict?.techStack?.scalable?.description}
+                        </p>
+                      </div>
+                    </div>
+                  </BlurFade>
+
+                  {/* Modern Card */}
+                  <BlurFade delay={0.3} inView>
+                    <div className="group relative bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-3xl p-6 text-center border-2 border-orange-200 dark:border-orange-800 hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-600/0 group-hover:from-orange-500/10 group-hover:to-orange-600/10 transition-all duration-500"></div>
+                      <div className="relative z-10">
+                        <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                          🎨
+                        </div>
+                        <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
+                          {dict?.techStack?.modern?.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {dict?.techStack?.modern?.description}
+                        </p>
+                      </div>
+                    </div>
+                  </BlurFade>
                 </div>
 
                 {/* Tech Stack Categories */}
