@@ -65,8 +65,8 @@ export default function Hero({ dict, lang }) {
             className="relative group"
             onClick={() => trackClick("Contact Us CTA", "Hero")}
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-            <GradientButton variant="primary" size="lg" className="relative rounded-3xl">
+            <div className="absolute -inset-1 bg-gradient-to-r from-sky-600 via-indigo-600 to-teal-600 rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <GradientButton variant="primary" size="lg" className="relative rounded-3xl shadow-xl bg-gradient-to-r from-sky-600 via-indigo-600 to-teal-600 shadow-sky-500/20 dark:shadow-teal-500/20 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
               {dict?.contactUs}
               <TbArrowNarrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </GradientButton>

@@ -73,7 +73,7 @@ export default function HomeSections({ dict, lang }) {
           <div className="w-full max-w-7xl mx-auto">
             <div className="text-center mb-16 mt-4">
               <BlurFade delay={0.1} inView>
-                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-pink-500/10 to-cyan-500/10 border border-pink-500/20 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-300 mb-4 shadow-md">
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-500/20 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-300 mb-4 shadow-md">
                   <Zap className="w-4 h-4" />
                   <span className="text-sm font-bold">
                     {dict.commonChallenges.titleBadge}
@@ -81,7 +81,7 @@ export default function HomeSections({ dict, lang }) {
                 </div>
               </BlurFade>
               <BlurFade delay={0.2} inView>
-                <h3 className="text-3xl md:text-5xl lg:h-[55px] font-black mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-cyan-400 dark:via-rose-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                <h3 className="text-3xl md:text-5xl lg:h-[55px] font-black mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-emerald-400 dark:via-cyan-400 dark:to-rose-500 bg-clip-text text-transparent">
                   {dict.commonChallenges.title}
                 </h3>
               </BlurFade>
@@ -528,20 +528,22 @@ export default function HomeSections({ dict, lang }) {
                 <BlurFade delay={0.5} inView>
                   <div className="flex items-center justify-center pointer-events-auto mt-4">
                     <Link href={`/${lang}/contact`}>
-                      <div className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 text-lg font-bold text-white rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
+                      <div className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 text-md font-bold text-white rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 shadow-xl shadow-sky-500/20 dark:shadow-teal-500/20 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
                         {/* Animated gradient background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 transition-all duration-500 group-hover:scale-110"></div>
-                        
+                        <div className="absolute inset-0 bg-gradient-to-br from-sky-600 via-indigo-600 to-teal-600 transition-all duration-500 group-hover:scale-110"></div>
+
                         {/* Shine effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        
+
                         {/* Glow effect */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 blur-2xl"></div>
+                          <div className="absolute inset-0 bg-gradient-to-br from-sky-400 via-indigo-400 to-teal-400 blur-2xl"></div>
                         </div>
 
                         {/* Content */}
-                        <span className="relative z-10 drop-shadow-lg">{dict?.sendRequest}</span>
+                        <span className="relative z-10 drop-shadow-lg">
+                          {dict?.sendRequest}
+                        </span>
                         <TbArrowNarrowRight className="relative z-10 w-6 h-6 transition-transform duration-500 group-hover:translate-x-2 drop-shadow-lg" />
                       </div>
                     </Link>
@@ -612,17 +614,19 @@ export default function HomeSections({ dict, lang }) {
               <div className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
                 {/* Animated gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 transition-all duration-500 group-hover:scale-110"></div>
-                
+
                 {/* Shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                
+
                 {/* Glow effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 blur-2xl"></div>
                 </div>
 
                 {/* Content */}
-                <span className="relative z-10 drop-shadow-lg">{dict?.sendRequest}</span>
+                <span className="relative z-10 drop-shadow-lg">
+                  {dict?.sendRequest}
+                </span>
                 <TbArrowNarrowRight className="relative z-10 w-6 h-6 transition-transform duration-500 group-hover:translate-x-2 drop-shadow-lg" />
               </div>
             </Link>
