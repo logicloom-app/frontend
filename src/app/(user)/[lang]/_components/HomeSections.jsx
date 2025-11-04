@@ -18,12 +18,11 @@ import {
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Meteors from "@/components/ui/meteors";
 import BlurFade from "@/components/ui/blur-fade";
 import { IconCloud } from "@/components/ui/icon-cloud";
 import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
 import GradualSpacing from "@/components/ui/gradual-spacing";
-import { GradientButton } from "@/components/ui/gradient-button";
-import Meteors from "@/components/ui/meteors";
 
 const slugs = [
   "typescript",

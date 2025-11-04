@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { logout } from "@/services/authService";
 import { useGetUser } from "@/lib/hooks/useAuth";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import {
   TbArrowRight,
   TbUser,
@@ -94,18 +94,6 @@ export default function Header({ dict, lang }) {
           </Link>
 
           <div className="flex items-center max-md:hidden">
-            {/* <HoverCard openDelay={0} closeDelay={0}>
-              <HoverCardTrigger asChild>
-                <button className="px-5 py-2 rounded-l-3xl bg-gray-100 dark:bg-sky-600/20 hover:dark:bg-sky-700 hover:bg-sky-600/80 hover:text-white dark:shadow-md shadow-sky-600/20 transition-all duration-300">
-                  {dict?.products}
-                </button>
-              </HoverCardTrigger>
-
-              <HoverCardContent className="w-80" sideOffset={4}>
-                <div className="flex flex-col gap-2">Comming soon...</div>
-              </HoverCardContent>
-            </HoverCard> */}
-
             <HoverCard openDelay={0} closeDelay={0}>
               <HoverCardTrigger asChild>
                 <Link
@@ -122,10 +110,10 @@ export default function Header({ dict, lang }) {
                 {/* Header Section */}
                 <div className="mb-4">
                   <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                    {dict?.webServices}
+                    {dict?.servicesMenu?.title}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                    {dict?.webServicesDescription}
+                    {dict?.servicesMenu?.description}
                   </p>
                 </div>
 
@@ -141,11 +129,11 @@ export default function Header({ dict, lang }) {
                         <Monitor className="text-white w-4 h-4" />
                       </div>
                       <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                        Frontend
+                        {dict?.servicesMenu?.frontend?.title}
                       </span>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      Modern web interfaces
+                      {dict?.servicesMenu?.frontend?.description}
                     </p>
                   </Link>
 
@@ -159,11 +147,11 @@ export default function Header({ dict, lang }) {
                         <Server className="text-white w-4 h-4" />
                       </div>
                       <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                        Backend
+                        {dict?.servicesMenu?.backend?.title}
                       </span>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      Scalable server solutions
+                      {dict?.servicesMenu?.backend?.description}
                     </p>
                   </Link>
 
@@ -177,11 +165,11 @@ export default function Header({ dict, lang }) {
                         <Smartphone className="text-white w-4 h-4" />
                       </div>
                       <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                        Mobile
+                        {dict?.servicesMenu?.mobile?.title}
                       </span>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      Native & cross-platform apps
+                      {dict?.servicesMenu?.mobile?.description}
                     </p>
                   </Link>
 
@@ -195,11 +183,11 @@ export default function Header({ dict, lang }) {
                         <GitBranch className="text-white w-4 h-4" />
                       </div>
                       <span className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                        DevOps
+                        {dict?.servicesMenu?.devops?.title}
                       </span>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      CI/CD & infrastructure
+                      {dict?.servicesMenu?.devops?.description}
                     </p>
                   </Link>
                 </div>
@@ -211,10 +199,10 @@ export default function Header({ dict, lang }) {
                 >
                   <div>
                     <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                      View All Services
+                      {dict?.servicesMenu?.viewAll}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Discover our full range of solutions
+                      {dict?.servicesMenu?.viewAllDescription}
                     </p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform duration-300" />

@@ -78,7 +78,29 @@
     "webServicesDescription": "We offer a wide range of web services to help your business grow.",
     "consultingDescription": "Unlock growth with our diverse consulting services.",
     "developmentDescription": "Elevate your business with our expert development services.",
-    "addPhoneNumber": "Add your phone number"
+    "addPhoneNumber": "Add your phone number",
+    "servicesMenu": {
+      "title": "Web Services",
+      "description": "Discover our full range of solutions",
+      "frontend": {
+        "title": "Frontend",
+        "description": "Modern web interfaces"
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Scalable server solutions"
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Native & cross-platform apps"
+      },
+      "devops": {
+        "title": "DevOps",
+        "description": "CI/CD & infrastructure"
+      },
+      "viewAll": "View All Services",
+      "viewAllDescription": "Discover our full range of solutions"
+    }
   },
   "home": {
     "hero": "Turn Your Vision Into Digital Reality",

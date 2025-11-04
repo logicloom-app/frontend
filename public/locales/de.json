@@ -78,7 +78,29 @@
     "webServicesDescription": "Web-Dienstleistungen für Ihr Wachstum.",
     "consultingDescription": "Wachstum entdecken mit unserer Beratung.",
     "developmentDescription": "Steigern Sie Ihr Unternehmen mit unserer Entwicklung.",
-    "addPhoneNumber": "Telefonnummer hinzufügen"
+    "addPhoneNumber": "Telefonnummer hinzufügen",
+    "servicesMenu": {
+      "title": "Web-Services",
+      "description": "Entdecken Sie unser komplettes Angebot",
+      "frontend": {
+        "title": "Frontend",
+        "description": "Moderne Web-Oberflächen"
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Skalierbare Server-Lösungen"
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Native & plattformübergreifende Apps"
+      },
+      "devops": {
+        "title": "DevOps",
+        "description": "CI/CD & Infrastruktur"
+      },
+      "viewAll": "Alle Services anzeigen",
+      "viewAllDescription": "Entdecken Sie unser komplettes Angebot"
+    }
   },
   "home": {
     "hero": "Deine Vision in die digitale Realität verwandeln",
