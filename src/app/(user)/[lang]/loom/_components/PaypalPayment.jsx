@@ -1,3 +1,4 @@
+import { trackPayment, trackButtonClick } from "@/lib/utils/gtag";
 import { createPaypalOrder } from "@/services/paymentService";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/lib/hooks/use-toast";
@@ -15,6 +16,9 @@ export default function PaypalPayment({ formik, dict }) {
   } = useMutation({
     mutationFn: createPaypalOrder,
     onSuccess: (data) => {
+      const amount = Number(formik.values.amount).toFixed(2);
+      trackPayment("PayPal", parseFloat(amount));
+
       toast({
         description: (
           <div className="flex flex-col gap-2">
@@ -37,6 +41,7 @@ export default function PaypalPayment({ formik, dict }) {
   });
 
   const createPaypalOrderHandler = async () => {
+    trackButtonClick("PayPal Payment", "Loom Purchase");
     const amount = Number(formik.values.amount).toFixed(2);
     await mutateCreatePaypalOrder(amount);
   };

@@ -1,5 +1,6 @@
 "use client";
 
+import { usePageTracking, useAnalytics } from "@/lib/hooks/useAnalytics";
 import { useGetProjects } from "@/lib/hooks/useProjects";
 import { MagicCard } from "@/components/ui/magic-card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -26,6 +27,9 @@ export default function ProjectsList({ dict }) {
   const { data, isLoading } = useGetProjects();
   const { projects } = data || {};
   const { theme } = useTheme();
+  const { trackClick } = useAnalytics();
+
+  usePageTracking("Projects List");
 
   const getStatusIcon = (status) => {
     if (status === "completed")

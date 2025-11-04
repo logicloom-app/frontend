@@ -3,6 +3,7 @@
 import { sendContactMessage } from "@/services/userService";
 import { useMutation } from "@tanstack/react-query";
 import { Textarea } from "@/components/ui/textarea";
+import { trackFormSubmit } from "@/lib/utils/gtag";
 import { useToast } from "@/lib/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import Spinner from "@/components/ui/Spinner";
@@ -43,6 +44,7 @@ export default function ContactClient({ dict }) {
         description: "Message sent successfully",
         className: "rounded-2xl",
       });
+      trackFormSubmit("Contact Form", true);
       formik.resetForm();
     },
     onError: (error) => {
@@ -51,6 +53,7 @@ export default function ContactClient({ dict }) {
         description: error?.response?.data?.error || "Something went wrong",
         className: "rounded-2xl",
       });
+      trackFormSubmit("Contact Form", false);
     },
   });
 
@@ -114,6 +117,7 @@ export default function ContactClient({ dict }) {
 
             <form
               onSubmit={formik.handleSubmit}
+              onClick={() => trackFormSubmit("Contact Form", true)}
               className="p-8 space-y-6 relative z-10"
             >
               {/* Name Input */}
@@ -238,6 +242,7 @@ export default function ContactClient({ dict }) {
                 type="submit"
                 disabled={!formik.isValid || isLoading}
                 className="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/40 disabled:hover:shadow-none disabled:cursor-not-allowed relative overflow-hidden group"
+                onClick={() => trackFormSubmit("Contact Form", true)}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 {isLoading ? (

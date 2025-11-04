@@ -5,6 +5,7 @@ import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { resetPassword } from "@/services/authService";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import { trackFormSubmit } from "@/lib/utils/gtag";
 
 export default function ResetPasswordCheckOtp({
   setStep,
@@ -21,12 +22,16 @@ export default function ResetPasswordCheckOtp({
     useMutation({
       mutationFn: resetPassword,
       onSuccess: (data) => {
+        trackFormSubmit("Password Reset", true);
+
         toast({
           description: data.message,
           className: "rounded-2xl",
         });
       },
       onError: (error) => {
+        trackFormSubmit("Password Reset", false);
+
         toast({
           variant: "destructive",
           description: error?.response?.data?.error || dict?.verify?.error,

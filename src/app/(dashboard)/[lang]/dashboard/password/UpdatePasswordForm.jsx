@@ -9,9 +9,12 @@ import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { updatePassword } from "@/services/userService";
 import { Lock, KeyRound, ShieldCheck } from "lucide-react";
+import { trackFormSubmit } from "@/lib/utils/gtag";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 
 export default function UpdatePasswordForm({ dict }) {
   const { toast } = useToast();
+  usePageTracking("Password Update Page");
 
   const PasswordSchema = Yup.object().shape({
     current_password: Yup.string()
@@ -72,6 +75,7 @@ export default function UpdatePasswordForm({ dict }) {
   const { isLoading, mutateAsync: mutateUpdatePassword } = useMutation({
     mutationFn: updatePassword,
     onSuccess: () => {
+      trackFormSubmit("Password Update Form", true);
       formik.resetForm();
       toast({
         description: dict?.success || "Password updated successfully",
@@ -79,6 +83,7 @@ export default function UpdatePasswordForm({ dict }) {
       });
     },
     onError: (error) => {
+      trackFormSubmit("Password Update Form", false);
       toast({
         variant: "destructive",
         description:

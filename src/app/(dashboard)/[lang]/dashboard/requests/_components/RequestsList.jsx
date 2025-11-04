@@ -10,6 +10,7 @@ import BlurFade from "@/components/ui/blur-fade";
 import { MagicCard } from "@/components/ui/magic-card";
 import { useGetRequests } from "@/lib/hooks/useProjects";
 import RequestRejectedDialog from "./RequestRejectedDialog";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 import {
   Check,
   Hourglass,
@@ -23,6 +24,8 @@ export default function RequestsList({ dict, lang }) {
   const { data, isLoading } = useGetRequests();
   const { requests } = data || {};
   const { theme } = useTheme();
+
+  usePageTracking("Requests List");
 
   const memoizedRequests = useMemo(() => requests, [requests]);
 

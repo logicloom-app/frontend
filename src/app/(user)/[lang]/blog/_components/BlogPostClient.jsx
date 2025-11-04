@@ -16,8 +16,10 @@ import { useEffect, useMemo } from "react";
 import { formatDate } from "@/lib/utils/utils";
 import { useQuery } from "@tanstack/react-query";
 import BlurFade from "@/components/ui/blur-fade";
+import { trackContentView } from "@/lib/utils/gtag";
 import { BlogPostDetailSkeleton } from "./BlogSkeleton";
 import { sanitizeBlogContent } from "@/lib/utils/sanitize";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 import { getBlogPostBySlug, getBlogImageUrl } from "@/services/blogService";
 
 export default function BlogPostClient({ lang, slug, dict }) {
@@ -29,6 +31,9 @@ export default function BlogPostClient({ lang, slug, dict }) {
     queryKey: ["blog-post", slug],
     queryFn: () => getBlogPostBySlug(slug),
   });
+
+  // Track page views with engagement time
+  usePageTracking(`Blog: ${post?.title || slug}`);
 
   // Debug logs
   console.log("🔍 Blog Post Debug:", {
@@ -47,10 +52,14 @@ export default function BlogPostClient({ lang, slug, dict }) {
     return sanitizeBlogContent(post.content);
   }, [post?.content]);
 
-  // Scroll to top when component mounts
+  // Track blog post view and scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+
+    if (post) {
+      trackContentView("Blog Post", post.id, post.title);
+    }
+  }, [slug, post]);
 
   if (isLoading) {
     return (
@@ -147,7 +156,9 @@ export default function BlogPostClient({ lang, slug, dict }) {
                   {post.reading_time && (
                     <div className="flex items-center gap-2">
                       <TbClock className="w-5 h-5" />
-                      <span>{post.reading_time} {dict?.readingTime || "min read"}</span>
+                      <span>
+                        {post.reading_time} {dict?.readingTime || "min read"}
+                      </span>
                     </div>
                   )}
                 </div>

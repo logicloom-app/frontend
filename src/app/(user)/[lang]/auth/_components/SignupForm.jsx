@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { generateOtp } from "@/services/authService";
+import { trackButtonClick } from "@/lib/utils/gtag";
 
 export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }) {
   const { toast } = useToast();
@@ -50,6 +51,7 @@ export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }
 
       <Link
         href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google`}
+        onClick={() => trackButtonClick("Google Sign Up", "Auth Page")}
         className="inline-flex justify-center items-center gap-3 rounded-2xl px-6 py-3 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 hover:dark:bg-zinc-700/80 transition-colors duration-300"
       >
         <FcGoogle size={30} />

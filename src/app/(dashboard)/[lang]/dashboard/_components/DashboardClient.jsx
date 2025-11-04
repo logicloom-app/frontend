@@ -9,6 +9,7 @@ import { useGetUser } from "@/lib/hooks/useAuth";
 import BlurFade from "@/components/ui/blur-fade";
 import { useGetProjects } from "@/lib/hooks/useProjects";
 import { useGetPayments } from "@/lib/hooks/usePayments";
+import { usePageTracking, useAnalytics } from "@/lib/hooks/useAnalytics";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Folder, FolderInput, Euro, ArrowRight, Sparkles } from "lucide-react";
 
@@ -17,6 +18,9 @@ export default function DashboardClient({ lang, dict }) {
   const { user } = data || {};
   const { data: projectsData } = useGetProjects();
   const { data: paymentsData } = useGetPayments();
+  const { trackClick } = useAnalytics();
+
+  usePageTracking("Dashboard Main");
 
   const projects = projectsData?.projects || [];
   const payments = paymentsData?.payments || [];
@@ -80,6 +84,7 @@ export default function DashboardClient({ lang, dict }) {
                 <Link
                   href={`/${lang}/loom`}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => trackClick("Buy Looms", "Dashboard Main")}
                 >
                   <Sparkles className="w-4 h-4" />
                   {dict?.buyLooms}

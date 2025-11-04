@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import Spinner from "@/components/ui/Spinner";
+import { trackLogin, trackButtonClick } from "@/lib/utils/gtag";
 import { login } from "@/services/authService";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
@@ -34,6 +35,8 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
   const { isPending, mutateAsync: mutateLogin } = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
+      trackLogin("email");
+
       toast({
         description: data.message,
         className: "rounded-2xl",
@@ -73,6 +76,7 @@ export default function LoginWithPassword({ setIsLogin, dict }) {
 
       <Link
         href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google`}
+        onClick={() => trackButtonClick("Google Login", "Auth Page")}
         className="inline-flex justify-center items-center gap-3 rounded-2xl px-6 py-3 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 hover:dark:bg-zinc-700/80 transition-colors duration-300"
       >
         <FcGoogle size={30} />

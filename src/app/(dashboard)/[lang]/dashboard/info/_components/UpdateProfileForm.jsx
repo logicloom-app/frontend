@@ -12,12 +12,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { updateProfile } from "@/services/userService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Building2, Linkedin, Phone, UserRound, UserCog } from "lucide-react";
+import { trackFormSubmit } from "@/lib/utils/gtag";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 
 export default function UpdateProfileForm({ dict }) {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const { data } = useGetUser();
   const { user } = data || {};
+  usePageTracking("Profile Update Page");
 
   const ProfileSchema = Yup.object().shape({
     name: Yup.string(),
@@ -39,12 +42,14 @@ export default function UpdateProfileForm({ dict }) {
   const { isLoading, mutateAsync: mutateUpdateProfile } = useMutation({
     mutationFn: updateProfile,
     onSuccess: (data) => {
+      trackFormSubmit("Profile Update Form", true);
       toast({
         description: dict?.success || "Profile updated successfully",
         className: "rounded-2xl",
       });
     },
     onError: (error) => {
+      trackFormSubmit("Profile Update Form", false);
       toast({
         variant: "destructive",
         description:

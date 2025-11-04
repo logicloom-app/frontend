@@ -10,6 +10,7 @@ import {
 } from "react-icons/bi";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -17,6 +18,7 @@ import Link from "next/link";
 export default function ServicesClient({ dict, lang }) {
   const { theme } = useTheme();
   const [isClient, setIsClient] = useState(false);
+  usePageTracking("Services Page");
 
   useEffect(() => {
     setIsClient(true);
@@ -139,7 +141,10 @@ export default function ServicesClient({ dict, lang }) {
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8 font-medium">
               {dict?.subtitle}
             </p>
-            <Link href={`/${lang}/contact`}>
+            <Link
+              href={`/${lang}/contact`}
+              onClick={() => trackClick("Send Request", "Services Page")}
+            >
               <button className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/40 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative z-10">{dict?.sendRequest}</span>
@@ -258,7 +263,11 @@ export default function ServicesClient({ dict, lang }) {
                 {dict?.readyToBuild}
               </h2>
               <p className="text-xl mb-8 opacity-90">{dict?.scheduleConsultation}</p>
-              <Link href={`/${lang}/contact`} className="inline-block">
+              <Link
+                href={`/${lang}/contact`}
+                className="inline-block"
+                onClick={() => trackClick("Send Request", "Services Page")}
+              >
                 <button className="bg-white text-emerald-700 font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center gap-2 mx-auto hover:bg-gray-50 group">
                   <span>{dict?.sendRequest}</span>
                   <TbArrowNarrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />

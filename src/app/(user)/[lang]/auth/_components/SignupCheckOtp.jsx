@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Spinner from "@/components/ui/Spinner";
+import { trackSignUp } from "@/lib/utils/gtag";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
 import { register } from "@/services/authService";
@@ -14,6 +15,8 @@ export default function SignupCheckOtp({ setStep, setIsLogin, dict }) {
   const { isPending, mutateAsync: mutateRegister } = useMutation({
     mutationFn: register,
     onSuccess: (data) => {
+      trackSignUp("email");
+
       setIsLogin(true);
       setStep(0);
 

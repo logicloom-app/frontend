@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { sendRequest } from "@/services/ProjectService";
 import { Textarea } from "@/components/ui/textarea";
+import { trackFormSubmit } from "@/lib/utils/gtag";
 import { useToast } from "@/lib/hooks/use-toast";
 import { useGetUser } from "@/lib/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -52,6 +53,7 @@ export default function SendRequestForm({ dict }) {
         description: "Request sent successfully",
         className: "rounded-2xl",
       });
+      trackFormSubmit("Project Request Form", true);
       queryClient.invalidateQueries({ queryKey: ["get-requests"] });
       formik.resetForm();
     },
@@ -61,6 +63,7 @@ export default function SendRequestForm({ dict }) {
         description: error?.response?.data?.error || "Something went wrong",
         className: "rounded-2xl",
       });
+      trackFormSubmit("Project Request Form", false);
     },
   });
 

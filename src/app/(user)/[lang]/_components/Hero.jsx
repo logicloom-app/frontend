@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import Particles from "@/components/ui/particles";
-import { GradientButton } from "@/components/ui/gradient-button";
-import { TbArrowNarrowRight, TbSparkles } from "react-icons/tb";
 import BlurFade from "@/components/ui/blur-fade";
+import Particles from "@/components/ui/particles";
+import { useAnalytics } from "@/lib/hooks/useAnalytics";
+import { TbArrowNarrowRight, TbSparkles } from "react-icons/tb";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 export default function Hero({ dict, lang }) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { trackClick } = useAnalytics();
 
   useEffect(() => {
     setMounted(true);
@@ -58,7 +60,11 @@ export default function Hero({ dict, lang }) {
 
       <BlurFade delay={0.4} inView>
         <div className="flex flex-col sm:flex-row items-center gap-4 pointer-events-auto">
-          <Link href={`/${lang}/contact`} className="relative group">
+          <Link
+            href={`/${lang}/contact`}
+            className="relative group"
+            onClick={() => trackClick("Contact Us CTA", "Hero")}
+          >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
             <GradientButton variant="primary" size="lg" className="relative">
               {dict?.contactUs}
@@ -66,7 +72,10 @@ export default function Hero({ dict, lang }) {
             </GradientButton>
           </Link>
 
-          <Link href={`/${lang}/services`}>
+          <Link
+            href={`/${lang}/services`}
+            onClick={() => trackClick("Our Services Button", "Hero")}
+          >
             <button className="px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-purple-500 text-gray-700 dark:text-gray-300 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
               {dict?.ourServices}
             </button>

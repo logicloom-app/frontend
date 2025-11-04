@@ -21,6 +21,7 @@ import AdditionalRequest from "./AdditionalRequest";
 import PremiumDesignDialog from "./PremiumDesignDialog";
 import PayForProjectDialog from "./PayForProjectDialog";
 import PriorityTicketDialog from "./PriorityTicketDialog";
+import { usePageTracking } from "@/lib/hooks/useAnalytics";
 import { useGetProjectById } from "@/lib/hooks/useProjects";
 
 export default function ProjectDetails({ dict }) {
@@ -29,6 +30,8 @@ export default function ProjectDetails({ dict }) {
 
   const { data, isLoading } = useGetProjectById(id);
   const { project } = data || {};
+
+  usePageTracking(`Project Detail: ${project?.title || id}`);
 
   //  Change it
   if (isLoading) {

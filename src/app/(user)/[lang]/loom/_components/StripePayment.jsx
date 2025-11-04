@@ -1,3 +1,4 @@
+import { trackPayment, trackButtonClick } from "@/lib/utils/gtag";
 import { createStripeOrder } from "@/services/paymentService";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/lib/hooks/use-toast";
@@ -14,12 +15,15 @@ export default function StripePayment({ formik, dict }) {
   } = useMutation({
     mutationFn: createStripeOrder,
     onSuccess: (data) => {
+      const amount = (data?.session?.amount_total / 100).toFixed(2);
+      trackPayment("Stripe", parseFloat(amount));
+
       toast({
         description: (
           <div className="flex flex-col gap-2">
             <p>{dict.stripe_order_created_successfully}</p>
             <div>
-              {dict.amount_total}: {(data?.session?.amount_total / 100).toFixed(2)}€
+              {dict.amount_total}: {amount}€
             </div>
             <p className="font-bold">{dict.redirecting_to_payment}</p>
           </div>
@@ -39,6 +43,7 @@ export default function StripePayment({ formik, dict }) {
   });
 
   const createStripeOrderHandler = async () => {
+    trackButtonClick("Stripe Payment", "Loom Purchase");
     const amount = Number(formik.values.amount) * 100;
     await mutateCreateStripeOrder(amount);
   };
