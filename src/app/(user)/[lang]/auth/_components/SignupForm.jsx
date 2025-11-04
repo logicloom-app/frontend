@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/lib/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { generateOtp } from "@/services/authService";
 import { trackButtonClick } from "@/lib/utils/gtag";
+import { generateOtp } from "@/services/authService";
 
 export default function SignupForm({ registerFormik, setStep, setIsLogin, dict }) {
   const { toast } = useToast();

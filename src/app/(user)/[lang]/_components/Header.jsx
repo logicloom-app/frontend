@@ -110,9 +110,10 @@ export default function Header({ dict, lang }) {
               <HoverCardTrigger asChild>
                 <Link
                   href={`/${lang}/services`}
-                  className="relative px-5 py-2 rounded-l-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group overflow-hidden"
+                  className="relative px-5 py-2 rounded-l-2xl font-semibold text-gray-700 dark:text-gray-300 transition-all duration-300 group overflow-hidden border border-transparent hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:left-0 group-hover:w-full transition-all duration-300"></span>
                   <span className="relative">{dict?.services}</span>
                 </Link>
               </HoverCardTrigger>
@@ -206,7 +207,7 @@ export default function Header({ dict, lang }) {
                 {/* CTA Button */}
                 <Link
                   href={`/${lang}/services`}
-                  className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 group"
+                  className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-gray-200 dark:border-gray-700 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-950/40 dark:hover:to-purple-950/40 hover:border-blue-500/30 transition-all duration-300 group"
                 >
                   <div>
                     <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
@@ -223,25 +224,28 @@ export default function Header({ dict, lang }) {
 
             <Link
               href={`/${lang}/pricing`}
-              className="relative px-5 py-2 font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-300 group overflow-hidden"
+              className="relative px-5 py-2 font-semibold text-gray-700 dark:text-gray-300 transition-all duration-300 group overflow-hidden border border-transparent hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-500/30 hover:shadow-lg hover:shadow-orange-500/10"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-orange-500 to-yellow-500 group-hover:left-0 group-hover:w-full transition-all duration-300"></span>
               <span className="relative">{dict?.pricing?.title || "Pricing"}</span>
             </Link>
 
             <Link
               href={`/${lang}/blog`}
-              className="relative px-5 py-2 font-medium text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300 group overflow-hidden"
+              className="relative px-5 py-2 font-semibold text-gray-700 dark:text-gray-300 transition-all duration-300 group overflow-hidden border border-transparent hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/10"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-emerald-500 to-teal-500 group-hover:left-0 group-hover:w-full transition-all duration-300"></span>
               <span className="relative">{dict?.blog || "Blog"}</span>
             </Link>
 
             <Link
               href={`/${lang}/contact`}
-              className="relative px-5 py-2 rounded-r-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 group overflow-hidden"
+              className="relative px-5 py-2 rounded-r-2xl font-semibold text-gray-700 dark:text-gray-300 transition-all duration-300 group overflow-hidden border border-transparent hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/10"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:left-0 group-hover:w-full transition-all duration-300"></span>
               <span className="relative">{dict?.contact}</span>
             </Link>
           </div>

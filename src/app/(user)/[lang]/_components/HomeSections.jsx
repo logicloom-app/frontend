@@ -23,6 +23,7 @@ import { IconCloud } from "@/components/ui/icon-cloud";
 import { TbArrowNarrowRight, TbCheck } from "react-icons/tb";
 import GradualSpacing from "@/components/ui/gradual-spacing";
 import { GradientButton } from "@/components/ui/gradient-button";
+import Meteors from "@/components/ui/meteors";
 
 const slugs = [
   "typescript",
@@ -72,92 +73,111 @@ export default function HomeSections({ dict, lang }) {
           <div className="w-full max-w-7xl mx-auto">
             <div className="text-center mb-16 mt-4">
               <BlurFade delay={0.1} inView>
-                <div className="inline-block mb-4">
-                  <span className="px-4 py-2 rounded-full  border border-pink-500/20 dark:border-cyan-500/20 text-sm font-semibold bg-gradient-to-r from-pink-600 to-cyan-600 dark:from-pink-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-pink-500/10 to-cyan-500/10 border border-pink-500/20 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-300 mb-4 shadow-md">
+                  <Zap className="w-4 h-4" />
+                  <span className="text-sm font-bold">
                     {dict.commonChallenges.titleBadge}
                   </span>
                 </div>
               </BlurFade>
               <BlurFade delay={0.2} inView>
-                <h3 className="text-3xl md:text-5xl lg:h-[55px] font-black mb-6 bg-gradient-to-r from-pink-600 via-rose-500 to-cyan-600 dark:from-pink-400 dark:via-rose-400 dark:to-cyan-400 bg-clip-text text-transparent">
-              {dict.commonChallenges.title}
-            </h3>
+                <h3 className="text-3xl md:text-5xl lg:h-[55px] font-black mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-cyan-400 dark:via-rose-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                  {dict.commonChallenges.title}
+                </h3>
               </BlurFade>
               <BlurFade delay={0.3} inView>
                 <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              {dict.commonChallenges.description}
+                  {dict.commonChallenges.description}
                 </p>
               </BlurFade>
-                  </div>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <BlurFade delay={0.1} inView as="div">
-                <div className="group relative bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                  {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 to-rose-500/0 group-hover:from-pink-500/5 group-hover:to-rose-500/5 transition-all duration-500"></div>
+                <div className="group relative bg-white dark:bg-gray-800/50 rounded-[2rem] p-8 border-2 border-pink-200 dark:border-pink-800/50 hover:border-pink-500 dark:hover:border-pink-500 hover:shadow-[0_20px_60px_-15px_rgba(236,72,153,0.3)] hover:-translate-y-3 transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 via-rose-500/0 to-pink-500/0 group-hover:from-pink-500/5 group-hover:via-rose-500/10 group-hover:to-pink-500/5 transition-all duration-500"></div>
 
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                        <div className="relative p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <TrendingUpDown size={32} className="text-white drop-shadow-lg" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                        <div className="relative p-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-xl">
+                          <TrendingUpDown
+                            size={32}
+                            className="text-white drop-shadow-lg"
+                          />
                         </div>
                       </div>
-                      <h5 className="text-2xl font-bold">
-                    {dict.commonChallenges.revenueGrowth.title}
-                  </h5>
+                      <h5 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400 bg-clip-text text-transparent">
+                        {dict.commonChallenges.revenueGrowth.title}
+                      </h5>
                     </div>
 
-                    <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                    <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                       {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                         <li
                           key={num}
-                          className="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200"
+                          className="flex items-start gap-3 group/item hover:translate-x-2 transition-transform duration-200"
                         >
-                          <TbCheck className="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5 group-hover/item:scale-125 transition-transform" />
-                          <span className="text-sm md:text-base">
+                          <div className="relative mt-1">
+                            <div className="absolute inset-0 bg-pink-500/30 rounded-full blur group-hover/item:blur-md transition-all"></div>
+                            <TbCheck className="relative w-5 h-5 text-pink-500 flex-shrink-0 group-hover/item:scale-125 transition-transform" />
+                          </div>
+                          <span className="text-base">
                             {dict.commonChallenges.revenueGrowth[num]}
                           </span>
-                      </li>
+                        </li>
                       ))}
                     </ul>
                   </div>
+
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
               </BlurFade>
 
               <BlurFade delay={0.2} inView as="div">
-                <div className="group relative bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/10 dark:to-blue-900/10 rounded-3xl p-8 border-2 border-cyan-200 dark:border-cyan-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                  {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
+                <div className="group relative bg-white dark:bg-gray-800/50 rounded-[2rem] p-8 border-2 border-cyan-200 dark:border-cyan-800/50 hover:border-cyan-500 dark:hover:border-cyan-500 hover:shadow-[0_20px_60px_-15px_rgba(6,182,212,0.3)] hover:-translate-y-3 transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:via-blue-500/10 group-hover:to-cyan-500/5 transition-all duration-500"></div>
 
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                        <div className="relative p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <ShieldAlert size={32} className="text-white drop-shadow-lg" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                        <div className="relative p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-xl">
+                          <ShieldAlert
+                            size={32}
+                            className="text-white drop-shadow-lg"
+                          />
                         </div>
-                  </div>
-                      <h5 className="text-2xl font-bold">
-                    {dict.commonChallenges.technicalSecurity.title}
-                  </h5>
+                      </div>
+                      <h5 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+                        {dict.commonChallenges.technicalSecurity.title}
+                      </h5>
                     </div>
 
-                    <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+                    <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                       {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                         <li
                           key={num}
-                          className="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200"
+                          className="flex items-start gap-3 group/item hover:translate-x-2 transition-transform duration-200"
                         >
-                          <TbCheck className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5 group-hover/item:scale-125 transition-transform" />
-                          <span className="text-sm md:text-base">
+                          <div className="relative mt-1">
+                            <div className="absolute inset-0 bg-cyan-500/30 rounded-full blur group-hover/item:blur-md transition-all"></div>
+                            <TbCheck className="relative w-5 h-5 text-cyan-500 flex-shrink-0 group-hover/item:scale-125 transition-transform" />
+                          </div>
+                          <span className="text-base">
                             {dict.commonChallenges.technicalSecurity[num]}
                           </span>
-                      </li>
+                        </li>
                       ))}
                     </ul>
                   </div>
+
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
               </BlurFade>
             </div>
@@ -165,16 +185,14 @@ export default function HomeSections({ dict, lang }) {
 
           {/* Solution Section */}
           <div className="relative w-full max-w-7xl mx-auto">
-            {/* Subtle background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-blue-950/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent dark:via-purple-950/10 rounded-3xl blur-2xl"></div>
 
             <div className="relative z-10 text-center mb-16">
               <BlurFade delay={0.1} inView>
-                <div className="inline-block mb-4">
-                  <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-purple-500/20 text-sm font-semibold bg-clip-text text-transparent">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                      {dict.solution.titleBadge}
-                    </span>
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 mb-4 shadow-md">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-bold">
+                    {dict.solution.titleBadge}
                   </span>
                 </div>
               </BlurFade>
@@ -195,159 +213,122 @@ export default function HomeSections({ dict, lang }) {
             </div>
 
             {/* Features Grid */}
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 auto-rows-fr">
-              <BlurFade delay={0.1} inView as="div" className="h-full">
-                <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-yellow-500/50 dark:hover:border-orange-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-orange-500/0 group-hover:from-yellow-500/5 group-hover:to-orange-500/5 transition-all duration-500"></div>
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  icon: CodeXml,
+                  color: "from-yellow-500 to-orange-500",
+                  delay: 0.1,
+                  index: 1,
+                },
+                {
+                  icon: MonitorCheck,
+                  color: "from-rose-500 to-pink-500",
+                  delay: 0.15,
+                  index: 2,
+                },
+                {
+                  icon: Grid2x2Check,
+                  color: "from-blue-500 to-cyan-500",
+                  delay: 0.2,
+                  index: 3,
+                },
+                {
+                  icon: FileSearch,
+                  color: "from-emerald-500 to-green-500",
+                  delay: 0.25,
+                  index: 4,
+                },
+                {
+                  icon: Cable,
+                  color: "from-violet-500 to-purple-500",
+                  delay: 0.3,
+                  index: 5,
+                },
+              ].map(({ icon: Icon, color, delay, index }) => (
+                <BlurFade key={index} delay={delay} inView as="div">
+                  <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-200 dark:border-gray-700 hover:border-transparent hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 h-full overflow-hidden">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                    ></div>
 
-                  <div className="relative z-10">
-                    <div className="mb-4 flex items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <CodeXml size={24} className="text-white drop-shadow-lg" />
+                    <div className="relative z-10">
+                      <div className="mb-6">
+                        <div className="relative inline-block">
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-br ${color} rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity`}
+                          ></div>
+                          <div
+                            className={`relative p-4 bg-gradient-to-br ${color} rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-xl`}
+                          >
+                            <Icon size={28} className="text-white drop-shadow-lg" />
+                          </div>
                         </div>
                       </div>
+                      <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 leading-relaxed">
+                        {dict.solution.professionalDevelopment[index]}
+                      </p>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {dict.solution.professionalDevelopment[1]}
-                    </p>
+
+                    {/* Shine */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   </div>
-                </div>
-                  </BlurFade>
+                </BlurFade>
+              ))}
 
-              <BlurFade delay={0.15} inView as="div" className="h-full">
-                <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-rose-500/50 dark:hover:border-pink-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-rose-500/0 to-pink-500/0 group-hover:from-rose-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
-
-                  <div className="relative z-10">
-                    <div className="mb-4 flex items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <MonitorCheck size={24} className="text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {dict.solution.professionalDevelopment[2]}
-                    </p>
-                  </div>
-                </div>
-                  </BlurFade>
-
-              <BlurFade delay={0.2} inView as="div" className="h-full">
-                <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 dark:hover:border-cyan-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:to-cyan-500/5 transition-all duration-500"></div>
-
-                  <div className="relative z-10">
-                    <div className="mb-4 flex items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <Grid2x2Check size={24} className="text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {dict.solution.professionalDevelopment[3]}
-                    </p>
-                  </div>
-                </div>
-                  </BlurFade>
-
-              <BlurFade delay={0.25} inView as="div" className="h-full">
-                <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-emerald-500/50 dark:hover:border-green-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-green-500/0 group-hover:from-emerald-500/5 group-hover:to-green-500/5 transition-all duration-500"></div>
-
-                  <div className="relative z-10">
-                    <div className="mb-4 flex items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <FileSearch size={24} className="text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium">
-                      {dict.solution.professionalDevelopment[4]}
-                    </p>
-                  </div>
-                    </div>
-              </BlurFade>
-
-              <BlurFade delay={0.3} inView as="div" className="h-full">
-                <div className="group relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-200 dark:border-gray-700 hover:border-violet-500/50 dark:hover:border-purple-500/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 to-purple-500/0 group-hover:from-violet-500/5 group-hover:to-purple-500/5 transition-all duration-500"></div>
-
-                  <div className="relative z-10">
-                    <div className="mb-4 flex items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                          <Cable size={24} className="text-white drop-shadow-lg" />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium">
-                      {dict.solution.professionalDevelopment[5]}
-                    </p>
-                  </div>
-                </div>
-                  </BlurFade>
-
-              <BlurFade delay={0.35} inView as="div" className="h-full">
-                <div className="group relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex items-center justify-center overflow-hidden">
-                  {/* Animated shine effect */}
+              <BlurFade delay={0.35} inView as="div">
+                <Link
+                  href={`/${lang}/contact`}
+                  className="group relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 h-full flex items-center justify-center overflow-hidden"
+                >
+                  <Meteors number={15} />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-                  <Link
-                    href={`/${lang}/contact`}
-                    className="pointer-events-auto flex flex-col items-center gap-3 text-white relative z-10"
-                  >
+                  <div className="relative z-10 flex flex-col items-center gap-4 text-white">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-yellow-300 rounded-full blur-xl opacity-50 animate-pulse"></div>
+                      <div className="absolute inset-0 bg-yellow-300 rounded-full blur-2xl opacity-50 animate-pulse"></div>
                       <Zap
-                        size={32}
-                        className="relative text-yellow-300 group-hover:scale-110 transition-transform"
+                        size={40}
+                        className="relative text-yellow-300 group-hover:scale-125 transition-transform"
                       />
                     </div>
-                    <span className="font-bold text-center text-lg">
+                    <span className="font-black text-center text-2xl">
                       {dict?.getStartedToday}
                     </span>
                     <TbArrowNarrowRight
-                      size={24}
+                      size={28}
                       className="group-hover:translate-x-2 transition-transform duration-300"
                     />
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </BlurFade>
             </div>
-                    </div>
+          </div>
 
           {/* Tech Stack Section */}
           <div className="relative w-full max-w-7xl mx-auto mb-20">
-            {/* Subtle background accent */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-purple-50/20 to-pink-50/20 dark:from-blue-950/10 dark:via-purple-950/10 dark:to-pink-950/10 rounded-3xl blur-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-purple-50/20 to-pink-50/20 dark:from-blue-950/10 dark:via-purple-950/10 dark:to-pink-950/10 rounded-3xl blur-3xl"></div>
 
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-[2px] shadow-2xl">
-              <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12 relative z-10">
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-[3px] shadow-2xl">
+              <div className="bg-white dark:bg-gray-900 rounded-[2.4rem] p-10 md:p-14 relative">
                 {theme === "dark" ? (
-                  <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/7-dark.png')] bg-cover opacity-40" />
+                  <div className="absolute inset-0 bg-bottom bg-no-repeat bg-[url('/images/7-dark.png')] bg-cover opacity-30 rounded-[2.4rem]" />
                 ) : (
-                  <div className="absolute inset-0 bg-bottom bg-no-repeat z-0 bg-[url('/images/8-dark.png')] bg-cover opacity-40" />
+                  <div className="absolute inset-0 bg-bottom bg-no-repeat bg-[url('/images/8-dark.png')] bg-cover opacity-30 rounded-[2.4rem]" />
                 )}
 
-                <div className="relative z-10 text-center mb-12">
+                <div className="relative z-10 text-center mb-14">
                   <BlurFade delay={0.1} inView>
                     <div className="inline-block mb-6">
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
                         <div className="relative p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl">
-                          <Sparkles size={36} className="text-white drop-shadow-lg" />
-              </div>
-            </div>
+                          <Sparkles
+                            size={36}
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </BlurFade>
                   <BlurFade delay={0.2} inView>
@@ -363,83 +344,66 @@ export default function HomeSections({ dict, lang }) {
                 </div>
 
                 {/* Tech Icons Grid */}
-                <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                  <BlurFade delay={0.15} inView>
-                    <div className="group relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-6 text-center border-2 border-blue-200 dark:border-blue-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
-                      <div className="relative z-10">
-                        <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                          ⚡
+                <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                  {[
+                    {
+                      emoji: "⚡",
+                      color: "blue",
+                      title: dict?.techStack?.fast?.title,
+                      desc: dict?.techStack?.fast?.description,
+                      delay: 0.15,
+                    },
+                    {
+                      emoji: "🔒",
+                      color: "purple",
+                      title: dict?.techStack?.secure?.title,
+                      desc: dict?.techStack?.secure?.description,
+                      delay: 0.2,
+                    },
+                    {
+                      emoji: "📈",
+                      color: "green",
+                      title: dict?.techStack?.scalable?.title,
+                      desc: dict?.techStack?.scalable?.description,
+                      delay: 0.25,
+                    },
+                    {
+                      emoji: "🎨",
+                      color: "orange",
+                      title: dict?.techStack?.modern?.title,
+                      desc: dict?.techStack?.modern?.description,
+                      delay: 0.3,
+                    },
+                  ].map(({ emoji, color, title, desc, delay }, i) => (
+                    <BlurFade key={i} delay={delay} inView>
+                      <div
+                        className={`group relative bg-gradient-to-br from-${color}-50 to-${color}-100 dark:from-${color}-900/20 dark:to-${color}-800/20 rounded-3xl p-6 text-center border-2 border-${color}-200 dark:border-${color}-800 hover:border-${color}-500 dark:hover:border-${color}-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden`}
+                      >
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br from-${color}-500/0 to-${color}-600/0 group-hover:from-${color}-500/10 group-hover:to-${color}-600/10 transition-all duration-500`}
+                        ></div>
+                        <div className="relative z-10">
+                          <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                            {emoji}
+                          </div>
+                          <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">
+                            {title}
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {desc}
+                          </p>
                         </div>
-                        <h4 className="font-bold mb-1 text-lg">
-                          {dict?.techStack?.fast?.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {dict?.techStack?.fast?.description}
-                        </p>
                       </div>
-                    </div>
-                  </BlurFade>
-
-                  <BlurFade delay={0.2} inView>
-                    <div className="group relative bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 text-center border-2 border-purple-200 dark:border-purple-800 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500"></div>
-                      <div className="relative z-10">
-                        <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                          🔒
-                        </div>
-                        <h4 className="font-bold mb-1 text-lg">
-                          {dict?.techStack?.secure?.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {dict?.techStack?.secure?.description}
-                        </p>
-                      </div>
-                    </div>
-                  </BlurFade>
-
-                  <BlurFade delay={0.25} inView>
-                    <div className="group relative bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 text-center border-2 border-green-200 dark:border-green-800 hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/10 group-hover:to-emerald-500/10 transition-all duration-500"></div>
-                      <div className="relative z-10">
-                        <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                          📈
-                        </div>
-                        <h4 className="font-bold mb-1 text-lg">
-                          {dict?.techStack?.scalable?.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {dict?.techStack?.scalable?.description}
-                        </p>
-                      </div>
-                    </div>
-                  </BlurFade>
-
-                  <BlurFade delay={0.3} inView>
-                    <div className="group relative bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 text-center border-2 border-orange-200 dark:border-orange-800 hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-red-500/0 group-hover:from-orange-500/10 group-hover:to-red-500/10 transition-all duration-500"></div>
-                      <div className="relative z-10">
-                        <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                          🎨
-                        </div>
-                        <h4 className="font-bold mb-1 text-lg">
-                          {dict?.techStack?.modern?.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {dict?.techStack?.modern?.description}
-                        </p>
-                      </div>
-                    </div>
-                  </BlurFade>
-          </div>
+                    </BlurFade>
+                  ))}
+                </div>
 
                 {/* Tech Stack Categories */}
-                <div className="relative z-10 mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center px-4">
-                  {/* Left Side - IconCloud */}
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-12">
                   <BlurFade delay={0.35} inView>
                     <div className="flex justify-center items-center pointer-events-auto min-h-[400px]">
-              <IconCloud images={images} />
-            </div>
+                      <IconCloud images={images} />
+                    </div>
                   </BlurFade>
 
                   {/* Right Side - Tech Stack Categories */}
@@ -526,7 +490,7 @@ export default function HomeSections({ dict, lang }) {
                           </span>
                           <span className="px-3 py-1 bg-green-600/10 border border-green-600/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             Kotlin
-                      </span>
+                          </span>
                         </div>
                       </div>
                     </BlurFade>
@@ -541,7 +505,7 @@ export default function HomeSections({ dict, lang }) {
                           <h4 className="font-bold text-xl text-gray-800 dark:text-gray-200">
                             CI/CD & DevOps
                           </h4>
-                    </div>
+                        </div>
                         <div className="flex flex-wrap gap-2 ml-13">
                           <span className="px-3 py-1 bg-blue-400/10 border border-blue-400/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             Docker
@@ -554,7 +518,7 @@ export default function HomeSections({ dict, lang }) {
                           </span>
                           <span className="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                             GitLab CI
-                  </span>
+                          </span>
                         </div>
                       </div>
                     </BlurFade>
@@ -564,11 +528,23 @@ export default function HomeSections({ dict, lang }) {
                 <BlurFade delay={0.5} inView>
                   <div className="flex items-center justify-center pointer-events-auto mt-4">
                     <Link href={`/${lang}/contact`}>
-                      <GradientButton variant="primary" size="lg">
-                        {dict?.sendRequest}
-                        <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
-                      </GradientButton>
-              </Link>
+                      <div className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 text-lg font-bold text-white rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
+                        {/* Animated gradient background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 transition-all duration-500 group-hover:scale-110"></div>
+                        
+                        {/* Shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        
+                        {/* Glow effect */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 blur-2xl"></div>
+                        </div>
+
+                        {/* Content */}
+                        <span className="relative z-10 drop-shadow-lg">{dict?.sendRequest}</span>
+                        <TbArrowNarrowRight className="relative z-10 w-6 h-6 transition-transform duration-500 group-hover:translate-x-2 drop-shadow-lg" />
+                      </div>
+                    </Link>
                   </div>
                 </BlurFade>
               </div>
@@ -579,12 +555,12 @@ export default function HomeSections({ dict, lang }) {
         <div className="w-full">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-5xl font-bold mb-4">
-            {dict.commonChallenges.title}
-          </h3>
+              {dict.commonChallenges.title}
+            </h3>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
-            {dict.commonChallenges.description}
+              {dict.commonChallenges.description}
             </p>
-              </div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
             <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border-2 border-pink-200 dark:border-pink-800">
@@ -593,8 +569,8 @@ export default function HomeSections({ dict, lang }) {
                   <TrendingUpDown size={32} className="text-white drop-shadow-lg" />
                 </div>
                 <h5 className="text-2xl font-bold">
-                {dict.commonChallenges.revenueGrowth.title}
-              </h5>
+                  {dict.commonChallenges.revenueGrowth.title}
+                </h5>
               </div>
 
               <ul className="space-y-3 dark:text-gray-300 text-gray-700">
@@ -613,13 +589,12 @@ export default function HomeSections({ dict, lang }) {
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
                   <ShieldAlert size={32} className="text-white drop-shadow-lg" />
-              </div>
+                </div>
                 <h5 className="text-2xl font-bold">
-                {dict.commonChallenges.technicalSecurity.title}
-              </h5>
+                  {dict.commonChallenges.technicalSecurity.title}
+                </h5>
               </div>
-
-              <ul className="space-y-3 dark:text-gray-300 text-gray-700">
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                   <li key={num} className="flex items-start gap-3">
                     <TbCheck className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
@@ -632,12 +607,24 @@ export default function HomeSections({ dict, lang }) {
             </div>
           </div>
 
-          <div className="text-center mb-20">
+          <div className="text-center">
             <Link href={`/${lang}/contact`}>
-              <GradientButton variant="primary" size="lg">
-                      {dict?.sendRequest}
-                    <TbArrowNarrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
-              </GradientButton>
+              <div className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_80px_-15px_rgba(59,130,246,0.6)] dark:hover:shadow-[0_20px_80px_-15px_rgba(147,51,234,0.6)]">
+                {/* Animated gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 transition-all duration-500 group-hover:scale-110"></div>
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 blur-2xl"></div>
+                </div>
+
+                {/* Content */}
+                <span className="relative z-10 drop-shadow-lg">{dict?.sendRequest}</span>
+                <TbArrowNarrowRight className="relative z-10 w-6 h-6 transition-transform duration-500 group-hover:translate-x-2 drop-shadow-lg" />
+              </div>
             </Link>
           </div>
         </div>

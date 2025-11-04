@@ -65,8 +65,8 @@ export default function Hero({ dict, lang }) {
             className="relative group"
             onClick={() => trackClick("Contact Us CTA", "Hero")}
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-            <GradientButton variant="primary" size="lg" className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <GradientButton variant="primary" size="lg" className="relative rounded-3xl">
               {dict?.contactUs}
               <TbArrowNarrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </GradientButton>
@@ -76,7 +76,7 @@ export default function Hero({ dict, lang }) {
             href={`/${lang}/services`}
             onClick={() => trackClick("Our Services Button", "Hero")}
           >
-            <button className="px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-purple-500 text-gray-700 dark:text-gray-300 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <button className="px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-purple-500 text-gray-700 dark:text-gray-300 font-semibold rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
               {dict?.ourServices}
             </button>
           </Link>
