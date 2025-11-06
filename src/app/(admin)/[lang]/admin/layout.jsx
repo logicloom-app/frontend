@@ -1,4 +1,5 @@
 import "../../../globals.css";
+import "@/styles/novel-editor.css";
 
 import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";

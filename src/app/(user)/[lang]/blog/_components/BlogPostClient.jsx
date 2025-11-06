@@ -17,6 +17,7 @@ import { formatDate } from "@/lib/utils/utils";
 import { useQuery } from "@tanstack/react-query";
 import BlurFade from "@/components/ui/blur-fade";
 import { trackContentView } from "@/lib/utils/gtag";
+import BlogContent from "@/components/ui/blog-content";
 import { BlogPostDetailSkeleton } from "./BlogSkeleton";
 import { sanitizeBlogContent } from "@/lib/utils/sanitize";
 import { usePageTracking } from "@/lib/hooks/useAnalytics";
@@ -123,19 +124,20 @@ export default function BlogPostClient({ lang, slug, dict }) {
           </Link>
         </BlurFade>
 
-        <div className="max-w-4xl mx-auto">
-          <article>
+        <div className="max-w-5xl mx-auto">
+          <article className="bg-white dark:bg-gray-800/50 rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
             {/* Header */}
             <BlurFade delay={0.2} inView>
-              <header className="mb-8">
+              <header className="px-6 md:px-12 pt-12 pb-8">
                 {/* Categories */}
                 {post.categories && post.categories.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-3 mb-6">
                     {post.categories.map((cat) => (
                       <span
                         key={cat.id}
-                        className="px-4 py-2 text-sm font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full"
+                        className="px-5 py-2.5 text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-500 dark:from-emerald-400 dark:to-teal-400 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
                       >
+                        <TbFolder className="inline w-4 h-4 mr-2" />
                         {cat.name}
                       </span>
                     ))}
@@ -143,20 +145,22 @@ export default function BlogPostClient({ lang, slug, dict }) {
                 )}
 
                 {/* Title */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400 bg-clip-text text-transparent leading-tight tracking-tight">
                   {post.title}
                 </h1>
 
                 {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400">
-                  <div className="flex items-center gap-2">
-                    <TbCalendar className="w-5 h-5" />
-                    <span>{formatDate(post.published_at || post.created_at)}</span>
+                <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
+                  <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-full">
+                    <TbCalendar className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
+                    <span className="font-medium">
+                      {formatDate(post.published_at || post.created_at)}
+                    </span>
                   </div>
                   {post.reading_time && (
-                    <div className="flex items-center gap-2">
-                      <TbClock className="w-5 h-5" />
-                      <span>
+                    <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-full">
+                      <TbClock className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
+                      <span className="font-medium">
                         {post.reading_time} {dict?.readingTime || "min read"}
                       </span>
                     </div>
@@ -165,12 +169,12 @@ export default function BlogPostClient({ lang, slug, dict }) {
 
                 {/* Tags */}
                 {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-2 mt-4">
-                    <TbTag className="w-5 h-5 text-gray-500" />
+                  <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <TbTag className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
                     {post.tags.map((tag) => (
                       <span
                         key={tag.id}
-                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                        className="text-sm px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 rounded-full font-medium hover:shadow-md transition-shadow cursor-pointer"
                       >
                         #{tag.name}
                       </span>
@@ -183,13 +187,14 @@ export default function BlogPostClient({ lang, slug, dict }) {
             {/* Cover Image */}
             {post.cover_image_url && (
               <BlurFade delay={0.3} inView>
-                <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden mb-12 shadow-2xl">
+                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
                   <img
                     src={getBlogImageUrl(post.cover_image_url)}
                     alt={post.title}
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
               </BlurFade>
             )}
@@ -197,39 +202,30 @@ export default function BlogPostClient({ lang, slug, dict }) {
             {/* Excerpt */}
             {post.excerpt && (
               <BlurFade delay={0.4} inView>
-                <div className="bg-emerald-50 dark:bg-emerald-900/20 border-l-4 border-emerald-500 rounded-r-2xl p-6 mb-8">
-                  <p className="text-lg text-gray-700 dark:text-gray-300 italic">
-                    {post.excerpt}
+                <div className="px-6 md:px-12 py-8 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-l-4 border-emerald-500 dark:border-emerald-400">
+                  <p className="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 italic leading-relaxed">
+                    "{post.excerpt}"
                   </p>
                 </div>
               </BlurFade>
             )}
 
-            {/* Content */}
+            {/* Content - Using new BlogContent component */}
             <BlurFade delay={0.5} inView>
-              <div
-                className="prose prose-lg dark:prose-invert max-w-none
-                  prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
-                  prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed
-                  prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-gray-900 dark:prose-strong:text-white
-                  prose-code:text-emerald-600 dark:prose-code:text-emerald-400 prose-code:bg-emerald-50 dark:prose-code:bg-emerald-900/20 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-                  prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:shadow-xl
-                  prose-img:rounded-2xl prose-img:shadow-lg
-                  prose-blockquote:border-l-emerald-500 prose-blockquote:bg-emerald-50 dark:prose-blockquote:bg-emerald-900/20 prose-blockquote:rounded-r-xl
-                  prose-ul:list-disc prose-ol:list-decimal
-                  mb-12"
-                dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-              />
+              <div className="px-6 md:px-12 py-12">
+                <BlogContent content={sanitizedContent} />
+              </div>
             </BlurFade>
 
             {/* Share Section */}
             <BlurFade delay={0.6} inView>
-              <div className="border-t-2 border-gray-200 dark:border-gray-800 pt-8 mt-12">
+              <div className="px-6 md:px-12 py-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 border-t-2 border-gray-200 dark:border-gray-700">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div className="flex items-center gap-3">
-                    <TbShare className="w-6 h-6 text-gray-600 dark:text-gray-400" />
-                    <span className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                    <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-full">
+                      <TbShare className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <span className="text-lg font-bold text-gray-800 dark:text-gray-200">
                       {dict?.shareArticle || "Share this article"}
                     </span>
                   </div>
@@ -238,7 +234,7 @@ export default function BlogPostClient({ lang, slug, dict }) {
                       href={shareLinks.twitter}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-all hover:scale-110"
+                      className="p-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition-all hover:scale-110 shadow-lg hover:shadow-xl"
                       aria-label="Share on Twitter"
                     >
                       <TbBrandTwitter className="w-5 h-5" />
@@ -247,7 +243,7 @@ export default function BlogPostClient({ lang, slug, dict }) {
                       href={shareLinks.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all hover:scale-110"
+                      className="p-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl transition-all hover:scale-110 shadow-lg hover:shadow-xl"
                       aria-label="Share on Facebook"
                     >
                       <TbBrandFacebook className="w-5 h-5" />
@@ -256,7 +252,7 @@ export default function BlogPostClient({ lang, slug, dict }) {
                       href={shareLinks.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-blue-700 hover:bg-blue-800 text-white rounded-full transition-all hover:scale-110"
+                      className="p-3 bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-xl transition-all hover:scale-110 shadow-lg hover:shadow-xl"
                       aria-label="Share on LinkedIn"
                     >
                       <TbBrandLinkedin className="w-5 h-5" />
@@ -268,13 +264,14 @@ export default function BlogPostClient({ lang, slug, dict }) {
 
             {/* Navigation to Blog */}
             <BlurFade delay={0.7} inView>
-              <div className="mt-12 text-center">
+              <div className="px-6 md:px-12 pb-12 text-center mt-12">
                 <Link
                   href={`/${lang}/blog`}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-700 hover:via-teal-700 hover:to-green-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-xl shadow-emerald-500/30 hover:scale-105"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl shadow-emerald-500/30 hover:-translate-y-1 transform"
                 >
                   <TbFolder className="w-5 h-5" />
                   <span>{dict?.viewAllPosts || "View All Posts"}</span>
+                  <TbArrowLeft className="w-5 h-5 rotate-180" />
                 </Link>
               </div>
             </BlurFade>

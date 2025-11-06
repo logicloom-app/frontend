@@ -22,8 +22,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-// Dynamically import CKEditor to avoid SSR issues
-const CKEditorWrapper = dynamic(() => import("./CKEditorWrapper"), { ssr: false });
+// Dynamically import Novel Editor to avoid SSR issues
+const NovelEditor = dynamic(() => import("@/components/ui/novel-editor"), { ssr: false });
 
 export default function EditPostModal({ open, onClose, postId }) {
   const queryClient = useQueryClient();
@@ -324,10 +324,10 @@ export default function EditPostModal({ open, onClose, postId }) {
                 <label className="block text-sm font-semibold mb-2">
                   Content <span className="text-red-500">*</span>
                 </label>
-                <CKEditorWrapper
-                  key={`edit-${postId}`}
+                <NovelEditor
                   value={formData.content}
                   onChange={(value) => handleChange("content", value)}
+                  placeholder="Edit your blog post... Type / for commands"
                 />
               </div>
 

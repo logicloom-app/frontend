@@ -929,9 +929,9 @@ export default function AdminBlogPostsPage() {
             </div>
 
             <DialogFooter className="gap-2 pt-6 border-t-2 border-red-200 dark:border-red-800">
-              <Button 
-                type="button" 
-                variant="outline" 
+              <Button
+                type="button"
+                variant="outline"
                 onClick={handleCancelDelete}
                 className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
               >

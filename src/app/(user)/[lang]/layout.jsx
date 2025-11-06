@@ -1,5 +1,6 @@
 import "../../globals.css";
 import { Suspense } from "react";
+import "@/styles/novel-editor.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { Poppins } from "next/font/google";

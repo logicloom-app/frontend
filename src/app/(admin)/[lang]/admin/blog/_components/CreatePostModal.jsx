@@ -21,8 +21,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-// Dynamically import CKEditor to avoid SSR issues
-const CKEditorWrapper = dynamic(() => import("./CKEditorWrapper"), { ssr: false });
+// Dynamically import Novel Editor to avoid SSR issues
+const NovelEditor = dynamic(() => import("@/components/ui/novel-editor"), {
+  ssr: false,
+});
 
 export default function CreatePostModal({ open, onClose }) {
   const queryClient = useQueryClient();
@@ -249,10 +251,10 @@ export default function CreatePostModal({ open, onClose }) {
               <label className="block text-sm font-semibold mb-2">
                 Content <span className="text-red-500">*</span>
               </label>
-              <CKEditorWrapper
-                key="create-new"
+              <NovelEditor
                 value={formData.content}
                 onChange={(value) => handleChange("content", value)}
+                placeholder="Start writing your amazing blog post... Type / for commands"
               />
             </div>
 
@@ -297,13 +299,13 @@ export default function CreatePostModal({ open, onClose }) {
                     className="hidden"
                     id="cover-image-create"
                   />
-                    <label
-                      htmlFor="cover-image-create"
-                      className="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
-                    >
-                      <Upload className="w-4 h-4" />
-                      Choose Image
-                    </label>
+                  <label
+                    htmlFor="cover-image-create"
+                    className="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                  >
+                    <Upload className="w-4 h-4" />
+                    Choose Image
+                  </label>
                   <p className="text-xs text-muted-foreground mt-2">
                     JPG, PNG, GIF or WebP (max 5MB)
                   </p>
@@ -381,7 +383,9 @@ export default function CreatePostModal({ open, onClose }) {
                       }}
                       className="w-4 h-4 text-emerald-600 dark:text-emerald-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-emerald-500/50 dark:focus:ring-emerald-400/50 transition-all"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">{cat.name}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      {cat.name}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -411,7 +415,9 @@ export default function CreatePostModal({ open, onClose }) {
                       }}
                       className="w-4 h-4 text-purple-600 dark:text-purple-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-purple-500/50 dark:focus:ring-purple-400/50 transition-all"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">{tag.name}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      {tag.name}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -516,9 +522,9 @@ export default function CreatePostModal({ open, onClose }) {
               <Save className="w-4 h-4 mr-2" />
               {createMutation.isPending ? "Creating..." : "Create Post"}
             </Button>
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               onClick={onClose}
               className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
             >
