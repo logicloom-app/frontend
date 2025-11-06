@@ -223,7 +223,7 @@ export default function CreatePostModal({ open, onClose }) {
                 onChange={(e) => handleChange("title", e.target.value)}
                 placeholder="Enter post title..."
                 required
-                className="text-lg font-semibold"
+                className="text-lg font-semibold bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-emerald-500/20 dark:focus:ring-emerald-400/20 transition-all"
               />
             </div>
 
@@ -235,6 +235,7 @@ export default function CreatePostModal({ open, onClose }) {
                 value={formData.slug}
                 onChange={(e) => handleChange("slug", e.target.value)}
                 placeholder="auto-generated-from-title"
+                className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-emerald-500/20 dark:focus:ring-emerald-400/20 transition-all"
               />
               <p className="text-xs text-muted-foreground mt-1">
                 Leave empty to auto-generate from title
@@ -261,6 +262,7 @@ export default function CreatePostModal({ open, onClose }) {
                 onChange={(e) => handleChange("excerpt", e.target.value)}
                 rows={3}
                 placeholder="Short summary of the post..."
+                className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-emerald-500/20 dark:focus:ring-emerald-400/20 transition-all"
               />
             </div>
 
@@ -326,7 +328,7 @@ export default function CreatePostModal({ open, onClose }) {
                 <select
                   value={formData.status}
                   onChange={(e) => handleChange("status", e.target.value)}
-                  className="w-full px-3 py-2 bg-background border rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500/50 dark:focus:ring-emerald-400/50 focus:border-emerald-500 dark:focus:border-emerald-400 outline-none transition-all text-gray-900 dark:text-gray-100"
                 >
                   <option value="draft">Draft</option>
                   <option value="published">Published</option>
@@ -341,7 +343,7 @@ export default function CreatePostModal({ open, onClose }) {
                 <select
                   value={formData.language}
                   onChange={(e) => handleChange("language", e.target.value)}
-                  className="w-full px-3 py-2 bg-background border rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500/50 dark:focus:ring-emerald-400/50 focus:border-emerald-500 dark:focus:border-emerald-400 outline-none transition-all text-gray-900 dark:text-gray-100"
                 >
                   <option value="en">English</option>
                   <option value="de">German</option>
@@ -353,11 +355,11 @@ export default function CreatePostModal({ open, onClose }) {
             {/* Categories */}
             <div>
               <label className="block text-sm font-semibold mb-2">Categories</label>
-              <div className="grid grid-cols-3 gap-2 max-h-32 overflow-y-auto p-2 bg-gray-50 dark:bg-gray-900 rounded-lg">
+              <div className="grid grid-cols-3 gap-2 max-h-32 overflow-y-auto p-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg">
                 {categories.map((cat) => (
                   <label
                     key={cat.id}
-                    className="flex items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer"
+                    className="flex items-center gap-2 p-2.5 hover:bg-white dark:hover:bg-gray-700/70 rounded-lg cursor-pointer transition-all border border-transparent hover:border-emerald-200 dark:hover:border-emerald-700"
                   >
                     <input
                       type="checkbox"
@@ -375,9 +377,9 @@ export default function CreatePostModal({ open, onClose }) {
                           );
                         }
                       }}
-                      className="w-4 h-4 text-emerald-600 rounded"
+                      className="w-4 h-4 text-emerald-600 dark:text-emerald-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-emerald-500/50 dark:focus:ring-emerald-400/50 transition-all"
                     />
-                    <span className="text-sm">{cat.name}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{cat.name}</span>
                   </label>
                 ))}
               </div>
@@ -386,11 +388,11 @@ export default function CreatePostModal({ open, onClose }) {
             {/* Tags */}
             <div>
               <label className="block text-sm font-semibold mb-2">Tags</label>
-              <div className="grid grid-cols-4 gap-2 max-h-32 overflow-y-auto p-2 bg-gray-50 dark:bg-gray-900 rounded-lg">
+              <div className="grid grid-cols-4 gap-2 max-h-32 overflow-y-auto p-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg">
                 {tags.map((tag) => (
                   <label
                     key={tag.id}
-                    className="flex items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer"
+                    className="flex items-center gap-2 p-2.5 hover:bg-white dark:hover:bg-gray-700/70 rounded-lg cursor-pointer transition-all border border-transparent hover:border-purple-200 dark:hover:border-purple-700"
                   >
                     <input
                       type="checkbox"
@@ -405,9 +407,9 @@ export default function CreatePostModal({ open, onClose }) {
                           );
                         }
                       }}
-                      className="w-4 h-4 text-emerald-600 rounded"
+                      className="w-4 h-4 text-purple-600 dark:text-purple-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-purple-500/50 dark:focus:ring-purple-400/50 transition-all"
                     />
-                    <span className="text-sm">{tag.name}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{tag.name}</span>
                   </label>
                 ))}
               </div>
@@ -427,6 +429,7 @@ export default function CreatePostModal({ open, onClose }) {
                     value={formData.seo_title}
                     onChange={(e) => handleChange("seo_title", e.target.value)}
                     placeholder="SEO optimized title"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all"
                   />
                 </div>
 
@@ -439,6 +442,7 @@ export default function CreatePostModal({ open, onClose }) {
                     onChange={(e) => handleChange("seo_description", e.target.value)}
                     rows={2}
                     placeholder="SEO meta description"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all"
                   />
                 </div>
 
@@ -455,7 +459,7 @@ export default function CreatePostModal({ open, onClose }) {
                         e.key === "Enter" && (e.preventDefault(), handleAddKeyword())
                       }
                       placeholder="Add keyword and press Enter"
-                      className="flex-1"
+                      className="flex-1 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all"
                     />
                     <Button
                       type="button"
@@ -493,6 +497,7 @@ export default function CreatePostModal({ open, onClose }) {
                     value={formData.canonical_url}
                     onChange={(e) => handleChange("canonical_url", e.target.value)}
                     placeholder="https://example.com/original-post"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all"
                   />
                 </div>
               </div>

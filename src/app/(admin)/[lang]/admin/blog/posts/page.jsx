@@ -665,6 +665,7 @@ export default function AdminBlogPostsPage() {
                     }
                     placeholder="Category name"
                     required
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-sky-500 dark:focus:border-sky-400 focus:ring-sky-500/20 dark:focus:ring-sky-400/20 transition-all"
                   />
                 </div>
 
@@ -680,6 +681,7 @@ export default function AdminBlogPostsPage() {
                       }))
                     }
                     placeholder="auto-generated-from-name"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-sky-500 dark:focus:border-sky-400 focus:ring-sky-500/20 dark:focus:ring-sky-400/20 transition-all"
                   />
                   <p className="text-xs text-muted-foreground mt-1">
                     Leave empty to auto-generate from name
@@ -700,6 +702,7 @@ export default function AdminBlogPostsPage() {
                     }
                     rows={3}
                     placeholder="Category description (optional)"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-sky-500 dark:focus:border-sky-400 focus:ring-sky-500/20 dark:focus:ring-sky-400/20 transition-all"
                   />
                 </div>
 
@@ -709,15 +712,19 @@ export default function AdminBlogPostsPage() {
                     <label className="block text-sm font-semibold mb-2">
                       Existing Categories
                     </label>
-                    <div className="max-h-40 overflow-y-auto space-y-2">
+                    <div className="max-h-40 overflow-y-auto space-y-2 pr-2">
                       {categories.map((cat) => (
                         <div
                           key={cat.id}
-                          className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-900 rounded-lg"
+                          className="flex items-center justify-between p-3 bg-gradient-to-r from-sky-50 to-blue-50 dark:from-gray-800 dark:to-gray-800/70 border border-sky-100 dark:border-gray-700 rounded-lg hover:shadow-md transition-all"
                         >
                           <div className="flex-1">
-                            <p className="text-sm font-medium">{cat.name}</p>
-                            <p className="text-xs text-gray-500">/{cat.slug}</p>
+                            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                              {cat.name}
+                            </p>
+                            <p className="text-xs text-sky-600 dark:text-sky-400 font-mono">
+                              /{cat.slug}
+                            </p>
                           </div>
                           <div className="flex gap-1">
                             <Button
@@ -725,7 +732,7 @@ export default function AdminBlogPostsPage() {
                               onClick={() => handleOpenCategoryModal(cat)}
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8"
+                              className="h-8 w-8 hover:bg-sky-100 dark:hover:bg-gray-700 text-sky-600 dark:text-sky-400"
                             >
                               <Edit className="w-4 h-4" />
                             </Button>
@@ -734,7 +741,7 @@ export default function AdminBlogPostsPage() {
                               onClick={() => handleDeleteCategory(cat)}
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8 text-red-600"
+                              className="h-8 w-8 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400"
                             >
                               <Trash2 className="w-4 h-4" />
                             </Button>
@@ -796,6 +803,7 @@ export default function AdminBlogPostsPage() {
                     }
                     placeholder="Tag name"
                     required
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 focus:ring-purple-500/20 dark:focus:ring-purple-400/20 transition-all"
                   />
                 </div>
 
@@ -808,6 +816,7 @@ export default function AdminBlogPostsPage() {
                       setTagFormData((prev) => ({ ...prev, slug: e.target.value }))
                     }
                     placeholder="auto-generated-from-name"
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 focus:ring-purple-500/20 dark:focus:ring-purple-400/20 transition-all"
                   />
                   <p className="text-xs text-muted-foreground mt-1">
                     Leave empty to auto-generate from name
@@ -820,32 +829,34 @@ export default function AdminBlogPostsPage() {
                     <label className="block text-sm font-semibold mb-2">
                       Existing Tags
                     </label>
-                    <div className="max-h-40 overflow-y-auto flex flex-wrap gap-2">
+                    <div className="max-h-40 overflow-y-auto flex flex-wrap gap-2 p-2 bg-gray-50 dark:bg-gray-800/30 border border-gray-200 dark:border-gray-700 rounded-lg">
                       {tags.map((tag) => (
                         <div
                           key={tag.id}
-                          className="group flex items-center gap-2 px-3 py-1.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-full text-sm"
+                          className="group flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/40 dark:to-pink-900/30 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium hover:shadow-md transition-all"
                         >
-                          <Tag className="w-3 h-3" />
+                          <Tag className="w-3.5 h-3.5" />
                           <span>{tag.name}</span>
-                          <Button
-                            type="button"
-                            onClick={() => handleOpenTagModal(tag)}
-                            variant="ghost"
-                            size="icon"
-                            className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            <Edit className="w-3 h-3" />
-                          </Button>
-                          <Button
-                            type="button"
-                            onClick={() => handleDeleteTag(tag)}
-                            variant="ghost"
-                            size="icon"
-                            className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity text-red-600"
-                          >
-                            <Trash2 className="w-3 h-3" />
-                          </Button>
+                          <div className="flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Button
+                              type="button"
+                              onClick={() => handleOpenTagModal(tag)}
+                              variant="ghost"
+                              size="icon"
+                              className="h-5 w-5 hover:bg-purple-200 dark:hover:bg-purple-800/50"
+                            >
+                              <Edit className="w-3 h-3" />
+                            </Button>
+                            <Button
+                              type="button"
+                              onClick={() => handleDeleteTag(tag)}
+                              variant="ghost"
+                              size="icon"
+                              className="h-5 w-5 hover:bg-red-200 dark:hover:bg-red-800/50 text-red-600 dark:text-red-400"
+                            >
+                              <Trash2 className="w-3 h-3" />
+                            </Button>
+                          </div>
                         </div>
                       ))}
                     </div>
