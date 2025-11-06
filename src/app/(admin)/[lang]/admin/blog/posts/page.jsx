@@ -641,9 +641,9 @@ export default function AdminBlogPostsPage() {
 
         {/* Category Modal */}
         <Dialog open={categoryModalOpen} onOpenChange={setCategoryModalOpen}>
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle>
+          <DialogContent className="sm:max-w-[500px] rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+            <DialogHeader className="pb-4 border-b border-gray-200 dark:border-gray-700">
+              <DialogTitle className="text-xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 bg-clip-text text-transparent">
                 {editingCategory ? "Edit Category" : "Create New Category"}
               </DialogTitle>
             </DialogHeader>
@@ -753,11 +753,12 @@ export default function AdminBlogPostsPage() {
                 )}
               </div>
 
-              <DialogFooter>
+              <DialogFooter className="gap-2 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleCloseCategoryModal}
+                  className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
                 >
                   Cancel
                 </Button>
@@ -767,7 +768,7 @@ export default function AdminBlogPostsPage() {
                     createCategoryMutation.isPending ||
                     updateCategoryMutation.isPending
                   }
-                  className="bg-sky-600 hover:bg-sky-700"
+                  className="bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <Save className="w-4 h-4 mr-2" />
                   {createCategoryMutation.isPending ||
@@ -784,9 +785,11 @@ export default function AdminBlogPostsPage() {
 
         {/* Tag Modal */}
         <Dialog open={tagModalOpen} onOpenChange={setTagModalOpen}>
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle>{editingTag ? "Edit Tag" : "Create New Tag"}</DialogTitle>
+          <DialogContent className="sm:max-w-[500px] rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+            <DialogHeader className="pb-4 border-b border-gray-200 dark:border-gray-700">
+              <DialogTitle className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                {editingTag ? "Edit Tag" : "Create New Tag"}
+              </DialogTitle>
             </DialogHeader>
 
             <form onSubmit={handleTagSubmit} className="space-y-6">
@@ -864,11 +867,12 @@ export default function AdminBlogPostsPage() {
                 )}
               </div>
 
-              <DialogFooter>
+              <DialogFooter className="gap-2 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleCloseTagModal}
+                  className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
                 >
                   Cancel
                 </Button>
@@ -877,7 +881,7 @@ export default function AdminBlogPostsPage() {
                   disabled={
                     createTagMutation.isPending || updateTagMutation.isPending
                   }
-                  className="bg-purple-600 hover:bg-purple-700"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <Save className="w-4 h-4 mr-2" />
                   {createTagMutation.isPending || updateTagMutation.isPending
@@ -903,9 +907,9 @@ export default function AdminBlogPostsPage() {
 
         {/* Delete Confirmation Modal */}
         <Dialog open={deleteModalOpen} onOpenChange={setDeleteModalOpen}>
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle className="text-red-600 dark:text-red-500">
+          <DialogContent className="sm:max-w-[500px] rounded-2xl border-2 border-red-200 dark:border-red-800">
+            <DialogHeader className="pb-4 border-b border-red-200 dark:border-red-800">
+              <DialogTitle className="text-xl font-bold bg-gradient-to-r from-red-600 to-rose-600 dark:from-red-400 dark:to-rose-400 bg-clip-text text-transparent">
                 Delete Post
               </DialogTitle>
             </DialogHeader>
@@ -924,15 +928,20 @@ export default function AdminBlogPostsPage() {
               </div>
             </div>
 
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={handleCancelDelete}>
+            <DialogFooter className="gap-2 pt-6 border-t-2 border-red-200 dark:border-red-800">
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={handleCancelDelete}
+                className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+              >
                 Cancel
               </Button>
               <Button
                 type="button"
                 onClick={handleConfirmDelete}
                 disabled={deleteMutation.isPending}
-                className="bg-red-600 hover:bg-red-700 text-white"
+                className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <Trash2 className="w-4 h-4 mr-2" />
                 {deleteMutation.isPending ? "Deleting..." : "Delete Post"}
@@ -946,9 +955,9 @@ export default function AdminBlogPostsPage() {
           open={deleteCategoryModalOpen}
           onOpenChange={setDeleteCategoryModalOpen}
         >
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle className="text-red-600 dark:text-red-500">
+          <DialogContent className="sm:max-w-[500px] rounded-2xl border-2 border-red-200 dark:border-red-800">
+            <DialogHeader className="pb-4 border-b border-red-200 dark:border-red-800">
+              <DialogTitle className="text-xl font-bold bg-gradient-to-r from-red-600 to-rose-600 dark:from-red-400 dark:to-rose-400 bg-clip-text text-transparent">
                 Delete Category
               </DialogTitle>
             </DialogHeader>
@@ -972,11 +981,12 @@ export default function AdminBlogPostsPage() {
               </div>
             </div>
 
-            <DialogFooter>
+            <DialogFooter className="gap-2 pt-6 border-t-2 border-red-200 dark:border-red-800">
               <Button
                 type="button"
                 variant="outline"
                 onClick={handleCancelDeleteCategory}
+                className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
               >
                 Cancel
               </Button>
@@ -984,7 +994,7 @@ export default function AdminBlogPostsPage() {
                 type="button"
                 onClick={handleConfirmDeleteCategory}
                 disabled={deleteCategoryMutation.isPending}
-                className="bg-red-600 hover:bg-red-700 text-white"
+                className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <Trash2 className="w-4 h-4 mr-2" />
                 {deleteCategoryMutation.isPending
@@ -997,9 +1007,9 @@ export default function AdminBlogPostsPage() {
 
         {/* Delete Tag Confirmation Modal */}
         <Dialog open={deleteTagModalOpen} onOpenChange={setDeleteTagModalOpen}>
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle className="text-red-600 dark:text-red-500">
+          <DialogContent className="sm:max-w-[500px] rounded-2xl border-2 border-red-200 dark:border-red-800">
+            <DialogHeader className="pb-4 border-b border-red-200 dark:border-red-800">
+              <DialogTitle className="text-xl font-bold bg-gradient-to-r from-red-600 to-rose-600 dark:from-red-400 dark:to-rose-400 bg-clip-text text-transparent">
                 Delete Tag
               </DialogTitle>
             </DialogHeader>
@@ -1023,11 +1033,12 @@ export default function AdminBlogPostsPage() {
               </div>
             </div>
 
-            <DialogFooter>
+            <DialogFooter className="gap-2 pt-6 border-t-2 border-red-200 dark:border-red-800">
               <Button
                 type="button"
                 variant="outline"
                 onClick={handleCancelDeleteTag}
+                className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
               >
                 Cancel
               </Button>
@@ -1035,7 +1046,7 @@ export default function AdminBlogPostsPage() {
                 type="button"
                 onClick={handleConfirmDeleteTag}
                 disabled={deleteTagMutation.isPending}
-                className="bg-red-600 hover:bg-red-700 text-white"
+                className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <Trash2 className="w-4 h-4 mr-2" />
                 {deleteTagMutation.isPending ? "Deleting..." : "Delete Tag"}

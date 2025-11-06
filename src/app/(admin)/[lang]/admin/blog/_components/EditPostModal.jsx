@@ -257,9 +257,11 @@ export default function EditPostModal({ open, onClose, postId }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">Edit Post</DialogTitle>
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+        <DialogHeader className="pb-4 border-b border-gray-200 dark:border-gray-700">
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
+            Edit Post
+          </DialogTitle>
         </DialogHeader>
 
         {postLoading ? (
@@ -374,7 +376,7 @@ export default function EditPostModal({ open, onClose, postId }) {
                     />
                     <label
                       htmlFor="cover-image-edit"
-                      className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-all"
+                      className="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                     >
                       <Upload className="w-4 h-4" />
                       Choose Image
@@ -390,7 +392,7 @@ export default function EditPostModal({ open, onClose, postId }) {
                     type="button"
                     onClick={handleImageUpload}
                     disabled={imageUploadMutation.isPending}
-                    className="mt-3 w-full bg-blue-600 hover:bg-blue-700"
+                    className="mt-3 w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
                     {imageUploadMutation.isPending ? "Uploading..." : "Upload Image"}
                   </Button>
@@ -552,7 +554,7 @@ export default function EditPostModal({ open, onClose, postId }) {
                       <Button
                         type="button"
                         onClick={handleAddKeyword}
-                        className="bg-emerald-600 hover:bg-emerald-700"
+                        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                       >
                         Add
                       </Button>
@@ -593,16 +595,21 @@ export default function EditPostModal({ open, onClose, postId }) {
             </div>
 
             {/* Submit Buttons */}
-            <div className="flex gap-3 pt-4 border-t">
+            <div className="flex gap-3 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
               <Button
                 type="submit"
                 disabled={updateMutation.isPending}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+                className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <Save className="w-4 h-4 mr-2" />
                 {updateMutation.isPending ? "Updating..." : "Update Post"}
               </Button>
-              <Button type="button" variant="outline" onClick={onClose}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={onClose}
+                className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+              >
                 Cancel
               </Button>
             </div>
