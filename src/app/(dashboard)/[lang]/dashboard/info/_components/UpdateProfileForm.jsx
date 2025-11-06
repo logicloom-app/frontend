@@ -100,7 +100,7 @@ export default function UpdateProfileForm({ dict }) {
 
   return (
     <div className="w-full h-full p-6 overflow-y-scroll max-h-[calc(100vh-6rem)]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl">
         {/* Header Section */}
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">
