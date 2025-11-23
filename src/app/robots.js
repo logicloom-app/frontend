@@ -14,6 +14,7 @@ export default function robots() {
         disallow: [
           "/dashboard/*", // Private user dashboard
           "/admin/*", // Admin panel
+          "/auth/*", // Authentication pages (should not be indexed)
           "/api/*", // API routes
           "/*?*", // Query parameters (avoid duplicate content)
         ],
@@ -21,12 +22,12 @@ export default function robots() {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/dashboard/*", "/admin/*", "/api/*"],
+        disallow: ["/dashboard/*", "/admin/*", "/auth/*", "/api/*"],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/dashboard/*", "/admin/*", "/api/*"],
+        disallow: ["/dashboard/*", "/admin/*", "/auth/*", "/api/*"],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

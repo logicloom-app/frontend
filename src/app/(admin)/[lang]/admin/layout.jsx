@@ -14,6 +14,12 @@ const poppins = Poppins({
 export const metadata = {
   title: "LogicLoom | Admin",
   description: "LogicLoom Admin",
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+  },
 };
 
 export default async function AdminLayout({ children }) {

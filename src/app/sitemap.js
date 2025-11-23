@@ -11,6 +11,7 @@ export default async function sitemap() {
   const languages = ["en", "de"];
 
   // Static pages that exist for both languages
+  // NOTE: Excluding auth, dashboard, and admin pages - these should not be indexed
   const staticPages = [
     "", // Home
     "about",
@@ -20,32 +21,9 @@ export default async function sitemap() {
     "request",
     "contact",
     "blog",
-    "auth",
-    "auth/password-reset",
     "privacy",
     "terms",
     "imprint",
-  ];
-
-  // Dashboard pages (require authentication)
-  const dashboardPages = [
-    "dashboard",
-    "dashboard/info",
-    "dashboard/password",
-    "dashboard/projects",
-    "dashboard/requests",
-    "dashboard/payments",
-  ];
-
-  // Admin pages (require admin role)
-  const adminPages = [
-    "admin",
-    "admin/users",
-    "admin/projects",
-    "admin/requests",
-    "admin/payments",
-    "admin/loom",
-    "admin/blog/posts",
   ];
 
   const currentDate = new Date();
@@ -89,30 +67,12 @@ export default async function sitemap() {
         lastModified: currentDate,
         changeFrequency,
         priority,
-      });
-    });
-  });
-
-  // Add dashboard pages (lower priority as they're behind auth)
-  languages.forEach((lang) => {
-    dashboardPages.forEach((page) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/${lang}/${page}`,
-        lastModified: currentDate,
-        changeFrequency: "weekly",
-        priority: 0.5,
-      });
-    });
-  });
-
-  // Add admin pages (lowest priority)
-  languages.forEach((lang) => {
-    adminPages.forEach((page) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/${lang}/${page}`,
-        lastModified: currentDate,
-        changeFrequency: "monthly",
-        priority: 0.3,
+        alternates: {
+          languages: {
+            en: `${baseUrl}/en${page ? `/${page}` : ""}`,
+            de: `${baseUrl}/de${page ? `/${page}` : ""}`,
+          },
+        },
       });
     });
   });

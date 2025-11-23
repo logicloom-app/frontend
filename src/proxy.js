@@ -15,10 +15,47 @@ function getLocale(request) {
   return locale;
 }
 
+// Detect if request is from a search engine crawler
+function isCrawler(userAgent) {
+  if (!userAgent) return false;
+  const crawlerPatterns = [
+    /googlebot/i,
+    /bingbot/i,
+    /slurp/i,
+    /duckduckbot/i,
+    /baiduspider/i,
+    /yandexbot/i,
+    /sogou/i,
+    /exabot/i,
+    /facebot/i,
+    /ia_archiver/i,
+  ];
+  return crawlerPatterns.some((pattern) => pattern.test(userAgent));
+}
+
 export async function proxy(request) {
   const url = request.url;
   const { pathname } = request.nextUrl;
   const locale = getLocale(request);
+  const userAgent = request.headers.get("user-agent") || "";
+
+  // For crawlers accessing protected routes, return 401 immediately
+  // This prevents API calls and potential timeouts that cause 5xx errors
+  if (isCrawler(userAgent)) {
+    if (
+      pathname.startsWith(`/${locale}/dashboard`) ||
+      pathname.startsWith(`/${locale}/admin`) ||
+      pathname.startsWith(`/${locale}/auth`)
+    ) {
+      return new NextResponse(null, {
+        status: 401,
+        headers: {
+          "X-Robots-Tag": "noindex, nofollow",
+        },
+      });
+    }
+  }
+
   const userData = await getUserDataMiddleware(request);
   const { user } = userData || {};
 

@@ -16,6 +16,12 @@ const poppins = Poppins({
 export const metadata = {
   title: "LogicLoom | Dashboard",
   description: "LogicLoom Dashboard",
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+  },
 };
 
 export async function generateStaticParams() {
