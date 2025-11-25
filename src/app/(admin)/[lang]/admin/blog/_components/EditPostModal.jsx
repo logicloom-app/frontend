@@ -23,7 +23,9 @@ import {
 } from "@/components/ui/dialog";
 
 // Dynamically import Novel Editor to avoid SSR issues
-const NovelEditor = dynamic(() => import("@/components/ui/novel-editor"), { ssr: false });
+const NovelEditor = dynamic(() => import("@/components/ui/novel-editor"), {
+  ssr: false,
+});
 
 export default function EditPostModal({ open, onClose, postId }) {
   const queryClient = useQueryClient();
@@ -52,7 +54,7 @@ export default function EditPostModal({ open, onClose, postId }) {
 
   // Fetch post data
   const {
-    data: post,
+    data: postData,
     isLoading: postLoading,
     error: postError,
   } = useQuery({
@@ -70,6 +72,9 @@ export default function EditPostModal({ open, onClose, postId }) {
     },
   });
 
+  // Extract post from response (handle both { post: {...} } and direct post object)
+  const post = postData?.post || postData;
+
   // Fetch categories
   const { data: categoriesData } = useQuery({
     queryKey: ["admin-blog-categories"],
@@ -86,34 +91,6 @@ export default function EditPostModal({ open, onClose, postId }) {
 
   const categories = categoriesData?.categories || [];
   const tags = tagsData?.tags || [];
-
-  // Populate form when post data is loaded
-  useEffect(() => {
-    if (post && open) {
-      console.log("📝 [EDIT] Populating form with post data:", post);
-      setFormData({
-        title: post.title || "",
-        slug: post.slug || "",
-        content: post.content || "",
-        excerpt: post.excerpt || "",
-        cover_image_url: post.cover_image_url || "",
-        status: post.status || "draft",
-        language: post.language || "en",
-        seo_title: post.seo_title || "",
-        seo_description: post.seo_description || "",
-        seo_keywords: post.seo_keywords || [],
-        canonical_url: post.canonical_url || "",
-        category_ids: post.categories?.map((c) => c.id) || [],
-        tag_ids: post.tags?.map((t) => t.id) || [],
-      });
-      if (post.cover_image_url) {
-        setCoverImagePreview(
-          `${process.env.NEXT_PUBLIC_API_URL}${post.cover_image_url}`
-        );
-      }
-      console.log("✅ [EDIT] Form populated successfully");
-    }
-  }, [post, open]);
 
   // Reset form when modal closes
   useEffect(() => {
@@ -137,11 +114,52 @@ export default function EditPostModal({ open, onClose, postId }) {
         setKeywordInput("");
         setCoverImageFile(null);
         setCoverImagePreview(null);
-      }, 200);
+      }, 300);
 
       return () => clearTimeout(timer);
     }
   }, [open]);
+
+  // Populate form when post data is loaded
+  useEffect(() => {
+    if (post && open && postId) {
+      console.log("📝 [EDIT] Populating form with post data:", post);
+      console.log("📝 [EDIT] Post categories:", post.categories);
+      console.log("📝 [EDIT] Post tags:", post.tags);
+
+      // Populate form with post data
+      setFormData({
+        title: post.title || "",
+        slug: post.slug || "",
+        content: post.content || "",
+        excerpt: post.excerpt || "",
+        cover_image_url: post.cover_image_url || "",
+        status: post.status || "draft",
+        language: post.language || "en",
+        seo_title: post.seo_title || "",
+        seo_description: post.seo_description || "",
+        seo_keywords: Array.isArray(post.seo_keywords) ? post.seo_keywords : [],
+        canonical_url: post.canonical_url || "",
+        category_ids: post.categories?.map((c) => c.id) || [],
+        tag_ids: post.tags?.map((t) => t.id) || [],
+      });
+
+      if (post.cover_image_url) {
+        setCoverImagePreview(
+          `${process.env.NEXT_PUBLIC_API_URL}${post.cover_image_url}`
+        );
+      } else {
+        setCoverImagePreview(null);
+      }
+      setKeywordInput("");
+      setCoverImageFile(null);
+      console.log("✅ [EDIT] Form populated successfully");
+      console.log("✅ [EDIT] FormData after populate:", {
+        category_ids: post.categories?.map((c) => c.id) || [],
+        tag_ids: post.tags?.map((t) => t.id) || [],
+      });
+    }
+  }, [post, open, postId]);
 
   // Update mutation
   const updateMutation = useMutation({
@@ -257,7 +275,10 @@ export default function EditPostModal({ open, onClose, postId }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+      <DialogContent
+        className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-gray-200 dark:border-gray-700"
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <DialogHeader className="pb-4 border-b border-gray-200 dark:border-gray-700">
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
             Edit Post
@@ -604,9 +625,9 @@ export default function EditPostModal({ open, onClose, postId }) {
                 <Save className="w-4 h-4 mr-2" />
                 {updateMutation.isPending ? "Updating..." : "Update Post"}
               </Button>
-              <Button 
-                type="button" 
-                variant="outline" 
+              <Button
+                type="button"
+                variant="outline"
                 onClick={onClose}
                 className="rounded-xl border-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
               >

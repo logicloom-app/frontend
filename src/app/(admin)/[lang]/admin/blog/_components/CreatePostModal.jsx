@@ -206,7 +206,10 @@ export default function CreatePostModal({ open, onClose }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+      <DialogContent 
+        className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-gray-200 dark:border-gray-700"
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <DialogHeader className="pb-4 border-b border-gray-200 dark:border-gray-700">
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
             Create New Post

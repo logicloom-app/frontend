@@ -421,7 +421,21 @@
     "send": "Send Message",
     "sendContactRequest": "Contact Us",
     "sendContactDescription": "Fill out the form below and we'll get back to you as soon as possible.",
-    "sendContactDescription2": "Tell us about your project, requirements, and timeline..."
+    "sendContactDescription2": "Tell us about your project, requirements, and timeline...",
+    "optional": "(Optional)",
+    "sending": "Sending...",
+    "messageSentSuccessfully": "Message sent successfully",
+    "somethingWentWrong": "Something went wrong",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "notAvailable": "not available",
+    "responseTime": "Response Time",
+    "within24Hours": "Within 24 hours",
+    "validationNameRequired": "Name is required",
+    "validationEmailInvalid": "Invalid email address",
+    "validationEmailRequired": "Email is required",
+    "validationPhoneRequired": "Phone is required",
+    "validationDescriptionRequired": "Description is required"
   },
   "services": {
     "title": "Custom Software Development Services",

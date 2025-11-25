@@ -420,7 +420,21 @@
     "send": "Nachricht senden",
     "sendContactRequest": "Kontaktieren Sie uns",
     "sendContactDescription": "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
-    "sendContactDescription2": "Erzählen Sie uns von Ihrem Projekt, Anforderungen, und Timeline..."
+    "sendContactDescription2": "Erzählen Sie uns von Ihrem Projekt, Anforderungen, und Timeline...",
+    "optional": "(Optional)",
+    "sending": "Wird gesendet...",
+    "messageSentSuccessfully": "Nachricht erfolgreich gesendet",
+    "somethingWentWrong": "Etwas ist schief gelaufen",
+    "emailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
+    "notAvailable": "nicht verfügbar",
+    "responseTime": "Antwortzeit",
+    "within24Hours": "Innerhalb von 24 Stunden",
+    "validationNameRequired": "Name ist erforderlich",
+    "validationEmailInvalid": "Ungültige E-Mail-Adresse",
+    "validationEmailRequired": "E-Mail ist erforderlich",
+    "validationPhoneRequired": "Telefon ist erforderlich",
+    "validationDescriptionRequired": "Beschreibung ist erforderlich"
   },
   "services": {
     "title": "Individuelle Softwareentwicklungsdienste",
