@@ -19,7 +19,14 @@ const typeBadgeColors = {
 
 export default function Announcements() {
   const { data, isLoading } = useGetAnnouncements();
-  const announcements = data?.announcements || data || [];
+
+  // Ensure announcements is always an array
+  const announcements = Array.isArray(data?.announcements)
+    ? data.announcements
+    : Array.isArray(data)
+    ? data
+    : [];
+
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editingAnnouncement, setEditingAnnouncement] = useState(null);
   const [deletingAnnouncement, setDeletingAnnouncement] = useState(null);
