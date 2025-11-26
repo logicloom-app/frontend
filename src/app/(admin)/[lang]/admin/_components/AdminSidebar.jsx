@@ -11,6 +11,7 @@ import {
   Mail,
   FileText,
   Sparkles,
+  Package,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -85,6 +86,12 @@ export default function AdminSidebar() {
       label: "Blog",
       gradient: "from-emerald-500 to-green-500",
     },
+    {
+      href: "/website-packages",
+      icon: Package,
+      label: "Website Packages",
+      gradient: "from-blue-500 to-indigo-500",
+    },
   ];
 
   return (
@@ -120,6 +127,8 @@ export default function AdminSidebar() {
             const active =
               item.href === "/blog/posts"
                 ? pathname?.startsWith(`/${lang}/admin/blog`)
+                : item.href === "/website-packages"
+                ? pathname?.startsWith(`/${lang}/admin/website-packages`)
                 : isActive(item.href);
 
             return (

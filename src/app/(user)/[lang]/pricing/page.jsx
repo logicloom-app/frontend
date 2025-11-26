@@ -1,33 +1,30 @@
-import {
-  OnePageIllustration,
-  MultiPageIllustration,
-  EnterpriseIllustration,
-} from "./_components/PricingIllustrations";
-import Link from "next/link";
-import { Check, Info } from "lucide-react";
-import BlurFade from "@/components/ui/blur-fade";
+import PricingClient from "./_components/PricingClient";
 import { getDictionary } from "@/lib/utils/dictionary";
-import { featureIcons } from "./_components/featureIcons";
-import { GradientButton } from "@/components/ui/gradient-button";
+import BlurFade from "@/components/ui/blur-fade";
+import { Info } from "lucide-react";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  
+
   return {
-    title: lang === "de" 
-      ? "Preise - LogicLoom | Transparente Web Development Pakete" 
-      : "Pricing - LogicLoom | Transparent Web Development Packages",
-    description: lang === "de"
-      ? "Faire und transparente Preise für Web Development. One-Pager ab €499, Multi-Page Websites ab €699, Enterprise Solutions ab €1.649. Professionelle Webentwicklung zum Festpreis."
-      : "Fair and transparent pricing for web development. One-Pager from €499, Multi-Page Websites from €699, Enterprise Solutions from €1,649. Professional web development at fixed prices.",
-    keywords: lang === "de"
-      ? "Web Development Preise, Website Kosten, Webentwicklung Pakete, Festpreis Website"
-      : "Web Development Pricing, Website Costs, Web Development Packages, Fixed Price Website",
+    title:
+      lang === "de"
+        ? "Preise - LogicLoom | Transparente Web Development Pakete"
+        : "Pricing - LogicLoom | Transparent Web Development Packages",
+    description:
+      lang === "de"
+        ? "Faire und transparente Preise für Web Development. One-Pager ab €499, Multi-Page Websites ab €699, Enterprise Solutions ab €1.649. Professionelle Webentwicklung zum Festpreis."
+        : "Fair and transparent pricing for web development. One-Pager from €499, Multi-Page Websites from €699, Enterprise Solutions from €1,649. Professional web development at fixed prices.",
+    keywords:
+      lang === "de"
+        ? "Web Development Preise, Website Kosten, Webentwicklung Pakete, Festpreis Website"
+        : "Web Development Pricing, Website Costs, Web Development Packages, Fixed Price Website",
     openGraph: {
       title: lang === "de" ? "Preise - LogicLoom" : "Pricing - LogicLoom",
-      description: lang === "de"
-        ? "Transparente Preise für professionelle Webentwicklung"
-        : "Transparent pricing for professional web development",
+      description:
+        lang === "de"
+          ? "Transparente Preise für professionelle Webentwicklung"
+          : "Transparent pricing for professional web development",
       type: "website",
       locale: lang === "de" ? "de_DE" : "en_US",
     },
@@ -55,231 +52,7 @@ export default async function PricingPage({ params }) {
         </BlurFade>
 
         {/* Pricing Cards */}
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 lg:mb-24">
-          {/* One-Page Package */}
-          <BlurFade delay={0.2} inView>
-            <div className="relative group h-full lg:mt-16">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition duration-300"></div>
-
-              <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border-2 border-blue-200 dark:border-blue-900/30 h-full flex flex-col">
-                {/* Header */}
-                <div className="text-center mb-6">
-                  {/* Illustration */}
-                  <div className="relative mx-auto mb-4 w-24 h-24 flex items-center justify-center">
-                    <OnePageIllustration />
-                  </div>
-
-                  <h2 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-                    {dict?.pricing?.onePager?.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {dict?.pricing?.onePager?.subtitle}
-                  </p>
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-yellow-300 dark:via-yellow-700 to-transparent mb-6"></div>
-
-                {/* Features */}
-                <div className="space-y-3 mb-8 flex-1">
-                  {dict?.pricing?.onePager?.features?.map((feature, idx) => {
-                    const IconComponent = featureIcons[idx] || Check;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <IconComponent className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
-                        </div>
-                        <span>{feature}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Pricing */}
-                <div className="text-center mb-6">
-                  <div className="mb-2">
-                    <span className="text-orange-500 dark:text-orange-400 line-through text-lg font-semibold">
-                      €1,549
-                    </span>
-                  </div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-400 dark:to-orange-400 bg-clip-text text-transparent">
-                    €499
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <Link href={`/${lang}/contact`}>
-                  <GradientButton
-                    variant="primary"
-                    size="lg"
-                    rounded="lg"
-                    className="w-full"
-                  >
-                    {dict?.pricing?.cta}
-                  </GradientButton>
-                </Link>
-              </div>
-            </div>
-          </BlurFade>
-
-          {/* Multi-Pager Package */}
-          <BlurFade delay={0.3} inView>
-            <div className="relative group h-full">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition duration-300"></div>
-
-              {/* Popular Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                  ⭐ {dict?.pricing?.popular}
-                </div>
-              </div>
-
-              <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border-2 border-purple-200 dark:border-purple-900/30 h-full flex flex-col">
-                {/* Header */}
-                <div className="text-center mb-6">
-                  {/* Illustration */}
-                  <div className="relative mx-auto mb-4 w-24 h-24 flex items-center justify-center">
-                    <MultiPageIllustration />
-                  </div>
-
-                  <h2 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-                    {dict?.pricing?.multiPager?.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {dict?.pricing?.multiPager?.subtitle}
-                  </p>
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-purple-300 dark:via-purple-700 to-transparent mb-6"></div>
-
-                {/* Features */}
-                <div className="space-y-3 mb-8 flex-1">
-                  {dict?.pricing?.multiPager?.features?.map((feature, idx) => {
-                    const IconComponent = featureIcons[idx] || Check;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <IconComponent className="w-3 h-3 text-purple-600 dark:text-purple-400" />
-                        </div>
-                        <span>{feature}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Pricing */}
-                <div className="text-center mb-6">
-                  <div className="mb-2">
-                    <span className="text-indigo-500 dark:text-indigo-400 line-through text-lg font-semibold">
-                      €2,249
-                    </span>
-                  </div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                    €699
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <Link href={`/${lang}/contact`}>
-                  <GradientButton
-                    variant="primary"
-                    size="lg"
-                    rounded="lg"
-                    className="w-full"
-                  >
-                    {dict?.pricing?.cta}
-                  </GradientButton>
-                </Link>
-              </div>
-            </div>
-          </BlurFade>
-
-          {/* Enterprise Package */}
-          <BlurFade delay={0.4} inView>
-            <div className="relative group h-full lg:mt-16">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition duration-300"></div>
-
-              {/* Premium Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                  💎 Premium
-                </div>
-              </div>
-
-              <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border-2 border-emerald-200 dark:border-emerald-900/30 h-full flex flex-col">
-                {/* Header */}
-                <div className="text-center mb-6">
-                  {/* Illustration */}
-                  <div className="relative mx-auto mb-4 w-24 h-24 flex items-center justify-center">
-                    <EnterpriseIllustration />
-                  </div>
-
-                  <h2 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-                    {dict?.pricing?.enterprise?.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {dict?.pricing?.enterprise?.subtitle}
-                  </p>
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-emerald-300 dark:via-emerald-700 to-transparent mb-6"></div>
-
-                {/* Features */}
-                <div className="space-y-3 mb-8 flex-1">
-                  {dict?.pricing?.enterprise?.features?.map((feature, idx) => {
-                    const IconComponent = featureIcons[idx] || Check;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <IconComponent className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                        </div>
-                        <span>{feature}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Pricing */}
-                <div className="text-center mb-6">
-                  <div className="mb-2">
-                    <span className="text-teal-500 dark:text-teal-400 line-through text-lg font-semibold">
-                      €3,599
-                    </span>
-                  </div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
-                    €1,649
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <Link href={`/${lang}/contact`}>
-                  <GradientButton
-                    variant="success"
-                    size="lg"
-                    rounded="lg"
-                    className="w-full"
-                  >
-                    {dict?.pricing?.cta}
-                  </GradientButton>
-                </Link>
-              </div>
-            </div>
-          </BlurFade>
-        </div>
+        <PricingClient lang={lang} dict={dict} />
 
         {/* Domain & Hosting Info */}
         <BlurFade delay={0.5} inView>

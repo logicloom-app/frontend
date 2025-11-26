@@ -7,6 +7,7 @@ import {
   getRequests,
   getUserPayments,
   getUsers,
+  getWebsitePackages,
 } from "@/services/adminServices";
 import { useQuery } from "@tanstack/react-query";
 
@@ -70,6 +71,14 @@ export const useAdminGetAdditionalRequests = (projectId) =>
   useQuery({
     queryKey: ["admin-get-additional-requests", projectId],
     queryFn: () => adminAdditionalRequest(projectId),
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useGetWebsitePackages = () =>
+  useQuery({
+    queryKey: ["get-website-packages"],
+    queryFn: getWebsitePackages,
     retry: false,
     refetchOnWindowFocus: true,
   });
