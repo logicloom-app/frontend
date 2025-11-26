@@ -8,6 +8,11 @@ import {
   getUserPayments,
   getUsers,
   getWebsitePackages,
+  getAnnouncements,
+  getAnnouncementById,
+  createAnnouncement,
+  updateAnnouncement,
+  deleteAnnouncement,
 } from "@/services/adminServices";
 import { useQuery } from "@tanstack/react-query";
 
@@ -81,4 +86,21 @@ export const useGetWebsitePackages = () =>
     queryFn: getWebsitePackages,
     retry: false,
     refetchOnWindowFocus: true,
+  });
+
+export const useGetAnnouncements = () =>
+  useQuery({
+    queryKey: ["get-announcements"],
+    queryFn: getAnnouncements,
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+export const useGetAnnouncementById = (id) =>
+  useQuery({
+    queryKey: ["get-announcement", id],
+    queryFn: () => getAnnouncementById(id),
+    retry: false,
+    refetchOnWindowFocus: true,
+    enabled: !!id,
   });

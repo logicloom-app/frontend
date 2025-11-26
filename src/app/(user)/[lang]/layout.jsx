@@ -7,6 +7,7 @@ import { Poppins } from "next/font/google";
 import { Providers } from "@/app/Providers";
 import { getDictionary } from "@/lib/utils/dictionary";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AnnouncementsBanner from "./_components/AnnouncementsBanner";
 
 const poppins = Poppins({
   weight: ["300", "400", "600", "700"],
@@ -18,8 +19,18 @@ export const metadata = {
     default: "LogicLoom - Modern Web Development & Digital Solutions",
     template: "%s | LogicLoom",
   },
-  description: "Professional web development, custom digital solutions, and innovative IT services. Transform your vision into digital reality with LogicLoom.",
-  keywords: ["Web Development", "Software Development", "IT Services", "Digital Solutions", "Custom Web Apps", "E-Commerce", "MVP Development", "Germany"],
+  description:
+    "Professional web development, custom digital solutions, and innovative IT services. Transform your vision into digital reality with LogicLoom.",
+  keywords: [
+    "Web Development",
+    "Software Development",
+    "IT Services",
+    "Digital Solutions",
+    "Custom Web Apps",
+    "E-Commerce",
+    "MVP Development",
+    "Germany",
+  ],
   authors: [{ name: "LogicLoom" }],
   creator: "LogicLoom",
   publisher: "LogicLoom",
@@ -85,6 +96,7 @@ export default async function RootLayout({ children, params }) {
             <GoogleAnalytics />
           </Suspense>
           <Header dict={dict.header} lang={lang} />
+          <AnnouncementsBanner />
           {children}
           <Footer dict={dict.footer} lang={lang} />
         </Providers>

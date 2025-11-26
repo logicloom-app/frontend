@@ -12,6 +12,7 @@ import {
   FileText,
   Sparkles,
   Package,
+  Bell,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -92,6 +93,12 @@ export default function AdminSidebar() {
       label: "Website Packages",
       gradient: "from-blue-500 to-indigo-500",
     },
+    {
+      href: "/announcements",
+      icon: Bell,
+      label: "Announcements",
+      gradient: "from-pink-500 to-rose-500",
+    },
   ];
 
   return (
@@ -129,6 +136,8 @@ export default function AdminSidebar() {
                 ? pathname?.startsWith(`/${lang}/admin/blog`)
                 : item.href === "/website-packages"
                 ? pathname?.startsWith(`/${lang}/admin/website-packages`)
+                : item.href === "/announcements"
+                ? pathname?.startsWith(`/${lang}/admin/announcements`)
                 : isActive(item.href);
 
             return (

@@ -242,3 +242,53 @@ export async function updateWebsitePackage(data) {
     })
     .then(({ data }) => data);
 }
+
+export async function getAnnouncements() {
+  const token = await useGetToken();
+
+  return http
+    .get("/admin/announcements", {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function getAnnouncementById(id) {
+  const token = await useGetToken();
+
+  return http
+    .get(`/admin/announcements/${id}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function createAnnouncement(data) {
+  const token = await useGetToken();
+
+  return http
+    .post("/admin/announcements", data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function updateAnnouncement(id, data) {
+  const token = await useGetToken();
+
+  return http
+    .put(`/admin/announcements/${id}`, data, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
+
+export async function deleteAnnouncement(id) {
+  const token = await useGetToken();
+
+  return http
+    .delete(`/admin/announcements/${id}`, {
+      headers: { Authorization: `Bearer ${token?.value}` },
+    })
+    .then(({ data }) => data);
+}
