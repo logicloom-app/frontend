@@ -1,55 +1,120 @@
 "use client";
 
-import { sendContactMessage } from "@/services/userService";
+import {
+  sendContactMessage,
+  generateContactOTP,
+  verifyContactOTP,
+} from "@/services/userService";
+import { PhoneInput } from "react-international-phone";
 import { useMutation } from "@tanstack/react-query";
 import { Textarea } from "@/components/ui/textarea";
 import { trackFormSubmit } from "@/lib/utils/gtag";
 import { useToast } from "@/lib/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import Spinner from "@/components/ui/Spinner";
-import { useParams } from "next/navigation";
+import "react-international-phone/style.css";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { useFormik } from "formik";
+import "@/styles/phone-input.css";
 import * as Yup from "yup";
+import { yupTextQualityTest } from "@/lib/utils/textValidation";
 import {
   TbMail,
   TbPhone,
   TbUser,
   TbBuilding,
   TbMessageCircle,
+  TbLock,
+  TbCheck,
+  TbClock,
 } from "react-icons/tb";
-import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
-import "@/styles/phone-input.css";
 
 // Enhanced email regex - RFC 5322 compliant
 const emailRegex =
   /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
-// Phone validation regex - accepts international format with +
-const phoneRegex = /^\+[1-9]\d{1,14}$/;
+// Phone validation regex - accepts international format with + (minimum 10 digits total)
+const phoneRegex = /^\+[1-9]\d{9,14}$/;
 
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Name must be at least 2 characters")
-    .max(100, "Name must be less than 100 characters")
-    .required("Name is required"),
-  company: Yup.string().max(100, "Company name must be less than 100 characters"),
-  email: Yup.string()
-    .matches(emailRegex, "Please enter a valid email address")
-    .required("Email is required"),
-  phone: Yup.string()
-    .matches(phoneRegex, "Please enter a valid phone number with country code")
-    .required("Phone number is required"),
-  description: Yup.string()
-    .min(10, "Description must be at least 10 characters")
-    .max(1000, "Description must be less than 1000 characters")
-    .required("Description is required"),
-});
+const createContactSchema = (dict) => {
+  const validationMessages = {
+    singleCharacters: dict?.validation?.singleCharacters,
+    meaningfulContent: dict?.validation?.meaningfulContent,
+    randomKeyboard: dict?.validation?.randomKeyboard,
+    tooMuchRepetition: dict?.validation?.tooMuchRepetition,
+    randomCharacters: dict?.validation?.randomCharacters,
+    notNaturalLanguage: dict?.validation?.notNaturalLanguage,
+    recognizableWords: dict?.validation?.recognizableWords,
+  };
+
+  return Yup.object().shape({
+    name: Yup.string()
+      .min(
+        2,
+        dict?.validation?.nameMinLength || "Name must be at least 2 characters"
+      )
+      .max(
+        100,
+        dict?.validation?.nameMaxLength || "Name must be less than 100 characters"
+      )
+      .required(dict?.validation?.nameRequired || "Name is required")
+      .test(
+        "quality",
+        yupTextQualityTest(
+          dict?.validation?.nameSpam || "Name appears to be spam or invalid",
+          validationMessages
+        )
+      ),
+    company: Yup.string().max(
+      100,
+      dict?.validation?.companyMaxLength ||
+        "Company name must be less than 100 characters"
+    ),
+    email: Yup.string()
+      .matches(
+        emailRegex,
+        dict?.validation?.emailInvalid || "Please enter a valid email address"
+      )
+      .required(dict?.validation?.emailRequired || "Email is required"),
+    phone: Yup.string()
+      .matches(
+        phoneRegex,
+        dict?.validation?.phoneInvalid ||
+          "Please enter a valid phone number with country code"
+      )
+      .required(dict?.validation?.phoneRequired || "Phone number is required"),
+    description: Yup.string()
+      .min(
+        10,
+        dict?.validation?.descriptionMinLength ||
+          "Description must be at least 10 characters"
+      )
+      .max(
+        1000,
+        dict?.validation?.descriptionMaxLength ||
+          "Description must be less than 1000 characters"
+      )
+      .required(dict?.validation?.descriptionRequired || "Description is required")
+      .test(
+        "quality",
+        yupTextQualityTest(
+          dict?.validation?.descriptionSpam ||
+            "Description appears to be spam or meaningless text",
+          validationMessages
+        )
+      ),
+    otp: Yup.string()
+      .matches(/^\d{6}$/, dict?.otp?.otpMustBe6Digits || "OTP must be 6 digits")
+      .required(dict?.otp?.otpRequired || "OTP is required"),
+  });
+};
 
 export default function ContactClient({ dict }) {
   const [isClient, setIsClient] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [countdown, setCountdown] = useState(0);
   const { toast } = useToast();
   const { theme } = useTheme();
 
@@ -57,27 +122,125 @@ export default function ContactClient({ dict }) {
     setIsClient(true);
   }, []);
 
-  const { isPending: isLoading, mutateAsync: mutateSendContact } = useMutation({
-    mutationFn: sendContactMessage,
-    onSuccess: (data) => {
+  // OTP Countdown timer
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (countdown === 0 && otpSent) {
+      setOtpSent(false);
+    }
+  }, [countdown, otpSent]);
+
+  // Generate OTP mutation
+  const { isPending: isGeneratingOTP, mutateAsync: mutateGenerateOTP } = useMutation(
+    {
+      mutationFn: generateContactOTP,
+      onSuccess: () => {
+        setOtpSent(true);
+        setCountdown(300); // 5 minutes
+        toast({
+          description:
+            dict?.otp?.otpSent || "OTP sent to your email. Valid for 5 minutes.",
+          className: "rounded-2xl",
+        });
+      },
+      onError: (error) => {
+        toast({
+          variant: "destructive",
+          description:
+            error?.response?.data?.error ||
+            dict?.otp?.failedToSend ||
+            "Failed to send OTP",
+          className: "rounded-2xl",
+        });
+      },
+    }
+  );
+
+  // Verify OTP mutation (optional)
+  const { isPending: isVerifyingOTP, mutateAsync: mutateVerifyOTP } = useMutation({
+    mutationFn: ({ email, otp }) => verifyContactOTP(email, otp),
+    onSuccess: () => {
+      setOtpVerified(true);
       toast({
-        description: "Message sent successfully",
+        description: dict?.otp?.otpVerified || "OTP verified successfully!",
         className: "rounded-2xl",
       });
-      trackFormSubmit("Contact Form", true);
-      formik.resetForm();
     },
     onError: (error) => {
       toast({
         variant: "destructive",
-        description: error?.response?.data?.error || "Something went wrong",
+        description:
+          error?.response?.data?.error || dict?.otp?.invalidOTP || "Invalid OTP",
+        className: "rounded-2xl",
+      });
+    },
+  });
+
+  // Submit contact form mutation
+  const { isPending: isLoading, mutateAsync: mutateSendContact } = useMutation({
+    mutationFn: sendContactMessage,
+    onSuccess: (data) => {
+      toast({
+        description: dict?.messageSentSuccessfully || "Message sent successfully",
+        className: "rounded-2xl",
+      });
+      trackFormSubmit("Contact Form", true);
+      formik.resetForm();
+      setOtpSent(false);
+      setOtpVerified(false);
+      setCountdown(0);
+    },
+    onError: (error) => {
+      toast({
+        variant: "destructive",
+        description:
+          error?.response?.data?.error ||
+          dict?.somethingWentWrong ||
+          "Something went wrong",
         className: "rounded-2xl",
       });
       trackFormSubmit("Contact Form", false);
     },
   });
 
+  const handleGenerateOTP = async () => {
+    if (!formik.values.email || formik.errors.email) {
+      formik.setFieldTouched("email", true);
+      toast({
+        variant: "destructive",
+        description:
+          dict?.otp?.pleaseEnterValidEmail ||
+          "Please enter a valid email address first",
+        className: "rounded-2xl",
+      });
+      return;
+    }
+    await mutateGenerateOTP(formik.values.email);
+  };
+
+  const handleVerifyOTP = async () => {
+    if (!formik.values.otp || formik.errors.otp) {
+      formik.setFieldTouched("otp", true);
+      return;
+    }
+    await mutateVerifyOTP({
+      email: formik.values.email,
+      otp: formik.values.otp,
+    });
+  };
+
   const submitHandler = async (values) => {
+    if (!otpSent) {
+      toast({
+        variant: "destructive",
+        description:
+          dict?.otp?.pleaseGenerateOTP || "Please generate and enter OTP first",
+        className: "rounded-2xl",
+      });
+      return;
+    }
     await mutateSendContact(values);
   };
 
@@ -88,8 +251,9 @@ export default function ContactClient({ dict }) {
       email: "",
       phone: "",
       description: "",
+      otp: "",
     },
-    validationSchema: ContactSchema,
+    validationSchema: createContactSchema(dict),
     onSubmit: submitHandler,
   });
 
@@ -247,6 +411,122 @@ export default function ContactClient({ dict }) {
                   ) : null}
                 </div>
               </div>
+
+              {/* OTP Section - Only show when email is valid */}
+              {formik.values.email && !formik.errors.email && (
+                <div className="space-y-4 p-6 bg-gradient-to-br from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl border-2 border-emerald-200/50 dark:border-emerald-900/50 animate-in fade-in duration-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <TbLock className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                      {dict?.otp?.emailVerification || "Email Verification"}{" "}
+                      {otpVerified && (
+                        <TbCheck className="inline w-5 h-5 text-green-500 ml-2" />
+                      )}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    {dict?.otp?.verificationDescription ||
+                      "We'll send a verification code to your email address to ensure its validity."}
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Generate OTP Button */}
+                    <div>
+                      <button
+                        type="button"
+                        onClick={handleGenerateOTP}
+                        disabled={isGeneratingOTP || countdown > 0}
+                        className="w-full h-12 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg disabled:hover:shadow-none disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      >
+                        {isGeneratingOTP ? (
+                          <>
+                            <Spinner className="w-4 h-4" />
+                            <span>{dict?.otp?.sending || "Sending..."}</span>
+                          </>
+                        ) : countdown > 0 ? (
+                          <>
+                            <TbClock className="w-5 h-5" />
+                            <span>
+                              {dict?.otp?.resendIn || "Resend in"}{" "}
+                              {Math.floor(countdown / 60)}:
+                              {String(countdown % 60).padStart(2, "0")}
+                            </span>
+                          </>
+                        ) : (
+                          <span>
+                            {otpSent
+                              ? dict?.otp?.resendOTP || "Resend OTP"
+                              : dict?.otp?.sendOTP || "Send OTP"}
+                          </span>
+                        )}
+                      </button>
+                    </div>
+
+                    {/* OTP Input */}
+                    <div className="space-y-2">
+                      <Input
+                        type="text"
+                        id="otp"
+                        name="otp"
+                        placeholder={dict?.otp?.enterOTP || "Enter 6-digit OTP"}
+                        maxLength={6}
+                        disabled={!otpSent}
+                        noBorder={true}
+                        className={`h-12 rounded-xl px-4 border-2 transition-all duration-300 text-center text-lg font-mono tracking-wider ${
+                          formik?.touched?.otp && formik?.errors?.otp
+                            ? "border-rose-500 dark:border-rose-500 focus:border-rose-500 dark:focus:border-rose-500 focus:ring-rose-500/10"
+                            : !otpSent
+                            ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 cursor-not-allowed"
+                            : otpVerified
+                            ? "border-green-500 dark:border-green-500 bg-green-50 dark:bg-green-950/20"
+                            : "border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 dark:focus:ring-emerald-400/20"
+                        }`}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.otp}
+                        onChange={formik.handleChange}
+                      />
+                      {formik?.touched?.otp && formik?.errors?.otp ? (
+                        <div className="text-rose-500 text-sm text-center">
+                          {formik.errors?.otp}
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  {/* Optional Verify Button */}
+                  {otpSent && formik.values.otp && !otpVerified && (
+                    <button
+                      type="button"
+                      onClick={handleVerifyOTP}
+                      disabled={isVerifyingOTP || formik.errors.otp}
+                      className="w-full h-10 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-medium rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                    >
+                      {isVerifyingOTP ? (
+                        <>
+                          <Spinner className="w-4 h-4" />
+                          <span>{dict?.otp?.verifying || "Verifying..."}</span>
+                        </>
+                      ) : (
+                        <>
+                          <TbCheck className="w-4 h-4" />
+                          <span>
+                            {dict?.otp?.verifyOTP || "Verify OTP (Optional)"}
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  )}
+
+                  {otpVerified && (
+                    <div className="flex items-center gap-2 text-green-600 dark:text-green-400 text-sm font-medium bg-green-50 dark:bg-green-950/20 px-4 py-2 rounded-lg">
+                      <TbCheck className="w-5 h-5" />
+                      <span>
+                        {dict?.otp?.verified || "Email verified successfully!"}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Description Textarea */}
               <div className="space-y-2">

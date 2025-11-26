@@ -37,6 +37,14 @@ export async function updatePassword(data) {
     .then(({ data }) => data);
 }
 
+export async function generateContactOTP(email) {
+  return http.post("/contact/generate-otp", { email }).then(({ data }) => data);
+}
+
+export async function verifyContactOTP(email, otp) {
+  return http.post("/contact/verify-otp", { email, otp }).then(({ data }) => data);
+}
+
 export async function sendContactMessage(data) {
   return http.post("/contact", data).then(({ data }) => data);
 }
