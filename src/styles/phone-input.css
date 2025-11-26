@@ -104,6 +104,30 @@
   background-color: rgb(16 185 129 / 0.15) !important;
 }
 
+/* Search input in dropdown */
+.react-international-phone-country-selector-dropdown__search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-bottom: 2px solid rgb(229 231 235);
+  background-color: rgb(249 250 251);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.3s;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.react-international-phone-country-selector-dropdown__search-input:focus {
+  border-bottom-color: rgb(16 185 129);
+  background-color: rgb(255 255 255);
+}
+
+.react-international-phone-country-selector-dropdown__search-input::placeholder {
+  color: rgb(156 163 175);
+}
+
 /* Dark mode styles */
 .dark .react-international-phone-input-container {
   background-color: rgb(3 7 18);
@@ -156,6 +180,22 @@
 
 .dark .react-international-phone-country-selector-dropdown__list-item--focused {
   background-color: rgb(16 185 129 / 0.2) !important;
+}
+
+/* Dark mode search input */
+.dark .react-international-phone-country-selector-dropdown__search-input {
+  background-color: rgb(17 24 39);
+  border-bottom-color: rgb(55 65 81);
+  color: rgb(243 244 246);
+}
+
+.dark .react-international-phone-country-selector-dropdown__search-input:focus {
+  border-bottom-color: rgb(16 185 129);
+  background-color: rgb(31 41 55);
+}
+
+.dark .react-international-phone-country-selector-dropdown__search-input::placeholder {
+  color: rgb(107 114 128);
 }
 
 /* Scrollbar styling */

@@ -416,6 +416,8 @@
     "email": "Email",
     "phonePlaceholder": "+49 123 456 789",
     "phone": "Phone",
+    "searchCountry": "Search country...",
+    "noCountryFound": "No country found",
     "contactDescription": "About your project",
     "getInTouch": "Get in Touch",
     "send": "Send Message",
