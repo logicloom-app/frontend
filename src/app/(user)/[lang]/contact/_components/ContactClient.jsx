@@ -19,13 +19,33 @@ import {
   TbBuilding,
   TbMessageCircle,
 } from "react-icons/tb";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+import "@/styles/phone-input.css";
+
+// Enhanced email regex - RFC 5322 compliant
+const emailRegex =
+  /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+// Phone validation regex - accepts international format with +
+const phoneRegex = /^\+[1-9]\d{1,14}$/;
 
 const ContactSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  company: Yup.string(),
-  email: Yup.string().email("Invalid email address").required("Email is required"),
-  phone: Yup.string().required("Phone is required"),
-  description: Yup.string().required("Description is required"),
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters")
+    .required("Name is required"),
+  company: Yup.string().max(100, "Company name must be less than 100 characters"),
+  email: Yup.string()
+    .matches(emailRegex, "Please enter a valid email address")
+    .required("Email is required"),
+  phone: Yup.string()
+    .matches(phoneRegex, "Please enter a valid phone number with country code")
+    .required("Phone number is required"),
+  description: Yup.string()
+    .min(10, "Description must be at least 10 characters")
+    .max(1000, "Description must be less than 1000 characters")
+    .required("Description is required"),
 });
 
 export default function ContactClient({ dict }) {
@@ -71,7 +91,6 @@ export default function ContactClient({ dict }) {
     },
     validationSchema: ContactSchema,
     onSubmit: submitHandler,
-    validateOnMount: true,
   });
 
   return (
@@ -132,7 +151,11 @@ export default function ContactClient({ dict }) {
                   name="name"
                   placeholder={dict?.namePlaceholder}
                   noBorder={true}
-                  className="rounded-2xl px-4 py-3 border-2 focus:border-emerald-500 dark:focus:border-emerald-400 transition-colors"
+                  className={`h-12 rounded-xl px-4 border-2 transition-all duration-300 ${
+                    formik?.touched?.name && formik?.errors?.name
+                      ? "border-rose-500 dark:border-rose-500 focus:border-rose-500 dark:focus:border-rose-500 focus:ring-rose-500/10"
+                      : "border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 dark:focus:ring-emerald-400/20"
+                  }`}
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                   onChange={formik.handleChange}
@@ -156,7 +179,7 @@ export default function ContactClient({ dict }) {
                   name="company"
                   placeholder={dict?.companyPlaceholder}
                   noBorder={true}
-                  className="rounded-2xl px-4 py-3 border-2 focus:border-teal-500 dark:focus:border-teal-400 transition-colors"
+                  className="h-12 rounded-xl px-4 border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 dark:focus:ring-emerald-400/20 transition-all duration-300"
                   onBlur={formik.handleBlur}
                   value={formik.values.company}
                   onChange={formik.handleChange}
@@ -177,7 +200,11 @@ export default function ContactClient({ dict }) {
                     name="email"
                     placeholder={dict?.emailPlaceholder}
                     noBorder={true}
-                    className="rounded-2xl px-4 py-3 border-2 focus:border-cyan-500 dark:focus:border-cyan-400 transition-colors"
+                    className={`h-12 rounded-xl px-4 border-2 transition-all duration-300 ${
+                      formik?.touched?.email && formik?.errors?.email
+                        ? "border-rose-500 dark:border-rose-500 focus:border-rose-500 dark:focus:border-rose-500 focus:ring-rose-500/10"
+                        : "border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 dark:focus:ring-emerald-400/20"
+                    }`}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -190,22 +217,29 @@ export default function ContactClient({ dict }) {
                 </div>
 
                 {/* Phone Input */}
-                <div className="space-y-2">
+                <div className="space-y-2 relative">
                   <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                     <TbPhone className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     {dict?.phone}
                   </label>
-                  <Input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder={dict?.phonePlaceholder}
-                    noBorder={true}
-                    className="rounded-2xl px-4 py-3 border-2 focus:border-emerald-500 dark:focus:border-emerald-400 transition-colors"
-                    onBlur={formik.handleBlur}
-                    value={formik.values.phone}
-                    onChange={formik.handleChange}
-                  />
+                  <div className="relative">
+                    <PhoneInput
+                      defaultCountry="de"
+                      value={formik.values.phone}
+                      onChange={(phone) => {
+                        formik.setFieldValue("phone", phone, true);
+                      }}
+                      onBlur={() => {
+                        formik.setFieldTouched("phone", true, true);
+                      }}
+                      inputClassName="w-full"
+                      className={`react-international-phone-input-container ${
+                        formik?.touched?.phone && formik?.errors?.phone
+                          ? "!border-rose-500 dark:!border-rose-500"
+                          : ""
+                      }`}
+                    />
+                  </div>
                   {formik?.touched?.phone && formik?.errors?.phone ? (
                     <div className="text-rose-500 text-sm">
                       {formik.errors?.phone}
@@ -224,7 +258,11 @@ export default function ContactClient({ dict }) {
                   id="description"
                   name="description"
                   placeholder={dict?.sendContactDescription2}
-                  className="rounded-2xl px-4 py-3 bg-background/90 border-2 focus:border-teal-500 dark:focus:border-teal-400 transition-colors min-h-[150px]"
+                  className={`rounded-xl px-4 py-3 border-2 transition-all duration-300 min-h-[150px] ${
+                    formik?.touched?.description && formik?.errors?.description
+                      ? "border-rose-500 dark:border-rose-500 focus:border-rose-500 dark:focus:border-rose-500 focus:ring-rose-500/10"
+                      : "border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 dark:focus:ring-emerald-400/20"
+                  }`}
                   onBlur={formik.handleBlur}
                   value={formik.values.description}
                   onChange={formik.handleChange}
